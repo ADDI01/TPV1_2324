@@ -1,0 +1,8 @@
+05/01/23  Seat Toledo 5 dia (s) por 175 euros
+01/01/23  ERROR: Modelo inexistente
+21/05/21  Seat Alhambra 7 dia (s) por 280 euros
+08/02/20  Ford B-Max 5 dia (s) por 150 euros
+01/02/20  Ford B-Max 7 dia (s) por 210 euros
+13/03/22  Toyota Auris 1 dia (s) por 32 euros
+29/05/21  Seat Alhambra 4 dia (s) por 160 euros
+15/07/23  Toyota Auris 6 dia (s) por 192 euros
