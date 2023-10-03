@@ -1,4 +1,4 @@
-//
+#pragma once
 // Activa la comprobación de fugas de memoria de Visual C++
 //
 // Esta cabecera solo tiene efecto en Windows. En Linux o macOS
@@ -29,6 +29,6 @@ class crt_leak_setflag_dummy {
 	};
 	static constructor ctor;
 };
-inline crt_leak_setflag_dummy::constructor crt_leak_setflag_dummy::ctor;
+//inline crt_leak_setflag_dummy::constructor crt_leak_setflag_dummy::ctor;
 
 #endif
