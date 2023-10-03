@@ -19,12 +19,14 @@ public:
 	Alquiler();
 	Alquiler(int c, Date f, int d, bool cV, Coche* co);
 
-	int getCodigo() { return código; };
-	int getDias() { return días; };
-	Date getFecha() { return fecha; };
-	bool getCocheValido() { return cocheValido; };
+	bool operator<(const Alquiler& a) const;
+
+	int getCodigo() const { return código; };
+	int getDias() const { return días; };
+	Date getFecha() const { return fecha; };
+	bool getCocheValido() const { return cocheValido; };
 	void setCocheValido(bool c) { cocheValido = c; };
-	Coche* getCoche() { return coche; };
+	Coche* getCoche() const { return coche; };
 	void setCoche(Coche* c) { coche = c; };
 };
 

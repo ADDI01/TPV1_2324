@@ -14,11 +14,10 @@ private:
 	int cont, nElems;
 public:
 	ListaAlquileres();
-	//ListaAlquileres(Alquiler* a, int c, int elems);
 	~ListaAlquileres();
 
 	bool leerAlquileres(ListaCoches& listaCoches);
-	bool comparador(const Alquiler* a, const Alquiler* b);
+	static bool comparador(const Alquiler* a, const Alquiler* b);
 	void ordenarAlquileres();
 	void mostrarAlquileres();
 };

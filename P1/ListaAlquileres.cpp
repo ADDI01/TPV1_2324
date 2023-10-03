@@ -6,7 +6,6 @@
 using namespace std;
 
 ListaAlquileres::ListaAlquileres() : alquileres(nullptr), cont(0), nElems(0) {}
-//ListaAlquileres::ListaAlquileres(Alquiler* a, int c, int elems) : alquileres(&a), cont(c), nElems(elems) {}
 ListaAlquileres::~ListaAlquileres() {
 	for (int i = 0; i < cont; i++) {
 		delete alquileres[i];
@@ -54,14 +53,7 @@ bool ListaAlquileres::comparador(const Alquiler* a, const Alquiler* b) {
 }
 
 void ListaAlquileres::ordenarAlquileres() {
-	for (int i = 0; i < cont; ++i)
-		if(alquileres[i]->getCocheValido()) cout << alquileres[i]->getCoche()->getNombre() << endl;
-	cout << endl;
-	sort(alquileres, &alquileres[cont], comparador);
-
-	for(int i = 0; i < cont; ++i)
-		if (alquileres[i]->getCocheValido()) cout << alquileres[i]->getCoche()->getNombre() << endl;
-	cout << endl;
+	sort(alquileres, &alquileres[cont], &comparador);
 }
 
 void ListaAlquileres::mostrarAlquileres() {
