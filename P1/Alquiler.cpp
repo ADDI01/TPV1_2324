@@ -14,13 +14,20 @@ ostream& operator<<(std::ostream& out, const Alquiler& a)
 	if (a.getCocheValido())
 	{
 		out << a.getFecha() << " " << a.getCoche()->getNombre() << " " <<
-			a.getDias() << " día (s) por " << a.getCoche()->getPrecio() *
-			a.getDias() << " euros" << endl;
+			a.getDias() << " día (s) por " << a.GetCoste()<< " euros" << endl;
 	}
 	else
 	{
 		out << a.getFecha() << "  ERROR: Modelo inexistente" << endl;
 	}
 	return out;
+}
+
+istream& operator>>(std::istream& in, Alquiler& a) 
+{
+	char ch;
+	a.cocheValido = true;
+	a.coche = nullptr;
+	return in >> a.código >> ch >> a.fecha >> ch >> a.días;
 }
 ;

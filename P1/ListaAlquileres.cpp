@@ -81,8 +81,7 @@ void ListaAlquileres::mostrarAlquileres() {
 			if (alquileres[i]->getCocheValido())
 			{
 				salida << alquileres[i]->getFecha() << " " << alquileres[i]->getCoche()->getNombre() << " " <<
-					alquileres[i]->getDias() << " dia (s) por " << alquileres[i]->getCoche()->getPrecio() *
-					alquileres[i]->getDias() << " euros" << endl;
+					alquileres[i]->getDias() << " dia (s) por " << alquileres[i]->GetCoste() << " euros" << endl;
 			}
 			else
 			{
@@ -93,6 +92,38 @@ void ListaAlquileres::mostrarAlquileres() {
 	salida.close();
 }
 
+void ListaAlquileres::insertaAlquiler(Alquiler& a, ListaCoches& listaCoches) 
+{
+
+	if (cont == nElems)
+	{
+		//ampliaArray();
+	}
+	else
+	{
+		int i = 0;
+		while (i < cont && alquileres[i]->getFecha() < a.getFecha())
+		{
+			i++;
+		}
+		if (i == cont)
+		{
+			alquileres[i] = new Alquiler(a);
+			cont++;
+		}
+		else if (i < cont)
+		{
+			for (int j = cont; j > i; j--)
+			{
+				alquileres[j] = alquileres[j - 1];
+			}
+			int indiceCoche = listaCoches.buscarCoche(a.getCodigo());
+			a.setCoche(listaCoches.coches[indiceCoche]);
+			alquileres[i] = new Alquiler(a);
+			cont++;
+		}
+	}
+}
 
 ostream& operator<<(std::ostream& out, const ListaAlquileres& a) 
 {

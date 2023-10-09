@@ -13,6 +13,7 @@ class ListaCoches
 private:
 	Coche** coches;
 	int cont, nElems;
+	void ampliaArray();
 
 public:
 	ListaCoches();
@@ -23,6 +24,7 @@ public:
 	bool leerModelos();
 	int buscarCoche(int codigo);
 	friend std::ostream& operator<<(std::ostream& out, const ListaCoches& c);
+	void insertaCoche( Coche& c);
 };
 
 #endif // !LISTACOCHES_H_

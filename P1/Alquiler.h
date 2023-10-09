@@ -28,8 +28,10 @@ public:
 	void setCocheValido(bool c) { cocheValido = c; };
 	Coche* getCoche() const { return coche; };
 	void setCoche(Coche* c) { coche = c; };
+	int GetCoste() const { return coche->getPrecio() * días; };
 
 	friend std::ostream& operator<<(std::ostream& out, const Alquiler& a);
+	friend std::istream& operator>>(std::istream& in, Alquiler& a);
 };
 
 #endif

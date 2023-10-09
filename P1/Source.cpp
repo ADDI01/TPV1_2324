@@ -26,9 +26,19 @@ int main()
 	if (!listaCoches.leerModelos() || !listaAlquileres.leerAlquileres(listaCoches))
 		cout << "ERROR: Lectura de datos fallida" << endl;
 	listaAlquileres.ordenarAlquileres();
+	Alquiler a;
+	Coche c;
+	cin >> c;
+	listaCoches.insertaCoche(c);
+
+	cin >> a;
+	listaAlquileres.insertaAlquiler(a, listaCoches);
+	cout << listaAlquileres;
+
 	//cout << listaCoches;
 	//cout << listaAlquileres;
 	//listaAlquileres.mostrarAlquileres();
+	//ImprimeOpcionesDeMenú();
 
 	return 0;
 }
@@ -36,5 +46,6 @@ int main()
 void ImprimeOpcionesDeMenú() 
 {
 	system("cls");
-	cout << " Para Mostrar los Coches pulse:	1" << " Para Mostrar los Alquileres pulse:	2";
+	cout << "Para mostrar los coches pulse:	 1" << endl << "Para mostrar los alquileres pulse:  2" << endl << "Para añadir un coche pulse:  3" << endl <<
+		"Para añadir un alquiler pulse:  4" << endl << "para salir pulse cualquier otra tecla" << endl;;
 }

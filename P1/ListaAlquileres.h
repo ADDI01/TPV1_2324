@@ -13,6 +13,7 @@ class ListaAlquileres
 private:
 	Alquiler** alquileres;
 	int cont, nElems;
+	void ampliaArray();
 public:
 	ListaAlquileres();
 	~ListaAlquileres();
@@ -21,6 +22,7 @@ public:
 	static bool comparador(const Alquiler* a, const Alquiler* b);
 	void ordenarAlquileres();
 	void mostrarAlquileres();
+	void insertaAlquiler(Alquiler& a, ListaCoches& listaCoches);
 	friend std::ostream& operator<<(std::ostream& out, const ListaAlquileres& a);
 };
 

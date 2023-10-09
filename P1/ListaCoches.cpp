@@ -59,6 +59,41 @@ int ListaCoches::buscarCoche(int codigo) {
 	return indice;
 }
 
+void ListaCoches:: insertaCoche(Coche& c) 
+{
+	if (cont == nElems)
+	{
+		ampliaArray();
+	}
+	else 
+	{
+		int i = 0;
+		while (i < cont && coches[i]->getCodigo() < c.getCodigo())
+		{
+			i++;
+		}
+		if (i == cont) 
+		{
+			coches[i] = new Coche(c);
+			cont++;
+		}
+		else if(i < cont)
+		{
+			for (int j = cont; j > i; j--) 
+			{
+				coches[j] = coches[j - 1];
+			}
+			coches[i] = new Coche(c);
+			cont++;
+		}
+	}
+}
+
+void ListaCoches:: ampliaArray() 
+{
+
+}
+
 ostream& operator<<(std::ostream& out, const ListaCoches& c) 
 {
 	for (int i = 0; i < c.cont; i++)

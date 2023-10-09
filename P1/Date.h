@@ -32,7 +32,7 @@ public:
 	// Operadores de lectura y escritura
 	// (son amigos para poder acceder a los atributos de Date)
 	friend std::istream& operator>>(std::istream& in, Date& d);
-	friend std::ostream& operator<<(std::ostream& in, const Date& d);
+	friend std::ostream& operator<<(std::ostream& out, const Date& d);
 
 private:
 	int calculateValue() const;
