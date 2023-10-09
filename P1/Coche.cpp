@@ -22,6 +22,8 @@ ostream& operator<<(std::ostream& out, const Coche& c)
 istream& operator>>(std::istream& in, Coche& c) 
 {
 	char ch; // para saltos de línea
-	return in >> c.código >> ch >> c.precio >> ch >> c.nombre;
-
+	string marca, modelo;
+	in >> c.código >> ch >> c.precio >> ch >> marca >> modelo;
+	c.nombre = marca + " " + modelo;
+	return in;
 }
