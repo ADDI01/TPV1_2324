@@ -20,13 +20,11 @@ int main()
 {
 
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-	//_crtBreakAlloc = 156;
 	//Para windows 11 es el UTF7, para winsows 10 es UTF8
 	SetConsoleOutputCP(CP_UTF7);
 	ListaCoches listaCoches;
 	ListaAlquileres listaAlquileres;
 	char answer = '0';
-	int* n = new int(5);
 
 	if (!listaCoches.leerModelos() || !listaAlquileres.leerAlquileres(listaCoches))
 		cout << "ERROR: Lectura de datos fallida" << endl;
