@@ -19,6 +19,7 @@ public:
 	void setPrecio(int p) { precio = p; };
 	int getPrecio() { return precio; };
 	string getNombre() { return nombre; };
+	friend std::ostream& operator<<(std::ostream& out, const Coche& c);
 };
 #endif
 

@@ -6,9 +6,10 @@
 using namespace std;
 
 ListaAlquileres::ListaAlquileres() : alquileres(nullptr), cont(0), nElems(0) {}
+
 ListaAlquileres::~ListaAlquileres() {
 	for (int i = 0; i < cont; i++) {
-		delete alquileres[i];
+	delete alquileres[i];
 		alquileres[i] = nullptr;
 	}
 	delete[] alquileres;
@@ -70,7 +71,6 @@ void ListaAlquileres::mostrarAlquileres() {
 		{
 			cout << alquileres[i]->getFecha() << "  ERROR: Modelo inexistente" << endl;
 		}
-
 	}
 	//Salida como archivo de texto
 	ofstream salida("Nueva Salita.txt");
@@ -91,4 +91,14 @@ void ListaAlquileres::mostrarAlquileres() {
 		}
 	}
 	salida.close();
+}
+
+
+ostream& operator<<(std::ostream& out, const ListaAlquileres& a) 
+{
+	for (int i = 0; i < a.cont; i++)
+	{
+		out << *a.alquileres[i];
+	}
+	return out;
 }

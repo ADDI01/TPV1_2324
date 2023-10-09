@@ -22,6 +22,7 @@ public:
 	friend class ListaAlquileres;
 	bool leerModelos();
 	int buscarCoche(int codigo);
+	friend std::ostream& operator<<(std::ostream& out, const ListaCoches& c);
 };
 
 #endif // !LISTACOCHES_H_

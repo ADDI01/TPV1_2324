@@ -58,3 +58,12 @@ int ListaCoches::buscarCoche(int codigo) {
 	}
 	return indice;
 }
+
+ostream& operator<<(std::ostream& out, const ListaCoches& c) 
+{
+	for (int i = 0; i < c.cont; i++)
+	{
+		out << *c.coches[i];
+	}
+	return out;
+}

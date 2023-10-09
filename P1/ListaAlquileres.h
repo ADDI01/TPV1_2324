@@ -21,6 +21,7 @@ public:
 	static bool comparador(const Alquiler* a, const Alquiler* b);
 	void ordenarAlquileres();
 	void mostrarAlquileres();
+	friend std::ostream& operator<<(std::ostream& out, const ListaAlquileres& a);
 };
 
 
