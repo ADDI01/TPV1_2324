@@ -22,8 +22,6 @@ int main()
 	ListaCoches listaCoches;
 	ListaAlquileres listaAlquileres;
 
-	int* i = new int(5);
-
 	if (!listaCoches.leerModelos() || !listaAlquileres.leerAlquileres(listaCoches))
 		cout << "ERROR: Lectura de datos fallida" << endl;
 
