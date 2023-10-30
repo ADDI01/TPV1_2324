@@ -21,7 +21,7 @@ public:
 	Vector2D operator+(const Vector2D& v) const {
 		Vector2D r;
 		r._x = this->_x + v._x;
-		r._y = this->_y + v._y; 
+		r._y = this->_y + v._y;
 		return r;
 	}
 

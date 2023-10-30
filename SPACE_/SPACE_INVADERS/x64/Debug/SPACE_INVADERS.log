@@ -1,2 +1,16 @@
-﻿  Source.cpp
-  SPACE_INVADERS.vcxproj -> C:\Users\David\Desktop\TPV1\SPACE_\bin\SPACE_INVADERSDebug.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1116,5): warning MSB8027: Dos o más archivos con el mismo nombre de Alien.cpp producirán salidas en la misma ubicación. Esto puede dar lugar a un resultado de compilación incorrecto. Los archivos implicados son ..\..\Space_Invaders\Space_Invaders\Alien.cpp, Alien.cpp.
+  Alien.cpp
+c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Alien.cpp': No such file or directory
+  Bunker.cpp
+c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Bunker.cpp': No such file or directory
+  Cannon.cpp
+c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Cannon.cpp': No such file or directory
+  Game.cpp
+c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Game.cpp': No such file or directory
+  Laser.cpp
+c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Laser.cpp': No such file or directory
+  Texture.cpp
+c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Texture.cpp': No such file or directory
+  Alien.cpp
+  Source.cpp
+  Generando código...

@@ -15,52 +15,49 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Alien.h">
+    <ClInclude Include="Alien.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Bunker.h">
+    <ClInclude Include="Bunker.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Cannon.h">
+    <ClInclude Include="Vector2D.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Game.h">
+    <ClInclude Include="Cannon.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Laser.h">
+    <ClInclude Include="Laser.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Texture.h">
+    <ClInclude Include="Game.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Vector2D.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\HolaSDL\checkML.h">
+    <ClInclude Include="Texture.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Alien.cpp">
-      <Filter>Archivos de recursos</Filter>
+    <ClCompile Include="Alien.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Bunker.cpp">
-      <Filter>Archivos de recursos</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Cannon.cpp">
-      <Filter>Archivos de recursos</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Laser.cpp">
-      <Filter>Archivos de recursos</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Game.cpp">
-      <Filter>Archivos de recursos</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Texture.cpp">
-      <Filter>Archivos de recursos</Filter>
+    <ClCompile Include="Bunker.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Source.cpp">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Cannon.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Laser.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -143,23 +143,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Alien.h" />
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Bunker.h" />
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Cannon.h" />
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Game.h" />
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Laser.h" />
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Texture.h" />
-    <ClInclude Include="..\..\Space_Invaders\Space_Invaders\Vector2D.h" />
-    <ClInclude Include="..\HolaSDL\checkML.h" />
+    <ClInclude Include="Alien.h" />
+    <ClInclude Include="Bunker.h" />
+    <ClInclude Include="Cannon.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Laser.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Alien.cpp" />
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Bunker.cpp" />
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Cannon.cpp" />
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Game.cpp" />
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Laser.cpp" />
-    <ClCompile Include="..\..\Space_Invaders\Space_Invaders\Texture.cpp" />
+    <ClCompile Include="Alien.cpp" />
+    <ClCompile Include="Bunker.cpp" />
+    <ClCompile Include="Cannon.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Laser.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
