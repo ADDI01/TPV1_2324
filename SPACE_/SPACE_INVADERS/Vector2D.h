@@ -18,6 +18,13 @@ public:
 	T getY() const { return _y; };
 
 	//Sobrecarga operadores
+
+	void operator = (const Vector2D& v) 
+	{
+		_x = v._x;
+		_y = v._y;
+	}
+
 	Vector2D operator+(const Vector2D& v) const {
 		Vector2D r;
 		r._x = this->_x + v._x;
