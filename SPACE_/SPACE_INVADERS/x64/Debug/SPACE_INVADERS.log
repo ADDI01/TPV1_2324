@@ -1,4 +1,12 @@
-﻿  Laser.cpp
+﻿  Alien.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(71,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(77,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Alien.cpp(7,2): warning C4150: eliminación de puntero a tipo 'Game' incompleto; no se ha llamado a un destructor
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Alien.h(5,7): message : vea la declaración de 'Game'
+  Bunker.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(71,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(77,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  Laser.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(71,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(77,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
   Source.cpp
@@ -12,5 +20,4 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.cpp(39,24): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.cpp(40,26): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
   Generando código...
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Laser.cpp(7): error C4700: se utilizó la variable local 'myRect' sin inicializar
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Laser.cpp(17): error C4716: 'Laser::update': debe devolver un valor
+  SPACE_INVADERS.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\bin\SPACE_INVADERSDebug.exe

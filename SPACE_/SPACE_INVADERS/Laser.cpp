@@ -18,4 +18,6 @@ bool Laser::update()
 	{
 		_pos = _pos - _velocity;
 	}
+
+	return true;
 }
