@@ -10,6 +10,8 @@ using uint = unsigned int;
 
 void firstTest()
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	constexpr uint winWidth = 800;

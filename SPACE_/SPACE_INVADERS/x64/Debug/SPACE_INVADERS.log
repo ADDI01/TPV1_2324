@@ -1,16 +1,1 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1116,5): warning MSB8027: Dos o más archivos con el mismo nombre de Alien.cpp producirán salidas en la misma ubicación. Esto puede dar lugar a un resultado de compilación incorrecto. Los archivos implicados son ..\..\Space_Invaders\Space_Invaders\Alien.cpp, Alien.cpp.
-  Alien.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Alien.cpp': No such file or directory
-  Bunker.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Bunker.cpp': No such file or directory
-  Cannon.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Cannon.cpp': No such file or directory
-  Game.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Game.cpp': No such file or directory
-  Laser.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Laser.cpp': No such file or directory
-  Texture.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Texture.cpp': No such file or directory
-  Alien.cpp
-  Source.cpp
-  Generando código...
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(439,5): error MSB8020: No se pueden encontrar las herramientas de compilación para v143 (Conjunto de herramientas de la plataforma = 'v143'). Para compilar con las herramientas de compilación v143, instale las herramientas de compilación v143. También puede actualizar a las herramientas actuales de Visual Studio. Para ello, seleccione el menú Proyecto o haga clic con el botón secundario en la solución y, a continuación, seleccione "Actualizar solución".
