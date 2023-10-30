@@ -1,16 +1,16 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1116,5): warning MSB8027: Dos o más archivos con el mismo nombre de Alien.cpp producirán salidas en la misma ubicación. Esto puede dar lugar a un resultado de compilación incorrecto. Los archivos implicados son ..\..\Space_Invaders\Space_Invaders\Alien.cpp, Alien.cpp.
-  Alien.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Alien.cpp': No such file or directory
-  Bunker.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Bunker.cpp': No such file or directory
-  Cannon.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Cannon.cpp': No such file or directory
-  Game.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Game.cpp': No such file or directory
-  Laser.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Laser.cpp': No such file or directory
-  Texture.cpp
-c1xx : fatal  error C1083: No se puede abrir el archivo origen: '..\..\Space_Invaders\Space_Invaders\Texture.cpp': No such file or directory
-  Alien.cpp
+﻿  Laser.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(71,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(77,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
   Source.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(71,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(77,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  Texture.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(71,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(77,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.cpp(15,24): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.cpp(16,26): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.cpp(39,24): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.cpp(40,26): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
   Generando código...
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Laser.cpp(7): error C4700: se utilizó la variable local 'myRect' sin inicializar
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Laser.cpp(17): error C4716: 'Laser::update': debe devolver un valor

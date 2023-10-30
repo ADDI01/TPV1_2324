@@ -24,7 +24,7 @@ Texture::Texture(SDL_Renderer* renderer, const char* filename, size_t rows, size
 {
     SDL_Surface* surface = IMG_Load(filename);
 
-    if (surface == nullptr)
+    if (surface == nullptr) 
         throw "load surface \""s + filename + '"';
 
         texture = SDL_CreateTextureFromSurface(renderer, surface);

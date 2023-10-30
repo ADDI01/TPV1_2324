@@ -9,7 +9,7 @@ void Bunker:: render() const
 bool Bunker::update() 
 {
 	bool retorno = true;
-	if (_nVidas == 0)
+	if (_nLifes == 0)
 	{
 		this->~Bunker();
 		retorno = false;
@@ -19,6 +19,6 @@ bool Bunker::update()
 
 void Bunker::hit() 
 {
-	_nVidas--;
+	_nLifes--;
 	//actualizar la imagen
 }
