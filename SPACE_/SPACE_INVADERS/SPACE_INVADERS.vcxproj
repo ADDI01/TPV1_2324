@@ -146,6 +146,7 @@
     <ClInclude Include="Alien.h" />
     <ClInclude Include="AliensMap.h" />
     <ClInclude Include="Bunker.h" />
+    <ClInclude Include="BunkersMap.h" />
     <ClInclude Include="Cannon.h" />
     <ClInclude Include="checkML.h" />
     <ClInclude Include="Game.h" />
@@ -158,6 +159,7 @@
     <ClCompile Include="Alien.cpp" />
     <ClCompile Include="AliensMap.cpp" />
     <ClCompile Include="Bunker.cpp" />
+    <ClCompile Include="BunkersMap.cpp" />
     <ClCompile Include="Cannon.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Laser.cpp" />

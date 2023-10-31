@@ -5,7 +5,7 @@
 #include <list>
 #include "Vector2D.h"
 #include "AliensMap.h"
-#include "Bunker.h"
+#include "BunkersMap.h"
 #include "Laser.h"
 #include "Cannon.h"
 #include "Star.h"
@@ -21,10 +21,10 @@ using uint = unsigned int;
 
 const uint WIN_WIDTH = 800;
 const uint WIN_HEIGHT = 600;
-const uint NUM_TEXTURES = 5;
+const uint NUM_TEXTURES = 4;
 const int FRAME_RATE = 5;
 
-enum TextureName { CANNONTEXTURE, ALIENSMAPTEXTURE, BUNKERTEXTURE, STARTEXTURE};
+enum TextureName { CANNONTEXTURE, ALIENSMAPTEXTURE, BUNKERSMAPTEXTURE, STARTEXTURE};
 
 class Game
 {
@@ -35,15 +35,16 @@ private:
 	//Puntero por cada objeto del juego
 	Cannon* cannon = nullptr;
 	AliensMap* aliensMap = nullptr;
-	Bunker* bunker = nullptr;
+	BunkersMap* bunkersMap = nullptr;
 	Star* star = nullptr;
 
 	Texture* textures[NUM_TEXTURES];
 	const char* texturePath[NUM_TEXTURES];
 
 public:
-	Game() { init(); };
+	Game() ;
 	//~Game();
 	void init();
 };
 
+#endif 

@@ -25,6 +25,6 @@ public:
 	void render() const;
 	void update();
 	void Hit();
-	void HandleEvents() {};
+	void HandleEvents() ;
 };
 

@@ -1,1 +1,12 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(439,5): error MSB8020: No se pueden encontrar las herramientas de compilación para v143 (Conjunto de herramientas de la plataforma = 'v143'). Para compilar con las herramientas de compilación v143, instale las herramientas de compilación v143. También puede actualizar a las herramientas actuales de Visual Studio. Para ello, seleccione el menú Proyecto o haga clic con el botón secundario en la solución y, a continuación, seleccione "Actualizar solución".
+﻿  Game.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(71,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(77,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Game.cpp(29,21): error C2665: 'Cannon::Cannon':ninguna función sobrecargada pudo convertir todos los tipos de argumento
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Cannon.h(21,2): message : puede ser 'Cannon::Cannon(Vector2D<float>,int,float,Texture *,Game *)'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Game.cpp(29,21): message : 'Cannon::Cannon(Vector2D<float>,int,float,Texture *,Game *)': el argumento 1 no puede convertirse de 'Vector2D<uint>' a 'Vector2D<float>'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Game.cpp(29,30): message : No hay disponible ningún operador de conversión definido por el usuario que pueda realizar esta conversión, o bien no se puede llamar al operador
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Game.cpp(29,21): message : al hacer coincidir la lista de argumentos '(Vector2D<uint>, int, int, Texture *, Game *)'
+  Laser.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(71,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(77,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  Generando código...

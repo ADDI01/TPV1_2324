@@ -4,24 +4,38 @@ Game::Game() {
 
 	texturePath[CANNONTEXTURE] = "../Images/spaceship.png";
 	texturePath[ALIENSMAPTEXTURE] = "../Images/aliens.png";
-	texturePath[BUNKERTEXTURE] = "../Images/bunker.png";
+	texturePath[BUNKERSMAPTEXTURE] = "../Images/bunker.png";
 	texturePath[STARTEXTURE] = "../Images/stars.png";
 
 	// We now create the textures
 	for (uint i = 0; i < NUM_TEXTURES; i++) {
-		if (i == ALIENSMAPTEXTURE)
+		if (i == ALIENSMAPTEXTURE) 
+		{
 			textures[i] = new Texture(renderer, texturePath[i], 3, 2);
-		else textures[i] = new Texture(renderer, texturePath[i], 1, 1);
+		}
+		else if (i == BUNKERSMAPTEXTURE) 
+		{
+			textures[i] = new Texture(renderer, texturePath[i], 1, 4);
+		}
+		else 
+		{
+			textures[i] = new Texture(renderer, texturePath[i], 1, 1);
+		}
 	}
+
 	// We finally create the game objects
-	cannon = new Cannon(objectProps.BALL_WIDTH, objectProps.BALL_HEIGHT, objectProps.BALL_INIT_POS,
-		Vector2D(0, 0), this, renderer, textures[BALLTEXTURE]);
-	aliensMap = new AliensMap(objectProps.PADDLE_WIDTH, objectProps.PADDLE_HEIGHT,
-		objectProps.PADDLE_INIT_POS, Vector2D(0, 0), Vector2D(ZERO, ZERO), renderer, this, textures[PADDLETEXTURE]);
-	bunker = new Bunker(objectProps.LATERAL_WALL_WIDTH, objectProps.LATERAL_WALL_HEIGHT,
-		objectProps.LATERAL_LEFT_WALL_INIT_POS, renderer, textures[LATERALWALLTEXTURE]);
-	star = new Star(objectProps.LATERAL_WALL_WIDTH, objectProps.LATERAL_WALL_HEIGHT,
-		objectProps.LATERAL_RIGHT_WALL_INIT_POS, renderer, textures[LATERALWALLTEXTURE]);
+	//cannon = new Cannon(objectProps.BALL_WIDTH, objectProps.BALL_HEIGHT, objectProps.BALL_INIT_POS,
+		//Vector2D(0, 0), this, renderer, textures[BALLTEXTURE]);
+	cannon = new Cannon(Vector2D<float>(WIN_WIDTH / 2, 9 * WIN_HEIGHT / 10), 3, 2, textures[CANNONTEXTURE], this);
+
+	//aliensMap = new AliensMap(objectProps.PADDLE_WIDTH, objectProps.PADDLE_HEIGHT,
+		//objectProps.PADDLE_INIT_POS, Vector2D(0, 0), Vector2D(ZERO, ZERO), renderer, this, textures[PADDLETEXTURE]
+
+	//bunker = new Bunker(objectProps.LATERAL_WALL_WIDTH, objectProps.LATERAL_WALL_HEIGHT,
+		//objectProps.LATERAL_LEFT_WALL_INIT_POS, renderer, textures[LATERALWALLTEXTURE]);
+
+	//star = new Star(objectProps.LATERAL_WALL_WIDTH, objectProps.LATERAL_WALL_HEIGHT,
+		//objectProps.LATERAL_RIGHT_WALL_INIT_POS, renderer, textures[LATERALWALLTEXTURE]);
 }
 
 void Game::init() {
