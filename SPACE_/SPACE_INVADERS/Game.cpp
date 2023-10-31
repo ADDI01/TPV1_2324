@@ -30,12 +30,13 @@ Game::Game() {
 
 	//aliensMap = new AliensMap(objectProps.PADDLE_WIDTH, objectProps.PADDLE_HEIGHT,
 		//objectProps.PADDLE_INIT_POS, Vector2D(0, 0), Vector2D(ZERO, ZERO), renderer, this, textures[PADDLETEXTURE]
-
+	aliensMap = new AliensMap();
 	//bunker = new Bunker(objectProps.LATERAL_WALL_WIDTH, objectProps.LATERAL_WALL_HEIGHT,
 		//objectProps.LATERAL_LEFT_WALL_INIT_POS, renderer, textures[LATERALWALLTEXTURE]);
-
+	bunkersMap = new BunkersMap();
 	//star = new Star(objectProps.LATERAL_WALL_WIDTH, objectProps.LATERAL_WALL_HEIGHT,
 		//objectProps.LATERAL_RIGHT_WALL_INIT_POS, renderer, textures[LATERALWALLTEXTURE]);
+	star = new Star();
 }
 
 void Game::init() {

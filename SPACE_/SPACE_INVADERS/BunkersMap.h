@@ -10,14 +10,22 @@ private:
 	//Array dinámico de objetos tipo Bunker
 	Bunker** _bunkers = nullptr;
 	//Nº de búnkeres que quedan
-	int _nBunkers, _nLifes;
+	uint _nBunkers, _nLifes;
 	//Cuanto ocupan las celdas de los bunkers
-	uint _cellW, _cellH;
+	uint _cellW = 0, _cellH = 0;
+	//Ancho y alto del bunkersMap
+	uint _w = 0, _h = 0; 
+	//Numero de filas y columnas del bunkersMap
+	uint _rows = 0, _cols = 0; 
+	//Posicion inicio del blocksMap
+	Point2D<float> _pos;
 
 public:
-	BunkersMap() : _bunkerTexture(nullptr), _bunkers(nullptr) {};
-	BunkersMap(Texture* texture, int nBunkeres,uint cellW, uint cellH, int nLifes): _bunkerTexture(texture), _nBunkers(nBunkeres),
-		_cellW(cellW), _cellH(cellH), _nLifes(nLifes) { Load(); };
+	BunkersMap() : _bunkerTexture(nullptr), _bunkers(nullptr), _pos(0, 0) 
+	{ _nBunkers = _nLifes = _cellW = _cellH = _w = _h = _rows = _cols = 0; };
+	BunkersMap(Texture* texture, uint nBunkeres, uint nLifes, uint cellW, uint cellH, uint w, uint h, 
+		uint rows, uint cols, Point2D<float> pos) : _bunkerTexture(texture), _nBunkers(nBunkeres), _nLifes(nLifes),
+		_cellW(cellW), _cellH(cellH), _w(w), _h(h), _rows(rows), _cols(cols),  _pos(pos) { Load(); };
 	void Load();
 
 };

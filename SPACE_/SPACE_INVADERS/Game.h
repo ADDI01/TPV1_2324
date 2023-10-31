@@ -45,6 +45,8 @@ public:
 	Game() ;
 	//~Game();
 	void init();
+	void render();
+	void update();
 };
 
 #endif 
