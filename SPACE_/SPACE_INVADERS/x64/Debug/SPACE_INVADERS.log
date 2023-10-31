@@ -1,16 +1,1 @@
-﻿  Game.cpp
-  Laser.cpp
-  Source.cpp
-  Star.cpp
-C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\SPACE_\SPACE_INVADERS\Star.cpp(5,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\SPACE_\SPACE_INVADERS\Star.cpp(6,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-  Generando código...
-  SPACE_INVADERS.vcxproj -> C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\SPACE_\bin\SPACE_INVADERSDebug.exe
+﻿  SPACE_INVADERS.vcxproj -> C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\SPACE_\bin\SPACE_INVADERSDebug.exe

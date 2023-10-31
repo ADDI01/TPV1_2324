@@ -16,7 +16,7 @@ private:
 	//Cool Down entre disparos
 	float _shootCD;
 	// puntero a su textura
-	Texture* _myTexture;
+	Texture* _texture;
 	//puntero a la clase Game
 	Game* _myGame;
 	//Nº de vidas
@@ -25,9 +25,9 @@ private:
 	uint _w = 0, _h = 0;
 
 public: 
-	Cannon() : _pos(0, 0), _nLifes(0), _shootCD(0), _myTexture(nullptr), _myGame(nullptr), _w(0), _h(0) {};
+	Cannon() : _pos(0, 0), _nLifes(0), _shootCD(0), _texture(nullptr), _myGame(nullptr), _w(0), _h(0) {};
 	Cannon(Point2D<float> pos, uint nLifes, float shootCD, Texture* texture, Game* game, uint w, uint h) 
-		: _pos(pos), _nLifes(nLifes), _shootCD(shootCD), _myTexture(texture), _myGame(game), _w(w), _h(h) {};
+		: _pos(pos), _nLifes(nLifes), _shootCD(shootCD), _texture(texture), _myGame(game), _w(w), _h(h) {};
 	~Cannon();
 
 	void render() const;

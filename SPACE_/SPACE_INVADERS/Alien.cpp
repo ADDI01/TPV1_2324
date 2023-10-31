@@ -20,13 +20,16 @@ void Alien::render() const
 	// 0 = disparador, 1 = verde y 2 = rojo
 	switch (_subType) {
 	case 0:
-		_texture->renderFrame(destRect, 0, 0, SDL_FLIP_NONE);
+		if(!_idle) _texture->renderFrame(destRect, 0, 0, SDL_FLIP_NONE);
+		else _texture->renderFrame(destRect, 0, 1, SDL_FLIP_NONE);
 		break;
 	case 1:
-		_texture->renderFrame(destRect, 1, 0, SDL_FLIP_NONE);
+		if (!_idle) _texture->renderFrame(destRect, 1, 0, SDL_FLIP_NONE);
+		else _texture->renderFrame(destRect, 1, 1, SDL_FLIP_NONE);
 		break;
 	case 2:
-		_texture->renderFrame(destRect, 2, 0, SDL_FLIP_NONE);
+		if (!_idle) _texture->renderFrame(destRect, 2, 0, SDL_FLIP_NONE);
+		else _texture->renderFrame(destRect, 2, 1, SDL_FLIP_NONE);
 		break;
 	default:
 		// Agregado para manejar aliens inesperados
@@ -42,7 +45,8 @@ bool Alien::update()
 	{
 		retorno = false;
 	}
-
+	_pos = _pos + Vector2D<float>(5, 0);
+	_idle = !_idle;
 	return retorno;
 }
 

@@ -23,7 +23,7 @@ using uint = unsigned int;
 const uint WIN_WIDTH = 800;
 const uint WIN_HEIGHT = 600;
 const uint NUM_TEXTURES = 4;
-const int FRAME_RATE = 5;
+const int FRAME_RATE = 100;
 
 enum TextureName { CANNONTEXTURE, ALIENSMAPTEXTURE, BUNKERSMAPTEXTURE, STARTEXTURE};
 
@@ -42,13 +42,20 @@ private:
 	Texture* textures[NUM_TEXTURES];
 	const char* texturePath[NUM_TEXTURES];
 
+	//Condiciones partida
+	bool exit = false;
+	bool win = false;
+	bool gameover = false;
+
 public:
 	Game();
 	//~Game();
 	void init();
 	void loadFromFile();
-	void render();
+	void render() const;
 	void update();
+	void run();
+
 };
 
 #endif 

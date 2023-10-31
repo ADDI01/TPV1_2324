@@ -42,9 +42,9 @@ void Game::loadFromFile() {
 	float x = 0, y = 0;
 	float xMap = 0, yMap = 0;
 	int alienType = -1;
+	bool idle = false;
 	uint nObjects = 0;
 	uint row = 0, col = 0;
-
 	vector <Alien*> aliens;
 	vector <Bunker*> bunkers;
 
@@ -67,20 +67,22 @@ void Game::loadFromFile() {
 		}
 		Point2D<float> posAlien(x, y);
 		Alien* aux = new Alien(posAlien, (uint)alienType, textures[ALIENSMAPTEXTURE], this, (uint)48, 
-			(uint)32, row, col);
+			(uint)32, row, col, idle);
 		col++;
+		idle = !idle;
 		if (col == 11 && row < 4) {
 			row++;
 			col = 0;
+			idle = false;
 		}
 		aliens.push_back(aux);
 		nObjects++;
 		file >> tObject;
-		delete aux;
+		aux = nullptr;
 	}
 	Point2D<float> posAliensMap(xMap, yMap);
-	aliensMap = new AliensMap(textures[ALIENSMAPTEXTURE], aliens, nObjects, 48, 32, 96, 96, row, col, 
-		posAliensMap);
+	aliensMap = new AliensMap(textures[ALIENSMAPTEXTURE], aliens, nObjects, (uint)48, (uint)32, (uint)96, (uint)96, row, 
+		col, posAliensMap);
 	
 	nObjects = col = row = 0;
 	//Lectura de bunkersMap
@@ -92,12 +94,12 @@ void Game::loadFromFile() {
 			yMap = y;
 		}
 		Point2D<float> posBunker(x, y);
-		Bunker* aux = new Bunker(posBunker, (uint)4, textures[BUNKERSMAPTEXTURE], row, col, (uint)90, (uint)59);
+		Bunker* aux = new Bunker(posBunker, (uint)4, textures[BUNKERSMAPTEXTURE], (uint)90, (uint)59, row, col);
 		++col;
 		bunkers.push_back(aux);
 		nObjects++;
 		file >> tObject;
-		delete aux;
+		aux = nullptr;
 	}
 	Point2D<float> posBunkersMap(xMap, yMap);
 	bunkersMap = new BunkersMap(textures[BUNKERSMAPTEXTURE], bunkers, nObjects, (uint)4, (uint)90, (uint)59, 
@@ -105,7 +107,7 @@ void Game::loadFromFile() {
 
 	//Setteo del Background
 	Point2D<float> posStar(0, 0);
-	star = new Star(posStar, textures[STARTEXTURE], 600, 450);
+	star = new Star(posStar, textures[STARTEXTURE], 800, 600);
 
 	file.close();
 }
@@ -119,4 +121,34 @@ void Game::init() {
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (window == nullptr || renderer == nullptr)
 		throw exception("Error loading SDL window or renderer");
+}
+
+void Game::render() const {
+	SDL_RenderClear(renderer);
+	star->render();
+	cannon->render();
+	aliensMap->render();
+	bunkersMap->render();
+	SDL_RenderPresent(renderer);
+}
+
+void Game::update() {
+	cannon->update();
+	aliensMap->update();
+}
+
+void Game::run() {
+	uint32_t startTime, frameTime;
+	startTime = SDL_GetTicks();
+
+
+	while (!gameover && !exit && !win) {
+		startTime = SDL_GetTicks();
+		//handleEvents(gameover, exit, win);
+		update(); // Actualiza el estado de todos los objetos del juego
+		render(); // Renderiza todos los objetos del juego
+		frameTime = SDL_GetTicks() - startTime; // Tiempo de la iteración
+		if (frameTime < FRAME_RATE)
+			SDL_Delay(FRAME_RATE - frameTime); // Suspende por el tiempo restante
+	}
 }

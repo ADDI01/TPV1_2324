@@ -37,6 +37,7 @@ public:
 		_w(w), _h(h), _rows(rows), _cols(cols), _pos(pos) { };
 
 	void render() const;
+	void update();
 };
 
 #endif

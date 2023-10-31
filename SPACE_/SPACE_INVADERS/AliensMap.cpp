@@ -6,3 +6,9 @@ void AliensMap::render() const {
 		a->render();
 	}
 }
+
+void AliensMap::update() {
+	for (Alien* a : _aliens) {
+		a->update();
+	}
+}
