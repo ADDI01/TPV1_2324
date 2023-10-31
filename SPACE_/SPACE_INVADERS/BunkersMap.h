@@ -1,14 +1,20 @@
-#pragma once
+#ifndef BUNKERSMAP_H_
+#define BUNKERSSMAP_H_
+
 #include "Bunker.h"
 #include "Texture.h"
+#include <vector>
+
+using namespace std;
 using uint = unsigned int;
+
 class BunkersMap
 {
 private:
 	//Textura de los búnkeres, todos la misma
 	Texture* _bunkerTexture = nullptr;
 	//Array dinámico de objetos tipo Bunker
-	Bunker** _bunkers = nullptr;
+	vector<Bunker*> _bunkers;
 	//Nº de búnkeres que quedan
 	uint _nBunkers, _nLifes;
 	//Cuanto ocupan las celdas de los bunkers
@@ -21,12 +27,14 @@ private:
 	Point2D<float> _pos;
 
 public:
-	BunkersMap() : _bunkerTexture(nullptr), _bunkers(nullptr), _pos(0, 0) 
+	BunkersMap() : _bunkerTexture(nullptr), _pos(0, 0) 
 	{ _nBunkers = _nLifes = _cellW = _cellH = _w = _h = _rows = _cols = 0; };
-	BunkersMap(Texture* texture, uint nBunkeres, uint nLifes, uint cellW, uint cellH, uint w, uint h, 
-		uint rows, uint cols, Point2D<float> pos) : _bunkerTexture(texture), _nBunkers(nBunkeres), _nLifes(nLifes),
-		_cellW(cellW), _cellH(cellH), _w(w), _h(h), _rows(rows), _cols(cols),  _pos(pos) { Load(); };
-	void Load();
+	BunkersMap(Texture* texture, vector<Bunker*>& bunkers, uint nBunkeres, uint nLifes, uint cellW, 
+		uint cellH, uint w, uint h, uint rows, uint cols, Point2D<float> pos) 
+		: _bunkerTexture(texture), _bunkers(bunkers), _nBunkers(nBunkeres), _nLifes(nLifes),
+		_cellW(cellW), _cellH(cellH), _w(w), _h(h), _rows(rows), _cols(cols),  _pos(pos) { };
 
+	void render() const;
 };
 
+#endif

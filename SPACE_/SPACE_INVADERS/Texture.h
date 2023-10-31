@@ -13,14 +13,14 @@ class Texture
     SDL_Texture* texture = nullptr;
     int width;
     int height;
-    size_t nrows;
-    size_t ncolumns;
+    int nrows;
+    int ncolumns;
     int frameWidth;
     int frameHeight;
 
 public:
-    Texture(SDL_Renderer* renderer, const char* filename, size_t rows = 1, size_t columns = 1);
-    Texture(SDL_Renderer* renderer, SDL_Texture* texture, size_t rows = 1, size_t columns = 1);
+    Texture(SDL_Renderer* renderer, const char* filename, int rows = 1, int columns = 1);
+    Texture(SDL_Renderer* renderer, SDL_Texture* texture, int rows = 1, int columns = 1);
     ~Texture();
 
     /// Width of a frame in pixels

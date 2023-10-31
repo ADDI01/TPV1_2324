@@ -1,23 +1,33 @@
-#pragma once
+#ifndef ALIEN_H_
+#define ALIEN_H_
+
 #include "Vector2D.h"
 #include "Texture.h"
 
+using uint = unsigned int;
+
 class Game;
+
 class Alien
 {
-	private:
+private:
 	//posición de alienígena
 	Point2D<float> _pos;
 	// Tipo del alienígena, el enunciado dice que sea un int
-	int _subType;
+	uint _subType;
 	//puntero a su Textura
-	Texture* _myTexture;
+	Texture* _texture;
 	//puntero a clase Game
 	Game * _myGame;
+	//Tamaño del alien
+	uint _w = 0, _h = 0;
+	//Fila y columna en la que se encuentra en el aliensMap
+	uint _rows = 0, _cols = 0;
 	 
 	public:
-		Alien() : _pos(0,0), _subType(0), _myTexture(nullptr), _myGame(nullptr) {};
-		Alien(Point2D<float> pos, int  type, Texture* texture, Game* game) : _pos(pos), _subType(type), _myTexture(texture), _myGame(game) {};
+		Alien() : _pos(0,0), _subType(-1), _texture(nullptr), _myGame(nullptr), _w(0), _h(0), _rows(0), _cols(0) {};
+		Alien(Point2D<float> pos, uint type, Texture* texture, Game* game, uint w, uint h, uint rows, uint cols) 
+			: _pos(pos), _subType(type), _texture(texture), _myGame(game) {};
 		~Alien();
 
 		void render() const;
@@ -25,4 +35,6 @@ class Alien
 		void Hit();
 
 };
+
+#endif
 

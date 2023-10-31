@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Texture::Texture(SDL_Renderer* renderer, SDL_Texture* texture, size_t rows, size_t columns)
+Texture::Texture(SDL_Renderer* renderer, SDL_Texture* texture, int rows, int columns)
     : renderer(renderer)
     , texture(texture)
     , nrows(rows)
@@ -16,7 +16,7 @@ Texture::Texture(SDL_Renderer* renderer, SDL_Texture* texture, size_t rows, size
     frameHeight = height / nrows;
 }
 
-Texture::Texture(SDL_Renderer* renderer, const char* filename, size_t rows, size_t columns)
+Texture::Texture(SDL_Renderer* renderer, const char* filename, int rows, int columns)
     : renderer(renderer)
     , texture(nullptr)
     , nrows(rows)

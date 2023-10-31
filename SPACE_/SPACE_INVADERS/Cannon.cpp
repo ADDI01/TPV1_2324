@@ -4,8 +4,8 @@ Cannon:: ~Cannon()
 {
 	delete _myTexture;
 	_myTexture = nullptr;
-	delete _myGame;
-	_myGame = nullptr;
+	//delete _myGame;
+	//_myGame = nullptr;
 }
 
 void Cannon::render() const

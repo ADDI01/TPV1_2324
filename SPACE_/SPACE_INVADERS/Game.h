@@ -2,10 +2,11 @@
 #define GAME_H_
 
 #include <SDL.h>
-#include <list>
 #include "Vector2D.h"
 #include "AliensMap.h"
+#include "Alien.h"
 #include "BunkersMap.h"
+#include "Bunker.h"
 #include "Laser.h"
 #include "Cannon.h"
 #include "Star.h"
@@ -42,9 +43,10 @@ private:
 	const char* texturePath[NUM_TEXTURES];
 
 public:
-	Game() ;
+	Game();
 	//~Game();
 	void init();
+	void loadFromFile();
 	void render();
 	void update();
 };

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef LASER_H_
+#define LASER_H_
+
 
 #include "Vector2D.h"
 #include "Texture.h"
@@ -15,15 +17,16 @@ private:
 	//velocidad de la bala
 	Vector2D<float> _velocity;
 	// Booleano que define si la bala es del player o del enemigo, true = player, false = enemigo
-	bool _fatherPlayer;
+	bool _fatherPlayer = false;
 
 public:
 	Laser() : _pos(0, 0), _velocity(0, 0), _fatherPlayer(false), _myGame(nullptr), _myrenderer(nullptr){};
-	Laser(Point2D<float> pos, Vector2D<float> velocity, bool soyDelPlayer, Game* game, SDL_Renderer* myRender): _pos(pos), 
-		_velocity(velocity), _fatherPlayer(_fatherPlayer), _myGame(game), _myrenderer(myRender){};
+	Laser(Point2D<float> pos, Vector2D<float> velocity, bool soyDelPlayer, Game* game, SDL_Renderer* myRender): 
+		_pos(pos), _velocity(velocity), _fatherPlayer(soyDelPlayer), _myGame(game), _myrenderer(myRender){};
 
 	void render() const;
 	bool update();
 
 };
 
+#endif

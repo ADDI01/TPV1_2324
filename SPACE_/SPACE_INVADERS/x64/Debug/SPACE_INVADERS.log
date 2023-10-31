@@ -1,20 +1,16 @@
-﻿  BunkersMap.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(71,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(77,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\BunkersMap.cpp(8,27): error C2665: 'Bunker::Bunker':ninguna función sobrecargada pudo convertir todos los tipos de argumento
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Bunker.h(16,2): message : puede ser 'Bunker::Bunker(Vector2D<float>,int,Texture *)'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\BunkersMap.cpp(8,27): message : 'Bunker::Bunker(Vector2D<float>,int,Texture *)': el argumento 1 no puede convertirse de 'Vector2D<float>' a 'Vector2D<float>'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\BunkersMap.cpp(8,42): message : No se puede copiar el constructor class 'Vector2D<float>' porque hay constructores de copia ambiguos o no hay un constructor de copia disponible
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\BunkersMap.cpp(8,27): message : al hacer coincidir la lista de argumentos '(Vector2D<float>, int, Texture *)'
-  Game.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(71,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(77,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Game.cpp(30,21): error C2665: 'Cannon::Cannon':ninguna función sobrecargada pudo convertir todos los tipos de argumento
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Cannon.h(21,2): message : puede ser 'Cannon::Cannon(Vector2D<float>,int,float,Texture *,Game *)'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Game.cpp(30,21): message : 'Cannon::Cannon(Vector2D<float>,int,float,Texture *,Game *)': el argumento 1 no puede convertirse de 'Vector2D<float>' a 'Vector2D<float>'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Game.cpp(30,36): message : No se puede copiar el constructor class 'Vector2D<float>' porque hay constructores de copia ambiguos o no hay un constructor de copia disponible
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Game.cpp(30,21): message : al hacer coincidir la lista de argumentos '(Vector2D<float>, int, int, Texture *, Game *)'
+﻿  Game.cpp
   Laser.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(71,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\SPACE_\SPACE_INVADERS\Texture.h(77,12): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  Source.cpp
+  Star.cpp
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\SPACE_\SPACE_INVADERS\Star.cpp(5,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\SPACE_\SPACE_INVADERS\Star.cpp(6,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
   Generando código...
+  SPACE_INVADERS.vcxproj -> C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\SPACE_\bin\SPACE_INVADERSDebug.exe
