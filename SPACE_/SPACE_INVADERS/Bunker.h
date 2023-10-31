@@ -13,7 +13,7 @@ private:
 public:
 	//Constructores
 	Bunker() : _pos(0,0), _nLifes(0), _texture(nullptr) {};
-	Bunker(Point2D<float> pos, Texture* texture) : _pos(pos), _nLifes(4), _texture(texture) {};
+	Bunker(Point2D<float> pos,int nLifes, Texture* texture) : _pos(pos), _nLifes(nLifes), _texture(texture) {};
 	~Bunker() { delete _texture; };
 
 	void render()const;

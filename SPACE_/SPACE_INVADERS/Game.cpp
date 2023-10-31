@@ -26,7 +26,7 @@ Game::Game() {
 	// We finally create the game objects
 	//cannon = new Cannon(objectProps.BALL_WIDTH, objectProps.BALL_HEIGHT, objectProps.BALL_INIT_POS,
 		//Vector2D(0, 0), this, renderer, textures[BALLTEXTURE]);
-	cannon = new Cannon(Vector2D<float>(WIN_WIDTH / 2, 9 * WIN_HEIGHT / 10), 3, 2, textures[CANNONTEXTURE], this);
+	cannon = new Cannon(Point2D<float>(WIN_WIDTH / 2, 9 * WIN_HEIGHT / 10), 3, 2, textures[CANNONTEXTURE], this);
 
 	//aliensMap = new AliensMap(objectProps.PADDLE_WIDTH, objectProps.PADDLE_HEIGHT,
 		//objectProps.PADDLE_INIT_POS, Vector2D(0, 0), Vector2D(ZERO, ZERO), renderer, this, textures[PADDLETEXTURE]
