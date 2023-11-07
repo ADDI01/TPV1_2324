@@ -6,28 +6,37 @@ Game::Game() {
 
 	init();
 
+	if (textureLoading())
+		loadFromFile();
+	else throw "No se cargaron corretamente las texturas.";
+
+	
+}
+
+bool Game::textureLoading() {
+
 	texturePath[CANNONTEXTURE] = "../images/spaceship.png";
 	texturePath[ALIENSMAPTEXTURE] = "../images/aliens.png";
 	texturePath[BUNKERSMAPTEXTURE] = "../images/bunker.png";
 	texturePath[STARTEXTURE] = "../images/stars.png";
 
-	// We now create the textures
+	// Now we create the textures
 	for (uint i = 0; i < NUM_TEXTURES; i++) {
-		if (i == ALIENSMAPTEXTURE) 
+		if (i == ALIENSMAPTEXTURE)
 		{
 			textures[i] = new Texture(renderer, texturePath[i], 3, 2);
 		}
-		else if (i == BUNKERSMAPTEXTURE) 
+		else if (i == BUNKERSMAPTEXTURE)
 		{
 			textures[i] = new Texture(renderer, texturePath[i], 1, 4);
 		}
-		else 
+		else if (i == CANNONTEXTURE || i == STARTEXTURE)
 		{
 			textures[i] = new Texture(renderer, texturePath[i], 1, 1);
 		}
+		else return false;
 	}
-
-	loadFromFile();
+	return true;
 }
 
 void Game::loadFromFile() {

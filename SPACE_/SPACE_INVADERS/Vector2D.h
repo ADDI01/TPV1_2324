@@ -20,10 +20,17 @@ public:
 
 	//Sobrecarga operadores
 
-	void operator = (const Vector2D& v) 
-	{
+	void operator = (const Vector2D& v) {
 		_x = v._x;
 		_y = v._y;
+	}
+
+	bool operator ==(const Vector2D& v) {
+		return _x == v._x && _y == v._y;
+	}
+
+	bool operator !=(const Vector2D& v) {
+		return !operator==(v);
 	}
 
 	Vector2D operator+(const Vector2D& v) const {
