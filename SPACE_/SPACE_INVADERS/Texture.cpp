@@ -1,6 +1,7 @@
 #include "Texture.h"
 
 #include <SDL_image.h>
+#include <fstream>
 
 using namespace std;
 
@@ -24,7 +25,7 @@ Texture::Texture(SDL_Renderer* renderer, const char* filename, int rows, int col
 {
     SDL_Surface* surface = IMG_Load(filename);
 
-    if (surface == nullptr) 
+        if (surface == nullptr) 
         throw "load surface \""s + filename + '"';
 
         texture = SDL_CreateTextureFromSurface(renderer, surface);

@@ -19,10 +19,10 @@ private:
 
 public:
 	//Constructores
-	Bunker() : _pos(0,0), _nLifes(0), _texture(nullptr), _w(0), _h(0), _rows(0), _cols(0) {};
-	Bunker(Point2D<float> pos, uint nLifes, Texture* texture, uint w, uint h, uint rows, uint cols) 
-		: _pos(pos), _nLifes(nLifes), _texture(texture), _w(w), _h(h), _rows(rows), _cols(cols) {};
-	~Bunker() { /*delete _texture; */ };
+	Bunker() : _pos(0,0), _texture(nullptr), _w(0), _h(0), _nLifes(0), _rows(0), _cols(0) {};
+	Bunker(Point2D<float> pos, Texture* texture, uint w, uint h, uint nLifes, uint rows, uint cols)
+		: _pos(pos), _texture(texture), _w(w), _h(h), _nLifes(nLifes), _rows(rows), _cols(cols) {};
+	//~Bunker() { /*delete _texture; */ };
 
 	void render() const;
 	bool update();

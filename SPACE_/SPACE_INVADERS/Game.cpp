@@ -103,7 +103,7 @@ void Game::loadFromFile() {
 			yMap = y;
 		}
 		Point2D<float> posBunker(x, y);
-		Bunker* aux = new Bunker(posBunker, (uint)4, textures[BUNKERSMAPTEXTURE], (uint)90, (uint)59, row, col);
+		Bunker* aux = new Bunker(posBunker, textures[BUNKERSMAPTEXTURE], (uint)90, (uint)59, (uint)4, row, col);
 		++col;
 		bunkers.push_back(aux);
 		nObjects++;
@@ -169,7 +169,7 @@ void Game::run() {
 		//handleEvents(gameover, exit, win);
 		update(); // Actualiza el estado de todos los objetos del juego
 		render(); // Renderiza todos los objetos del juego
-		frameTime = SDL_GetTicks() - startTime; // Tiempo de la iteración
+		frameTime = SDL_GetTicks() - startTime; // Tiempo de la iteraciï¿½n
 		if (frameTime < FRAME_RATE)
 			SDL_Delay(FRAME_RATE - frameTime); // Suspende por el tiempo restante
 	}
