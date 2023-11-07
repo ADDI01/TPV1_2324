@@ -62,7 +62,7 @@ void Game::loadFromFile() {
 	file >> x;
 	file >> y;
 	Point2D<float> posCannon(x, y);
-	cannon = new Cannon(posCannon, (uint)3, 2.0f, textures[CANNONTEXTURE], this, (uint)34, (uint)21);
+	cannon = new Cannon(posCannon, textures[CANNONTEXTURE], (uint)34, (uint)21, this, (uint)3, 2.0f);
 	
 	//Lectura del aliensMap
 	file >> tObject;
@@ -75,8 +75,8 @@ void Game::loadFromFile() {
 			yMap = y;
 		}
 		Point2D<float> posAlien(x, y);
-		Alien* aux = new Alien(posAlien, (uint)alienType, textures[ALIENSMAPTEXTURE], this, (uint)48, 
-			(uint)32, row, col, idle);
+		Alien* aux = new Alien(posAlien, textures[ALIENSMAPTEXTURE], (uint)48, 
+			(uint)32, this, (uint)alienType, idle);
 		col++;
 		idle = !idle;
 		if (col == 11 && row < 4) {
@@ -103,7 +103,7 @@ void Game::loadFromFile() {
 			yMap = y;
 		}
 		Point2D<float> posBunker(x, y);
-		Bunker* aux = new Bunker(posBunker, (uint)4, textures[BUNKERSMAPTEXTURE], (uint)90, (uint)59, row, col);
+		Bunker* aux = new Bunker(posBunker, textures[BUNKERSMAPTEXTURE], (uint)90, (uint)59, (uint)4, row, col);
 		++col;
 		bunkers.push_back(aux);
 		nObjects++;
