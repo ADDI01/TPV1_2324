@@ -25,9 +25,9 @@ private:
 	uint _w = 0, _h = 0;
 
 public: 
-	Cannon() : _pos(0, 0), _nLifes(0), _shootCD(0), _texture(nullptr), _myGame(nullptr), _w(0), _h(0) {};
-	Cannon(Point2D<float> pos, uint nLifes, float shootCD, Texture* texture, Game* game, uint w, uint h) 
-		: _pos(pos), _nLifes(nLifes), _shootCD(shootCD), _texture(texture), _myGame(game), _w(w), _h(h) {};
+	Cannon() : _pos(0, 0), _texture(nullptr), _w(0), _h(0), _myGame(nullptr), _nLifes(0), _shootCD(0) {};
+	Cannon(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, uint nLifes, float shootCD)
+		: _pos(pos), _texture(texture), _w(w), _h(h),_myGame(game), _nLifes(nLifes), _shootCD(shootCD) {};
 	~Cannon();
 
 	void render() const;
