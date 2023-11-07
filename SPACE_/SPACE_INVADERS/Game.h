@@ -25,22 +25,24 @@ const uint WIN_HEIGHT = 600;
 const uint FRAME_RATE = 100;
 const uint NUM_TEXTURES = 4;
 
-/*struct {
+struct {
 	int tObject = -1; //0 Cannon, 1 Aliens, 2 Bunkers
 	uint posX, posY; //GameOject position
 	//Cannon
 	uint cannonLifes = 4;
 	float shootCD = 2.0f; //Shoot cooldown 
-	uint w = 34, h = 21;
+	uint cannonW = 34, cannonH = 21;
 	//Aliens
-	int _subType = -1; //0 shooter, 1 green, 2 red
+	int subType = -1; //0 shooter, 1 green, 2 red
 	uint row, col;
-	uint w = 48, h = 32;
+	uint alienW = 48, alienH = 32;
 	bool idle = false; //Frame to draw
+	vector <Alien*> aliens; //Aliens vector
 	//Bunkers
 	uint bunkerLifes = 4;
-	uint w = 90, h = 59;
-} tGameObjsProps;*/
+	uint bunkerW = 90, bunkerH = 59;
+	vector <Bunker*> bunkers; //Bunkers vector
+} tGameObjsProps;
 
 enum TextureName { CANNONTEXTURE, ALIENSMAPTEXTURE, BUNKERSMAPTEXTURE, STARTEXTURE};
 
@@ -70,6 +72,9 @@ public:
 	void init();
 	bool textureLoading();
 	void loadFromFile();
+	void loadCannon(ifstream& file);
+	void loadBunkers(ifstream& file);
+	void loadAliens(ifstream& file);
 	void render() const;
 	void update();
 	void run();
