@@ -67,12 +67,17 @@ void Game::loadFromFile() {
 			else tGameObjsProps.idle = !tGameObjsProps.idle;
 			alienaux = new Alien(pos, textures[ALIENSMAPTEXTURE], tGameObjsProps.alienW, tGameObjsProps.alienH, this,
 				tGameObjsProps.subType, tGameObjsProps.idle);
+			
+			tGameObjsProps.aliens.push_back(alienaux);
 
 			alienaux = nullptr;
 			break;
 		case 2: //Bunkers
 			bunkeraux = new Bunker(pos, textures[BUNKERSMAPTEXTURE], tGameObjsProps.bunkerW, tGameObjsProps.bunkerH,
 				tGameObjsProps.bunkerLifes);
+
+			tGameObjsProps.bunkers.push_back(bunkeraux);
+
 			bunkeraux = nullptr;
 			break;
 		default:
@@ -101,8 +106,6 @@ void Game::render() const {
 	SDL_RenderClear(renderer);
 	star->render();
 	cannon->render();
-	//aliensMap->render();
-	//bunkersMap->render();
 	for (Bunker* e : tGameObjsProps.bunkers)
 	{
 		e->render();
@@ -140,9 +143,9 @@ void Game::run() {
 	}
 }
 
-void Game::loadCannon(ifstream& file) {
+//void Game::loadCannon(ifstream& file) {
 
-}
+//}
 /*
 void Game::loadBunkers(ifstream& file)
 {

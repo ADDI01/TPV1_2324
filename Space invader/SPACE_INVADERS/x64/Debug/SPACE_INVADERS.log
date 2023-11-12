@@ -1,39 +1,4 @@
-﻿  Alien.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(14,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(15,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-  AliensMap.cpp
-  Bunker.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Bunker.cpp(6,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Bunker.cpp(7,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-  BunkersMap.cpp
-  Cannon.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Cannon.cpp(14,27): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Cannon.cpp(15,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-  Game.cpp
+﻿  Game.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(52,57): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
           with
           [
@@ -44,9 +9,4 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_IN
           [
               T=float
           ]
-  Laser.cpp
-  Source.cpp
-  Star.cpp
-  Texture.cpp
-  Generando código...
   SPACE_INVADERS.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\bin\SPACE_INVADERSDebug.exe
