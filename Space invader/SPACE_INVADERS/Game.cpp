@@ -97,7 +97,7 @@ Vector2D<float> Game::getDirection()
 
 void Game::cannotMove() 
 {
-	!tGameObjsProps.alienCannotMove;
+	tGameObjsProps.alienCannotMove = false;
 }
 
 void Game::init() 

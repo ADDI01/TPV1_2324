@@ -45,7 +45,7 @@ bool Alien::update()
 	{
 		retorno = false;
 	}
-	_pos = _pos + Vector2D<float>(5, 0);
+	_pos = _pos + _myGame->getDirection();
 	_idle = !_idle;
 	return retorno;
 }
