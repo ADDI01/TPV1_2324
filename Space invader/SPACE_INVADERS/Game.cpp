@@ -150,13 +150,13 @@ void Game::handleEvents()
 			}
 			break;
 
-			case SDL_KEYUP:
-				if (event.key.keysym.sym == SDLK_LEFT || event.key.keysym.sym == SDLK_RIGHT)
-				{
-					Vector2D<float> dir(0, 0);
-					cannon->handleEvents(dir);
-				}
-				break;
+		case SDL_KEYUP:
+			if (event.key.keysym.sym == SDLK_LEFT || event.key.keysym.sym == SDLK_RIGHT)
+			{
+				Vector2D<float> dir(0, 0);
+				cannon->handleEvents(dir);
+			}
+			break;
 		}
 	}
 }
