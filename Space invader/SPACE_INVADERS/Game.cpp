@@ -90,6 +90,16 @@ void Game::loadFromFile() {
 	file.close();
 }
 
+Vector2D<float> Game::getDirection() 
+{
+	return Vector2D<float> (tGameObjsProps.alienDirection,0);
+}
+
+void Game::cannotMove() 
+{
+	!tGameObjsProps.alienCannotMove;
+}
+
 void Game::init() 
 {
 	// We first initialize SDL
@@ -116,6 +126,10 @@ void Game::render() const {
 		e->render();
 	}
 
+	if (!tGameObjsProps.alienCannotMove) 
+	{
+		tGameObjsProps.alienDirection = tGameObjsProps.alienDirection * -1;
+	}
 	SDL_RenderPresent(renderer);
 }
 
@@ -124,6 +138,11 @@ void Game::update() {
 
 	for (Alien* a : tGameObjsProps.aliens)
 		a->update();
+
+	if (tGameObjsProps.alienCannotMove) 
+	{
+		tGameObjsProps.alienDirection *= -1;
+	}
 }
 
 void Game::handleEvents() 

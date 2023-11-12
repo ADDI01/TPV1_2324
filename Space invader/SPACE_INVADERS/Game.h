@@ -37,6 +37,8 @@ struct {
 	uint row, col;
 	uint alienW = 48, alienH = 32;
 	bool idle = false; //Frame to draw
+	float alienDirection; //dirección en el eje x a la que van todos los aliens
+	bool alienCannotMove; // booleano que no permite moverse a los alienígenas
 	vector <Alien*> aliens; //Aliens vector
 	//Bunkers
 	uint bunkerLifes = 4;
@@ -78,6 +80,8 @@ public:
 	void render() const;
 	void update();
 	void handleEvents();
+	Vector2D<float> getDirection();
+	void cannotMove();
 	void run();
 };
 
