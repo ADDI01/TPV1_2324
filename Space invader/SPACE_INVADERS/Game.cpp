@@ -134,9 +134,11 @@ void Game::handleEvents()
 
 		if (event.type == SDL_QUIT)
 			exit = true;
-		if (event.type = SDL_KEYDOWN)
+		switch (event.type)
 		{
-			if (event.key.keysym.sym == SDLK_LEFT) 
+		case SDL_KEYDOWN:
+
+			if (event.key.keysym.sym == SDLK_LEFT)
 			{
 				Vector2D<float> dir(-1, 0);
 				cannon->handleEvents(dir);
@@ -146,22 +148,20 @@ void Game::handleEvents()
 				Vector2D<float> dir(1, 0);
 				cannon->handleEvents(dir);
 			}
-		}
-		else if (event.type = SDL_KEYUP)
-		{
-			if (event.key.keysym.sym == SDLK_LEFT)
-			{
-				Vector2D<float> dir(0, 0);
-				cannon->handleEvents(dir);
-			}
-			else if (event.key.keysym.sym == SDLK_RIGHT)
-			{
-				Vector2D<float> dir(0, 0);
-				cannon->handleEvents(dir);
-			}
+			break;
+
+			case SDL_KEYUP:
+				if (event.key.keysym.sym == SDLK_LEFT || event.key.keysym.sym == SDLK_RIGHT)
+				{
+					Vector2D<float> dir(0, 0);
+					cannon->handleEvents(dir);
+				}
+				break;
 		}
 	}
 }
+
+
 void Game::run() {
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
@@ -177,103 +177,3 @@ void Game::run() {
 			SDL_Delay(FRAME_RATE - frameTime); // Suspende por el tiempo restante
 	}
 }
-
-//void Game::loadCannon(ifstream& file) {
-
-//}
-/*
-void Game::loadBunkers(ifstream& file)
-{
-	int tObject = -1;
-	float x = 0, y = 0;
-	//Lectura de bunkersMap
-	while (!file.eof()) {
-		file >> x;
-		file >> y;
-		/*if (col == 0 && row == 0) { //Coordenadas del inicio del aliensMap
-			xMap = x;
-			yMap = y;
-		}
-		Point2D<float> posBunker(x, y);
-		Bunker* aux = new Bunker(posBunker, (uint)4, textures[BUNKERSMAPTEXTURE], (uint)90, (uint)59);
-		//++col;
-		bunkers.push_back(aux);
-		//nObjects++;
-		file >> tObject;
-		aux = nullptr;
-	}
-	//Point2D<float> posBunkersMap(xMap, yMap);
-	//bunkersMap = new BunkersMap(textures[BUNKERSMAPTEXTURE], bunkers, nObjects, (uint)4, (uint)90, (uint)59,
-		//(uint)360, (uint)59, row, col, posBunkersMap);
-}
-
-void Game::loadAliens(ifstream& file)
-{
-	int tObject = -1;
-	float x = 0, y = 0;
-	int alienType = -1;
-	bool idle = false;
-	//Lectura del aliensMap
-	file >> tObject;
-	while (tObject == 1) {
-		file >> x;
-		file >> y;
-		file >> alienType;
-		/*if (col == 0 && row == 0) { //Coordenadas del inicio del aliensMap
-			xMap = x;
-			yMap = y;
-		}
-		Point2D<float> posAlien(x, y);
-		Alien* aux = new Alien(posAlien, (uint)alienType, textures[ALIENSMAPTEXTURE], this, (uint)48,
-			(uint)32, row, col, idle);
-		//col++;
-		idle = !idle;
-		/*if (col == 11 && row < 4) {
-			row++;
-			col = 0;
-			idle = false;
-		}
-		aliens.push_back(aux);
-		//nObjects++;
-		file >> tObject;
-		aux = nullptr;
-	}
-	//Point2D<float> posAliensMap(xMap, yMap);
-	//aliensMap = new AliensMap(textures[ALIENSMAPTEXTURE], aliens, nObjects, (uint)48, (uint)32, (uint)96, (uint)96, row,
-		//col, posAliensMap);
-}
-
-void Game::loadFromFile(vector<Alien*>& aliens, vector<Bunker*>& bunkers) {
-	ifstream file("../images/mapas/original.txt");
-
-	if (!file.is_open()) throw "No se ha abierto el archivo.";
-
-	const uint NUM_ALIENS = 100;
-	const uint NUM_BUNKERS = 100;
-
-	int tObject = -1;
-	float x = 0, y = 0;
-	float xMap = 0, yMap = 0;
-	uint nObjects = 0;
-	uint row = 0, col = 0;
-
-	//Lectura del cannon
-	file >> tObject;
-	file >> x;
-	file >> y;
-	Point2D<float> posCannon(x, y);
-	cannon = new Cannon(posCannon, (uint)3, 2.0f, textures[CANNONTEXTURE], this, (uint)34, (uint)21);
-
-	loadAliens(file, aliens);
-
-	//nObjects = col = row = 0;
-
-	loadBunkers(file, bunkers);
-
-	//Setteo del Background
-	Point2D<float> posStar(0, 0);
-	star = new Star(posStar, textures[STARTEXTURE], 800, 600);
-
-	file.close();
-}
-*/
