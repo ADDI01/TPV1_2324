@@ -39,7 +39,9 @@ bool Game::textureLoading() {
 
 void Game::loadFromFile() {
 	ifstream file("../images/mapas/original.txt");
-	uint latestRow;
+	uint latestRow = -1;
+	Alien* alienaux = nullptr;
+	Bunker* bunkeraux = nullptr;
 
 	if (!file.is_open()) throw "No se ha abierto el archivo.";
 
@@ -51,77 +53,40 @@ void Game::loadFromFile() {
 
 		switch (tGameObjsProps.tObject) {
 		case 0: //Cannon
-			cannon = new Cannon(pos, tGameObjsProps.cannonLifes, tGameObjsProps.shootCD, textures[CANNONTEXTURE], this, 
-				tGameObjsProps.bunkerW, tGameObjsProps.cannonH);
+			cannon = new Cannon(pos, textures[CANNONTEXTURE], tGameObjsProps.cannonW, tGameObjsProps.cannonH, this,
+				tGameObjsProps.cannonLifes, tGameObjsProps.shootCD);
 			break;
 		case 1: //Aliens
 			file >> tGameObjsProps.subType;
 
-			if (latestRow != tGameObjsProps.posY) tGameObjsProps.idle = false;
+			if (latestRow != tGameObjsProps.posY)
+			{
+				tGameObjsProps.idle = false;
+				latestRow = tGameObjsProps.posY;
+			}
 			else tGameObjsProps.idle = !tGameObjsProps.idle;
-			Alien* aux = new Alien(pos, tGameObjsProps.subType, textures[ALIENSMAPTEXTURE], this, tGameObjsProps.alienW,
-				tGameObjsProps.alienH, tGameObjsProps.idle);
-			latestRow = tGameObjsProps.posY;
+			alienaux = new Alien(pos, textures[ALIENSMAPTEXTURE], tGameObjsProps.alienW, tGameObjsProps.alienH, this,
+				tGameObjsProps.subType, tGameObjsProps.idle);
+
+			alienaux = nullptr;
 			break;
 		case 2: //Bunkers
-
+			bunkeraux = new Bunker(pos, textures[BUNKERSMAPTEXTURE], tGameObjsProps.bunkerW, tGameObjsProps.bunkerH,
+				tGameObjsProps.bunkerLifes);
+			bunkeraux = nullptr;
 			break;
 		default:
 			throw "Objeto no identificado.";
 		}
-		
-
 	}
-	
-	
-	
-	
-		
-		col++;
-		
-		if (col == 11 && row < 4) {
-			row++;
-			col = 0;
-			idle = false;
-		}
-		aliens.push_back(aux);
-		nObjects++;
-		file >> tObject;
-		aux = nullptr;
-	}
-	Point2D<float> posAliensMap(xMap, yMap);
-	aliensMap = new AliensMap(textures[ALIENSMAPTEXTURE], aliens, nObjects, (uint)48, (uint)32, (uint)96, (uint)96, row, 
-		col, posAliensMap);
-	
-	nObjects = col = row = 0;
-	//Lectura de bunkersMap
-	while (!file.eof()) {
-		file >> x;
-		file >> y;
-		if (col == 0 && row == 0) { //Coordenadas del inicio del aliensMap
-			xMap = x;
-			yMap = y;
-		}
-		Point2D<float> posBunker(x, y);
-		Bunker* aux = new Bunker(posBunker, textures[BUNKERSMAPTEXTURE], (uint)90, (uint)59, (uint)4, row, col);
-		++col;
-		bunkers.push_back(aux);
-		nObjects++;
-		file >> tObject;
-		aux = nullptr;
-	}
-	Point2D<float> posBunkersMap(xMap, yMap);
-	bunkersMap = new BunkersMap(textures[BUNKERSMAPTEXTURE], bunkers, nObjects, (uint)4, (uint)90, (uint)59, 
-		(uint)360, (uint)59, row, col, posBunkersMap);
-
 	//Setteo del Background
 	Point2D<float> posStar(0, 0);
 	star = new Star(posStar, textures[STARTEXTURE], 800, 600);
-
 	file.close();
 }
 
-void Game::init() {
+void Game::init() 
+{
 	// We first initialize SDL
 	// Inicializar SDL, crear ventana y renderizador
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -178,7 +143,7 @@ void Game::run() {
 void Game::loadCannon(ifstream& file) {
 
 }
-
+/*
 void Game::loadBunkers(ifstream& file)
 {
 	int tObject = -1;
@@ -190,9 +155,9 @@ void Game::loadBunkers(ifstream& file)
 		/*if (col == 0 && row == 0) { //Coordenadas del inicio del aliensMap
 			xMap = x;
 			yMap = y;
-		}*/
+		}
 		Point2D<float> posBunker(x, y);
-		Bunker* aux = new Bunker(posBunker, (uint)4, textures[BUNKERSMAPTEXTURE], (uint)90, (uint)59/* row, col*/);
+		Bunker* aux = new Bunker(posBunker, (uint)4, textures[BUNKERSMAPTEXTURE], (uint)90, (uint)59);
 		//++col;
 		bunkers.push_back(aux);
 		//nObjects++;
@@ -219,17 +184,17 @@ void Game::loadAliens(ifstream& file)
 		/*if (col == 0 && row == 0) { //Coordenadas del inicio del aliensMap
 			xMap = x;
 			yMap = y;
-		}*/
+		}
 		Point2D<float> posAlien(x, y);
 		Alien* aux = new Alien(posAlien, (uint)alienType, textures[ALIENSMAPTEXTURE], this, (uint)48,
-			(uint)32,/*, row, col,*/ idle);
+			(uint)32, row, col, idle);
 		//col++;
 		idle = !idle;
 		/*if (col == 11 && row < 4) {
 			row++;
 			col = 0;
 			idle = false;
-		}*/
+		}
 		aliens.push_back(aux);
 		//nObjects++;
 		file >> tObject;
@@ -273,3 +238,4 @@ void Game::loadFromFile(vector<Alien*>& aliens, vector<Bunker*>& bunkers) {
 
 	file.close();
 }
+*/
