@@ -32,18 +32,23 @@ struct {
 	uint cannonLifes = 4;
 	float shootCD = 2.0f; //Shoot cooldown 
 	uint cannonW = 34, cannonH = 21;
+	float cannonVelocity = 3;
 	//Aliens
 	int subType = -1; //0 shooter, 1 green, 2 red
 	uint row, col;
 	uint alienW = 48, alienH = 32;
 	bool idle = false; //Frame to draw
-	float alienDirection; //dirección en el eje x a la que van todos los aliens
-	bool alienCannotMove; // booleano que no permite moverse a los alienígenas
+	float alienDirection = 5; //dirección en el eje x a la que van todos los aliens
+	bool alienCannotMove = false; // booleano que no permite moverse a los alienígenas
 	vector <Alien*> aliens; //Aliens vector
+	float alienVelocity = 2;
 	//Bunkers
 	uint bunkerLifes = 4;
 	uint bunkerW = 90, bunkerH = 59;
 	vector <Bunker*> bunkers; //Bunkers vector
+	//Laser
+	vector <Laser*> lasers; // vectos con los láseres de juego
+
 } tGameObjsProps;
 
 enum TextureName { CANNONTEXTURE, ALIENSMAPTEXTURE, BUNKERSMAPTEXTURE, STARTEXTURE};
@@ -83,6 +88,7 @@ public:
 	Vector2D<float> getDirection();
 	void cannotMove();
 	void run();
+	int getRandomRange(int min, int max);
 };
 
 #endif 

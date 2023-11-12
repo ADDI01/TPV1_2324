@@ -3,12 +3,12 @@
 
 void Laser::render() const
 {
-	/*SDL_Rect* myRect;
+	SDL_Rect* myRect;
 	myRect->x = 0;
 	myRect->y = 0;
 	myRect->w = 5;
 	myRect->h = 10;
-	SDL_RenderFillRect(_myrenderer, myRect);*/
+	SDL_RenderFillRect(_myrenderer, myRect);
 }
 
 bool Laser::update() 
@@ -16,7 +16,13 @@ bool Laser::update()
 	//llamamos a la comprobación de colisión
 	if (_fatherPlayer) 
 	{
+		//movimiento de la bala del jugador
 		_pos = _pos - _velocity;
+	}
+	else 
+	{
+		//movimiento de la bala de los alienígenas
+		_pos = _pos + _velocity;
 	}
 
 	return true;

@@ -26,12 +26,12 @@ private:
 	//Vector de movimiento
 	Vector2D<float> _direction;
 	//Velocidad de la nave
-	float _velocity;
+	float _velocity = 1;
 
 public: 
-	Cannon() : _pos(0, 0), _texture(nullptr), _w(0), _h(0), _myGame(nullptr), _nLifes(0), _shootCD(0) {};
-	Cannon(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, uint nLifes, float shootCD)
-		: _pos(pos), _texture(texture), _w(w), _h(h),_myGame(game), _nLifes(nLifes), _shootCD(shootCD) {};
+	Cannon() : _pos(0, 0), _texture(nullptr), _w(0), _h(0), _myGame(nullptr), _nLifes(0), _shootCD(0), _velocity(0) {};
+	Cannon(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, uint nLifes, float shootCD, float velocity)
+		: _pos(pos), _texture(texture), _w(w), _h(h),_myGame(game), _nLifes(nLifes), _shootCD(shootCD), _velocity(velocity) {};
 	~Cannon();
 
 	void render() const;

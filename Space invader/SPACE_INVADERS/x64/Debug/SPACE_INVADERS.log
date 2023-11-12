@@ -1,10 +1,10 @@
 ﻿  Game.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(52,57): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(53,57): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(52,36): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(53,36): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
           with
           [
               T=float

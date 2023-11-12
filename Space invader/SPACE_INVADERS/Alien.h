@@ -25,13 +25,16 @@ private:
 	Game * _myGame;
 	//Tamaño del alien
 	uint _w = 0, _h = 0;
-	 
+	//velocidad de los alienígenas
+	float _velocity;
+
 	public:
-		Alien() : _pos(0,0), _subType(-1), _texture(nullptr), _myGame(nullptr), _w(0), _h(0) {};
-		Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, uint type, bool idle)
-			: _pos(pos), _texture(texture), _myGame(game), _w(w), _h(h), _subType(type), _idle(idle) {};
+		Alien() : _pos(0,0), _subType(-1), _texture(nullptr), _myGame(nullptr), _w(0), _h(0), _velocity(0) {};
+		Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, uint type, bool idle)
+			: _pos(pos), _texture(texture), _myGame(game), _velocity(velocity), _w(w), _h(h), _subType(type), _idle(idle) {};
 		~Alien();
 
+		void bajaColumna();
 		void render() const;
 		bool update();
 		void Hit();

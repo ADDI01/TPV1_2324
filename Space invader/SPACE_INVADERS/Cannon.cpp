@@ -31,5 +31,5 @@ void Cannon::Hit()
 
 void Cannon :: handleEvents(Vector2D<float> direction) 
 {
-	_direction = direction;
+	_direction = direction * _velocity;
 }

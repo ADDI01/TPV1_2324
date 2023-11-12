@@ -1,4 +1,5 @@
 #include "Alien.h"
+#include "Game.h"
 
 Alien:: ~Alien() 
 {
@@ -38,6 +39,11 @@ void Alien::render() const
 	}
 }
 
+void Alien::bajaColumna() 
+{
+	_pos = _pos + Vector2D<float>(0, _h);
+}
+
 bool Alien::update() 
 {
 	bool retorno = true;
@@ -45,10 +51,18 @@ bool Alien::update()
 	{
 		retorno = false;
 	}
-	_pos = _pos + _myGame->getDirection();
+
+	_pos = _pos + (_myGame->getDirection() * _velocity);
+
+	if (_pos.getX() >= 800 - _w|| _pos.getX() <= 0) 
+	{
+		_myGame->cannotMove();
+	}
+
 	_idle = !_idle;
 	return retorno;
 }
+
 
 void Alien::Hit() 
 {

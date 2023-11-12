@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <fstream>
 #include <vector>
+#include <random>
 
 Game::Game() {
 
@@ -54,7 +55,7 @@ void Game::loadFromFile() {
 		switch (tGameObjsProps.tObject) {
 		case 0: //Cannon
 			cannon = new Cannon(pos, textures[CANNONTEXTURE], tGameObjsProps.cannonW, tGameObjsProps.cannonH, this,
-				tGameObjsProps.cannonLifes, tGameObjsProps.shootCD);
+				tGameObjsProps.cannonLifes, tGameObjsProps.shootCD, tGameObjsProps.cannonVelocity);
 			break;
 		case 1: //Aliens
 			file >> tGameObjsProps.subType;
@@ -65,7 +66,7 @@ void Game::loadFromFile() {
 				latestRow = tGameObjsProps.posY;
 			}
 			else tGameObjsProps.idle = !tGameObjsProps.idle;
-			alienaux = new Alien(pos, textures[ALIENSMAPTEXTURE], tGameObjsProps.alienW, tGameObjsProps.alienH, this,
+			alienaux = new Alien(pos, textures[ALIENSMAPTEXTURE], tGameObjsProps.alienW, tGameObjsProps.alienH, this, tGameObjsProps.alienVelocity,
 				tGameObjsProps.subType, tGameObjsProps.idle);
 			
 			tGameObjsProps.aliens.push_back(alienaux);
@@ -90,6 +91,12 @@ void Game::loadFromFile() {
 	file.close();
 }
 
+int Game::getRandomRange(int min, int max) 
+{
+	mt19937_64 randomGenerator(time(nullptr));
+	return uniform_int_distribution<int>(min, max)(randomGenerator);
+}
+
 Vector2D<float> Game::getDirection() 
 {
 	return Vector2D<float> (tGameObjsProps.alienDirection,0);
@@ -97,7 +104,7 @@ Vector2D<float> Game::getDirection()
 
 void Game::cannotMove() 
 {
-	tGameObjsProps.alienCannotMove = false;
+	tGameObjsProps.alienCannotMove = true;
 }
 
 void Game::init() 
@@ -125,23 +132,29 @@ void Game::render() const {
 	{
 		e->render();
 	}
-
-	if (!tGameObjsProps.alienCannotMove) 
-	{
-		tGameObjsProps.alienDirection = tGameObjsProps.alienDirection * -1;
-	}
 	SDL_RenderPresent(renderer);
 }
 
 void Game::update() {
 	cannon->update();
 
-	for (Alien* a : tGameObjsProps.aliens)
-		a->update();
+	for (Alien* a : tGameObjsProps.aliens) 
+	{
+		if (!a->update()) 
+		{
+			delete a;
+			a = nullptr;
+		}
+	}
 
 	if (tGameObjsProps.alienCannotMove) 
 	{
+		for (Alien* e : tGameObjsProps.aliens)
+		{
+			e->bajaColumna();
+		}
 		tGameObjsProps.alienDirection *= -1;
+		tGameObjsProps.alienCannotMove = false;
 	}
 }
 
@@ -166,6 +179,10 @@ void Game::handleEvents()
 			{
 				Vector2D<float> dir(1, 0);
 				cannon->handleEvents(dir);
+			}
+			else if (event.key.keysym.sym == SDLK_SPACE) 
+			{
+				
 			}
 			break;
 
