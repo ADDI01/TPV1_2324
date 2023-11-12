@@ -21,7 +21,7 @@ void Cannon::render() const
 
 void Cannon::update() 
 {
-	
+	_pos = _pos + _direction;
 }
 
 void Cannon::Hit() 
@@ -29,7 +29,7 @@ void Cannon::Hit()
 	_nLifes--;
 }
 
-void Cannon::HandleEvents() 
+void Cannon :: handleEvents(Vector2D<float> direction) 
 {
-
+	_direction = direction;
 }

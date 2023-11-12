@@ -23,6 +23,10 @@ private:
 	uint _nLifes;
 	//Tamaño del alien
 	uint _w = 0, _h = 0;
+	//Vector de movimiento
+	Vector2D<float> _direction;
+	//Velocidad de la nave
+	float _velocity;
 
 public: 
 	Cannon() : _pos(0, 0), _texture(nullptr), _w(0), _h(0), _myGame(nullptr), _nLifes(0), _shootCD(0) {};
@@ -33,7 +37,7 @@ public:
 	void render() const;
 	void update();
 	void Hit();
-	void HandleEvents() ;
+	void handleEvents(Vector2D<float> direction);
 };
 
 #endif

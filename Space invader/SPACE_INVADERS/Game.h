@@ -77,8 +77,8 @@ public:
 	void loadAliens(ifstream& file);
 	void render() const;
 	void update();
+	void handleEvents();
 	void run();
-
 };
 
 #endif 

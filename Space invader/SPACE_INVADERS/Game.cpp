@@ -121,12 +121,47 @@ void Game::render() const {
 
 void Game::update() {
 	cannon->update();
-	//aliensMap->update();
 
 	for (Alien* a : tGameObjsProps.aliens)
 		a->update();
 }
 
+void Game::handleEvents() 
+{
+	SDL_Event event;
+	bool exit = false;
+	while (SDL_PollEvent(&event) && !exit) {
+
+		if (event.type == SDL_QUIT)
+			exit = true;
+		if (event.type = SDL_KEYDOWN)
+		{
+			if (event.key.keysym.sym == SDLK_LEFT) 
+			{
+				Vector2D<float> dir(-1, 0);
+				cannon->handleEvents(dir);
+			}
+			else if (event.key.keysym.sym == SDLK_RIGHT)
+			{
+				Vector2D<float> dir(1, 0);
+				cannon->handleEvents(dir);
+			}
+		}
+		else if (event.type = SDL_KEYUP)
+		{
+			if (event.key.keysym.sym == SDLK_LEFT)
+			{
+				Vector2D<float> dir(0, 0);
+				cannon->handleEvents(dir);
+			}
+			else if (event.key.keysym.sym == SDLK_RIGHT)
+			{
+				Vector2D<float> dir(0, 0);
+				cannon->handleEvents(dir);
+			}
+		}
+	}
+}
 void Game::run() {
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
@@ -134,7 +169,7 @@ void Game::run() {
 
 	while (!gameover && !exit && !win) {
 		startTime = SDL_GetTicks();
-		//handleEvents(gameover, exit, win);
+		handleEvents();
 		update(); // Actualiza el estado de todos los objetos del juego
 		render(); // Renderiza todos los objetos del juego
 		frameTime = SDL_GetTicks() - startTime; // Tiempo de la iteraci�n
