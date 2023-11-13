@@ -1,0 +1,12 @@
+David Palacios Daza
+Julián Serrano Chacón
+
+Extras:
+- Movimiento vertical
+- Animación
+
+Funcionalidades:obligatorias
+-manejo de excepciones
+-movimiento de la nave y alienígenas
+-colisiones
+-condiciones de victoria y derrota
