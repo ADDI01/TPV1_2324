@@ -2,10 +2,7 @@
 
 Cannon:: ~Cannon() 
 {
-	//delete _texture;
-	//_texture = nullptr;
-	//delete _myGame;
-	//_myGame = nullptr;
+	delete _myRect;
 }
 
 void Cannon::render() const
@@ -35,6 +32,7 @@ bool Cannon::canShoot() const
 void Cannon::Hit() 
 {
 	_nLifes--;
+	std::cout << _nLifes;
 }
 
 void Cannon :: handleEvents(Vector2D<float> direction) 

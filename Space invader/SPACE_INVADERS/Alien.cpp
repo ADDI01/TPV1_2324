@@ -9,10 +9,7 @@ Alien::Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, f
 
 Alien:: ~Alien() 
 {
-	//delete _myTexture;
-	//_myTexture = nullptr;
-	//delete _myGame;
-	//_myGame = nullptr;
+	delete _myRect;
 }
 
 void Alien::render() const

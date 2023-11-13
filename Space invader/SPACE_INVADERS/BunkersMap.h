@@ -1,4 +1,4 @@
-#ifndef BUNKERSMAP_H_
+/*#ifndef BUNKERSMAP_H_
 #define BUNKERSSMAP_H_
 
 #include "Bunker.h"
@@ -37,4 +37,4 @@ public:
 	void render() const;
 };
 
-#endif
+#endif*/

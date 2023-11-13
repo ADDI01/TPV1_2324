@@ -3,9 +3,7 @@
 
 #include <SDL.h>
 #include "Vector2D.h"
-#include "AliensMap.h"
 #include "Alien.h"
-#include "BunkersMap.h"
 #include "Bunker.h"
 #include "Laser.h"
 #include "Cannon.h"
@@ -15,6 +13,7 @@
 #include <exception>
 #include <iostream>
 #include <string>  
+#include <vector>
 
 using namespace std;
 

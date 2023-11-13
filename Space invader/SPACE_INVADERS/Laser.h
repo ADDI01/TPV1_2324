@@ -3,6 +3,7 @@
 
 
 #include "Vector2D.h"
+#include "checkML.h"
 #include "Texture.h"
 class Game;
 class Laser
@@ -32,6 +33,7 @@ public:
 	bool update();
 	SDL_Rect* getRect() const { return _myRect; };
 	void hit() { _hit = true; };
+	bool getFather() const { return _fatherPlayer; };
 };
 
 #endif

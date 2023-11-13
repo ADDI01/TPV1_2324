@@ -144,21 +144,37 @@ void Game::render() const {
 void Game::update() {
 	cannon->update();
 
-	for (Alien* a : tGameObjsProps.aliens) 
+	for (int i = 0; i < tGameObjsProps.aliens.size(); i++)
 	{
-		if (!a->update()) 
+		if (!tGameObjsProps.aliens[i]->update())
 		{
-			//delete a;
-			//a = nullptr;
+			delete tGameObjsProps.aliens[i];
+			tGameObjsProps.aliens[i] = nullptr;
+			tGameObjsProps.aliens.erase(tGameObjsProps.aliens.begin() + i);
+			//cout << "meborro" << endl;
 		}
 	}
 
-	for (Laser* l : tGameObjsProps.lasers)
+	//for (Laser* l : tGameObjsProps.lasers)
+	for(int i = 0; i < tGameObjsProps.lasers.size(); i++)
 	{
-		if (!l->update()) 
+		if (!tGameObjsProps.lasers[i]->update())
 		{
-			//delete l;
-			//l = nullptr;
+			delete tGameObjsProps.lasers[i];
+			tGameObjsProps.lasers[i] = nullptr;
+			tGameObjsProps.lasers.erase(tGameObjsProps.lasers.begin() + i);
+			//cout << "meborro" << endl;
+		}
+	}
+
+	for (int i = 0; i < tGameObjsProps.bunkers.size(); i++) 
+	{
+		if (!tGameObjsProps.bunkers[i]->update()) 
+		{
+			delete tGameObjsProps.bunkers[i];
+			tGameObjsProps.bunkers[i] = nullptr;
+			tGameObjsProps.bunkers.erase(tGameObjsProps.bunkers.begin() + i);
+			//cout << "meborro" << endl;
 		}
 	}
 
@@ -172,18 +188,40 @@ void Game::update() {
 		tGameObjsProps.alienCannotMove = false;
 	}
 
-	/*for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
+	for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
 	{
-		for (int j=0; j < tGameObjsProps.aliens.size(); j++) 
+		for (int j = 0; j < tGameObjsProps.aliens.size(); j++)
 		{
-   			if (tGameObjsProps.lasers[i] != nullptr && tGameObjsProps.aliens[j]->getSubType() != -1 
+			if (tGameObjsProps.lasers[i]->getFather() && tGameObjsProps.aliens[j]->getSubType() != -1
 				 && SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), tGameObjsProps.aliens[j]->getRect()))
 			{
 				tGameObjsProps.lasers[i]->hit();
 				tGameObjsProps.aliens[j]->hit();
 			}
 		}
-	}*/
+	}
+
+	for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
+	{
+		for (int j = 0; j < tGameObjsProps.bunkers.size(); j++)
+		{
+			if (!tGameObjsProps.lasers[i]->getFather() && SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), tGameObjsProps.bunkers[j]->getRect()))
+			{
+				tGameObjsProps.lasers[i]->hit();
+				tGameObjsProps.bunkers[j]->hit();
+			}
+		}
+	}
+
+	for (int i = 0; i < tGameObjsProps.lasers.size(); i++) 
+	{
+		if (!tGameObjsProps.lasers[i]->getFather() && SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), cannon->getRect())) 
+		{
+			cannon->Hit();
+			tGameObjsProps.lasers[i]->hit();
+		}
+	}
+
 }
 
 void Game::fireLaser(Alien* alien) 

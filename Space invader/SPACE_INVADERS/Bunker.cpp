@@ -2,24 +2,25 @@
 
 void Bunker:: render() const
 {
-	SDL_Rect destRect;
-	destRect.x = _pos.getX();
-	destRect.y = _pos.getY();
-	destRect.w = _w;
-	destRect.h = _h;
+	_myRect->x = _pos.getX();
+	_myRect->y = _pos.getY();
+	_myRect->w = _w;
+	_myRect->h = _h;
 
 	switch (_nLifes) {
 	case 4:
-		_texture->renderFrame(destRect, 0, 0, SDL_FLIP_NONE);
+		_texture->renderFrame(*_myRect, 0, 0, SDL_FLIP_NONE);
 		break;
 	case 3:
-		_texture->renderFrame(destRect, 0, 1, SDL_FLIP_NONE);
+		_texture->renderFrame(*_myRect, 0, 1, SDL_FLIP_NONE);
 		break;
 	case 2:
-		_texture->renderFrame(destRect, 0, 2, SDL_FLIP_NONE);
+		_texture->renderFrame(*_myRect, 0, 2, SDL_FLIP_NONE);
 		break;
 	case 1:
-		_texture->renderFrame(destRect, 0, 3, SDL_FLIP_NONE);
+		_texture->renderFrame(*_myRect, 0, 3, SDL_FLIP_NONE);
+		break;
+	case 0:
 		break;
 	default:
 		// Agregado para manejar bunkers inesperados
@@ -33,7 +34,6 @@ bool Bunker::update()
 	bool retorno = true;
 	if (_nLifes == 0)
 	{
-		this->~Bunker();
 		retorno = false;
 	}
 		return retorno;

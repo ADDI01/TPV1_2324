@@ -1,29 +1,9 @@
-﻿  Alien.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.h(84,3): warning C4150: eliminación de puntero a tipo 'SDL_Renderer' incompleto; no se ha llamado a un destructor
+﻿  Game.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.h(83,3): warning C4150: eliminación de puntero a tipo 'SDL_Renderer' incompleto; no se ha llamado a un destructor
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SDL2\include\SDL_render.h(141,8): message : vea la declaración de 'SDL_Renderer'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.h(85,3): warning C4150: eliminación de puntero a tipo 'SDL_Window' incompleto; no se ha llamado a un destructor
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SDL2\include\SDL_video.h(95,16): message : vea la declaración de 'SDL_Window'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(7,36): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(20,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(21,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(51,35): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(71,37): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-  Game.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.h(84,3): warning C4150: eliminación de puntero a tipo 'SDL_Renderer' incompleto; no se ha llamado a un destructor
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SDL2\include\SDL_render.h(141,8): message : vea la declaración de 'SDL_Renderer'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.h(85,3): warning C4150: eliminación de puntero a tipo 'SDL_Window' incompleto; no se ha llamado a un destructor
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.h(84,3): warning C4150: eliminación de puntero a tipo 'SDL_Window' incompleto; no se ha llamado a un destructor
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SDL2\include\SDL_video.h(95,16): message : vea la declaración de 'SDL_Window'
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(53,57): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
           with
@@ -35,35 +15,14 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_IN
           [
               T=float
           ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(191,93): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(229,93): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(222,91): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(260,91): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-  Laser.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.h(84,3): warning C4150: eliminación de puntero a tipo 'SDL_Renderer' incompleto; no se ha llamado a un destructor
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SDL2\include\SDL_render.h(141,8): message : vea la declaración de 'SDL_Renderer'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.h(85,3): warning C4150: eliminación de puntero a tipo 'SDL_Window' incompleto; no se ha llamado a un destructor
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SDL2\include\SDL_video.h(95,16): message : vea la declaración de 'SDL_Window'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(7,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(8,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-  Source.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.h(84,3): warning C4150: eliminación de puntero a tipo 'SDL_Renderer' incompleto; no se ha llamado a un destructor
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SDL2\include\SDL_render.h(141,8): message : vea la declaración de 'SDL_Renderer'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.h(85,3): warning C4150: eliminación de puntero a tipo 'SDL_Window' incompleto; no se ha llamado a un destructor
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SDL2\include\SDL_video.h(95,16): message : vea la declaración de 'SDL_Window'
-  Generando código...
   SPACE_INVADERS.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\bin\SPACE_INVADERSDebug.exe
