@@ -10,13 +10,12 @@ Cannon:: ~Cannon()
 
 void Cannon::render() const
 {
-	SDL_Rect destRect;
-	destRect.x = _pos.getX() - (_w / 2);
-	destRect.y = _pos.getY();
-	destRect.w = _w;
-	destRect.h = _h;
+	_myRect->x = _pos.getX() - (_w / 2);
+	_myRect->y = _pos.getY();
+	_myRect->w = _w;
+	_myRect->h = _h;
 
-	_texture->render(destRect);
+	_texture->render(*_myRect);
 }
 
 void Cannon::update() 

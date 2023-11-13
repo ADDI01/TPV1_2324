@@ -16,4 +16,49 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_IN
               T=float
           ]
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(71,37): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Cannon.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Cannon.cpp(13,27): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Cannon.cpp(14,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Game.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(53,57): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(53,36): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(191,93): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(222,91): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Laser.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(7,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(8,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Source.cpp
+  Generando código...
   SPACE_INVADERS.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\bin\SPACE_INVADERSDebug.exe

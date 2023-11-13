@@ -27,6 +27,8 @@ private:
 	Vector2D<float> _direction;
 	//Velocidad de la nave
 	float _velocity = 1;
+	//Rect
+	SDL_Rect* _myRect = new SDL_Rect;
 
 public: 
 	Cannon() : _pos(0, 0), _texture(nullptr), _w(0), _h(0), _myGame(nullptr), _nLifes(0), _shootCD(0), _velocity(0) {};
@@ -41,6 +43,7 @@ public:
 	void handleEvents(Vector2D<float> direction);
 	bool canShoot() const;
 	void setCoolDown(float coolDown) { _shootCD = coolDown; };
+	SDL_Rect* getRect() const { return _myRect; };
 };
 
 #endif
