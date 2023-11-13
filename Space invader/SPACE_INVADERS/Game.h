@@ -63,8 +63,6 @@ private:
 	SDL_Renderer* renderer = nullptr;
 	//Puntero por cada objeto del juego
 	Cannon* cannon = nullptr;
-	AliensMap* aliensMap = nullptr;
-	BunkersMap* bunkersMap = nullptr;
 	Star* star = nullptr;
 
 	Texture* textures[NUM_TEXTURES];
@@ -77,7 +75,16 @@ private:
 
 public:
 	Game();
-	//~Game();
+	~Game() {
+		for (Alien* a : tGameObjsProps.aliens) { delete a; a = nullptr; }
+		for (Bunker* b : tGameObjsProps.bunkers) { delete b; b = nullptr; }
+		for (Laser* l : tGameObjsProps.lasers) { delete l; l = nullptr; }
+		for (Texture* t : textures) { delete t; t = nullptr; }
+		delete cannon;
+		delete renderer;
+		delete window;
+		//delete star;
+	};
 	void init();
 	bool textureLoading();
 	void loadFromFile();
