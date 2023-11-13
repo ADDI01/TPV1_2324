@@ -36,11 +36,12 @@ bool Bunker::update()
 	{
 		retorno = false;
 	}
-		return retorno;
+	return retorno;
 }
 
 void Bunker::hit() 
 {
+	if(_nLifes >= 0)
 	_nLifes--;
 	//actualizar la imagen
 }

@@ -79,10 +79,12 @@ public:
 		for (Bunker* b : tGameObjsProps.bunkers) { delete b; b = nullptr; }
 		for (Laser* l : tGameObjsProps.lasers) { delete l; l = nullptr; }
 		for (Texture* t : textures) { delete t; t = nullptr; }
+		//delete[] texturePath;
+		SDL_DestroyWindow(window);
+		SDL_DestroyRenderer(renderer);
 		delete cannon;
-		delete renderer;
-		delete window;
-		//delete star;
+		delete star;
+		SDL_Quit();
 	};
 	void init();
 	bool textureLoading();

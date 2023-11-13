@@ -20,7 +20,6 @@ private:
 public:
 	Star() : _pos(0, 0), _texture(nullptr), _w(0), _h(0) {};
 	Star(Point2D<float> pos, Texture* texture, uint w, uint h) : _pos(pos), _texture(texture), _w(w), _h(h) {};
-	~Star();
 
 	void render() const;
 };

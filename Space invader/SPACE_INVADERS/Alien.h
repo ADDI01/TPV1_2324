@@ -36,7 +36,7 @@ private:
 	public:
 		Alien() : _pos(0,0), _subType(-1), _texture(nullptr), _myGame(nullptr), _w(0), _h(0), _velocity(0) {};
 		Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, uint type, bool idle);
-		~Alien();
+		~Alien() { _texture = nullptr; _myGame = nullptr; delete _myRect; _myRect = nullptr; };
 
 		void bajaColumna();
 		void render() const;

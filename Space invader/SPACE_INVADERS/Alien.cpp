@@ -7,11 +7,6 @@ Alien::Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, f
 	_shootCD = _myGame->getRandomRange(20, 60);
 }
 
-Alien:: ~Alien() 
-{
-	delete _myRect;
-}
-
 void Alien::render() const
 {
 	_myRect->x = _pos.getX();
@@ -34,7 +29,7 @@ void Alien::render() const
 		if (!_idle) _texture->renderFrame(*_myRect, 2, 0, SDL_FLIP_NONE);
 		else _texture->renderFrame(*_myRect, 2, 1, SDL_FLIP_NONE);
 		break;
-	case -1:
+	case - 1:
 		break;
 	default:
 		// Agregado para manejar aliens inesperados
@@ -55,24 +50,27 @@ bool Alien::update()
 	{
 		retorno = false;
 	}
-
-	_pos = _pos + (_myGame->getDirection() * _velocity);
-
-	if (_pos.getX() >= 800 - _w|| _pos.getX() <= 0) 
-	{
-		_myGame->cannotMove();
-	}
-
-	if (_subType == 0 && _shootCD <= 0)
-	{
-		_shootCD = _myGame->getRandomRange(20, 100);
-		_myGame->fireLaser(this);
-	}
 	else 
 	{
-		_shootCD--;
+		_pos = _pos + (_myGame->getDirection() * _velocity);
+
+		if (_pos.getX() >= 800 - _w || _pos.getX() <= 0)
+		{
+			_myGame->cannotMove();
+		}
+
+		if (_subType == 0 && _shootCD <= 0)
+		{
+			_shootCD = _myGame->getRandomRange(20, 100);
+			_myGame->fireLaser(this);
+		}
+		else
+		{
+			_shootCD--;
+		}
+		_idle = !_idle;
 	}
-	_idle = !_idle;
+	
 	return retorno;
 }
 

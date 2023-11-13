@@ -1,10 +1,5 @@
 #include "Cannon.h"
 
-Cannon:: ~Cannon() 
-{
-	delete _myRect;
-}
-
 void Cannon::render() const
 {
 	_myRect->x = _pos.getX() - (_w / 2);
@@ -15,13 +10,17 @@ void Cannon::render() const
 	_texture->render(*_myRect);
 }
 
-void Cannon::update() 
+bool Cannon::update() 
 {
-	_pos = _pos + _direction;
+	if (!(_pos.getX() <= 0 && _direction.getX() <=0 + _w) && !(_pos.getX() >= 800- _w && _direction.getX() >= 0))
+	{
+			_pos = _pos + _direction;
+	}
 	if (_shootCD >= 0)
 	{
 		_shootCD--;
 	}
+	return _nLifes > 0;
 }
 
 bool Cannon::canShoot() const

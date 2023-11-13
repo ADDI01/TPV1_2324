@@ -24,7 +24,7 @@ public:
 	Bunker() : _pos(0,0), _texture(nullptr), _w(0), _h(0), _nLifes(0){};
 	Bunker(Point2D<float> pos, Texture* texture, uint w, uint h, uint nLifes)
 		: _pos(pos), _texture(texture), _w(w), _h(h), _nLifes(nLifes){};
-	~Bunker() { delete _myRect; };
+	~Bunker() { delete _myRect; _myRect = nullptr; _texture = nullptr; };
 
 	void render() const;
 	bool update();

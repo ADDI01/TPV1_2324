@@ -125,16 +125,19 @@ void Game::render() const {
 	cannon->render();
 	for (Bunker* e : tGameObjsProps.bunkers)
 	{
+		if(e != nullptr)
 		e->render();
 	}
 
 	for (Alien* e : tGameObjsProps.aliens)
 	{
+		if (e != nullptr)
 		e->render();
 	}
 
 	for (Laser* l : tGameObjsProps.lasers) 
 	{
+		if (l != nullptr)
 		l->render();
 	}
 
@@ -142,7 +145,64 @@ void Game::render() const {
 }
 
 void Game::update() {
-	cannon->update();
+	for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
+	{
+		for (int j = 0; j < tGameObjsProps.aliens.size(); j++)
+		{
+			if (tGameObjsProps.lasers[i]->getFather() && SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), tGameObjsProps.aliens[j]->getRect()))
+			{
+				tGameObjsProps.lasers[i]->hit();
+				tGameObjsProps.aliens[j]->hit();
+			}
+		}
+	}
+
+	for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
+	{
+		for (int j = 0; j < tGameObjsProps.bunkers.size(); j++)
+		{
+			if (!tGameObjsProps.lasers[i]->getFather() && SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), tGameObjsProps.bunkers[j]->getRect()))
+			{
+				tGameObjsProps.lasers[i]->hit();
+				tGameObjsProps.bunkers[j]->hit();
+			}
+		}
+	}
+
+	for (int i = 0; i < tGameObjsProps.aliens.size(); i++)
+	{
+		for (int j = 0; j < tGameObjsProps.bunkers.size(); j++) 
+		{
+			if (SDL_HasIntersection(tGameObjsProps.aliens[i]->getRect(), tGameObjsProps.bunkers[j]->getRect())) 
+			{
+				tGameObjsProps.aliens[i]->hit();
+				tGameObjsProps.bunkers[j]->hit();
+			}
+		}
+	}
+
+	for (int i = 0; i < tGameObjsProps.aliens.size(); i++)
+	{
+		if (SDL_HasIntersection(tGameObjsProps.aliens[i]->getRect(), cannon->getRect()))
+		{
+			cannon->Hit();
+			tGameObjsProps.aliens[i]->hit();
+		}
+	}
+
+	for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
+	{
+		if (!tGameObjsProps.lasers[i]->getFather() && SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), cannon->getRect()))
+		{
+			cannon->Hit();
+			tGameObjsProps.lasers[i]->hit();
+		}
+	}
+
+	if (!cannon->update()) 
+	{
+		gameover = true;
+	}
 
 	for (int i = 0; i < tGameObjsProps.aliens.size(); i++)
 	{
@@ -153,6 +213,16 @@ void Game::update() {
 			tGameObjsProps.aliens.erase(tGameObjsProps.aliens.begin() + i);
 			//cout << "meborro" << endl;
 		}
+	}
+
+	if (tGameObjsProps.alienCannotMove)
+	{
+		for (Alien* e : tGameObjsProps.aliens)
+		{
+			e->bajaColumna();
+		}
+		tGameObjsProps.alienDirection *= -1;
+		tGameObjsProps.alienCannotMove = false;
 	}
 
 	//for (Laser* l : tGameObjsProps.lasers)
@@ -177,51 +247,6 @@ void Game::update() {
 			//cout << "meborro" << endl;
 		}
 	}
-
-	if (tGameObjsProps.alienCannotMove) 
-	{
-		for (Alien* e : tGameObjsProps.aliens)
-		{
-			e->bajaColumna();
-		}
-		tGameObjsProps.alienDirection *= -1;
-		tGameObjsProps.alienCannotMove = false;
-	}
-
-	for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
-	{
-		for (int j = 0; j < tGameObjsProps.aliens.size(); j++)
-		{
-			if (tGameObjsProps.lasers[i]->getFather() && tGameObjsProps.aliens[j]->getSubType() != -1
-				 && SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), tGameObjsProps.aliens[j]->getRect()))
-			{
-				tGameObjsProps.lasers[i]->hit();
-				tGameObjsProps.aliens[j]->hit();
-			}
-		}
-	}
-
-	for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
-	{
-		for (int j = 0; j < tGameObjsProps.bunkers.size(); j++)
-		{
-			if (!tGameObjsProps.lasers[i]->getFather() && SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), tGameObjsProps.bunkers[j]->getRect()))
-			{
-				tGameObjsProps.lasers[i]->hit();
-				tGameObjsProps.bunkers[j]->hit();
-			}
-		}
-	}
-
-	for (int i = 0; i < tGameObjsProps.lasers.size(); i++) 
-	{
-		if (!tGameObjsProps.lasers[i]->getFather() && SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), cannon->getRect())) 
-		{
-			cannon->Hit();
-			tGameObjsProps.lasers[i]->hit();
-		}
-	}
-
 }
 
 void Game::fireLaser(Alien* alien) 
@@ -234,11 +259,7 @@ void Game::fireLaser(Alien* alien)
 void Game::handleEvents() 
 {
 	SDL_Event event;
-	bool exit = false;
 	while (SDL_PollEvent(&event) && !exit) {
-
-		if (event.type == SDL_QUIT)
-			exit = true;
 		switch (event.type)
 		{
 		case SDL_KEYDOWN:
@@ -262,6 +283,10 @@ void Game::handleEvents()
 					tGameObjsProps.lasers.push_back(laseraux);
 					cannon->setCoolDown(tGameObjsProps.cannonshootCD);
 				}
+			}
+			else if (event.key.keysym.sym == SDLK_ESCAPE) 
+			{
+				exit = true;
 			}
 			break;
 
