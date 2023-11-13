@@ -11,7 +11,7 @@ class Bunker
 {
 private:
 	Point2D<float> _pos;
-	uint _nLifes; //Tiene 4 vidas, cada golpe pierde 1 vida
+	int _nLifes; //Tiene 4 vidas, cada golpe pierde 1 vida
 	Texture* _texture;
 	//Ancho y alto del bunker
 	uint _w = 0, _h = 0;

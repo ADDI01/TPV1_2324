@@ -70,7 +70,11 @@ bool Alien::update()
 		}
 		_idle = !_idle;
 	}
-	
+	if (_pos.getY() >= 600 + _h) 
+	{
+		_myGame->lose();
+	}
+
 	return retorno;
 }
 

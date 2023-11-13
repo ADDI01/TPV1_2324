@@ -38,6 +38,11 @@ bool Game::textureLoading() {
 	return true;
 }
 
+void Game:: lose()
+{
+	gameOver = true;
+}
+
 void Game::loadFromFile() {
 	ifstream file("../images/mapas/original.txt");
 	uint latestRow = -1;
@@ -125,19 +130,16 @@ void Game::render() const {
 	cannon->render();
 	for (Bunker* e : tGameObjsProps.bunkers)
 	{
-		if(e != nullptr)
 		e->render();
 	}
 
 	for (Alien* e : tGameObjsProps.aliens)
 	{
-		if (e != nullptr)
 		e->render();
 	}
 
 	for (Laser* l : tGameObjsProps.lasers) 
 	{
-		if (l != nullptr)
 		l->render();
 	}
 
@@ -201,7 +203,7 @@ void Game::update() {
 
 	if (!cannon->update()) 
 	{
-		gameover = true;
+		gameOver = true;
 	}
 
 	for (int i = 0; i < tGameObjsProps.aliens.size(); i++)
@@ -247,6 +249,11 @@ void Game::update() {
 			//cout << "meborro" << endl;
 		}
 	}
+
+	if (tGameObjsProps.aliens.empty()) 
+	{
+		win = true;
+	}
 }
 
 void Game::fireLaser(Alien* alien) 
@@ -274,7 +281,8 @@ void Game::handleEvents()
 				Vector2D<float> dir(1, 0);
 				cannon->handleEvents(dir);
 			}
-			else if (event.key.keysym.sym == SDLK_SPACE) 
+			
+			if (event.key.keysym.sym == SDLK_SPACE) 
 			{
 				if (cannon->canShoot()) 
 				{
@@ -307,7 +315,7 @@ void Game::run() {
 	startTime = SDL_GetTicks();
 
 
-	while (!gameover && !exit && !win) {
+	while (!gameOver && !exit && !win) {
 		startTime = SDL_GetTicks();
 		handleEvents();
 		update(); // Actualiza el estado de todos los objetos del juego

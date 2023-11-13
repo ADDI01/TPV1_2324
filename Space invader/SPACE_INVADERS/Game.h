@@ -31,17 +31,17 @@ struct {
 	uint cannonLifes = 4;
 	float shootCD = 2.0f; //Shoot cooldown 
 	uint cannonW = 34, cannonH = 21;
-	float cannonVelocity = 3;
+	float cannonVelocity = 10;
 	float cannonshootCD = 10;
 	//Aliens
 	int subType = -1; //0 shooter, 1 green, 2 red
 	uint row, col;
 	uint alienW = 48, alienH = 32;
 	bool idle = false; //Frame to draw
-	float alienDirection = 5; //dirección en el eje x a la que van todos los aliens
+	float alienDirection = 1; //dirección en el eje x a la que van todos los aliens
 	bool alienCannotMove = false; // booleano que no permite moverse a los alienígenas
 	vector <Alien*> aliens; //Aliens vector
-	float alienVelocity = 2;
+	float alienVelocity = 4;
 	//Bunkers
 	uint bunkerLifes = 4;
 	uint bunkerW = 90, bunkerH = 59;
@@ -70,7 +70,7 @@ private:
 	//Condiciones partida
 	bool exit = false;
 	bool win = false;
-	bool gameover = false;
+	bool gameOver = false;
 
 public:
 	Game();
@@ -102,6 +102,7 @@ public:
 	void fireLaser(Alien* alien);
 	vector <Alien*> getAliens() const { return tGameObjsProps.aliens; };
 	vector <Bunker*> getBunker() const { return tGameObjsProps.bunkers; };
+	void lose();
 };
 
 #endif 
