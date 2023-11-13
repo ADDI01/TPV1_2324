@@ -14,6 +14,7 @@ void Laser::render() const
 
 bool Laser::update() 
 {
+
 	//llamamos a la comprobación de colisión
 	if (_fatherPlayer) 
 	{
@@ -25,5 +26,5 @@ bool Laser::update()
 		//movimiento de la bala de los alienígenas
 		_pos = _pos + _velocity;
 	}
-	return true;
+	return !_hit;
 }

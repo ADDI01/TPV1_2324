@@ -93,7 +93,7 @@ void Game::loadFromFile() {
 
 int Game::getRandomRange(int min, int max) 
 {
-	mt19937_64 randomGenerator(time(nullptr));
+	static std::mt19937_64 randomGenerator(std::random_device{}());
 	return uniform_int_distribution<int>(min, max)(randomGenerator);
 }
 
@@ -148,14 +148,18 @@ void Game::update() {
 	{
 		if (!a->update()) 
 		{
-			delete a;
-			a = nullptr;
+			//delete a;
+			//a = nullptr;
 		}
 	}
 
 	for (Laser* l : tGameObjsProps.lasers)
 	{
-		l->update();
+		if (!l->update()) 
+		{
+			//delete l;
+			//l = nullptr;
+		}
 	}
 
 	if (tGameObjsProps.alienCannotMove) 
@@ -168,22 +172,24 @@ void Game::update() {
 		tGameObjsProps.alienCannotMove = false;
 	}
 
-	for (Laser* l : tGameObjsProps.lasers)
+	/*for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
 	{
-		for (Alien* a : tGameObjsProps.aliens) 
+		for (int j=0; j < tGameObjsProps.aliens.size(); j++) 
 		{
-			if (SDL_HasIntersection(l->getRect(), a->getRect())) 
+   			if (tGameObjsProps.lasers[i] != nullptr && tGameObjsProps.aliens[j]->getSubType() != -1 
+				 && SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), tGameObjsProps.aliens[j]->getRect()))
 			{
-				a->Hit();
+				tGameObjsProps.lasers[i]->hit();
+				tGameObjsProps.aliens[j]->hit();
 			}
 		}
-	}
+	}*/
 }
 
-void Game::fireLaser() 
+void Game::fireLaser(Alien* alien) 
 {
-	Laser* laseraux = new Laser(cannon->getPosition() - Vector2D<float>(0, tGameObjsProps.cannonH), tGameObjsProps.laserVelocity,
-		true, this, renderer);
+	Laser* laseraux = new Laser(alien->getPosition() + Vector2D<float>(0, tGameObjsProps.alienH/3), tGameObjsProps.laserVelocity,
+		false, this, renderer);
 	tGameObjsProps.lasers.push_back(laseraux);
 }
 
@@ -213,7 +219,9 @@ void Game::handleEvents()
 			{
 				if (cannon->canShoot()) 
 				{
-					fireLaser();
+					Laser* laseraux = new Laser(cannon->getPosition() - Vector2D<float>(0, tGameObjsProps.cannonH), tGameObjsProps.laserVelocity,
+						true, this, renderer);
+					tGameObjsProps.lasers.push_back(laseraux);
 					cannon->setCoolDown(tGameObjsProps.cannonshootCD);
 				}
 			}

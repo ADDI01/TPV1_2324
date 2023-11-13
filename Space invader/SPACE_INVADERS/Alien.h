@@ -29,18 +29,21 @@ private:
 	float _velocity;
 	//variable Rect para las colisiones
 	SDL_Rect* _myRect = new SDL_Rect;
+	//Cool down de disparo
+	float _shootCD;
 
 	public:
 		Alien() : _pos(0,0), _subType(-1), _texture(nullptr), _myGame(nullptr), _w(0), _h(0), _velocity(0) {};
-		Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, uint type, bool idle)
-			: _pos(pos), _texture(texture), _myGame(game), _velocity(velocity), _w(w), _h(h), _subType(type), _idle(idle) {};
+		Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, uint type, bool idle);
 		~Alien();
 
 		void bajaColumna();
 		void render() const;
 		bool update();
-		void Hit();
+		void hit();
 		SDL_Rect* getRect() const { return _myRect; };
+		uint getSubType() const { return _subType; };
+		Vector2D<float> getPosition() const { return _pos; };
 };
 
 #endif

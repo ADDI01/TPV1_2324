@@ -49,7 +49,7 @@ struct {
 	vector <Bunker*> bunkers; //Bunkers vector
 	//Laser
 	vector <Laser*> lasers; // vectos con los láseres de juego
-	Vector2D<float> laserVelocity = Vector2D<float>(0, 3);
+	Vector2D<float> laserVelocity = Vector2D<float>(0, 10);
 
 } tGameObjsProps;
 
@@ -91,7 +91,7 @@ public:
 	void cannotMove();
 	void run();
 	int getRandomRange(int min, int max);
-	void fireLaser();
+	void fireLaser(Alien* alien);
 	vector <Alien*> getAliens() const { return tGameObjsProps.aliens; };
 	vector <Bunker*> getBunker() const { return tGameObjsProps.bunkers; };
 };
