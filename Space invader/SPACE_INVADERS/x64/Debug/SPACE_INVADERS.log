@@ -1,4 +1,20 @@
-﻿  Game.cpp
+﻿  Alien.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(15,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(16,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(44,35): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Game.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(53,57): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
           with
           [
@@ -9,4 +25,22 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_IN
           [
               T=float
           ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(174,87): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Laser.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(7,23): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(8,23): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Source.cpp
+  Generando código...
   SPACE_INVADERS.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\bin\SPACE_INVADERSDebug.exe

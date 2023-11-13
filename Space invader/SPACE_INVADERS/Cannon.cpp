@@ -22,6 +22,15 @@ void Cannon::render() const
 void Cannon::update() 
 {
 	_pos = _pos + _direction;
+	if (_shootCD >= 0)
+	{
+		_shootCD--;
+	}
+}
+
+bool Cannon::canShoot() const
+{
+	return _shootCD <= 0;
 }
 
 void Cannon::Hit() 

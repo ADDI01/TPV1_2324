@@ -23,7 +23,7 @@ public:
 	Laser() : _pos(0, 0), _velocity(0, 0), _fatherPlayer(false), _myGame(nullptr), _myrenderer(nullptr){};
 	Laser(Point2D<float> pos, Vector2D<float> velocity, bool soyDelPlayer, Game* game, SDL_Renderer* myRender): 
 		_pos(pos), _velocity(velocity), _fatherPlayer(soyDelPlayer), _myGame(game), _myrenderer(myRender){};
-
+	//~Laser() {};
 	void render() const;
 	bool update();
 

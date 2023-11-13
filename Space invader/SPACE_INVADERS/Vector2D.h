@@ -12,7 +12,7 @@ public:
 	//Constructoras
 	Vector2D() : _x(0), _y(0) {};
 	Vector2D(T x, T y) : _x(x), _y(y) {};
-	Vector2D(Vector2D<T>& v) : _x(v._x), _y(v._y) {};
+	Vector2D(const Vector2D<T>& v) : _x(v._x), _y(v._y) {};
 
 	//Getter de _x e _y
 	T getX() const { return _x; };

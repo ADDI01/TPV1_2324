@@ -3,12 +3,14 @@
 
 void Laser::render() const
 {
-	SDL_Rect* myRect;
-	myRect->x = 0;
-	myRect->y = 0;
+	SDL_Rect* myRect = new SDL_Rect;
+	myRect->x = _pos.getX();
+	myRect->y = _pos.getY();
 	myRect->w = 5;
 	myRect->h = 10;
+	SDL_SetRenderDrawColor(_myrenderer,0,0,255,0xFF);
 	SDL_RenderFillRect(_myrenderer, myRect);
+	delete myRect;
 }
 
 bool Laser::update() 

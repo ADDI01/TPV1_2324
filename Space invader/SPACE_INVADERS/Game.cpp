@@ -132,6 +132,12 @@ void Game::render() const {
 	{
 		e->render();
 	}
+
+	for (Laser* l : tGameObjsProps.lasers) 
+	{
+		l->render();
+	}
+
 	SDL_RenderPresent(renderer);
 }
 
@@ -147,6 +153,11 @@ void Game::update() {
 		}
 	}
 
+	for (Laser* l : tGameObjsProps.lasers)
+	{
+		l->update();
+	}
+
 	if (tGameObjsProps.alienCannotMove) 
 	{
 		for (Alien* e : tGameObjsProps.aliens)
@@ -156,6 +167,13 @@ void Game::update() {
 		tGameObjsProps.alienDirection *= -1;
 		tGameObjsProps.alienCannotMove = false;
 	}
+}
+
+void Game::fireLaser() 
+{
+	Laser* laseraux = new Laser(cannon->getPosition() - Vector2D<float>(0, tGameObjsProps.cannonH), tGameObjsProps.laserVelocity,
+		true, this, renderer);
+	tGameObjsProps.lasers.push_back(laseraux);
 }
 
 void Game::handleEvents() 
@@ -182,7 +200,11 @@ void Game::handleEvents()
 			}
 			else if (event.key.keysym.sym == SDLK_SPACE) 
 			{
-				
+				if (cannon->canShoot()) 
+				{
+					fireLaser();
+					cannon->setCoolDown(tGameObjsProps.cannonshootCD);
+				}
 			}
 			break;
 

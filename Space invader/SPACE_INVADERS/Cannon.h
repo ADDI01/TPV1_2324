@@ -14,7 +14,7 @@ private:
 	//Posición del cañón
 	Point2D<float> _pos;
 	//Cool Down entre disparos
-	float _shootCD;
+	float _shootCD = 0;
 	// puntero a su textura
 	Texture* _texture;
 	//puntero a la clase Game
@@ -34,10 +34,13 @@ public:
 		: _pos(pos), _texture(texture), _w(w), _h(h),_myGame(game), _nLifes(nLifes), _shootCD(shootCD), _velocity(velocity) {};
 	~Cannon();
 
+	Vector2D<float> getPosition() const { return _pos;};
 	void render() const;
 	void update();
 	void Hit();
 	void handleEvents(Vector2D<float> direction);
+	bool canShoot() const;
+	void setCoolDown(float coolDown) { _shootCD = coolDown; };
 };
 
 #endif

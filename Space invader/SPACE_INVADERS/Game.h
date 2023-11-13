@@ -33,6 +33,7 @@ struct {
 	float shootCD = 2.0f; //Shoot cooldown 
 	uint cannonW = 34, cannonH = 21;
 	float cannonVelocity = 3;
+	float cannonshootCD = 10;
 	//Aliens
 	int subType = -1; //0 shooter, 1 green, 2 red
 	uint row, col;
@@ -48,6 +49,7 @@ struct {
 	vector <Bunker*> bunkers; //Bunkers vector
 	//Laser
 	vector <Laser*> lasers; // vectos con los láseres de juego
+	Vector2D<float> laserVelocity = Vector2D<float>(0, 3);
 
 } tGameObjsProps;
 
@@ -89,6 +91,9 @@ public:
 	void cannotMove();
 	void run();
 	int getRandomRange(int min, int max);
+	void fireLaser();
+	vector <Alien*> getAliens() const { return tGameObjsProps.aliens; };
+	vector <Bunker*> getBunker() const { return tGameObjsProps.bunkers; };
 };
 
 #endif 
