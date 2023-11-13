@@ -18,15 +18,17 @@ private:
 	Vector2D<float> _velocity;
 	// Booleano que define si la bala es del player o del enemigo, true = player, false = enemigo
 	bool _fatherPlayer = false;
+	//rect
+	SDL_Rect* _myRect = new SDL_Rect;
 
 public:
 	Laser() : _pos(0, 0), _velocity(0, 0), _fatherPlayer(false), _myGame(nullptr), _myrenderer(nullptr){};
 	Laser(Point2D<float> pos, Vector2D<float> velocity, bool soyDelPlayer, Game* game, SDL_Renderer* myRender): 
 		_pos(pos), _velocity(velocity), _fatherPlayer(soyDelPlayer), _myGame(game), _myrenderer(myRender){};
-	//~Laser() {};
+	~Laser() { delete _myRect; };
 	void render() const;
 	bool update();
-
+	SDL_Rect* getRect() const { return _myRect; };
 };
 
 #endif

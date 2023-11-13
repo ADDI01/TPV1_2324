@@ -167,6 +167,17 @@ void Game::update() {
 		tGameObjsProps.alienDirection *= -1;
 		tGameObjsProps.alienCannotMove = false;
 	}
+
+	for (Laser* l : tGameObjsProps.lasers)
+	{
+		for (Alien* a : tGameObjsProps.aliens) 
+		{
+			if (SDL_HasIntersection(l->getRect(), a->getRect())) 
+			{
+				a->Hit();
+			}
+		}
+	}
 }
 
 void Game::fireLaser() 

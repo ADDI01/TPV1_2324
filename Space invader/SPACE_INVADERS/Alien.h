@@ -27,6 +27,8 @@ private:
 	uint _w = 0, _h = 0;
 	//velocidad de los alienígenas
 	float _velocity;
+	//variable Rect para las colisiones
+	SDL_Rect* _myRect = new SDL_Rect;
 
 	public:
 		Alien() : _pos(0,0), _subType(-1), _texture(nullptr), _myGame(nullptr), _w(0), _h(0), _velocity(0) {};
@@ -38,7 +40,7 @@ private:
 		void render() const;
 		bool update();
 		void Hit();
-
+		SDL_Rect* getRect() const { return _myRect; };
 };
 
 #endif

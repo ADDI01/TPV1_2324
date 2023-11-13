@@ -11,26 +11,25 @@ Alien:: ~Alien()
 
 void Alien::render() const
 {
-	SDL_Rect destRect;
-	destRect.x = _pos.getX();
-	destRect.y = _pos.getY();
-	destRect.w = _w;
-	destRect.h = _h;
+	_myRect->x = _pos.getX();
+	_myRect->y = _pos.getY();
+	_myRect->w = _w;
+	_myRect->h = _h;
 
 	// En función del parámetro subtipo, pintamos un alien u otro
 	// 0 = disparador, 1 = verde y 2 = rojo
 	switch (_subType) {
 	case 0:
-		if(!_idle) _texture->renderFrame(destRect, 0, 0, SDL_FLIP_NONE);
-		else _texture->renderFrame(destRect, 0, 1, SDL_FLIP_NONE);
+		if(!_idle) _texture->renderFrame(*_myRect, 0, 0, SDL_FLIP_NONE);
+		else _texture->renderFrame(*_myRect, 0, 1, SDL_FLIP_NONE);
 		break;
 	case 1:
-		if (!_idle) _texture->renderFrame(destRect, 1, 0, SDL_FLIP_NONE);
-		else _texture->renderFrame(destRect, 1, 1, SDL_FLIP_NONE);
+		if (!_idle) _texture->renderFrame(*_myRect, 1, 0, SDL_FLIP_NONE);
+		else _texture->renderFrame(*_myRect, 1, 1, SDL_FLIP_NONE);
 		break;
 	case 2:
-		if (!_idle) _texture->renderFrame(destRect, 2, 0, SDL_FLIP_NONE);
-		else _texture->renderFrame(destRect, 2, 1, SDL_FLIP_NONE);
+		if (!_idle) _texture->renderFrame(*_myRect, 2, 0, SDL_FLIP_NONE);
+		else _texture->renderFrame(*_myRect, 2, 1, SDL_FLIP_NONE);
 		break;
 	default:
 		// Agregado para manejar aliens inesperados
