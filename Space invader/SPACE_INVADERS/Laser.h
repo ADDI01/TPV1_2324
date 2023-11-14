@@ -1,11 +1,14 @@
 #ifndef LASER_H_
 #define LASER_H_
 
-
 #include "Vector2D.h"
 #include "checkML.h"
 #include "Texture.h"
+
 class Game;
+
+enum Father { ALIEN, PLAYER };
+
 class Laser
 {
 private:

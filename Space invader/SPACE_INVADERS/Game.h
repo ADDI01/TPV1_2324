@@ -74,35 +74,39 @@ private:
 
 public:
 	Game();
-	~Game() {
-		for (Alien* a : tGameObjsProps.aliens) { delete a; a = nullptr; }
-		for (Bunker* b : tGameObjsProps.bunkers) { delete b; b = nullptr; }
-		for (Laser* l : tGameObjsProps.lasers) { delete l; l = nullptr; }
-		for (Texture* t : textures) { delete t; t = nullptr; }
-		//delete[] texturePath;
-		SDL_DestroyWindow(window);
-		SDL_DestroyRenderer(renderer);
-		delete cannon;
-		delete star;
-		SDL_Quit();
-	};
+	~Game();
+
+	//Pre-game
 	void init();
 	bool textureLoading();
 	void loadFromFile();
-	void loadCannon(ifstream& file);
-	void loadBunkers(ifstream& file);
-	void loadAliens(ifstream& file);
+
+	//Game states
+	void run();
 	void render() const;
 	void update();
 	void handleEvents();
-	Vector2D<float> getDirection();
+	void lose();
+
+	//Updates
+	void aliensUpdate();
+	void lasersUpdate();
+	void bunkersUpdate();
+
+	//Specific actions
+	void onHitPlayerLasertoAlien();
+	void onHitAlienLaser();
+	void onHitAlien();
 	void cannotMove();
-	void run();
-	int getRandomRange(int min, int max);
 	void fireLaser(Alien* alien);
+
+	//Getters
+	int getRandomRange(int min, int max);
+	uint getHeight() { return WIN_HEIGHT; };
+	uint getWidth() { return WIN_WIDTH; };
+	Vector2D<float> getDirection() { return Vector2D<float>(tGameObjsProps.alienDirection, 0); };
 	vector <Alien*> getAliens() const { return tGameObjsProps.aliens; };
 	vector <Bunker*> getBunker() const { return tGameObjsProps.bunkers; };
-	void lose();
 };
 
 #endif 

@@ -1,21 +1,29 @@
 #include "Alien.h"
 #include "Game.h"
 
-Alien::Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, uint type, bool idle)
-	: _pos(pos), _texture(texture), _myGame(game), _velocity(velocity), _w(w), _h(h), _subType(type), _idle(idle)
-{
-	_shootCD = _myGame->getRandomRange(20, 60);
+Alien:: Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, uint type, bool idle)
+	: _pos(pos), _texture(texture), _myGame(game), _velocity(velocity), _w(w), _h(h), _subType(type), _idle(idle) {
+
+	_myRect = new SDL_Rect;
+	_shootCD = _myGame->getRandomRange(MIN_CD, INT_CD);
 }
 
-void Alien::render() const
-{
+Alien:: ~Alien() { 
+	_texture = nullptr; 
+	_myGame = nullptr; 
+	delete _myRect; 
+	_myRect = nullptr; 
+};
+
+void Alien::render() const {
+
 	_myRect->x = _pos.getX();
 	_myRect->y = _pos.getY();
 	_myRect->w = _w;
 	_myRect->h = _h;
 
-	// En función del parámetro subtipo, pintamos un alien u otro
-	// 0 = disparador, 1 = verde y 2 = rojo
+	//The alien is rendered depending on the subtype. 0 for shooters, 1 for greens, 2 for reds
+	//Idle defines which frame is rendered. False for 1st frame, True for 2nd
 	switch (_subType) {
 	case 0:
 		if(!_idle) _texture->renderFrame(*_myRect, 0, 0, SDL_FLIP_NONE);
@@ -32,37 +40,33 @@ void Alien::render() const
 	case - 1:
 		break;
 	default:
-		// Agregado para manejar aliens inesperados
-		throw "Alien no existente.";
+		//When non expected alien comes
+		throw "The Alien does not exist.";
 		break;
 	}
 }
 
-void Alien::bajaColumna() 
-{
-	_pos = _pos + Vector2D<float>(0, _h);
-}
+bool Alien::update() {
 
-bool Alien::update() 
-{
-	bool retorno = true;
-	if (_subType == -1) 
+	bool ret = true;
+	if (_subType == -1) //The alien's dead
 	{
-		retorno = false;
+		ret = false;
 	}
-	else 
-	{
-		_pos = _pos + (_myGame->getDirection() * _velocity);
 
-		if (_pos.getX() >= 800 - _w || _pos.getX() <= 0)
+	else
+	{
+		_pos = _pos + (_myGame->getDirection() * _velocity); //Alien moves
+
+		if (_pos.getX() >= _myGame->getWidth() - _w || _pos.getX() <= 0) //Alien tries to move out of lateral limits
 		{
 			_myGame->cannotMove();
 		}
 
-		if (_subType == 0 && _shootCD <= 0)
+		if (_subType == 0 && _shootCD <= 0) //Shooter alien shoot
 		{
-			_shootCD = _myGame->getRandomRange(20, 100);
-			_myGame->fireLaser(this);
+			_shootCD = _myGame->getRandomRange(MIN_CD, MAX_CD);
+			_myGame->fireLaser(this); //Instanciate alien's laser	
 		}
 		else
 		{
@@ -70,16 +74,18 @@ bool Alien::update()
 		}
 		_idle = !_idle;
 	}
-	if (_pos.getY() >= 600 + _h) 
+	if (_pos.getY() >= _myGame->getHeight() + _h) //If aliens reach the bottom, the game ends
 	{
 		_myGame->lose();
 	}
 
-	return retorno;
+	return ret;
 }
 
-
-void Alien::hit() 
-{
+void Alien::hit() {
 	_subType = -1;
+}
+
+void Alien::bajaColumna() {
+	_pos = _pos + Vector2D<float>(0, _h);
 }

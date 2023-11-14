@@ -12,38 +12,44 @@ class Game;
 class Cannon
 {
 private:
-	//Posición del cañón
-	Point2D<float> _pos;
-	//Cool Down entre disparos
-	float _shootCD = 0;
-	// puntero a su textura
-	Texture* _texture;
-	//puntero a la clase Game
-	Game* _myGame;
-	//Nº de vidas
-	uint _nLifes;
-	//Tamaño del alien
-	uint _w = 0, _h = 0;
-	//Vector de movimiento
+	//Cannon's direction
 	Vector2D<float> _direction;
-	//Velocidad de la nave
-	float _velocity = 1;
-	//Rect
-	SDL_Rect* _myRect = new SDL_Rect;
+	//Cannon's position
+	Point2D<float> _pos;
+	//Cannon's lifes
+	uint _nLifes;
+	//Pointer to texture
+	Texture* _texture;
+	//Pointer to Game class
+	Game* _myGame;
+	//Cannon's size
+	uint _w = 0, _h = 0;
+	//Destination and size of the cannon
+	SDL_Rect* _myRect = nullptr;
+	//Cannon's speed
+	float _velocity = 0;
+	//Cannon's shoot cooldown
+	float _shootCD = 0;
 
 public: 
-	Cannon() : _pos(0, 0), _texture(nullptr), _w(0), _h(0), _myGame(nullptr), _nLifes(0), _shootCD(0), _velocity(0) {};
-	Cannon(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, uint nLifes, float shootCD, float velocity)
-		: _pos(pos), _texture(texture), _w(w), _h(h),_myGame(game), _nLifes(nLifes), _shootCD(shootCD), _velocity(velocity) {};
-	~Cannon() { _texture = nullptr; _myGame = nullptr; delete _myRect; _myRect = nullptr; };
+	Cannon(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, uint nLifes, float shootCD,
+		float velocity);
+	~Cannon();
 
-	Vector2D<float> getPosition() const { return _pos;};
+	//Game states
 	void render() const;
 	bool update();
-	void Hit();
 	void handleEvents(Vector2D<float> direction);
+
+	//Specific actions
+	void hit();
 	bool canShoot() const;
+	
+	//Setters
 	void setCoolDown(float coolDown) { _shootCD = coolDown; };
+
+	//Getters
+	Vector2D<float> getPosition() const { return _pos; };
 	SDL_Rect* getRect() const { return _myRect; };
 };
 

@@ -1,34 +1,39 @@
-#pragma once
+#ifndef BUNKER_H_
+#define BUNKER_H_
 
 #include "Vector2D.h"
 #include "Texture.h"
 #include "checkML.h"
 
-using namespace std;
 using uint = unsigned int;
 
 class Bunker
 {
 private:
+	//Bunker's position
 	Point2D<float> _pos;
-	int _nLifes; //Tiene 4 vidas, cada golpe pierde 1 vida
+	//Bunker's lifes
+	int _nLifes = 0;
+	//Pointer to texture
 	Texture* _texture;
-	//Ancho y alto del bunker
+	//Bunker's size
 	uint _w = 0, _h = 0;
-	//Rect 
-	SDL_Rect* _myRect = new SDL_Rect;
-
+	//Destination and size of the bunker
+	SDL_Rect* _myRect = nullptr;
 
 public:
-	//Constructores
-	Bunker() : _pos(0,0), _texture(nullptr), _w(0), _h(0), _nLifes(0){};
-	Bunker(Point2D<float> pos, Texture* texture, uint w, uint h, uint nLifes)
-		: _pos(pos), _texture(texture), _w(w), _h(h), _nLifes(nLifes){};
+	Bunker(Point2D<float> pos, Texture* texture, uint w, uint h, uint nLifes);
 	~Bunker() { delete _myRect; _myRect = nullptr; _texture = nullptr; };
 
+	//Game states
 	void render() const;
 	bool update();
+
+	//Specific actions
 	void hit();
+
+	//Getters
 	SDL_Rect* getRect() const { return _myRect; };
 };
 
+#endif

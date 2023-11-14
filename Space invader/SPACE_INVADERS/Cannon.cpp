@@ -1,4 +1,19 @@
 #include "Cannon.h"
+#include "Game.h"
+
+Cannon:: Cannon(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, uint nLifes, float shootCD,
+	float velocity) : _pos(pos), _texture(texture), _w(w), _h(h), _myGame(game), _nLifes(nLifes), 
+	_shootCD(shootCD), _velocity(velocity) {
+
+	_myRect = new SDL_Rect;
+};
+
+Cannon:: ~Cannon() { 
+	_texture = nullptr; 
+	_myGame = nullptr; 
+	delete _myRect; 
+	_myRect = nullptr; 
+};
 
 void Cannon::render() const
 {
@@ -10,12 +25,15 @@ void Cannon::render() const
 	_texture->render(*_myRect);
 }
 
-bool Cannon::update() 
-{
-	if (!(_pos.getX() <= 0 && _direction.getX() <=0 + _w) && !(_pos.getX() >= 800- _w && _direction.getX() >= 0))
+bool Cannon::update() {
+
+	//Cannon tries to move out of the lateral limits
+	if (!(_pos.getX() <= 0 && _direction.getX() <=0 + _w) 
+		&& !(_pos.getX() >= _myGame->getWidth() - _w && _direction.getX() >= 0))
 	{
 			_pos = _pos + _direction;
 	}
+	//Shoot on cooldown
 	if (_shootCD >= 0)
 	{
 		_shootCD--;
@@ -23,18 +41,15 @@ bool Cannon::update()
 	return _nLifes > 0;
 }
 
-bool Cannon::canShoot() const
-{
-	return _shootCD <= 0;
+void Cannon::handleEvents(Vector2D<float> direction) {
+	_direction = direction * _velocity;
 }
 
-void Cannon::Hit() 
-{
+void Cannon::hit() {
 	_nLifes--;
 	std::cout << _nLifes;
 }
 
-void Cannon :: handleEvents(Vector2D<float> direction) 
-{
-	_direction = direction * _velocity;
+bool Cannon::canShoot() const {
+	return _shootCD <= 0;
 }

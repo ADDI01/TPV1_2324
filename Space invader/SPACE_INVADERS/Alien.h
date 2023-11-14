@@ -9,42 +9,49 @@ using uint = unsigned int;
 
 class Game;
 
+//Shooter alien cooldowns
+const float MIN_CD = 20, INT_CD = 60, MAX_CD = 100;
+
 class Alien
 {
 private:
-	//Direccion de los aliens
+	//Alien's direction
 	static Vector2D<float> _dir;
-	//posición de alienígena
+	//Alien's position
 	Point2D<float> _pos;
-	// Tipo del alienígena, el enunciado dice que sea un int
-	uint _subType;
-	//Bool que controla en que parte de la animacion esta
-	bool _idle;
-	//puntero a su Textura
-	Texture* _texture;
-	//puntero a clase Game
-	Game * _myGame;
-	//Tamaño del alien
+	//Alien's type
+	uint _subType = -1;
+	//Alien's current frame to render. False 1st one, True 2nd one
+	bool _idle = false;
+	//Pointer to texture
+	Texture* _texture = nullptr;
+	//Pointer to Game class
+	Game * _myGame = nullptr;
+	//Alien's size
 	uint _w = 0, _h = 0;
-	//velocidad de los alienígenas
-	float _velocity;
-	//variable Rect para las colisiones
-	SDL_Rect* _myRect = new SDL_Rect;
-	//Cool down de disparo
-	float _shootCD;
+	//Alien's speed
+	float _velocity = 0.0f;
+	//Destination and size of the alien
+	SDL_Rect* _myRect = nullptr;
+	//Shoot cooldown
+	float _shootCD = 0.0f;
 
-	public:
-		Alien() : _pos(0,0), _subType(-1), _texture(nullptr), _myGame(nullptr), _w(0), _h(0), _velocity(0) {};
-		Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, uint type, bool idle);
-		~Alien() { _texture = nullptr; _myGame = nullptr; delete _myRect; _myRect = nullptr; };
+public:
+	Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, uint type, bool idle);
+	~Alien();
 
-		void bajaColumna();
-		void render() const;
-		bool update();
-		void hit();
-		SDL_Rect* getRect() const { return _myRect; };
-		uint getSubType() const { return _subType; };
-		Vector2D<float> getPosition() const { return _pos; };
+	//Game states
+	void render() const;
+	bool update();
+		
+	//Specific actions
+	void hit();
+	void bajaColumna();
+		
+	//Getters
+	SDL_Rect* getRect() const { return _myRect; };
+	uint getSubtype() const { return _subType; };
+	Vector2D<float> getPosition() const { return _pos; };
 };
 
 #endif
