@@ -29,19 +29,19 @@ void Laser::render() const {
 }
 
 bool Laser::update() {
+	//Checks if the laser has hit
 	if (!_hit) 
-	{//llamamos a la comprobación de colisión
-		if (_father)
+	{
+		if (_father == PLAYER) //Laser from player
 		{
-			//movimiento de la bala del jugador
-			_pos = _pos - _velocity;
+			_pos = _pos - _velocity; //Laser moves
 		}
-		else
+		else //Laser from alien
 		{
-			//movimiento de la bala de los alienígenas
-			_pos = _pos + _velocity;
+			_pos = _pos + _velocity; //Laser moves
 		}
 	}
+
 	return !_hit;
 }
 
