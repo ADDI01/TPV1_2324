@@ -26,8 +26,7 @@ Game::~Game() {
 	SDL_Quit();
 }
 
-void Game::init()
-{
+void Game::init() {
 	// We first initialize SDL
 	// Inicializar SDL, crear ventana y renderizador
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -199,8 +198,7 @@ void Game::update() {
 	}
 }
 
-void Game::handleEvents()
-{
+void Game::handleEvents() {
 	SDL_Event event;
 	while (SDL_PollEvent(&event) && !exit) {
 		switch (event.type)
@@ -223,7 +221,7 @@ void Game::handleEvents()
 				if (cannon->canShoot())
 				{
 					Laser* laseraux = new Laser(cannon->getPosition() - Vector2D<float>(0, tGameObjsProps.cannonH), tGameObjsProps.laserVelocity,
-						true, this, renderer);
+						PLAYER, this, renderer);
 					tGameObjsProps.lasers.push_back(laseraux);
 					cannon->setCoolDown(tGameObjsProps.cannonshootCD);
 				}
@@ -293,15 +291,19 @@ void Game::onHitPlayerLasertoAlien() {
 
 	for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
 	{
-		for (int j = 0; j < tGameObjsProps.aliens.size(); j++)
+		if (tGameObjsProps.lasers[i]->getFather() == PLAYER) 
 		{
-			if (tGameObjsProps.lasers[i]->getFather() == PLAYER &&
-				SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), tGameObjsProps.aliens[j]->getRect()))
+			//Collisions Player's laser - Alien
+			for (int j = 0; j < tGameObjsProps.aliens.size(); j++)
 			{
-				tGameObjsProps.lasers[i]->hit();
-				tGameObjsProps.aliens[j]->hit();
+				if (SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), tGameObjsProps.aliens[j]->getRect()))
+				{
+					tGameObjsProps.lasers[i]->hit();
+					tGameObjsProps.aliens[j]->hit();
+				}
 			}
 		}
+		
 	}
 }
 
@@ -311,7 +313,6 @@ void Game::onHitAlienLaser() {
 	{
 		if (tGameObjsProps.lasers[i]->getFather() == ALIEN) 
 		{
-
 			//Collisions Alien's laser - Bunker
 			for (int j = 0; j < tGameObjsProps.bunkers.size(); j++)
 			{
@@ -325,18 +326,16 @@ void Game::onHitAlienLaser() {
 			//Collisions Alien's laser - Cannon
 			if (SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), cannon->getRect()))
 			{
-				cannon->Hit();
+				cannon->hit();
 				tGameObjsProps.lasers[i]->hit();
 			}
 		}
-		
 	}
 }
 void Game::onHitAlien() {
 
 	for (int i = 0; i < tGameObjsProps.aliens.size(); i++)
 	{
-
 		//Collisions Alien - Bunker
 		for (int j = 0; j < tGameObjsProps.bunkers.size(); j++)
 		{
@@ -350,26 +349,23 @@ void Game::onHitAlien() {
 		//Collisions Alien - Cannon
 		if (SDL_HasIntersection(tGameObjsProps.aliens[i]->getRect(), cannon->getRect()))
 		{
-			cannon->Hit();
+			cannon->hit();
 			tGameObjsProps.aliens[i]->hit();
 		}
 	}
 }
 
-int Game::getRandomRange(int min, int max) 
-{
+int Game::getRandomRange(int min, int max) {
 	static std::mt19937_64 randomGenerator(std::random_device{}());
 	return uniform_int_distribution<int>(min, max)(randomGenerator);
 }
 
-void Game::cannotMove() 
-{
+void Game::cannotMove() {
 	tGameObjsProps.alienCannotMove = true;
 }
 
-void Game::fireLaser(Alien* alien) 
-{
-	Laser* laseraux = new Laser(alien->getPosition() + Vector2D<float>(0, tGameObjsProps.alienH/3), tGameObjsProps.laserVelocity,
-		false, this, renderer);
+void Game::fireLaser(Alien* alien) {
+	Laser* laseraux = new Laser(alien->getPosition() + Vector2D<float>(0, tGameObjsProps.alienH/3), 
+		tGameObjsProps.laserVelocity, ALIEN, this, renderer);
 	tGameObjsProps.lasers.push_back(laseraux);
 }

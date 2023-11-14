@@ -7,36 +7,45 @@
 
 class Game;
 
-enum Father { ALIEN, PLAYER };
+enum Father { NONE, ALIEN, PLAYER, };
 
 class Laser
 {
 private:
-	//instancia de la clase Game
-	Game* _myGame;
-	// renderer de game
-	SDL_Renderer* _myrenderer;
-	//posición de la bala
+	//Laser's direction
+	static Vector2D<float> _dir;
+	//Laser's position
 	Point2D<float> _pos;
+	//Collision's boolean
+	bool _hit = false;
+	//Pointer to Game class
+	Game* _myGame = nullptr;
+	//Laser's size
+	uint _w = 0, _h = 0;
+	//Game's renderer
+	SDL_Renderer* _myRenderer = nullptr;
+	//Destination and size of the laser
+	SDL_Rect* _myRect = nullptr;
 	//velocidad de la bala
 	Vector2D<float> _velocity;
-	// Booleano que define si la bala es del player o del enemigo, true = player, false = enemigo
-	bool _fatherPlayer = false;
-	//rect del laser
-	SDL_Rect* _myRect = new SDL_Rect;
-	// detecta colisiones
-	bool _hit = false;
+	//Defines the father. 
+	uint _father = NONE;
 
 public:
-	Laser() : _pos(0, 0), _velocity(0, 0), _fatherPlayer(false), _myGame(nullptr), _myrenderer(nullptr){};
-	Laser(Point2D<float> pos, Vector2D<float> velocity, bool soyDelPlayer, Game* game, SDL_Renderer* myRender): 
-		_pos(pos), _velocity(velocity), _fatherPlayer(soyDelPlayer), _myGame(game), _myrenderer(myRender){};
-	~Laser() { delete _myRect; };
+	Laser(Point2D<float> pos, Vector2D<float> velocity, uint father, Game* game, SDL_Renderer* myRenderer,
+		uint w = 5, uint h = 5);
+	~Laser();
+
+	//Game states
 	void render() const;
 	bool update();
+
+	//Specific actions
+	void hit();
+
+	//Getters
+	bool getFather() const { return _father; };
 	SDL_Rect* getRect() const { return _myRect; };
-	void hit() { _hit = true; };
-	bool getFather() const { return _fatherPlayer; };
 };
 
 #endif
