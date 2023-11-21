@@ -6,7 +6,7 @@ class Ufo : public SceneObject
 private:
 	enum ufoState {VISIBLE, OCULTO, DESTRUIDO};
 	ufoState _actualState;
-	float _occulTime = 0.0f; // Sustituir por el rangom de game
+	float _occulTime;
 	std::pair<int, int> minmaxOccultTime;
 
 public:

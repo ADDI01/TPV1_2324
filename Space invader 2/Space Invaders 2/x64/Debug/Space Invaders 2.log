@@ -1,6 +1,18 @@
-﻿  Game.cpp
-  SceneObject.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\SceneObject.h(13,19): error C2061: error de sintaxis: identificador 'SDL_Rect'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\SceneObject.h(14,1): error C2143: error de sintaxis: falta ';' delante de '}'
+﻿  Alien.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\checkML.h(24,30): error C2011: 'crt_leak_setflag_dummy': nueva definición del tipo 'class'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\checkML.h(24,7): message : vea la declaración de 'crt_leak_setflag_dummy'
+  Game.cpp
+  Mothership.cpp
+  ShooterAlien.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\checkML.h(24,30): error C2011: 'crt_leak_setflag_dummy': nueva definición del tipo 'class'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\checkML.h(24,7): message : vea la declaración de 'crt_leak_setflag_dummy'
+  Source.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Source.cpp(16,8): error C2039: "run": no es un miembro de "Game"
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(3,7): message : vea la declaración de 'Game'
   Texture.cpp
+  Ufo.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\checkML.h(24,30): error C2011: 'crt_leak_setflag_dummy': nueva definición del tipo 'class'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\checkML.h(24,7): message : vea la declaración de 'crt_leak_setflag_dummy'
   Generando código...

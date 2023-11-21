@@ -1,2 +1,9 @@
-﻿  Source.cpp
-  P1.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\x64\Debug\P1.exe
+﻿  Alquiler.cpp
+  Coche.cpp
+  Date.cpp
+  ListaAlquileres.cpp
+  ListaCoches.cpp
+  Source.cpp
+  Generando código...
+  LINK : no se encontró C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Coche\x64\Debug\P1.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  P1.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Coche\x64\Debug\P1.exe

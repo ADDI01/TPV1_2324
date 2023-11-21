@@ -29,6 +29,6 @@ class crt_leak_setflag_dummy {
 	};
 	static constructor ctor;
 };
-inline crt_leak_setflag_dummy::constructor crt_leak_setflag_dummy::ctor;
+//inline crt_leak_setflag_dummy::constructor crt_leak_setflag_dummy::ctor;
 
 #endif

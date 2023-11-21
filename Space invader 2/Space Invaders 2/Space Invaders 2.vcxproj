@@ -131,8 +131,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\checkML.h" />
     <ClInclude Include="Alien.h" />
+    <ClInclude Include="checkML.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Mothership.h" />
@@ -147,6 +147,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Mothership.cpp" />
     <ClCompile Include="ShooterAlien.cpp" />
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Ufo.cpp" />
   </ItemGroup>
