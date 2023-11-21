@@ -132,15 +132,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\checkML.h" />
+    <ClInclude Include="Alien.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Mothership.h" />
+    <ClInclude Include="ShooterAlien.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Ufo.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="SceneObject.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Alien.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Mothership.cpp" />
+    <ClCompile Include="ShooterAlien.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Ufo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

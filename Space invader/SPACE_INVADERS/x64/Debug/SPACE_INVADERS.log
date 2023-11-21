@@ -1,1 +1,105 @@
-﻿
+﻿  Alien.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(8,45): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(8,37): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(8,36): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(20,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(21,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(68,47): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(68,39): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(68,38): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(90,35): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Bunker.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Bunker.cpp(6,11): error C2084: la función 'Bunker::~Bunker(void)' ya tiene un cuerpo
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Bunker.h(26,3): message : vea la definición anterior de '{dtor}'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Bunker.cpp(13,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Bunker.cpp(14,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Cannon.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Cannon.cpp(20,27): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Cannon.cpp(21,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Game.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(78,57): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(78,36): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(223,91): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(294,48): warning C4806: '==': operación no segura: ningún valor del tipo 'bool' promovido al tipo 'Father' puede igualar la constante proporcionada
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(368,93): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Laser.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.h(24,7): error C3646: '_w': especificador de invalidación desconocido
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.h(24,10): error C2059: error de sintaxis: '='
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.h(24,21): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.h(32,7): error C3646: '_father': especificador de invalidación desconocido
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.h(32,15): error C2059: error de sintaxis: '='
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.h(32,21): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.h(35,54): error C2061: error de sintaxis: identificador 'uint'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.h(47,34): error C2065: '_father': identificador no declarado
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(4,9): error C2511: 'Laser::Laser(Vector2D<float>,Vector2D<float>,uint,Game *,SDL_Renderer *,uint,uint)': la función miembro sobrecargada no se ha encontrado en 'Laser'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.h(12,7): message : vea la declaración de 'Laser'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(6,104): error C2550: 'Laser::{ctor}': las listas de inicializadores de constructor solo se permiten en las definiciones de constructor
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(8,2): error C2597: referencia no válida a miembro no static 'Laser::_myRect'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.h(28,12): message : vea la declaración de 'Laser::_myRect'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(9,16): error C2027: uso del tipo 'SDL_Renderer' sin definir
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SDL2\include\SDL_render.h(141,8): message : vea la declaración de 'SDL_Renderer'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(15,2): warning C4150: eliminación de puntero a tipo 'SDL_Renderer' incompleto; no se ha llamado a un destructor
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SDL2\include\SDL_render.h(141,8): message : vea la declaración de 'SDL_Renderer'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(22,25): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(23,25): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(35,7): error C2065: '_father': identificador no declarado
+  Source.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+  Star.cpp
+  Texture.cpp
+  Generando código...
