@@ -23,7 +23,7 @@ private:
 
 public:
 	Bunker(Point2D<float> pos, Texture* texture, uint w, uint h, uint nLifes);
-	~Bunker() { delete _myRect; _myRect = nullptr; _texture = nullptr; };
+	~Bunker();
 
 	//Game states
 	void render() const;

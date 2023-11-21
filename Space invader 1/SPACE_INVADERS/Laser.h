@@ -7,7 +7,7 @@
 
 class Game;
 
-enum Father { NONE, ALIEN, PLAYER, };
+using uint = unsigned int;
 
 class Laser
 {
@@ -29,11 +29,13 @@ private:
 	//velocidad de la bala
 	Vector2D<float> _velocity;
 	//Defines the father. 
-	uint _father = NONE;
+	uint _father;
+
+	enum Father { ALIEN, PLAYER };
 
 public:
 	Laser(Point2D<float> pos, Vector2D<float> velocity, uint father, Game* game, SDL_Renderer* myRenderer,
-		uint w = 5, uint h = 5);
+		uint w, uint h);
 	~Laser();
 
 	//Game states

@@ -1,7 +1,10 @@
 #include "Bunker.h"
 
 Bunker:: Bunker(Point2D<float> pos, Texture* texture, uint w, uint h, uint nLifes)
-	: _pos(pos), _texture(texture), _w(w), _h(h), _nLifes(nLifes) {};
+	: _pos(pos), _texture(texture), _w(w), _h(h), _nLifes(nLifes) {
+
+	_myRect = new SDL_Rect;
+};
 
 Bunker:: ~Bunker() { 
 	delete _myRect; 

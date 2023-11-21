@@ -14,11 +14,10 @@ Game::Game() {
 
 Game::~Game() {
 
-	for (Alien* a : tGameObjsProps.aliens) { delete a; a = nullptr; }
-	for (Bunker* b : tGameObjsProps.bunkers) { delete b; b = nullptr; }
-	for (Laser* l : tGameObjsProps.lasers) { delete l; l = nullptr; }
+	for (Alien* a : aliens) { delete a; a = nullptr; }
+	for (Bunker* b : bunkers) { delete b; b = nullptr; }
+	for (Laser* l : lasers) { delete l; l = nullptr; }
 	for (Texture* t : textures) { delete t; t = nullptr; }
-	//delete[] texturePath;
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	delete cannon;
@@ -64,7 +63,7 @@ bool Game::textureLoading() {
 }
 
 void Game::loadFromFile() {
-	ifstream file("../images/mapas/original.txt");
+	ifstream file("../images/mapas/trinchera.txt");
 	uint latestRow = -1;
 	Alien* alienaux = nullptr;
 	Bunker* bunkeraux = nullptr;
@@ -94,7 +93,7 @@ void Game::loadFromFile() {
 			alienaux = new Alien(pos, textures[ALIENSMAPTEXTURE], tGameObjsProps.alienW, tGameObjsProps.alienH, this, tGameObjsProps.alienVelocity,
 				tGameObjsProps.subType, tGameObjsProps.idle);
 
-			tGameObjsProps.aliens.push_back(alienaux);
+			aliens.push_back(alienaux);
 
 			alienaux = nullptr;
 			break;
@@ -102,7 +101,7 @@ void Game::loadFromFile() {
 			bunkeraux = new Bunker(pos, textures[BUNKERSMAPTEXTURE], tGameObjsProps.bunkerW, tGameObjsProps.bunkerH,
 				tGameObjsProps.bunkerLifes);
 
-			tGameObjsProps.bunkers.push_back(bunkeraux);
+			bunkers.push_back(bunkeraux);
 
 			bunkeraux = nullptr;
 			break;
@@ -138,17 +137,17 @@ void Game::render() const {
 	SDL_RenderClear(renderer);
 	star->render();
 	cannon->render();
-	for (Bunker* e : tGameObjsProps.bunkers)
+	for (Bunker* e : bunkers)
 	{
 		e->render();
 	}
 
-	for (Alien* e : tGameObjsProps.aliens)
+	for (Alien* e : aliens)
 	{
 		e->render();
 	}
 
-	for (Laser* l : tGameObjsProps.lasers)
+	for (Laser* l : lasers)
 	{
 		l->render();
 	}
@@ -158,14 +157,14 @@ void Game::render() const {
 
 void Game::update() {
 
+	//Collisions Alien - Bunker and Alien - Cannon
+	onHitAlien();
+
 	//Collisions Player's laser - Alien
 	onHitPlayerLasertoAlien();
 
 	//Collisions Alien's laser - Bunker and Alien's laser - Cannon
 	onHitAlienLaser();
-
-	//Collisions Alien - Bunker and Alien - Cannon
-	onHitAlien();
 
 	//Alien's update. Delete of dead aliens if update is false
 	aliensUpdate();
@@ -179,7 +178,7 @@ void Game::update() {
 	//Change alien's direction when they hit the side of the screen
 	if (tGameObjsProps.alienCannotMove)
 	{
-		for (Alien* e : tGameObjsProps.aliens)
+		for (Alien* e : aliens)
 		{
 			e->bajaColumna();
 		}
@@ -192,7 +191,7 @@ void Game::update() {
 	{
 		gameOver = true;
 	}
-	if (tGameObjsProps.aliens.empty())
+	if (aliens.empty())
 	{
 		win = true;
 	}
@@ -220,9 +219,9 @@ void Game::handleEvents() {
 			{
 				if (cannon->canShoot())
 				{
-					Laser* laseraux = new Laser(cannon->getPosition() - Vector2D<float>(0, tGameObjsProps.cannonH), tGameObjsProps.laserVelocity,
-						PLAYER, this, renderer);
-					tGameObjsProps.lasers.push_back(laseraux);
+ 					Laser* laseraux = new Laser(cannon->getPosition() - Vector2D<float>(0, tGameObjsProps.cannonH), 
+						tGameObjsProps.laserVelocity, 1, this, renderer, tGameObjsProps.laserW, tGameObjsProps.laserH);
+					lasers.push_back(laseraux);
 					cannon->setCoolDown(tGameObjsProps.cannonshootCD);
 				}
 			}
@@ -250,56 +249,56 @@ void Game::lose() {
 
 void Game::aliensUpdate() {
 
-	for (int i = 0; i < tGameObjsProps.aliens.size(); i++)
+	for (int i = 0; i < aliens.size(); i++)
 	{
-		if (!tGameObjsProps.aliens[i]->update())
+		if (!aliens[i]->update())
 		{
-			delete tGameObjsProps.aliens[i];
-			tGameObjsProps.aliens[i] = nullptr;
-			tGameObjsProps.aliens.erase(tGameObjsProps.aliens.begin() + i);
+			delete aliens[i];
+			aliens[i] = nullptr;
+			aliens.erase(aliens.begin() + i);
 		}
 	}
 }
 
 void Game::lasersUpdate() {
 
-	for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
+	for (int i = 0; i < lasers.size(); i++)
 	{
-		if (!tGameObjsProps.lasers[i]->update())
+		if (!lasers[i]->update())
 		{
-			delete tGameObjsProps.lasers[i];
-			tGameObjsProps.lasers[i] = nullptr;
-			tGameObjsProps.lasers.erase(tGameObjsProps.lasers.begin() + i);
+			delete lasers[i];
+			lasers[i] = nullptr;
+			lasers.erase(lasers.begin() + i);
 		}
 	}
 }
 
 void Game::bunkersUpdate() {
 
-	for (int i = 0; i < tGameObjsProps.bunkers.size(); i++)
+	for (int i = 0; i < bunkers.size(); i++)
 	{
-		if (!tGameObjsProps.bunkers[i]->update())
+		if (!bunkers[i]->update())
 		{
-			delete tGameObjsProps.bunkers[i];
-			tGameObjsProps.bunkers[i] = nullptr;
-			tGameObjsProps.bunkers.erase(tGameObjsProps.bunkers.begin() + i);
+			delete bunkers[i];
+			bunkers[i] = nullptr;
+			bunkers.erase(bunkers.begin() + i);
 		}
 	}
 }
 
 void Game::onHitPlayerLasertoAlien() {
 
-	for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
+	for (int i = 0; i < lasers.size(); i++)
 	{
-		if (tGameObjsProps.lasers[i]->getFather() == PLAYER) 
+		if (lasers[i]->getFather() == 1) 
 		{
 			//Collisions Player's laser - Alien
-			for (int j = 0; j < tGameObjsProps.aliens.size(); j++)
+			for (int j = 0; j < aliens.size(); j++)
 			{
-				if (SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), tGameObjsProps.aliens[j]->getRect()))
+				if (SDL_HasIntersection(lasers[i]->getRect(), aliens[j]->getRect()))
 				{
-					tGameObjsProps.lasers[i]->hit();
-					tGameObjsProps.aliens[j]->hit();
+					lasers[i]->hit();
+					aliens[j]->hit();
 				}
 			}
 		}
@@ -309,48 +308,50 @@ void Game::onHitPlayerLasertoAlien() {
 
 void Game::onHitAlienLaser() {
 
-	for (int i = 0; i < tGameObjsProps.lasers.size(); i++)
+	for (int i = 0; i < lasers.size(); i++)
 	{
-		if (tGameObjsProps.lasers[i]->getFather() == ALIEN) 
+		if (lasers[i]->getFather() == 0) 
 		{
 			//Collisions Alien's laser - Bunker
-			for (int j = 0; j < tGameObjsProps.bunkers.size(); j++)
+			for (int j = 0; j < bunkers.size(); j++)
 			{
-				if (SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), tGameObjsProps.bunkers[j]->getRect()))
+				if (SDL_HasIntersection(lasers[i]->getRect(), bunkers[j]->getRect()))
 				{
-					tGameObjsProps.lasers[i]->hit();
-					tGameObjsProps.bunkers[j]->hit();
+					lasers[i]->hit();
+					bunkers[j]->hit();
 				}
 			}
 
 			//Collisions Alien's laser - Cannon
-			if (SDL_HasIntersection(tGameObjsProps.lasers[i]->getRect(), cannon->getRect()))
+			if (SDL_HasIntersection(lasers[i]->getRect(), cannon->getRect()))
 			{
 				cannon->hit();
-				tGameObjsProps.lasers[i]->hit();
+				lasers[i]->hit();
 			}
 		}
 	}
 }
 void Game::onHitAlien() {
+	bool hasHit = false;
 
-	for (int i = 0; i < tGameObjsProps.aliens.size(); i++)
+	for (int i = 0; i < aliens.size(); i++)
 	{
 		//Collisions Alien - Bunker
-		for (int j = 0; j < tGameObjsProps.bunkers.size(); j++)
+		for (int j = 0; j < bunkers.size(); j++)
 		{
-			if (SDL_HasIntersection(tGameObjsProps.aliens[i]->getRect(), tGameObjsProps.bunkers[j]->getRect()))
+			if (SDL_HasIntersection(aliens[i]->getRect(), bunkers[j]->getRect()))
 			{
-				tGameObjsProps.aliens[i]->hit();
-				tGameObjsProps.bunkers[j]->hit();
+				aliens[i]->hit();
+				bunkers[j]->hit();
+				hasHit = true;
 			}
 		}
-
+		
 		//Collisions Alien - Cannon
-		if (SDL_HasIntersection(tGameObjsProps.aliens[i]->getRect(), cannon->getRect()))
+		if (!hasHit && SDL_HasIntersection(aliens[i]->getRect(), cannon->getRect()))
 		{
 			cannon->hit();
-			tGameObjsProps.aliens[i]->hit();
+			aliens[i]->hit();
 		}
 	}
 }
@@ -366,6 +367,6 @@ void Game::cannotMove() {
 
 void Game::fireLaser(Alien* alien) {
 	Laser* laseraux = new Laser(alien->getPosition() + Vector2D<float>(0, tGameObjsProps.alienH/3), 
-		tGameObjsProps.laserVelocity, ALIEN, this, renderer);
-	tGameObjsProps.lasers.push_back(laseraux);
+		tGameObjsProps.laserVelocity, 0, this, renderer, tGameObjsProps.laserW, tGameObjsProps.laserH);
+	lasers.push_back(laseraux);
 }

@@ -28,7 +28,7 @@ void Cannon::render() const
 bool Cannon::update() {
 
 	//Cannon tries to move out of the lateral limits
-	if (!(_pos.getX() <= 0 && _direction.getX() <=0 + _w) 
+	if (!(_pos.getX() <= 0 + _w && _direction.getX() <=0) 
 		&& !(_pos.getX() >= _myGame->getWidth() - _w && _direction.getX() >= 0))
 	{
 			_pos = _pos + _direction;

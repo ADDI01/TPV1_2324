@@ -15,12 +15,10 @@ const float MIN_CD = 20, INT_CD = 60, MAX_CD = 100;
 class Alien
 {
 private:
-	//Alien's direction
-	static Vector2D<float> _dir;
 	//Alien's position
 	Point2D<float> _pos;
 	//Alien's type
-	uint _subType = -1;
+	int _subType = -1;
 	//Alien's current frame to render. False 1st one, True 2nd one
 	bool _idle = false;
 	//Pointer to texture
@@ -37,7 +35,7 @@ private:
 	float _shootCD = 0.0f;
 
 public:
-	Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, uint type, bool idle);
+	Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, int type, bool idle);
 	~Alien();
 
 	//Game states

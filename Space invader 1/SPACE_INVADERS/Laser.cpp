@@ -2,17 +2,15 @@
 #include "Game.h"
 
 Laser:: Laser(Point2D<float> pos, Vector2D<float> velocity, uint father, Game* game, SDL_Renderer* myRenderer,
-	uint w = 5, uint h = 10) :
-	_pos(pos), _velocity(velocity), _father(father), _myGame(game), _myRenderer(myRenderer), _w(w), _h(h) {
+	uint w, uint h) : _pos(pos), _velocity(velocity), _father(father), _myGame(game), 
+	_myRenderer(myRenderer), _w(w), _h(h) {
 
 	_myRect = new SDL_Rect;
-	_myRenderer = new SDL_Renderer;
 };
 
 Laser:: ~Laser() {
 	delete _myRect;
 	_myRect = nullptr;
-	delete _myRenderer;
 	_myRenderer = nullptr;
 };
 

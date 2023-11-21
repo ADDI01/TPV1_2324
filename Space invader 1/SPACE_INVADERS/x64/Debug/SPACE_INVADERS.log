@@ -1,0 +1,85 @@
+﻿  Alien.cpp
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(8,45): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(8,37): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(8,36): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(20,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(21,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(67,47): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(67,39): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(67,38): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Alien.cpp(89,35): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Bunker.cpp
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Bunker.cpp(16,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Bunker.cpp(17,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Cannon.cpp
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Cannon.cpp(20,27): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Cannon.cpp(21,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Game.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(77,57): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(77,36): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(222,92): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Game.cpp(369,93): warning C4244: 'argumento': conversión de 'uint' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Laser.cpp
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(20,25): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\SPACE_INVADERS\Laser.cpp(21,25): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Source.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+  Star.cpp
+  Texture.cpp
+  Generando código...
+  SPACE_INVADERS.vcxproj -> C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader\bin\SPACE_INVADERSDebug.exe

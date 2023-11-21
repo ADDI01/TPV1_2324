@@ -1,7 +1,7 @@
 #include "Alien.h"
 #include "Game.h"
 
-Alien:: Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, uint type, bool idle)
+Alien:: Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, int type, bool idle)
 	: _pos(pos), _texture(texture), _myGame(game), _velocity(velocity), _w(w), _h(h), _subType(type), _idle(idle) {
 
 	_myRect = new SDL_Rect;
@@ -37,7 +37,7 @@ void Alien::render() const {
 		if (!_idle) _texture->renderFrame(*_myRect, 2, 0, SDL_FLIP_NONE);
 		else _texture->renderFrame(*_myRect, 2, 1, SDL_FLIP_NONE);
 		break;
-	case - 1:
+	case -1:
 		break;
 	default:
 		//When non expected alien comes
@@ -53,7 +53,6 @@ bool Alien::update() {
 	{
 		ret = false;
 	}
-
 	else
 	{
 		_pos = _pos + (_myGame->getDirection() * _velocity); //Alien moves
@@ -74,7 +73,7 @@ bool Alien::update() {
 		}
 		_idle = !_idle;
 	}
-	if (_pos.getY() >= _myGame->getHeight() + _h) //If aliens reach the bottom, the game ends
+	if (_pos.getY() >= _myGame->getHeight() - _h) //If aliens reach the bottom, the game ends
 	{
 		_myGame->lose();
 	}
