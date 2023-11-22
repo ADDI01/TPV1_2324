@@ -13,7 +13,7 @@ void initGame()
 	Game game;
 
 	try {
-		game.run();
+		//game.run();
 	}
 	catch (const exception& e) {
 		cout << e.what() << endl;
