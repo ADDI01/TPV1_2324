@@ -63,6 +63,9 @@ bool Game::textureLoading() {
 	//dataTextures[STARTEXTURE]->dimensiones = pair<uint, uint>(1, 1);
 	dataTextures[STARTEXTURE] = new TextureData("../images/stars.png", pair<uint, uint>(1, 1));
 
+	//Ufo's texture
+	//dataTextures[UFOTEXTURE] = new TextureData()
+
 	//Now, we create the textures
 	for (uint i = 0; i < NUM_TEXTURES; i++) {
 		if (i == ALIENSTEXTURE)

@@ -5,7 +5,8 @@
 #include "Alien.h"
 #include "Bunker.h"
 #include "Cannon.h"
-#include<string>
+#include <string>
+#include <list>
 
 using uint = unsigned int;
 using namespace std;
@@ -22,14 +23,10 @@ private:
 	//Punteros a ventana y render
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
-
-	Alien* alien;
-	Mothership* mother;
-	Bunker* bunker;
-	Cannon* cannon;
+	list<GameObject*> objectsList;
 
 	//Texturas
-	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE };
+	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };
 	struct TextureData {
 		const char* texturePath; // Path de la textura
 		pair<uint, uint> dimensiones; //n� de filas y columnas
