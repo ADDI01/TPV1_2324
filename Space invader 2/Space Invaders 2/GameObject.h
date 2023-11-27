@@ -7,9 +7,9 @@ class GameObject
 {
 protected:
 	//Punntero al juego
-	Game* myGame;
+	Game* _game;
 
-	GameObject(Game* game) : myGame(game) {};
+	GameObject(Game* game) : _game(game) {};
 	//virtual ~GameObject();
 
 	//métodos virtuales puros para renderizar, actualizar y guardar los objetos

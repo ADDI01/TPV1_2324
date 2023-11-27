@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include "Texture.h"
 #include "Alien.h"
+#include "Bunker.h"
 #include<string>
 
 using uint = unsigned int;
@@ -22,6 +23,7 @@ private:
 	SDL_Renderer* renderer = nullptr;
 
 	Alien* alien;
+	Bunker* bunker;
 
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE };
