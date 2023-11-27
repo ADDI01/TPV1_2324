@@ -137,6 +137,7 @@
     <ClInclude Include="checkML.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Laser.h" />
     <ClInclude Include="Mothership.h" />
     <ClInclude Include="ShooterAlien.h" />
     <ClInclude Include="Texture.h" />
@@ -149,6 +150,7 @@
     <ClCompile Include="Bunker.cpp" />
     <ClCompile Include="Cannon.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Laser.cpp" />
     <ClCompile Include="Mothership.cpp" />
     <ClCompile Include="ShooterAlien.cpp" />
     <ClCompile Include="Source.cpp" />
