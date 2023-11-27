@@ -59,8 +59,8 @@ public:
 	bool update();
 
 	//Specific actions
-	void hit();
-	void bajaColumna();
+	bool hit(SDL_Rect AttackRect, int typeOfDamage);
+	//void bajaColumna();
 
 	//Getters
 	SDL_Rect* getRect() const { return _myRect; };
