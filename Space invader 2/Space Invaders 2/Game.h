@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include "Texture.h"
 #include "Alien.h"
+#include "Bunker.h"
 #include<string>
 
 using uint = unsigned int;
@@ -23,12 +24,13 @@ private:
 
 	Alien* alien;
 	Mothership* mother;
+	Bunker* bunker;
 
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE };
 	struct TextureData {
 		const char* texturePath; // Path de la textura
-		pair<uint, uint> dimensiones; //nº de filas y columnas
+		pair<uint, uint> dimensiones; //nï¿½ de filas y columnas
 		TextureData(const char* texturePath, pair<uint, uint> dimensiones): texturePath(texturePath), dimensiones(dimensiones){};
 	};
 	Texture* textures[NUM_TEXTURES];
