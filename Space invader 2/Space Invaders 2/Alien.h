@@ -1,5 +1,4 @@
-#ifndef ALIEN_H_
-#define ALIEN_H_
+#pragma once
 
 #include "Vector2D.h"
 #include "checkML.h"
@@ -35,29 +34,16 @@ private:
 	SDL_Rect* _myRect = nullptr;
 	//Shoot cooldown
 	float _shootCD = 0.0f;
-
-public:
-	Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother, float velocity, 
-		int type, bool idle);
-	~Alien();
-
-	//Game states
-	void render() const override;
-	bool update() override;
-	bool save() override { return false; };
-
-	//Specific actions
-	bool hit(SDL_Rect AttackRect, int typeOfDamage) override;
 	
 public:
-	Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother,
+	Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, /*Mothership* mother,*/
 		float velocity, int type, bool idle);
 	~Alien();
 
 	//Game states
 	void render() const override;
-	bool update();
-
+	bool update() override;
+	bool save() override{ return false; };
 	//Specific actions
 	bool hit(SDL_Rect AttackRect, int typeOfDamage);
 	//void bajaColumna();
@@ -67,8 +53,5 @@ public:
 	uint getSubtype() const { return _subType; };
 	Vector2D<float> getPosition() const { return _pos; };
 };
-
-#endif
-
 
 

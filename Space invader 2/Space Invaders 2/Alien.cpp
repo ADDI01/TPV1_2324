@@ -1,7 +1,7 @@
 #include "Alien.h"
 #include "Game.h"
 
-Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother, 
+Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, /*Mothership* mother,*/
 	float velocity, int type, bool idle): SceneObject(game,pos, size,1), _texture(texture), _velocity(velocity), 
 	_subType(type), _idle(idle) { 
 	_myRect = new SDL_Rect;
@@ -36,8 +36,6 @@ void Alien::render() const {
 	case 2:
 		if (!_idle) _texture->renderFrame(*_myRect, 2, 0, SDL_FLIP_NONE);
 		else _texture->renderFrame(*_myRect, 2, 1, SDL_FLIP_NONE);
-		break;
-	case -1:
 		break;
 	default:
 		//When non expected alien comes

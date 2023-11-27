@@ -5,7 +5,7 @@ Game::Game() {
 
 	init();
 	textureLoading();
-	alien = new Alien(Point2D<float>(50, 50), textures[ALIENSTEXTURE], 48, 32, this, 1, 1,false);
+	alien = new Alien(Point2D<float>(50, 50), textures[ALIENSTEXTURE],pair<uint, uint>( 48, 32), this, 1, 1,false);
 
 	//if (textureLoading())
 		//loadFromFile();
@@ -29,6 +29,11 @@ void Game::render() const
 	SDL_RenderClear(renderer);
 	alien->render();
 	SDL_RenderPresent(renderer);
+}
+
+void Game::update() 
+{
+	alien->update();
 }
 
 bool Game::textureLoading() {
@@ -89,7 +94,6 @@ void Game::run() {
 		//handleEvents();
 		update(); // Actualiza el estado de todos los objetos del juego
 		render(); // Renderiza todos los objetos del juego
-		alien->update();
 		frameTime = SDL_GetTicks() - startTime; // Tiempo de la iteraci?n
 		if (frameTime < FRAME_RATE)
 			SDL_Delay(FRAME_RATE - frameTime); // Suspende por el tiempo restante

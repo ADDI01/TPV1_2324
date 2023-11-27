@@ -1,5 +1,2 @@
 ﻿  Game.cpp
-  Source.cpp
-  Generando código...
-Game.obj : error LNK2019: símbolo externo "public: void __cdecl Game::update(void)" (?update@Game@@QEAAXXZ) sin resolver al que se hace referencia en la función "public: void __cdecl Game::run(void)" (?run@Game@@QEAAXXZ)
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\bin\Space Invaders 2Debug.exe : fatal error LNK1120: 1 externos sin resolver
+  Space Invaders 2.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\bin\Space Invaders 2Debug.exe
