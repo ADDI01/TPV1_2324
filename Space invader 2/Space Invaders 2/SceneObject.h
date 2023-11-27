@@ -18,6 +18,7 @@ protected:
 	int _life;
 	//Pointer to texture
 	Texture* _texture = nullptr;
+
 	//list<SceneObject>::iterator it;
 
 	SceneObject(Game* game,Texture* texture, Point2D<float> pos, std::pair <uint, uint> size, int life) : 

@@ -4,6 +4,7 @@
 #include "Texture.h"
 #include "Alien.h"
 #include "Bunker.h"
+#include "Cannon.h"
 #include<string>
 
 using uint = unsigned int;
@@ -25,6 +26,7 @@ private:
 	Alien* alien;
 	Mothership* mother;
 	Bunker* bunker;
+	Cannon* cannon;
 
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE };
@@ -35,7 +37,6 @@ private:
 	};
 	Texture* textures[NUM_TEXTURES];
 	TextureData* dataTextures[NUM_TEXTURES];
-	
 
 	//Condiciones partida
 	bool exit = false;

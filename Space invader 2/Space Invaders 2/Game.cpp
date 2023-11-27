@@ -7,8 +7,9 @@ Game::Game() {
 	textureLoading();
 
 	mother = new Mothership(this);
-	alien = new Alien(Point2D<float>(50, 50), textures[ALIENSTEXTURE],pair<uint, uint>( 48, 32), this,nullptr, 1, 1,false);
+	alien = new Alien(Point2D<float>(50, 50), textures[ALIENSTEXTURE],pair<uint, uint>( 48, 32), this,mother, 1, 1,false);
 	bunker = new Bunker(Point2D<float>(300, 300), textures[BUNKERSTEXTURE], pair<uint, uint>(90, 59), this, 4);
+	cannon = new Cannon(Point2D<float>(400, 400), textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, 3, 30, 1);
 	//if (textureLoading())
 		//loadFromFile();
 	//else throw "No se cargaron corretamente las texturas.";
@@ -31,6 +32,7 @@ void Game::render() const
 	SDL_RenderClear(renderer);
 	alien->render();
 	bunker->render();
+	cannon->render();
 	SDL_RenderPresent(renderer);
 }
 

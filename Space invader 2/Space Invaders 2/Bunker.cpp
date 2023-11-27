@@ -63,6 +63,6 @@ bool Bunker::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	
 }
 
-bool Bunker::save() {
+bool Bunker::save() const {
 	return true;
 }

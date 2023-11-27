@@ -20,7 +20,7 @@ public:
 
 	void render() const override {};
 	bool update() override { return false; };
-	bool save() override { return false; };
+	bool save() const override { return true; };
 
 	Vector2D<float> getDirection() const { return _movementDirection * _level; };
 	bool shouldMove() { return _canMove; }

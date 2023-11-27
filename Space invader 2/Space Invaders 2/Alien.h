@@ -41,7 +41,7 @@ public:
 	//Game states
 	void render() const override;
 	bool update() override;
-	bool save() override{ return false; };
+	bool save() const override{ return true; };
 
 	//Specific actions
 	bool hit(SDL_Rect AttackRect, int typeOfDamage);

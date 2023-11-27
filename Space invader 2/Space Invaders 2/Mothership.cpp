@@ -3,5 +3,5 @@
 
 void Mothership::haveLanded() 
 {
-	myGame->lose();
+	_game->lose();
 }
