@@ -5,7 +5,8 @@ Game::Game() {
 
 	init();
 	textureLoading();
-	alien = new Alien(Point2D<float>(50, 50), textures[ALIENSTEXTURE],pair<uint, uint>( 48, 32), this,nullptr, 1, 1,false);
+	mother = new Mothership(this);
+	alien = new Alien(Point2D<float>(50, 50), textures[ALIENSTEXTURE],pair<uint, uint>( 48, 32), this,mother, 1, 1,false);
 
 	//if (textureLoading())
 		//loadFromFile();
@@ -78,6 +79,11 @@ bool Game::textureLoading() {
 	return true;
 }
 
+void Game::lose() 
+{
+	gameOver = true;
+}
+
 int Game::getRandomRange(int min, int max) {
 	static std::mt19937_64 randomGenerator(std::random_device{}());
 	return uniform_int_distribution<int>(min, max)(randomGenerator);
@@ -88,7 +94,7 @@ void Game::run() {
 	startTime = SDL_GetTicks();
 
 
-	while (/*!gameOver && !exit && !win*/true) 
+	while (!gameOver /*&& !exit && !win */)
 	{
 		startTime = SDL_GetTicks();
 		//handleEvents();

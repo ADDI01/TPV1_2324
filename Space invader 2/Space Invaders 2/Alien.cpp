@@ -76,7 +76,7 @@ bool ret = true;
 	{
 		myGame->lose();
 	}*/
-		_pos = _pos + Vector2D<float>(1, 0) * _velocity;
+		_pos = _pos + _mother->getDirection();
 		_idle = !_idle;
 	}
 	return ret;

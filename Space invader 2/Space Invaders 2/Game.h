@@ -22,6 +22,7 @@ private:
 	SDL_Renderer* renderer = nullptr;
 
 	Alien* alien;
+	Mothership* mother;
 
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE };
@@ -53,7 +54,7 @@ public:
 	void render() const;
 	void update();
 	//void handleEvents();
-	//void lose();
+	void lose();
 
 
 	//Getters
