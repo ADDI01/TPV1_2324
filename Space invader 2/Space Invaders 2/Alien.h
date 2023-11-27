@@ -22,8 +22,6 @@ private:
 	int _subType = -1;
 	//Alien's current frame to render. False 1st one, True 2nd one
 	bool _idle = false;
-	//Pointer to texture
-	Texture* _texture = nullptr;
 	//Pointer to Game class
 	Game* _myGame = nullptr;
 	//Pointer to Mothership
@@ -36,7 +34,7 @@ private:
 	float _shootCD = 0.0f;
 	
 public:
-	Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, /*Mothership* mother,*/
+	Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother,
 		float velocity, int type, bool idle);
 	~Alien();
 
@@ -44,9 +42,10 @@ public:
 	void render() const override;
 	bool update() override;
 	bool save() override{ return false; };
+
 	//Specific actions
 	bool hit(SDL_Rect AttackRect, int typeOfDamage);
-	//void bajaColumna();
+	void bajaColumna();
 
 	//Getters
 	SDL_Rect* getRect() const { return _myRect; };

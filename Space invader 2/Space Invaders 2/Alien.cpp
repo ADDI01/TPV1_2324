@@ -1,9 +1,10 @@
 #include "Alien.h"
+#include "Mothership.h"
 #include "Game.h"
 
-Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, /*Mothership* mother,*/
-	float velocity, int type, bool idle): SceneObject(game,pos, size,1), _texture(texture), _velocity(velocity), 
-	_subType(type), _idle(idle) { 
+Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother,
+	float velocity, int type, bool idle): SceneObject(game,texture, pos, size,1), _mother(mother) ,_velocity(velocity),
+	_subType(type), _idle(idle){ 
 	_myRect = new SDL_Rect;
 	//_shootCD = _myGame->getRandomRange(MIN_CD, INT_CD); TODO: CLASE GAME
 };
@@ -94,6 +95,6 @@ bool Alien::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	}
 }
 
-/*void Alien::bajaColumna() {
+void Alien::bajaColumna() {
 	_pos = _pos + Vector2D<float>(0, _size.second);
-}*/
+}

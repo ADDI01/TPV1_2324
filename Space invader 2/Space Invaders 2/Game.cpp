@@ -5,7 +5,7 @@ Game::Game() {
 
 	init();
 	textureLoading();
-	alien = new Alien(Point2D<float>(50, 50), textures[ALIENSTEXTURE],pair<uint, uint>( 48, 32), this, 1, 1,false);
+	alien = new Alien(Point2D<float>(50, 50), textures[ALIENSTEXTURE],pair<uint, uint>( 48, 32), this,nullptr, 1, 1,false);
 
 	//if (textureLoading())
 		//loadFromFile();
