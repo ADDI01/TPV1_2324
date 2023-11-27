@@ -13,7 +13,9 @@ protected:
 	int life;
 	//falta un iterador de la lista de objetos de la escena
 
+	SceneObject(Game* game, Point2D<float> pos, std::pair <int, int> dimensiones, int life) : GameObject(game), pos(pos), dimensiones(dimensiones), life(life) {};
+
 	//método que ejecutan los Objetos de la escena a ser golpeados
-	virtual bool Hit(SDL_Rect AttackRect, int typeOfDamage) = 0; //tipeOfDamage se podrá cambiar por un enum
+	virtual bool hit(SDL_Rect AttackRect, int typeOfDamage) = 0; //tipeOfDamage se podrá cambiar por un enum
 };
 

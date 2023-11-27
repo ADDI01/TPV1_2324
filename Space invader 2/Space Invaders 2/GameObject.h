@@ -7,13 +7,16 @@ class GameObject
 {
 protected:
 	//Punntero al juego
-	Game* _myGame;
-	virtual ~GameObject();
+	Game* myGame;
+
+	GameObject(Game* game) : myGame(game) {};
+	//virtual ~GameObject();
 
 	//métodos virtuales puros para renderizar, actualizar y guardar los objetos
 
-	virtual bool Render() = 0;
-	virtual bool Update() = 0;
-	virtual bool Save() = 0;
+	virtual void render() const = 0;
+	virtual bool update() = 0;
+	
+	virtual bool save() = 0;
 };
 

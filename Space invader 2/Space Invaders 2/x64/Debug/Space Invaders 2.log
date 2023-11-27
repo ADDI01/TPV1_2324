@@ -1,12 +1,5 @@
-﻿  Alien.cpp
-  Game.cpp
-  Mothership.cpp
-  ShooterAlien.cpp
+﻿  Game.cpp
   Source.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Source.cpp(13,7): warning C4101: 'game': variable local sin referencia
-  Texture.cpp
-  Ufo.cpp
   Generando código...
-  Space Invaders 2.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\bin\Space Invaders 2Debug.exe
+Game.obj : error LNK2019: símbolo externo "public: void __cdecl Game::update(void)" (?update@Game@@QEAAXXZ) sin resolver al que se hace referencia en la función "public: void __cdecl Game::run(void)" (?run@Game@@QEAAXXZ)
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\bin\Space Invaders 2Debug.exe : fatal error LNK1120: 1 externos sin resolver
