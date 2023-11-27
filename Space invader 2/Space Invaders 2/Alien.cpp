@@ -1,17 +1,17 @@
 #include "Alien.h"
-<<<<<<< Updated upstream
+#include "Game.h"
 
-Alien::Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, int type, bool idle)
-	:SceneObject(game,pos,std::pair<int,int> (w,h),1), _texture(texture), _velocity(velocity), _subType(type), _idle(idle) {_myRect = new SDL_Rect;};
+Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother, 
+	float velocity, int type, bool idle): SceneObject(game,pos, size,1), _texture(texture), _velocity(velocity), 
+	_subType(type), _idle(idle) { _myRect = new SDL_Rect; };
 
 void Alien::render() const
 {
-	_myRect->x = pos.getX();
-	_myRect->y = pos.getY();
-	_myRect->w = dimensiones.first;
-	_myRect->h = dimensiones.second;
-=======
-#include "Game.h"
+	_myRect->x = _pos.getX();
+	_myRect->y = _pos.getY();
+	_myRect->w = _size.first;
+	_myRect->h = _size.second;
+
 
 Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother,
 	float velocity, int type, bool idle)

@@ -9,13 +9,8 @@
 
 using uint = unsigned int;
 
-<<<<<<< Updated upstream
-class Alien: public SceneObject
-{
-private:
-	//Pointer to texture
-	Texture* _texture = nullptr;
-=======
+using namespace std;
+
 class Game;
 
 //Shooter alien cooldowns
@@ -34,21 +29,16 @@ private:
 	Game* _myGame = nullptr;
 	//Pointer to Mothership
 	Mothership* _mother = nullptr;
->>>>>>> Stashed changes
 	//Alien's speed
 	float _velocity = 0.0f;
 	//Destination and size of the alien
 	SDL_Rect* _myRect = nullptr;
 	//Shoot cooldown
 	float _shootCD = 0.0f;
-<<<<<<< Updated upstream
-	//Alien's type
-	int _subType = -1;
-	//Alien's current frame to render. False 1st one, True 2nd one
-	bool _idle = false;
 
 public:
-	Alien(Point2D<float> pos, Texture* texture, uint w, uint h, Game* game, float velocity, int type, bool idle);
+	Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother, float velocity, 
+		int type, bool idle);
 	~Alien();
 
 	//Game states
@@ -58,7 +48,6 @@ public:
 
 	//Specific actions
 	bool hit(SDL_Rect AttackRect, int typeOfDamage) override;
-=======
 	
 public:
 	Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother,
@@ -71,17 +60,12 @@ public:
 
 	//Specific actions
 	void hit();
->>>>>>> Stashed changes
 	void bajaColumna();
 
 	//Getters
 	SDL_Rect* getRect() const { return _myRect; };
 	uint getSubtype() const { return _subType; };
-<<<<<<< Updated upstream
-	Vector2D<float> getPosition() const { return pos; };
-=======
 	Vector2D<float> getPosition() const { return _pos; };
->>>>>>> Stashed changes
 };
 
 #endif
