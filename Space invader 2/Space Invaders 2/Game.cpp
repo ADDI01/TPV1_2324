@@ -204,23 +204,6 @@ int Game::getRandomRange(int min, int max) {
 	static std::mt19937_64 randomGenerator(std::random_device{}());
 	return uniform_int_distribution<int>(min, max)(randomGenerator);
 }
-
-void Game::fireLaser(SceneObject* object) {/*
-	Laser* laserAux = nullptr;
-
-	if ((typeid(object) == typeid(ShooterAlien))) {
-		laserAux = new Laser(dynamic_cast<Alien*>(object)->getPosition() 
-			+ Vector2D<float>(0, dynamic_cast<Alien*>(object)->getRect()->w / 3),
-			Vector2D<float>(0, 10), pair<uint, uint>(5, 10), this, renderer, ALIEN);
-	}
-	else if (typeid(object) == typeid(Cannon)) {
-		laserAux = new Laser(dynamic_cast<Cannon*>(object)->getPosition()
-			- Vector2D<float>(0, dynamic_cast<Cannon*>(object)->getRect()->w / 3),
-			Vector2D<float>(0, 10), pair<uint, uint>(5, 10), this, renderer, ALIEN);
-	}
-	
-	if(laserAux != nullptr) objectsList.insert(objectsList.end(), laserAux);*/
-}
 void Game::run() {
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();

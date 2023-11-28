@@ -19,7 +19,12 @@ public:
 		pos, size,1), _actualState(OCULTO), _occulTime(0/*sustituir por un random*/) {
 		_myRect = new SDL_Rect; 
 	};
-	~Ufo() {};
+	~Ufo() {
+		_texture = nullptr;
+		_game = nullptr;
+		delete _myRect;
+		_myRect = nullptr;
+	};
 
 	void render() const override ;
 	bool update() override { return true; };
