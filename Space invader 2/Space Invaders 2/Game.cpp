@@ -121,9 +121,6 @@ void Game::loadFromFile() {
 void Game::render() const 
 {
 	SDL_RenderClear(renderer);
-	/*alien->render();
-	bunker->render();
-	cannon->render();*/
 	star->render();
 	for (auto it : objectsList) 
 	{

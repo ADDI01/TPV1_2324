@@ -7,6 +7,7 @@
 #include "Cannon.h"
 #include "Ufo.h"
 #include <string>
+#include "Laser.h"
 #include <list>
 #include "Star.h"
 #include "ShooterAlien.h"
@@ -27,7 +28,7 @@ private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	list<SceneObject* > objectsList;
-	Mothership* mother = new Mothership(this);
+	Mothership* mother = new Mothership(this)
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };
 	struct TextureData {
