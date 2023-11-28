@@ -47,7 +47,7 @@ void Cannon::handleEvents(const SDL_Event & event) {
 			if (canShoot())
 			{
 				_game->fireLaser(this);
-				setCoolDown(_shootCD);
+				setCoolDown(_iniShootCD);
 			}
 		} 
 		break;

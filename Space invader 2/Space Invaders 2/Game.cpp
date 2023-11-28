@@ -44,7 +44,7 @@ void Game::loadFromFile() {
 			file >> nlifes;
 			file >> subType; //TO:DO que esto sea la espera
 			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this,
-				nlifes, 2, 1);
+				nlifes, 7, 1);
 			objectsList.insert(objectsList.end(), aux);
 			aux = nullptr;
 			break;
@@ -220,15 +220,15 @@ int Game::getRandomRange(int min, int max) {
 
 void Game::fireLaser(SceneObject* object) {
 	Laser* laseraux = nullptr;
-	if ((typeid(object) == typeid(Alien))) {
-		laseraux = new Laser(dynamic_cast<Alien*>(object)->getPosition() 
+	if (dynamic_cast<Alien*>(object) != nullptr) {
+ 		laseraux = new Laser(dynamic_cast<Alien*>(object)->getPosition() 
 			+ Vector2D<float>(0, dynamic_cast<Alien*>(object)->getRect()->w / 3),
 			Vector2D<float>(0, 10), pair<uint, uint>(5, 10), this, renderer, ALIEN);
 	}
-	else if (typeid(object) == typeid(Cannon)) {
+	else if (dynamic_cast<Cannon*>(object) != nullptr) {
 		laseraux = new Laser(dynamic_cast<Cannon*>(object)->getPosition()
 			- Vector2D<float>(0, dynamic_cast<Cannon*>(object)->getRect()->w / 3),
-			Vector2D<float>(0, 10), pair<uint, uint>(5, 10), this, renderer, ALIEN);
+			Vector2D<float>(0, 10), pair<uint, uint>(5, 10), this, renderer, PLAYER);
 	}
 	
 	objectsList.insert(objectsList.end(), laseraux);
