@@ -44,6 +44,3 @@ public:
 	bool getFather() const { return _father; };
 	SDL_Rect* getRect() const { return _myRect; };
 };
-
-#endif
-

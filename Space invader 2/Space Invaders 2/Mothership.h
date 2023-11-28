@@ -7,26 +7,29 @@ using uint = unsigned int;
 class Mothership: public GameObject
 {
 private:
-	enum movementStates { RIGHT, DOWNR, LEFT, DOWNL }; // downl & downr indican de qué dirección vienes
+	enum movementStates { RIGHT,LEFT};
 	movementStates _actualMovementState;
-	Vector2D<float> _movementDirection = Vector2D<float>(1,0);
-	bool _canMove;
+	Vector2D<float> _movementDirection;
+	bool _canMove = true;
 	int _level = 5;
 	int _contAliens = 0;
 	int _landedHeight;
 	
-public: 
+public:
 	Mothership(Game* game) : GameObject(game), _actualMovementState(RIGHT) {};
 
 	void render() const override {};
 	bool update() override { return false; };
 	bool save() const override { return true; };
 
-	Vector2D<float> getDirection() const { return _movementDirection * _level; };
+	Vector2D<float> getDirection();
 	bool shouldMove() { return _canMove; }
 	void cannotMove() { _canMove = false; };
+	void canMove() { _canMove = true; };
 	void alienDied() { _contAliens--; };
-	bool alienLanded(float y) { return y > _landedHeight; };
+	bool alienLanded(float y) { return y >= _landedHeight; };
 	void haveLanded();
 	uint getAlienCount() { return _contAliens; };
+	void changeDirection();
+	void addAlien() { _contAliens++; };
 };

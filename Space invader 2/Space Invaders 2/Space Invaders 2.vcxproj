@@ -137,6 +137,7 @@
     <ClInclude Include="checkML.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Star.h" />
     <ClInclude Include="Laser.h" />
     <ClInclude Include="Mothership.h" />
     <ClInclude Include="ShooterAlien.h" />

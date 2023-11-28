@@ -5,8 +5,11 @@
 #include "Alien.h"
 #include "Bunker.h"
 #include "Cannon.h"
+#include "Ufo.h"
 #include <string>
 #include <list>
+#include "Star.h"
+#include "ShooterAlien.h"
 
 using uint = unsigned int;
 using namespace std;
@@ -15,7 +18,7 @@ using namespace std;
 const uint WIN_WIDTH = 800;
 const uint WIN_HEIGHT = 600;
 const uint FRAME_RATE = 100;
-const uint NUM_TEXTURES = 4;
+const uint NUM_TEXTURES = 5;
 
 class Game
 {
@@ -23,8 +26,8 @@ private:
 	//Punteros a ventana y render
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
-	list<GameObject*> objectsList;
-
+	list<SceneObject* > objectsList;
+	Mothership* mother = new Mothership(this);
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };
 	struct TextureData {
@@ -39,6 +42,7 @@ private:
 	bool exit = false;
 	bool win = false;
 	bool gameOver = false;
+	Star* star;
 
 public:
 	Game();
@@ -47,7 +51,7 @@ public:
 	//Pre-game
 	void init();
 	bool textureLoading();
-	//void loadFromFile();
+	void loadFromFile();
 
 	//Game states
 	void run();
@@ -55,7 +59,6 @@ public:
 	void update();
 	//void handleEvents();
 	void lose();
-
 
 	//Getters
 	int getRandomRange(int min, int max);

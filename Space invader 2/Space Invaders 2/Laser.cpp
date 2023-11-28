@@ -1,6 +1,6 @@
 #include "Laser.h"
 #include "Game.h"
-
+/*
 Laser::Laser(Point2D<float> pos, Vector2D<float> velocity, uint father, Game* game, SDL_Renderer* myRenderer,
 	uint w, uint h) : _pos(pos), _velocity(velocity), _father(father), _myGame(game),
 	_myRenderer(myRenderer), _w(w), _h(h) {
@@ -46,3 +46,4 @@ bool Laser::update() {
 void Laser::hit() {
 	_hit = true;
 }
+*/

@@ -2,8 +2,8 @@
 #include "Mothership.h"
 #include "Game.h"
 
-Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother,
-	float velocity, int type, bool idle): SceneObject(game,texture, pos, size,1), _mother(mother) ,_velocity(velocity),
+Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game,
+	float velocity, int type, bool idle): SceneObject(game,texture, pos, size,1), _velocity(velocity),
 	_subType(type), _idle(idle){ 
 	_myRect = new SDL_Rect;
 	//_shootCD = _myGame->getRandomRange(MIN_CD, INT_CD); TODO: CLASE GAME
@@ -54,30 +54,15 @@ bool ret = true;
 	}
 	else
 	{
-		/*pos = pos + (myGame->getDirection() * _velocity); //Alien moves
-
-		if (pos.getX() >= myGame->getWidth() - dimensiones.first || pos.getX() <= 0) //Alien tries to move out of lateral limits
-		{
-			myGame->cannotMove();
-		}
-
-		if (_subType == 0 && _shootCD <= 0) //Shooter alien shoot
-		{
-			_shootCD = _myGame->getRandomRange(MIN_CD, MAX_CD);
-			_myGame->fireLaser(this); //Instanciate alien's laser
-		}
-		else
-		{
-			_shootCD--;
-		}
-		_idle = !_idle;
-	}
-	if (pos.getY() >= myGame->getHeight() - dimensiones.second) //If aliens reach the bottom, the game ends
-	{
-		myGame->lose();
-	}*/
 		_pos = _pos + _mother->getDirection();
 		_idle = !_idle;
+		if (_mother->shouldMove() && (_pos.getX() >= _game->getWidth() - _size.first|| _pos.getX() <= 0))
+		{
+			_mother->cannotMove();
+		}
+
+		_mother->alienLanded(_pos.getY());
+
 	}
 	return ret;
 }

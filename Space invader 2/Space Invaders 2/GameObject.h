@@ -9,7 +9,7 @@ protected:
 	//Punntero al juego
 	Game* _game;
 
-	GameObject(Game* game) : _game(game) {};
+	GameObject(Game* game): _game(game) {};
 	//virtual ~GameObject();
 
 	//métodos virtuales puros para renderizar, actualizar y guardar los objetos
@@ -19,4 +19,3 @@ protected:
 	
 	virtual bool save() const= 0;
 };
-

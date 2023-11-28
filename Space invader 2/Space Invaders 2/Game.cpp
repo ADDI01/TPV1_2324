@@ -1,18 +1,14 @@
 #include "Game.h"
 #include <random>
+#include <fstream>
 
 Game::Game() {
 
 	init();
 	textureLoading();
-
-	mother = new Mothership(this);
-	alien = new Alien(Point2D<float>(50, 50), textures[ALIENSTEXTURE],pair<uint, uint>( 48, 32), this,mother, 1, 1,false);
-	bunker = new Bunker(Point2D<float>(300, 300), textures[BUNKERSTEXTURE], pair<uint, uint>(90, 59), this, 4);
-	cannon = new Cannon(Point2D<float>(400, 400), textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, 3, 30, 1);
-	//if (textureLoading())
-		//loadFromFile();
-	//else throw "No se cargaron corretamente las texturas.";
+	if (textureLoading())
+		loadFromFile();
+	else throw "No se cargaron corretamente las texturas.";
 }
 
 
@@ -27,18 +23,147 @@ void Game::init() {
 		throw exception("Error loading SDL window or renderer");
 }
 
+
+void Game::loadFromFile() {
+	ifstream file("../images/mapas/original.txt");
+	uint latestRow = -1;
+	int tObject, posX, posY, subType,nlifes, estado;
+	bool idle;
+
+	if (!file.is_open()) throw "No se ha abierto el archivo.";
+
+	while (!file.eof()) {
+		file >> tObject;
+		file >> posX;
+		file >> posY;
+		Point2D<float> pos(posX, posY);
+		SceneObject* aux;
+
+		switch (tObject) {
+		case 0: //Cannon
+			file >> nlifes;
+			file >> subType; //TO:DO que esto sea la espera
+			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this,
+				nlifes, 2, 1);
+			objectsList.insert(objectsList.end(), aux);
+			aux = nullptr;
+			break;
+		case 1: //Aliens
+			file >> subType;
+
+			if (latestRow != posY)
+			{
+				idle = false;
+				latestRow = posY;
+			}
+			else idle = !idle;
+			aux = new ShooterAlien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, 4,
+				subType, idle);
+			static_cast<Alien*>(aux)->setMother(mother);
+			objectsList.insert(objectsList.end(), aux);
+			aux = nullptr;
+			mother->addAlien();
+			break;
+
+		case 2:
+			file >> subType;
+			file >> nlifes;
+			if (latestRow != posY)
+			{
+				idle = false;
+				latestRow = posY;
+			}
+			else idle = !idle;
+			aux = new Alien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, 4,
+				subType, idle);
+			static_cast<Alien*>(aux)->setMother(mother);
+			objectsList.insert(objectsList.end(), aux);
+			aux = nullptr;
+			break;
+			mother->addAlien();
+
+		case 3:
+			// leer nave
+			objectsList.insert(objectsList.end(), aux);
+			for (auto it : objectsList)
+			{
+				if (static_cast<Alien*>(it) != nullptr)
+					static_cast<Alien*>(aux)->setMother(mother);
+			}
+			aux = nullptr;
+			break;
+		case 4: //Bunkers
+			file >> subType; //TO:DO ENTENDER ESTO
+			aux = new Bunker(pos, textures[BUNKERSTEXTURE], pair<uint, uint>(90, 59), this,
+				4);
+
+			objectsList.insert(objectsList.end(), aux);
+			aux = nullptr;
+			break;
+		case 5:
+			file >> estado;
+			file >> subType; //TO:DO LA ESPERA
+			aux = new Ufo(this, pos, textures[UFOTEXTURE], pair < uint, uint>(90,32));
+			objectsList.insert(objectsList.end(), aux);
+			aux = nullptr;
+			break;
+		default:
+			//throw "Objeto no identificado.";
+			break;
+		}
+	}
+
+	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], WIN_WIDTH, WIN_HEIGHT);
+}
+
+
+
 void Game::render() const 
 {
 	SDL_RenderClear(renderer);
-	alien->render();
+	/*alien->render();
 	bunker->render();
-	cannon->render();
+	cannon->render();*/
+	star->render();
+	for (auto it : objectsList) 
+	{
+		if(static_cast<Cannon*>(it) != nullptr)
+		static_cast<Cannon*>(it)->render();
+		else if(static_cast<Bunker*>(it) != nullptr)
+			static_cast<Bunker*>(it)->render();
+		else if (static_cast<Alien*>(it) != nullptr)
+			static_cast<Alien*>(it)->render();
+		else if (static_cast<Ufo*>(it) != nullptr)
+			static_cast<Ufo*>(it)->render();
+	}
+
 	SDL_RenderPresent(renderer);
 }
 
 void Game::update() 
 {
-	alien->update();
+	for (auto it : objectsList)
+	{
+		if (static_cast<Cannon*>(it) != nullptr)
+			static_cast<Cannon*>(it)->update();
+		else if (static_cast<Bunker*>(it) != nullptr)
+			static_cast<Bunker*>(it)->update();
+		else if (static_cast<Alien*>(it) != nullptr)
+			static_cast<Alien*>(it)->update();
+		else if (static_cast<Ufo*>(it) != nullptr)
+			static_cast<Ufo*>(it)->update();
+	}
+
+	if (!mother->shouldMove()) 
+	{
+		for (auto it : objectsList)
+		{
+			if (dynamic_cast<Alien*>(it) != nullptr)
+				dynamic_cast<Alien*>(it)->bajaColumna();
+		}
+		mother->changeDirection();
+		mother->canMove();
+	}
 }
 
 bool Game::textureLoading() {
@@ -64,26 +189,18 @@ bool Game::textureLoading() {
 	dataTextures[STARTEXTURE] = new TextureData("../images/stars.png", pair<uint, uint>(1, 1));
 
 	//Ufo's texture
-	//dataTextures[UFOTEXTURE] = new TextureData()
+	dataTextures[UFOTEXTURE] = new TextureData("../images/ufo.png", pair<uint, uint>(1, 2));
 
 	//Now, we create the textures
 	for (uint i = 0; i < NUM_TEXTURES; i++) {
-		if (i == ALIENSTEXTURE)
-		{
-			textures[i] = new Texture(renderer, dataTextures[i]->texturePath, dataTextures[i]->dimensiones.first,
-				dataTextures[i]->dimensiones.second);
-		}
-		else if (i == BUNKERSTEXTURE)
-		{
 			textures[i] = new Texture(renderer, dataTextures[i]->texturePath, dataTextures[i]->dimensiones.first, dataTextures[i]->dimensiones.second);
-		}
-		else if (i == CANNONTEXTURE || i == STARTEXTURE)
-		{
-			textures[i] = new Texture(renderer, dataTextures[i]->texturePath, dataTextures[i]->dimensiones.first, dataTextures[i]->dimensiones.second);
-		}
-		else return false;
 	}
 	return true;
+}
+
+int Game::getRandomRange(int min, int max) {
+	static std::mt19937_64 randomGenerator(std::random_device{}());
+	return uniform_int_distribution<int>(min, max)(randomGenerator);
 }
 
 void Game::lose() 
