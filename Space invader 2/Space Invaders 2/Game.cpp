@@ -37,16 +37,18 @@ void Game::loadFromFile() {
 		file >> posX;
 		file >> posY;
 		Point2D<float> pos(posX, posY);
-		SceneObject* aux;
+
+		SceneObject* aux = nullptr;;
+		auto i = objectsList.end();
 
 		switch (tObject) {
 		case 0: //Cannon
 			file >> nlifes;
-			file >> subType; //TO:DO que esto sea la espera
-			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this,
-				nlifes, 2, 1);
-			objectsList.insert(objectsList.end(), aux);
-			aux = nullptr;
+			file >> subType; //TODO: que esto sea la espera
+
+			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, 2, 1); //Instance
+			objectsList.insert(i, aux); //SceneObject to list
+			static_cast<SceneObject*>(*i)->setListIterator(i);
 			break;
 		case 1: //Aliens
 			file >> subType;
@@ -61,7 +63,6 @@ void Game::loadFromFile() {
 				subType, idle);
 			static_cast<Alien*>(aux)->setMother(mother);
 			objectsList.insert(objectsList.end(), aux);
-			aux = nullptr;
 			mother->addAlien();
 			break;
 
@@ -78,7 +79,6 @@ void Game::loadFromFile() {
 				subType, idle);
 			static_cast<Alien*>(aux)->setMother(mother);
 			objectsList.insert(objectsList.end(), aux);
-			aux = nullptr;
 			break;
 			mother->addAlien();
 
@@ -90,7 +90,6 @@ void Game::loadFromFile() {
 				if (static_cast<Alien*>(it) != nullptr)
 					static_cast<Alien*>(aux)->setMother(mother);
 			}
-			aux = nullptr;
 			break;
 		case 4: //Bunkers
 			file >> subType; //TO:DO ENTENDER ESTO
@@ -98,19 +97,19 @@ void Game::loadFromFile() {
 				4);
 
 			objectsList.insert(objectsList.end(), aux);
-			aux = nullptr;
 			break;
 		case 5:
 			file >> estado;
 			file >> subType; //TO:DO LA ESPERA
 			aux = new Ufo(this, pos, textures[UFOTEXTURE], pair < uint, uint>(90,32));
 			objectsList.insert(objectsList.end(), aux);
-			aux = nullptr;
 			break;
 		default:
 			//throw "Objeto no identificado.";
 			break;
 		}
+
+
 	}
 
 	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], WIN_WIDTH, WIN_HEIGHT);
@@ -172,7 +171,6 @@ void Game::handleEvents() {
 		else {
 			dynamic_cast<Cannon*>(*i)->handleEvents(event);
 		}
-		
 	}
 }
 
