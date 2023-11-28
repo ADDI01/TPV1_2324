@@ -40,3 +40,9 @@ void Mothership:: changeDirection() {
 	}
 	_canMove = true;
 }
+
+bool Mothership::update() 
+{
+
+	return true;
+}

@@ -48,7 +48,7 @@ void Game::loadFromFile() {
 
 			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, 2, 1); //Instance
 			objectsList.insert(i, aux); //SceneObject to list
-			static_cast<SceneObject*>(*i)->setListIterator(i);
+			//static_cast<SceneObject*>(*i)->setListIterator(i);
 			break;
 		case 1: //Aliens
 			file >> subType;
@@ -94,7 +94,7 @@ void Game::loadFromFile() {
 		case 4: //Bunkers
 			file >> subType; //TO:DO ENTENDER ESTO
 			aux = new Bunker(pos, textures[BUNKERSTEXTURE], pair<uint, uint>(90, 59), this,
-				4);
+				2);
 
 			objectsList.insert(objectsList.end(), aux);
 			break;
@@ -138,14 +138,15 @@ void Game::update()
 {
 	for (auto it : objectsList)
 	{
-		if (static_cast<Cannon*>(it) != nullptr)
+		/*if (static_cast<Cannon*>(it) != nullptr)
 			static_cast<Cannon*>(it)->update();
 		else if (static_cast<Bunker*>(it) != nullptr)
 			static_cast<Bunker*>(it)->update();
 		else if (static_cast<Alien*>(it) != nullptr)
 			static_cast<Alien*>(it)->update();
 		else if (static_cast<Ufo*>(it) != nullptr)
-			static_cast<Ufo*>(it)->update();
+			static_cast<Ufo*>(it)->update();*/
+		it->update();
 	}
 
 	if (!mother->shouldMove()) 
