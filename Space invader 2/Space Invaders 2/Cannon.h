@@ -26,11 +26,12 @@ public:
 	//Game states
 	void render() const override;
 	bool update() override;
-	void handleEvents(const SDL_Event& event);
+	void handleEvents(const SDL_Event& event, SDL_Renderer* renderer);
 	bool save() const override { return true; };
 
 	//Specific actions
 	bool hit(SDL_Rect AttackRect, int typeOfDamage) override;
+	void fireLaser(SDL_Renderer* renderer);
 	bool canShoot() const;
 
 	//Setters

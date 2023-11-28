@@ -34,7 +34,7 @@ bool Cannon::update() {
 	return _life > 0;
 }
 
-void Cannon::handleEvents(const SDL_Event & event) {
+void Cannon::handleEvents(const SDL_Event & event, SDL_Renderer* renderer) {
 	switch (event.type)
 	{
 	case SDL_KEYDOWN:
@@ -48,7 +48,7 @@ void Cannon::handleEvents(const SDL_Event & event) {
 		{
 			if (canShoot())
 			{
-				_game->fireLaser(this);
+				fireLaser(renderer);
 				setCoolDown(_iniShootCD);
 			}
 		} 
@@ -62,6 +62,12 @@ void Cannon::handleEvents(const SDL_Event & event) {
 		}
 		break;
 	}
+}
+
+void Cannon::fireLaser(SDL_Renderer* renderer) {
+	Laser* l = new Laser(_pos - Vector2D<float>(0, _size.first / 2), Vector2D<float>(0, 10), 
+		pair<uint, uint>(5, 10), _game, renderer, PLAYER);
+	_game->addToList(l);
 }
 
 bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {

@@ -41,8 +41,7 @@ void Game::loadFromFile() {
 	int latestRow = -1, tObject, posX, posY, subType, nlifes, estado, points;
 	bool idle = false;
 
-	SceneObject* aux = nullptr;
-	list<SceneObject*>::iterator i;
+	SceneObject* aux = nullptr; //Alamcena cada SceneObject 
 
 	if (!file.is_open()) throw "No se ha abierto el archivo.";
 
@@ -51,14 +50,13 @@ void Game::loadFromFile() {
 		file >> posX;
 		file >> posY;
 		Point2D<float> pos(posX, posY);
-		i = objectsList.end();
 
 		switch (tObject) {
 		case 0: //Cannon
 			file >> nlifes;
 			file >> subType; //TODO: que esto sea la espera
 
-			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, 2, 1); //Instance
+			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, 2, 20); //Instance
 			break;
 		case 1: //Shooter alien
 			file >> subType;
@@ -117,9 +115,7 @@ void Game::loadFromFile() {
 		}
 
 		if (tObject != 3 && tObject != 7) { //Mothership and Ufo dont belong the listObject
-			objectsList.insert(i, aux); //SceneObject to list
-			aux->setListIterator(i); //Set the iterator
-			aux = nullptr;
+			addToList(aux);
 		}
 	}
 	//Background
@@ -155,8 +151,15 @@ void Game::handleEvents() {
 
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.key.keysym.sym == SDLK_ESCAPE) exit = true;
-		else dynamic_cast<Cannon*>(*i)->handleEvents(event);
+		else dynamic_cast<Cannon*>(*i)->handleEvents(event, renderer);
 	}
+}
+
+void Game::addToList(SceneObject* aux) {
+	list<SceneObject*>::iterator i = objectsList.end();
+
+	objectsList.insert(i, aux); //SceneObject to list
+	aux->setListIterator(i); //Set the iterator
 }
 
 bool Game::textureLoading() {
@@ -218,7 +221,6 @@ void Game::fireLaser(SceneObject* object) {/*
 	
 	if(laserAux != nullptr) objectsList.insert(objectsList.end(), laserAux);*/
 }
-
 void Game::run() {
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();

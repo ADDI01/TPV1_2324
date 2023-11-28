@@ -12,5 +12,7 @@ public:
 		float velocity, int type, bool idle) : Alien(pos, texture, size, game, mother, velocity, type, idle){};
 
 	bool update();
+
+	void fireLaser();
 };
 

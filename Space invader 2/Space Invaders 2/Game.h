@@ -69,11 +69,12 @@ public:
 	void update();
 	void handleEvents();
 	void lose();
-	void fireLaser(SceneObject* object);
+	void addToList(SceneObject* object);
 
 	//Getters
 	int getRandomRange(int min, int max);
 	uint getHeight() { return WIN_HEIGHT; };
 	uint getWidth() { return WIN_WIDTH; };
+	SDL_Renderer* getRenderer() { return renderer; };
 };
 
