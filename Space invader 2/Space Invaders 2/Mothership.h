@@ -10,7 +10,7 @@ private:
 	enum movementStates { RIGHT,DOWNLEFT, LEFT, DOWNRIGHT};
 	movementStates _actualMovementState;
 	Vector2D<float> _movementDirection;
-	bool _canMove;
+	bool _canMove = true;
 	int _level = 5;
 	int _contAliens = 0;
 	int _landedHeight = 0;

@@ -31,11 +31,11 @@ private:
 	//Shoot cooldown
 	float _shootCD = 0.0f;
 	//Pointer to Mothership
-	Mothership* _mother;
+	Mothership* _mother = nullptr;
 	
 public:
-	Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game,
-		float velocity, int type, bool idle);
+	Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother, float velocity, 
+		int type, bool idle);
 	~Alien();
 
 	//Game states

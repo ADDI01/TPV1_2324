@@ -1,7 +1,9 @@
 #pragma once
 #include <ostream>
 #include "SceneObject.h"
+
 using uint = unsigned int;
+
 class Ufo : public SceneObject
 {
 private:
@@ -12,14 +14,15 @@ private:
 	SDL_Rect* _myRect = nullptr;
 
 public:
-	Ufo(Game* game,Vector2D<float> pos, Texture* texture, pair<uint,uint> size) :SceneObject(game,texture, pos, size,1)
-		, _actualState(OCULTO), _occulTime(0/*sustituir por un random*/) {
+	//constructora que recive el min & max de _occultTime
+	Ufo(Game* game,Vector2D<float> pos, Texture* texture, pair<uint,uint> size): SceneObject(game,texture, 
+		pos, size,1), _actualState(OCULTO), _occulTime(0/*sustituir por un random*/) {
 		_myRect = new SDL_Rect; 
 	};
-	//constructora que recive el min & max de _occultTime
+	~Ufo() {};
 
 	void render() const override ;
-	bool update() override { return false; };
+	bool update() override { return true; };
 	bool save() const override { return true; };
 	bool hit(SDL_Rect AttackRect, int typeOfDamage) override { return true; };
 };

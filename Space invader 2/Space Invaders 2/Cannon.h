@@ -18,7 +18,8 @@ private:
 public:
 	Cannon(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, uint nLifes, float shootCD,
 		float velocity) : SceneObject(game, texture, pos, size, nLifes), _shootCD(shootCD), _velocity(velocity) {
-		_myRect = new SDL_Rect; _iniShootCD = shootCD;
+		_myRect = new SDL_Rect; 
+		_iniShootCD = shootCD;
 	};
 	~Cannon();
 

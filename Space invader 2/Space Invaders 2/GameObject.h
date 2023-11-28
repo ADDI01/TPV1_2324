@@ -16,6 +16,5 @@ protected:
 
 	virtual void render() const = 0;
 	virtual bool update() = 0;
-	
 	virtual bool save() const= 0;
 };

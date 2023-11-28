@@ -8,8 +8,8 @@ private:
 	//Shoot cooldown
 	float _shootCD = 0.0f;
 public:
-	ShooterAlien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game,
-		float velocity, int type, bool idle) : Alien(pos,texture,size,game,velocity,type,idle){};
+	ShooterAlien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother,
+		float velocity, int type, bool idle) : Alien(pos, texture, size, game, mother, velocity, type, idle){};
 
 	bool update();
 };

@@ -36,7 +36,8 @@ private:
 	struct TextureData {
 		const char* texturePath; // Path de la textura
 		pair<uint, uint> dimensiones; //n� de filas y columnas
-		TextureData(const char* texturePath, pair<uint, uint> dimensiones): texturePath(texturePath), dimensiones(dimensiones){};
+		TextureData(const char* texturePath, pair<uint, uint> dimensiones): texturePath(texturePath), 
+			dimensiones(dimensiones){};
 	};
 	Texture* textures[NUM_TEXTURES];
 	TextureData* dataTextures[NUM_TEXTURES];
@@ -45,8 +46,11 @@ private:
 	bool exit = false;
 	bool win = false;
 	bool gameOver = false;
+
+	//Unique 
 	Star* star;
-	Cannon* cannon;
+	InfoBar* infoBar;
+
 
 public:
 	Game();

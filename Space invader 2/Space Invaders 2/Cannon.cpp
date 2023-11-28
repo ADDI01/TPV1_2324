@@ -39,8 +39,10 @@ void Cannon::handleEvents(const SDL_Event & event) {
 	{
 	case SDL_KEYDOWN:
 		//Movement
-		if (event.key.keysym.sym == SDLK_LEFT) _direction = Vector2D<float>(-1, 0) * _velocity;
-		else if (event.key.keysym.sym == SDLK_RIGHT) _direction = Vector2D<float>(1, 0) * _velocity;
+		if (event.key.keysym.sym == SDLK_LEFT) 
+			_direction = Vector2D<float>(-1, 0) * _velocity;
+		else if (event.key.keysym.sym == SDLK_RIGHT)
+			_direction = Vector2D<float>(1, 0) * _velocity;
 		//Shoot
 		if (event.key.keysym.sym == SDLK_SPACE)
 		{
