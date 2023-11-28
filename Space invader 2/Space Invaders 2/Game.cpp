@@ -138,27 +138,9 @@ void Game::update()
 {
 	for (auto it : objectsList)
 	{
-		/*if (static_cast<Cannon*>(it) != nullptr)
-			static_cast<Cannon*>(it)->update();
-		else if (static_cast<Bunker*>(it) != nullptr)
-			static_cast<Bunker*>(it)->update();
-		else if (static_cast<Alien*>(it) != nullptr)
-			static_cast<Alien*>(it)->update();
-		else if (static_cast<Ufo*>(it) != nullptr)
-			static_cast<Ufo*>(it)->update();*/
 		it->update();
 	}
-
-	if (!mother->shouldMove()) 
-	{
-		for (auto it : objectsList)
-		{
-			if (dynamic_cast<Alien*>(it) != nullptr)
-				dynamic_cast<Alien*>(it)->bajaColumna();
-		}
-		mother->changeDirection();
-		mother->canMove();
-	}
+	mother->update();
 }
 
 void Game::handleEvents() {
