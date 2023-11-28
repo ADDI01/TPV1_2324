@@ -11,6 +11,18 @@ Game::Game() {
 	else throw "No se cargaron corretamente las texturas.";
 }
 
+Game::~Game() {
+	for (auto it : objectsList) {
+		delete it;
+		it = nullptr;
+	}
+	for (Texture* t : textures) { delete t; t = nullptr; }
+	SDL_DestroyWindow(window);
+	SDL_DestroyRenderer(renderer);
+	delete mother;
+	delete star;
+	SDL_Quit();
+}
 
 void Game::init() {
 	// We first initialize SDL
@@ -176,6 +188,7 @@ bool Game::textureLoading() {
 	for (uint i = 0; i < NUM_TEXTURES; i++) {
 			textures[i] = new Texture(renderer, dataTextures[i]->texturePath, dataTextures[i]->dimensiones.first, dataTextures[i]->dimensiones.second);
 	}
+	for (TextureData* d : dataTextures) { delete d; d = nullptr; }
 	return true;
 }
 
@@ -189,7 +202,7 @@ int Game::getRandomRange(int min, int max) {
 	return uniform_int_distribution<int>(min, max)(randomGenerator);
 }
 
-void Game::fireLaser(SceneObject* object) {
+void Game::fireLaser(SceneObject* object) {/*
 	Laser* laserAux = nullptr;
 
 	if ((typeid(object) == typeid(ShooterAlien))) {
@@ -203,14 +216,14 @@ void Game::fireLaser(SceneObject* object) {
 			Vector2D<float>(0, 10), pair<uint, uint>(5, 10), this, renderer, ALIEN);
 	}
 	
-	if(laserAux != nullptr) objectsList.insert(objectsList.end(), laserAux);
+	if(laserAux != nullptr) objectsList.insert(objectsList.end(), laserAux);*/
 }
 
 void Game::run() {
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
 
-	while (!gameOver /*&& !exit && !win */)
+	while (!gameOver && !exit /* && !win */ )
 	{
 		startTime = SDL_GetTicks();
 		handleEvents();

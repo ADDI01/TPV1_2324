@@ -23,6 +23,7 @@ protected:
 public:
 	SceneObject(Game* game,Texture* texture, Point2D<float> pos, std::pair <uint, uint> size, int life) : 
 		GameObject(game), _texture(texture), _pos(pos), _size(size), _life(life) {};
+	virtual ~SceneObject() {};
 
 	virtual void render() const = 0;
 	virtual bool update() = 0;

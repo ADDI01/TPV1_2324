@@ -10,7 +10,7 @@ protected:
 	Game* _game;
 
 	GameObject(Game* game): _game(game) {};
-	//virtual ~GameObject();
+	virtual ~GameObject() {};
 
 	//métodos virtuales puros para renderizar, actualizar y guardar los objetos
 

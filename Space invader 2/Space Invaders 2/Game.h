@@ -14,6 +14,7 @@
 #include "InfoBar.h"
 
 
+
 using uint = unsigned int;
 using namespace std;
 
@@ -38,8 +39,9 @@ private:
 		pair<uint, uint> dimensiones; //n� de filas y columnas
 		TextureData(const char* texturePath, pair<uint, uint> dimensiones): texturePath(texturePath), 
 			dimensiones(dimensiones){};
+		~TextureData() { texturePath = nullptr; }
 	};
-	Texture* textures[NUM_TEXTURES];
+	Texture* textures[NUM_TEXTURES];  
 	TextureData* dataTextures[NUM_TEXTURES];
 
 	//Condiciones partida
@@ -54,7 +56,7 @@ private:
 
 public:
 	Game();
-	//~Game();
+	~Game();
 
 	//Pre-game
 	void init();

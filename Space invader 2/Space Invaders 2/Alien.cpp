@@ -2,13 +2,13 @@
 #include "Mothership.h"
 #include "Game.h"
 
-Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother,
-	float velocity, int type, bool idle): SceneObject(game,texture, pos, size, 1), _mother(mother), _velocity(velocity),
+Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother, 
+	float velocity, int type, bool idle): SceneObject(game,texture, pos, size, 1), _mother(mother), _velocity(velocity), 
 	_subType(type), _idle(idle){ 
-	_myRect = new SDL_Rect;
+	_myRect = new SDL_Rect; 
 	//_shootCD = _myGame->getRandomRange(MIN_CD, INT_CD); TODO: CLASE GAME
-};
-
+}; 
+ 
 Alien:: ~Alien() {
 	_texture = nullptr;
 	_myGame = nullptr;
