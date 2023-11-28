@@ -121,14 +121,7 @@ void Game::render() const
 	star->render();
 	for (auto it : objectsList) 
 	{
-		if(static_cast<Cannon*>(it) != nullptr)
-		static_cast<Cannon*>(it)->render();
-		else if(static_cast<Bunker*>(it) != nullptr)
-			static_cast<Bunker*>(it)->render();
-		else if (static_cast<Alien*>(it) != nullptr)
-			static_cast<Alien*>(it)->render();
-		else if (static_cast<Ufo*>(it) != nullptr)
-			static_cast<Ufo*>(it)->render();
+		it->render();
 	}
 
 	SDL_RenderPresent(renderer);

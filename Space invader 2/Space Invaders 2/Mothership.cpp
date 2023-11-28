@@ -11,7 +11,10 @@ Vector2D<float> Mothership::getDirection()
 	case Mothership::LEFT:
 		_movementDirection = Vector2D<float>(-1, 0);
 		break;
-	case Mothership:: DOWNLEFT && Mothership::DOWNRIGHT:
+	case Mothership:: DOWNLEFT:
+		_movementDirection = Vector2D<float>(0, 1);
+		break;
+	case Mothership::DOWNRIGHT:
 		_movementDirection = Vector2D<float>(0, 1);
 		break;
 	default:
@@ -48,8 +51,12 @@ bool Mothership::update()
 {
 	if (!shouldMove())
 	{
-		_canMove = true;
 		changeDirection();
+
+		if (_actualMovementState != RIGHT || _actualMovementState != LEFT) {
+			_level += 0.5;
+		}
+		_canMove = true;
 	}
 	return true;
 }
