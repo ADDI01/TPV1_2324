@@ -13,7 +13,7 @@ private:
 	bool _canMove = true;
 	int _level = 5;
 	int _contAliens = 0;
-	int _landedHeight;
+	int _landedHeight = 0;
 	
 public:
 	Mothership(Game* game) : GameObject(game), _actualMovementState(RIGHT) {};

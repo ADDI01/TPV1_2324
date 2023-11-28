@@ -18,7 +18,7 @@ protected:
 	int _life;
 	//Pointer to texture
 	Texture* _texture = nullptr;
-	list<SceneObject>::iterator *_it;
+	list<SceneObject*>::iterator _it;
 
 public:
 	SceneObject(Game* game,Texture* texture, Point2D<float> pos, std::pair <uint, uint> size, int life) : 
@@ -30,6 +30,6 @@ public:
 	virtual bool save() const = 0;
 	//método que ejecutan los Objetos de la escena a ser golpeados
 	virtual bool hit(SDL_Rect AttackRect, int typeOfDamage) = 0; //tipeOfDamage se podrá cambiar por un enum
-	void setListIterator(list<SceneObject>::iterator it) { _it = &it; };
+	void setListIterator(list<SceneObject*>::iterator it) { _it = it; };
 };
 

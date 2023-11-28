@@ -1,16 +1,18 @@
 #pragma once
-#include"checkML.h"
+#include <list>
+#include <string>
 #include <SDL.h>
+#include"checkML.h"
 #include "Texture.h"
 #include "Alien.h"
 #include "Bunker.h"
 #include "Cannon.h"
 #include "Ufo.h"
-#include <string>
-#include "Laser.h"
-#include <list>
 #include "Star.h"
 #include "ShooterAlien.h"
+#include "Laser.h"
+#include "InfoBar.h"
+
 
 using uint = unsigned int;
 using namespace std;
