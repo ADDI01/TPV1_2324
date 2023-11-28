@@ -1,7 +1,17 @@
-﻿  Game.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(25,69): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
+﻿  Laser.cpp
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(25,69): warning C4244: 'argumento': conversión de 'const int' a 'T'; posible pérdida de datos
           with
           [
               T=float
           ]
-  Space Invaders 2.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\bin\Space Invaders 2Debug.exe
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Laser.cpp(19,25): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Laser.cpp(20,25): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  Space Invaders 2.vcxproj -> C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\bin\Space Invaders 2Debug.exe

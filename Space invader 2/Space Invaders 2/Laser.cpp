@@ -1,9 +1,9 @@
 #include "Laser.h"
 #include "Game.h"
 
-Laser::Laser(Point2D<float> pos, Vector2D<float> velocity, uint father, Game* game, SDL_Renderer* myRenderer,
-	uint w, uint h) : _pos(pos), _velocity(velocity), _father(father), _myGame(game),
-	_myRenderer(myRenderer), _w(w), _h(h) {
+Laser::Laser(Point2D<float> pos, Vector2D<float> velocity, pair<uint, uint> size, Game* game, SDL_Renderer* myRenderer,
+	Father father) : SceneObject(game, nullptr, pos, size, 1), _velocity(velocity), _father(father),
+	_myRenderer(myRenderer) {
 
 	_myRect = new SDL_Rect;
 };
@@ -15,20 +15,19 @@ Laser:: ~Laser() {
 };
 
 void Laser::render() const {
-	if (!_hit)
-	{
+	if (_life > 0) {
 		_myRect->x = _pos.getX();
 		_myRect->y = _pos.getY();
 		_myRect->w = 5;
 		_myRect->h = 10;
-		SDL_SetRenderDrawColor(_myRenderer, 0, 0, 255, 0xFF);
+		SDL_SetRenderDrawColor(_myRenderer, 255, 0, 0, 0xFF);
 		SDL_RenderFillRect(_myRenderer, _myRect);
 	}
 }
 
 bool Laser::update() {
 	//Checks if the laser has hit
-	if (!_hit)
+	if (_life > 0)
 	{
 		if (_father == PLAYER) //Laser from player
 		{
@@ -40,9 +39,9 @@ bool Laser::update() {
 		}
 	}
 
-	return !_hit;
+	return _life > 0;
 }
 
-void Laser::hit() {
-	_hit = true;
+bool Laser::hit(SDL_Rect AttackRect, int typeOfDamage) {
+	return true; //TODO: TERMINAR
 }

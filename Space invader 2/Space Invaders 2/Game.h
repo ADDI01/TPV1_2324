@@ -5,6 +5,7 @@
 #include "Alien.h"
 #include "Bunker.h"
 #include "Cannon.h"
+#include "Laser.h"
 #include<string>
 
 using uint = unsigned int;
@@ -27,6 +28,7 @@ private:
 	Mothership* mother;
 	Bunker* bunker;
 	Cannon* cannon;
+	Laser* laser;
 
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE };
