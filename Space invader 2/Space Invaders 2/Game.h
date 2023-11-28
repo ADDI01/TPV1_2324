@@ -44,6 +44,7 @@ private:
 	bool win = false;
 	bool gameOver = false;
 	Star* star;
+	Cannon* cannon;
 
 public:
 	Game();
@@ -58,9 +59,9 @@ public:
 	void run();
 	void render() const;
 	void update();
-	//void handleEvents();
+	void handleEvents();
 	void lose();
-	void fireLaser(Alien* alien);
+	void fireLaser(SceneObject* object);
 
 	//Getters
 	int getRandomRange(int min, int max);

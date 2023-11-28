@@ -116,8 +116,6 @@ void Game::loadFromFile() {
 	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], WIN_WIDTH, WIN_HEIGHT);
 }
 
-
-
 void Game::render() const 
 {
 	SDL_RenderClear(renderer);
@@ -163,6 +161,21 @@ void Game::update()
 	}
 }
 
+void Game::handleEvents() {
+	SDL_Event event;
+	list<SceneObject*>::iterator i = objectsList.begin();
+	while (SDL_PollEvent(&event) && !exit) {
+		if (event.key.keysym.sym == SDLK_ESCAPE)
+		{
+		   	exit = true;
+		}
+		else {
+			dynamic_cast<Cannon*>(*i)->handleEvents(event);
+		}
+		
+	}
+}
+
 bool Game::textureLoading() {
 	// cannon's texture inicialization
 	//dataTextures[CANNONTEXTURE]->texturePath = "../images/spaceship.png";
@@ -205,9 +218,19 @@ int Game::getRandomRange(int min, int max) {
 	return uniform_int_distribution<int>(min, max)(randomGenerator);
 }
 
-void Game::fireLaser(Alien* alien) {
-	Laser* laseraux = new Laser(alien->getPosition() + Vector2D<float>(0, alien->getRect()->w / 3),
-		Vector2D<float>(0,10),pair<uint,uint>(5,10),this,renderer,ALIEN);
+void Game::fireLaser(SceneObject* object) {
+	Laser* laseraux = nullptr;
+	if ((typeid(object) == typeid(Alien))) {
+		laseraux = new Laser(dynamic_cast<Alien*>(object)->getPosition() 
+			+ Vector2D<float>(0, dynamic_cast<Alien*>(object)->getRect()->w / 3),
+			Vector2D<float>(0, 10), pair<uint, uint>(5, 10), this, renderer, ALIEN);
+	}
+	else if (typeid(object) == typeid(Cannon)) {
+		laseraux = new Laser(dynamic_cast<Cannon*>(object)->getPosition()
+			- Vector2D<float>(0, dynamic_cast<Cannon*>(object)->getRect()->w / 3),
+			Vector2D<float>(0, 10), pair<uint, uint>(5, 10), this, renderer, ALIEN);
+	}
+	
 	objectsList.insert(objectsList.end(), laseraux);
 }
 
@@ -219,7 +242,7 @@ void Game::run() {
 	while (!gameOver /*&& !exit && !win */)
 	{
 		startTime = SDL_GetTicks();
-		//handleEvents();
+		handleEvents();
 		update(); // Actualiza el estado de todos los objetos del juego
 		render(); // Renderiza todos los objetos del juego
 		frameTime = SDL_GetTicks() - startTime; // Tiempo de la iteraci?n

@@ -34,8 +34,32 @@ bool Cannon::update() {
 	return _life > 0;
 }
 
-void Cannon::handleEvents(Vector2D<float> direction) {
-	_direction = direction * _velocity;
+void Cannon::handleEvents(const SDL_Event & event) {
+	switch (event.type)
+	{
+	case SDL_KEYDOWN:
+		//Movement
+		if (event.key.keysym.sym == SDLK_LEFT) _direction = Vector2D<float>(-1, 0) * _velocity;
+		else if (event.key.keysym.sym == SDLK_RIGHT) _direction = Vector2D<float>(1, 0) * _velocity;
+		//Shoot
+		if (event.key.keysym.sym == SDLK_SPACE)
+		{
+			if (canShoot())
+			{
+				_game->fireLaser(this);
+				setCoolDown(_shootCD);
+			}
+		} 
+		break;
+
+	case SDL_KEYUP:
+		//Stop movement
+		if (event.key.keysym.sym == SDLK_LEFT || event.key.keysym.sym == SDLK_RIGHT)
+		{
+			_direction = Vector2D<float>(0, 0);
+		}
+		break;
+	}
 }
 
 bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {
