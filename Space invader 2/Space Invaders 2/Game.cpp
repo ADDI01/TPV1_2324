@@ -29,8 +29,7 @@ void Game::loadFromFile() {
 	int latestRow = -1, tObject, posX, posY, subType, nlifes, estado, points;
 	bool idle = false;
 
-	SceneObject* aux = nullptr;
-	list<SceneObject*>::iterator i;
+	SceneObject* aux = nullptr; //Alamcena cada SceneObject 
 
 	if (!file.is_open()) throw "No se ha abierto el archivo.";
 
@@ -39,14 +38,13 @@ void Game::loadFromFile() {
 		file >> posX;
 		file >> posY;
 		Point2D<float> pos(posX, posY);
-		i = objectsList.end();
 
 		switch (tObject) {
 		case 0: //Cannon
 			file >> nlifes;
 			file >> subType; //TODO: que esto sea la espera
 
-			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, 2, 1); //Instance
+			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, 2, 20); //Instance
 			break;
 		case 1: //Shooter alien
 			file >> subType;
@@ -105,9 +103,7 @@ void Game::loadFromFile() {
 		}
 
 		if (tObject != 3 && tObject != 7) { //Mothership and Ufo dont belong the listObject
-			objectsList.insert(i, aux); //SceneObject to list
-			aux->setListIterator(i); //Set the iterator
-			aux = nullptr;
+			addToList(aux);
 		}
 	}
 	//Background
@@ -143,8 +139,15 @@ void Game::handleEvents() {
 
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.key.keysym.sym == SDLK_ESCAPE) exit = true;
-		else dynamic_cast<Cannon*>(*i)->handleEvents(event);
+		else dynamic_cast<Cannon*>(*i)->handleEvents(event, renderer);
 	}
+}
+
+void Game::addToList(SceneObject* aux) {
+	list<SceneObject*>::iterator i = objectsList.end();
+
+	objectsList.insert(i, aux); //SceneObject to list
+	aux->setListIterator(i); //Set the iterator
 }
 
 bool Game::textureLoading() {
@@ -187,23 +190,6 @@ void Game::lose()
 int Game::getRandomRange(int min, int max) {
 	static std::mt19937_64 randomGenerator(std::random_device{}());
 	return uniform_int_distribution<int>(min, max)(randomGenerator);
-}
-
-void Game::fireLaser(SceneObject* object) {
-	Laser* laserAux = nullptr;
-
-	if ((typeid(object) == typeid(ShooterAlien))) {
-		laserAux = new Laser(dynamic_cast<Alien*>(object)->getPosition() 
-			+ Vector2D<float>(0, dynamic_cast<Alien*>(object)->getRect()->w / 3),
-			Vector2D<float>(0, 10), pair<uint, uint>(5, 10), this, renderer, ALIEN);
-	}
-	else if (typeid(object) == typeid(Cannon)) {
-		laserAux = new Laser(dynamic_cast<Cannon*>(object)->getPosition()
-			- Vector2D<float>(0, dynamic_cast<Cannon*>(object)->getRect()->w / 3),
-			Vector2D<float>(0, 10), pair<uint, uint>(5, 10), this, renderer, ALIEN);
-	}
-	
-	if(laserAux != nullptr) objectsList.insert(objectsList.end(), laserAux);
 }
 
 void Game::run() {
