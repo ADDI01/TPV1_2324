@@ -195,11 +195,6 @@ bool Game::textureLoading() {
 	return true;
 }
 
-int Game::getRandomRange(int min, int max) {
-	static std::mt19937_64 randomGenerator(std::random_device{}());
-	return uniform_int_distribution<int>(min, max)(randomGenerator);
-}
-
 void Game::lose() 
 {
 	gameOver = true;
@@ -208,6 +203,12 @@ void Game::lose()
 int Game::getRandomRange(int min, int max) {
 	static std::mt19937_64 randomGenerator(std::random_device{}());
 	return uniform_int_distribution<int>(min, max)(randomGenerator);
+}
+
+void Game::fireLaser(Alien* alien) {
+	Laser* laseraux = new Laser(alien->getPosition() + Vector2D<float>(0, alien->getRect()->w / 3),
+		Vector2D<float>(0,10),pair<uint,uint>(5,10),this,renderer,ALIEN);
+	objectsList.insert(objectsList.end(), laseraux);
 }
 
 void Game::run() {

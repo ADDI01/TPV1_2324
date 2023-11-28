@@ -51,7 +51,22 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space 
           [
               T=float
           ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(209,92): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
   Laser.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Laser.cpp(18,25): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Laser.cpp(19,25): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
   Mothership.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.cpp(23,30): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
           with
@@ -59,6 +74,10 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space 
               T=float
           ]
   ShooterAlien.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\ShooterAlien.cpp(9,44): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\ShooterAlien.cpp(9,36): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\ShooterAlien.cpp(9,35): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   Source.cpp
   Generando código...
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\ShooterAlien.h(14): error C4716: 'ShooterAlien::update': debe devolver un valor
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\ShooterAlien.cpp(18): warning C4715: 'ShooterAlien::update': no todas las rutas de acceso de control devuelven un valor
+  Space Invaders 2.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\bin\Space Invaders 2Debug.exe

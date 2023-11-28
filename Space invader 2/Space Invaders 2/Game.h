@@ -28,7 +28,7 @@ private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	list<SceneObject* > objectsList;
-	Mothership* mother = new Mothership(this)
+	Mothership* mother = new Mothership(this);
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };
 	struct TextureData {
@@ -60,6 +60,7 @@ public:
 	void update();
 	//void handleEvents();
 	void lose();
+	void fireLaser(Alien* alien);
 
 	//Getters
 	int getRandomRange(int min, int max);
