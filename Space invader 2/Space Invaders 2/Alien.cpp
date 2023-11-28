@@ -56,13 +56,12 @@ bool ret = true;
 	{
 		_pos = _pos + _mother->getDirection();
 		_idle = !_idle;
-		if (_mother->shouldMove() && (_pos.getX() >= _game->getWidth() - _size.first|| _pos.getX() <= 0))
+		if ((_pos.getX() >= _game->getWidth() - _size.first && _mother->getDirection().getX() >= 0)|| (_pos.getX() <= 0 && _mother->getDirection().getX() <= 0))
 		{
 			_mother->cannotMove();
 		}
 
 		_mother->alienLanded(_pos.getY());
-
 	}
 	return ret;
 }

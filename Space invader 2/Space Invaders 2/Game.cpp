@@ -129,17 +129,7 @@ void Game::update()
 	{
 		it->update();
 	}
-
-	if (!mother->shouldMove()) 
-	{
-		for (auto it : objectsList)
-		{
-			if (dynamic_cast<Alien*>(it) != nullptr)
-				dynamic_cast<Alien*>(it)->bajaColumna();
-		}
-		mother->changeDirection();
-		mother->canMove();
-	}
+	mother->update();
 }
 
 void Game::handleEvents() {
