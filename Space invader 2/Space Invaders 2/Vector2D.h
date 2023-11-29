@@ -1,5 +1,6 @@
 #ifndef VECTOR2D_H_
 #define VECTOR2D_H_
+#include"checkML.h"
 
 template <class T>
 class Vector2D
