@@ -45,9 +45,9 @@ bool Laser::update() {
 }
 
 bool Laser::hit(SDL_Rect AttackRect, int typeOfDamage) {
-	if (SDL_HasIntersection(&AttackRect, _myRect))
+	if (typeOfDamage != _father && SDL_HasIntersection(&AttackRect, _myRect))
 	{
-			//_game->hasDie(_it);
+			_game->hasDie(_it);
 			return true;
 	} 
 	return false;
