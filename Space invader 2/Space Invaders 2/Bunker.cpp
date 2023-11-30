@@ -52,9 +52,9 @@ bool Bunker::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	{
 		_life--;
 		if (_life == 0) {
-			//_game.hasDied();
+			_game->hasDie(_it);
 		}
-		return true; //TODO: PONER BIEN
+		return true;
 	}
 	else
 	{

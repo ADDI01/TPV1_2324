@@ -27,22 +27,28 @@ void Laser::render() const {
 }
 
 bool Laser::update() {
-	//Checks if the laser has hit
-	if (_life > 0)
+	
+	if (_father == PLAYER) //Laser from player
 	{
-		if (_father == PLAYER) //Laser from player
-		{
-			_pos = _pos - _velocity; //Laser moves
-		}
-		else //Laser from alien
-		{
-			_pos = _pos + _velocity; //Laser moves
-		}
+		_pos = _pos - _velocity; //Laser moves
+	}
+	else //Laser from alien
+	{
+		_pos = _pos + _velocity; //Laser moves
 	}
 
-	return _life > 0;
+	if (_game->damage(*_myRect, _father)) {
+		_game->hasDie(_it);
+	}
+
+	return true;
 }
 
 bool Laser::hit(SDL_Rect AttackRect, int typeOfDamage) {
-	return true; //TODO: TERMINAR
+	if (SDL_HasIntersection(&AttackRect, _myRect))
+	{
+			//_game->hasDie(_it);
+			return true;
+	} 
+	return false;
 }

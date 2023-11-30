@@ -156,9 +156,10 @@ void Game::handleEvents() {
 }
 
 void Game::addToList(SceneObject* aux) {
-	list<SceneObject*>::iterator i = objectsList.end();
-
+	/*list<SceneObject*>::iterator i = objectsList.end();
 	objectsList.insert(i, aux); //SceneObject to list
+	i++;*/
+	list<SceneObject*>::iterator i = objectsList.insert(objectsList.end(),aux);
 	aux->setListIterator(i); //Set the iterator
 }
 
@@ -198,6 +199,24 @@ bool Game::textureLoading() {
 void Game::lose() 
 {
 	gameOver = true;
+}
+
+void Game::hasDie(list<SceneObject*>::iterator it) {
+	list<SceneObject*>::iterator temp = it;
+	it++;
+	if (it != objectsList.end()) {
+		delete* temp;
+		objectsList.erase(temp);
+		cout << "DOUH" << endl;
+	}
+}
+
+bool Game::damage(SDL_Rect rect, Father father) const {
+	for (auto it : objectsList) {
+		if (it->hit(rect, father))
+			return true;
+	}
+	return false;
 }
 
 int Game::getRandomRange(int min, int max) {

@@ -29,6 +29,6 @@ public:
 	void render() const override ;
 	bool update() override { return true; };
 	bool save() const override { return true; };
-	bool hit(SDL_Rect AttackRect, int typeOfDamage) override { return true; };
+	bool hit(SDL_Rect AttackRect, int typeOfDamage) override { return false; };
 };
 

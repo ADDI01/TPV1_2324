@@ -40,11 +40,11 @@ public:
 
 	//Game states
 	void render() const override;
-	virtual bool update() override;
+	bool update() override;
 	bool save() const override{ return true; };
 
 	//Specific actions
-	bool hit(SDL_Rect AttackRect, int typeOfDamage);
+	bool hit(SDL_Rect AttackRect, int typeOfDamage) override ;
 	void bajaColumna();
 
 	//Getters

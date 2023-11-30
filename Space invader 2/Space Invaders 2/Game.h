@@ -69,8 +69,11 @@ public:
 	void update();
 	void handleEvents();
 	void lose();
-	void addToList(SceneObject* object);
 
+	//Specific actions
+	void addToList(SceneObject* object);
+	bool damage(SDL_Rect rect, Father father) const;
+	void hasDie(list<SceneObject*>::iterator it);
 	//Getters
 	int getRandomRange(int min, int max);
 	uint getHeight() { return WIN_HEIGHT; };

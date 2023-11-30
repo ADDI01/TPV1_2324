@@ -71,9 +71,14 @@ void Cannon::fireLaser(SDL_Renderer* renderer) {
 }
 
 bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {
-	_life--;
-	std::cout << _life;
-	return true;
+	if (SDL_HasIntersection(&AttackRect, _myRect)) {
+		_life--;
+		std::cout << _life;
+		if (_life == 0) {
+			_game->lose();
+		}
+	}
+	return false;
 }
 
 bool Cannon::canShoot() const {
