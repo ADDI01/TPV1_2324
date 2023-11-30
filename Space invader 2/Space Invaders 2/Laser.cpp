@@ -38,7 +38,7 @@ bool Laser::update() {
 	}
 
 	if (_game->damage(*_myRect, _father)) {
-		_game->hasDie(_it);
+		//_game->hasDie(_it);
 	}
 
 	return true;
