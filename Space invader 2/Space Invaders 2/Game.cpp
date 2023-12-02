@@ -139,9 +139,17 @@ void Game::update()
 {
 	for (auto it : objectsList)
 	{
-		if(it != nullptr)
-			it->update();
+		it->update();
 	}
+
+	for (auto it : objectsToDelete) {
+		objectsList.erase(it);
+	}
+
+	if (!objectsToDelete.empty()) {
+		objectsToDelete.clear();
+	}
+
 	mother->update();
 }
 
@@ -202,13 +210,7 @@ void Game::lose()
 }
 
 void Game::hasDie(list<SceneObject*>::iterator it) {
-	list<SceneObject*>::iterator temp = it;
-	it++;
-	if (it != objectsList.end()) {
-		delete* temp;
-		objectsList.erase(temp);
-		cout << "DOUH" << endl;
-	}
+	objectsToDelete.push_back(it);
 }
 
 bool Game::damage(SDL_Rect rect, Father father) const {
@@ -227,7 +229,7 @@ void Game::run() {
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
 
-	while (!gameOver && !exit /* && !win */ )
+	while (!gameOver && !exit && !win)
 	{
 		startTime = SDL_GetTicks();
 		handleEvents();

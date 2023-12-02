@@ -31,4 +31,5 @@ public:
 	uint getAlienCount() { return _contAliens; };
 	void changeDirection();
 	void addAlien() { _contAliens++; };
+	void subtractAlien() { _contAliens--; };
 };

@@ -77,6 +77,7 @@ bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {
 		if (_life == 0) {
 			_game->lose();
 		}
+		return true;
 	}
 	return false;
 }

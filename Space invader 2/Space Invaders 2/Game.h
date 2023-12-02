@@ -31,6 +31,7 @@ private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	list<SceneObject* > objectsList;
+	list < list<SceneObject*>::iterator> objectsToDelete;
 	Mothership* mother = new Mothership(this);
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };
@@ -74,6 +75,7 @@ public:
 	void addToList(SceneObject* object);
 	bool damage(SDL_Rect rect, Father father) const;
 	void hasDie(list<SceneObject*>::iterator it);
+	void Win() { win = true; };
 	//Getters
 	int getRandomRange(int min, int max);
 	uint getHeight() { return WIN_HEIGHT; };

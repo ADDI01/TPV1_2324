@@ -38,7 +38,7 @@ bool Laser::update() {
 	}
 
 	if (_game->damage(*_myRect, _father)) {
-		//_game->hasDie(_it);
+		_game->hasDie(_it);
 	}
 
 	return true;
@@ -47,8 +47,7 @@ bool Laser::update() {
 bool Laser::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	if (typeOfDamage != _father && SDL_HasIntersection(&AttackRect, _myRect))
 	{
-			_game->hasDie(_it);
-			return true;
+			return true; // no poner el hash die, se llamaría 2 veces
 	} 
 	return false;
 }

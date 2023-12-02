@@ -38,8 +38,6 @@ void Alien::render() const {
 		if (!_idle) _texture->renderFrame(*_myRect, 2, 0, SDL_FLIP_NONE);
 		else _texture->renderFrame(*_myRect, 2, 1, SDL_FLIP_NONE);
 		break;
-	case -1:
-		break;
 	default:
 		//When non expected alien comes
 		throw "The Alien does not exist.";
@@ -72,8 +70,11 @@ bool ret = true;
 bool Alien::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	if (typeOfDamage == 1 && SDL_HasIntersection(&AttackRect, _myRect)) 
 	{
-		_subType = -1;
-		_game->hasDie(_it);
+		if (_subType != -1) {
+			_subType = -1;
+			_game->hasDie(_it);
+			_mother->subtractAlien();
+		}
 		return true;
 	}
 	else 
