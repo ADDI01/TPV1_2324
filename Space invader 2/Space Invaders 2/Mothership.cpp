@@ -49,6 +49,9 @@ void Mothership:: changeDirection() {
 
 bool Mothership::update() 
 {
+	if (_contAliens == 0) {
+		_game->Win();
+	}
 	if (!shouldMove())
 	{
 		changeDirection();
