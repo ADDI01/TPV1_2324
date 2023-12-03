@@ -7,7 +7,7 @@ Game::Game() {
 	init();
 	textureLoading();
 	if (textureLoading())
-		loadFromFile("../images/mapas/map5.txt");
+		loadFromFile("../images/mapas/pred" + to_string(nLevel % nLevels) +".txt");
 	else {
 		SDLError r("No se cargaron corretamente las texturas.");
 		throw r.what();
@@ -19,6 +19,7 @@ Game::~Game() {
 		delete it;
 		it = nullptr;
 	}
+	delete infoBar;
 	for (Texture* t : textures) { delete t; t = nullptr; }
 	delete mother;
 	delete star;
@@ -50,6 +51,9 @@ void Game::limpiaLista() {
 
 void Game::loadFromFile(string fileName) {
 	limpiaLista();
+	if (infoBar != nullptr) {
+		delete infoBar;
+	}
 	ifstream file(fileName); //Hay 50 elementos que leer
 	int latestRow = -1, tObject, posX, posY, subType, nlifes, estado, points;
 	bool idle = false;
@@ -74,6 +78,7 @@ void Game::loadFromFile(string fileName) {
 
 			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, estado, 30); //Instance
 				_landedHeight = pos.getY() - 30;
+				_cannon = static_cast<Cannon*>(aux);
 			break;
 		case 1: //Alien
 			file >> subType;
@@ -106,14 +111,10 @@ void Game::loadFromFile(string fileName) {
 			break;
 		case 3: //Mothership
 			file >> subType;
-			mother = new Mothership(this, posX, posY,subType);
-			for (auto it : objectsList)
-			{
-				if (static_cast<Alien*>(it) != nullptr) {
-					static_cast<Alien*>(aux)->setMother(mother);
-					mother->addAlien();
-				}
-			}
+			mother->setState(posX);
+			mother->setLevel(posY);
+			mother->setActualLevel(subType);
+
 			break;
 		case 4: //Bunkers
 			file >> subType; //TODO: ENTENDER ESTO
@@ -187,7 +188,7 @@ void Game::update()
 }
 
 void Game::save(int k) const{
-	string direc = "../images/mapas/map" + to_string(k);
+	string direc = "../images/mapas/pred" + to_string(k);
 	ofstream out(direc + ".txt");
 	if (!out.is_open()) {
 		FileFormatError f(direc);
@@ -201,48 +202,15 @@ void Game::save(int k) const{
 	out.close(); 
 }
 
-void Game::loadAndSaveEvents(const SDL_Event& event) {
-	if ((pauseSave || pauseCharge) && event.key.keysym.sym == SDLK_0)
-	{
-		if (pauseSave) {
-			save(0); pauseSave = false;
-		}
-		else if (pauseCharge) {
-			loadFromFile("../images/mapas/map0.txt");
-			pauseCharge = false;
-		}
-	}
-	else if ((pauseSave || pauseCharge) && event.key.keysym.sym == SDLK_1)
-	{
-		if (pauseSave) {
-			save(1); pauseSave = false;
-		}
-		else if (pauseCharge) {
-			loadFromFile("../images/mapas/map1.txt");
-			pauseCharge = false;
-		}
-}
-	else if ((pauseSave || pauseCharge) && event.key.keysym.sym == SDLK_2)
-	{
-		if (pauseSave) {
-			save(2); pauseSave = false;
-		}
-		else if (pauseCharge) {
-			loadFromFile("../images/mapas/map2.txt");
-			pauseCharge = false;
-		}
-}
-}
 
 void Game::handleEvents() {
 	int k;
 	SDL_Event event;
-	list<SceneObject*>::iterator i = objectsList.begin();
 
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.key.keysym.sym == SDLK_ESCAPE) exit = true;
 		else if (!pauseSave && !pauseCharge && event.key.keysym.sym == SDLK_s) pauseSave = true;
-		else if (!pauseSave && !pauseCharge && event.key.keysym.sym == SDLK_l) pauseSave = true;
+		else if (!pauseSave && !pauseCharge && event.key.keysym.sym == SDLK_l) pauseCharge = true;
 		else if (pauseSave && event.key.keysym.sym == SDLK_0) { save(0); pauseSave = false; }
 		else if (pauseSave && event.key.keysym.sym == SDLK_1) { save(1); pauseSave = false; }
 		else if (pauseSave && event.key.keysym.sym == SDLK_2) { save(2); pauseSave = false; }
@@ -263,8 +231,7 @@ void Game::handleEvents() {
 		else if (pauseCharge && event.key.keysym.sym == SDLK_7) { loadFromFile("../images/mapas/map7.txt"); pauseCharge = false; }
 		else if (pauseCharge && event.key.keysym.sym == SDLK_8) { loadFromFile("../images/mapas/map8.txt"); pauseCharge = false; }
 		else if (pauseCharge && event.key.keysym.sym == SDLK_9) { loadFromFile("../images/mapas/map9.txt"); pauseCharge = false; }
-		else if (pauseCharge && pauseCharge) loadAndSaveEvents(event);
-		else if(!pauseSave && !pauseCharge) dynamic_cast<Cannon*>(*i)->handleEvents(event, renderer);
+		else if(!pauseSave && !pauseCharge) _cannon->handleEvents(event, renderer);
 	}
 }
 
@@ -312,6 +279,12 @@ bool Game::textureLoading(){
 void Game::lose() 
 {
 	gameOver = true;
+}
+
+void Game::Win() {
+	nLevel++;
+	string direc = "../images/mapas/pred" + to_string(nLevel % nLevels) + ".txt";
+	loadFromFile(direc);
 }
 
 void Game::hasDie(list<SceneObject*>::iterator it) {

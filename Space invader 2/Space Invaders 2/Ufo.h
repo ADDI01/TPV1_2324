@@ -20,7 +20,7 @@ private:
 public:
 	//constructora que recive el min & max de _occultTime
 	Ufo(Game* game,Vector2D<float> pos, Texture* texture, pair<uint,uint> size, float state, float wait): SceneObject(game,texture, 
-		pos, size,1), _initialPos(pos), _actualState((ufoState) state), _occultTime(wait) {
+		pos, size,1), _initialPos(800,pos.getY()), _actualState((ufoState) state), _occultTime(wait) {
 		_myRect = new SDL_Rect; 
 		_actualOccultTime = _occultTime;
 	};
