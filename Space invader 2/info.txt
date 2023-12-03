@@ -1,0 +1,8 @@
+David Palacios Daza
+Julián Serrano Chacón
+
+Hemos hecho:
+* Toda las funcionalidades obligatoras.
+* carga de niveles predeterminados al matar todos los alienígenas.
+* animación en el movimiento de los alienígenas.
+* Aparecen tus vidas en la barra de información.
