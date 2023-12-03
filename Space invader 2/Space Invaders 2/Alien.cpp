@@ -1,13 +1,13 @@
 #include "Alien.h"
 #include "Mothership.h"
 #include "Game.h"
+#include "SDLError.h"
 #include <fstream>
 
 Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game,
 	float velocity, int type, bool idle): SceneObject(game,texture, pos, size, 1), _velocity(velocity), 
 	_subType(type), _idle(idle){ 
-	_myRect = new SDL_Rect; 
-	//_shootCD = _myGame->getRandomRange(MIN_CD, INT_CD); TODO: CLASE GAME
+	_myRect = new SDL_Rect;
 }; 
  
 Alien:: ~Alien() {
@@ -41,7 +41,8 @@ void Alien::render() const {
 		break;
 	default:
 		//When non expected alien comes
-		throw "The Alien does not exist.";
+		SDLError r("The Alien does not exist.");
+		throw r.what();
 		break;
 	}
 }

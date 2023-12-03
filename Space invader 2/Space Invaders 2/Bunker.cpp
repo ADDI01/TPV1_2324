@@ -38,7 +38,8 @@ void Bunker::render() const {
 			break;
 		default:
 			//When non expected bunker comes
-			throw "The Bunker does not exist.";
+			SDLError r("The Bunker does not exist.");
+			throw r.what();
 			break;
 		}
 	}

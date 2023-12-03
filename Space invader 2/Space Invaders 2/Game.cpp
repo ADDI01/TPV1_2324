@@ -8,7 +8,10 @@ Game::Game() {
 	textureLoading();
 	if (textureLoading())
 		loadFromFile("../images/mapas/pred" + to_string(nLevel % nLevels) +".txt");
-	else throw "No se cargaron corretamente las texturas.";
+	else {
+		SDLError r("No se cargaron corretamente las texturas.");
+		throw r.what();
+	}
 }
 
 Game::~Game() {
@@ -32,8 +35,10 @@ void Game::init() {
 	window = SDL_CreateWindow("Space Invaders", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
 		WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	if (window == nullptr || renderer == nullptr)
-		throw SDL_GetError(); //exception("Error loading SDL window or renderer");
+	if (window == nullptr || renderer == nullptr) {
+		SDLError r("Error loading SDL window or renderer");
+		throw r.what();
+	}
 }
 
 void Game::limpiaLista() {
@@ -55,7 +60,10 @@ void Game::loadFromFile(string fileName) {
 
 	SceneObject* aux = nullptr; //Alamcena cada SceneObject 
 
-	if (!file.is_open()) throw "No se ha abierto el archivo.";
+	if (!file.is_open()) {
+		FileNotFoundError f(fileName);
+		throw f.what();
+	}
 
 	while (!file.eof()) {
 		file >> tObject;
@@ -128,7 +136,8 @@ void Game::loadFromFile(string fileName) {
 			//Crrar instancia InfoBar
 			break;
 		default:
-			throw "Objeto no identificado.";
+			FileFormatError f(fileName);
+			throw f.what();
 			break;
 		}
 
@@ -137,9 +146,8 @@ void Game::loadFromFile(string fileName) {
 		}
 	}
 	//Background
-	if(star == nullptr)
-		star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
-	infoBar = new InfoBar(this, textures[CANNONTEXTURE], Point2D<float>(20, WIN_HEIGHT - 50),
+	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
+	infoBar = new InfoBar(this, textures[CANNONTEXTURE], Point2D<float>(10, WIN_HEIGHT - 30),
 		pair<uint, uint>(34, 21), 0);
 }
 
@@ -182,7 +190,10 @@ void Game::update()
 void Game::save(int k) const{
 	string direc = "../images/mapas/pred" + to_string(k);
 	ofstream out(direc + ".txt");
-	if (!out.is_open()) throw "No se ha abierto el archivo.";
+	if (!out.is_open()) {
+		FileFormatError f(direc);
+		throw f.what();
+	}
 	for (auto it : objectsList)
 	{
 		it->save(out); 

@@ -6,5 +6,7 @@ class FileNotFoundError: public InvadersError
 public:
 	FileNotFoundError(const string& f) : InvadersError("File " + f + " not found.") {};
 	virtual ~FileNotFoundError() {};
+
+	char* what() override { return what(); };
 };
 
