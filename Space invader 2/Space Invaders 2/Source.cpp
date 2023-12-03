@@ -17,12 +17,11 @@ void initGame()
 	try {
 		game.run();
 	}
-	catch (SDLError& sdlErr) { cout << sldErr.what(); }
+	/*catch (SDLError& sdlErr) { cout << sldErr.what(); }
 	catch (FileFormatError& ffErr) { cout << ffErr.what(); }
 	catch (FileNotFoundError& fnfErr) { cout << fnfErr.what(); }
-	catch (logic_error& lErr) { cout << lErr.what(); }
+	catch (logic_error& lErr) { cout << lErr.what(); }*/
 	catch (exception& e) { cout << e.what(); }
-	
 }
 
 int main(int argc, char* argv[])
