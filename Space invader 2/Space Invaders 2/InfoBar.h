@@ -35,7 +35,9 @@ public:
 		_pointsRect = new SDL_Rect;
 	};
 	~InfoBar() {
-		delete _cannonRect; _cannonRect = nullptr; delete _pointsRect; _pointsRect = nullptr;
+		delete _cannonRect; _cannonRect = nullptr;
+		delete _pointsRect;
+		_pointsRect = nullptr;
 	};
 
 	void render() const override;

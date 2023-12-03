@@ -33,4 +33,7 @@ public:
 	uint getAlienCount() { return _contAliens; };
 	void changeDirection();
 	void addAlien() { _contAliens++; };
+	void setState(int state) { _actualMovementState = (movementStates) state; };
+	void setLevel(float level) { _level = level; };
+	void setActualLevel(int actualLevel) { _actualLevel = actualLevel; }
 };

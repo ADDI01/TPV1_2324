@@ -34,6 +34,7 @@ private:
 	list<SceneObject* > objectsList;
 	list < list<SceneObject*>::iterator> objectsToDelete;
 	Mothership* mother = new Mothership(this,0,20,3);
+	Cannon* _cannon;
 	float _landedHeight = 0;
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };
@@ -82,7 +83,6 @@ public:
 	void hasDie(list<SceneObject*>::iterator it);
 	void Win() { win = true; };
 	void limpiaLista();
-	void loadAndSaveEvents(const SDL_Event& event) ;
 	//Getters
 	uint getCannonLifes(){
 		list<SceneObject*>::iterator aux = objectsList.begin();
