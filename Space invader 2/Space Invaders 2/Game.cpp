@@ -158,10 +158,12 @@ void Game::update()
 void Game::save(int k) const{
 	string direc = "../images/mapas/map" + k;
 	ofstream out(direc + ".txt");
+	if (!out.is_open()) throw "No se ha abierto el archivo.";
 	for (auto it : objectsList)
 	{
-		it->save(out);
+		it->save(out); 
 	}
+	out.close(); 
 }
 
 void Game::handleEvents() {
@@ -171,6 +173,17 @@ void Game::handleEvents() {
 
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.key.keysym.sym == SDLK_ESCAPE) exit = true;
+		else if (!pause && event.key.keysym.sym == SDLK_s) pause = true;
+		else if (pause && event.key.keysym.sym == SDLK_0) { save(0); pause = false; }
+		else if (pause && event.key.keysym.sym == SDLK_1) { save(1); pause = false; }
+		else if (pause && event.key.keysym.sym == SDLK_2) { save(2); pause = false; }
+		else if (pause && event.key.keysym.sym == SDLK_3) { save(3); pause = false; }
+		else if (pause && event.key.keysym.sym == SDLK_4) { save(4); pause = false; }
+		else if (pause && event.key.keysym.sym == SDLK_5) {	save(5); pause = false; }
+		else if (pause && event.key.keysym.sym == SDLK_6) { save(6); pause = false; }
+		else if (pause && event.key.keysym.sym == SDLK_7) { save(7); pause = false; }
+		else if (pause && event.key.keysym.sym == SDLK_8) { save(8); pause = false; }
+		else if (pause && event.key.keysym.sym == SDLK_9) { save(9); pause = false; }
 		else dynamic_cast<Cannon*>(*i)->handleEvents(event, renderer);
 	}
 }
@@ -245,7 +258,10 @@ void Game::run() {
 	{
 		startTime = SDL_GetTicks();
 		handleEvents();
-		update(); // Actualiza el estado de todos los objetos del juego
+		if (!pause) 
+		{
+			update(); // Actualiza el estado de todos los objetos del juego
+		}
 		render(); // Renderiza todos los objetos del juego
 		frameTime = SDL_GetTicks() - startTime; // Tiempo de la iteraci?n
 		if (frameTime < FRAME_RATE)
