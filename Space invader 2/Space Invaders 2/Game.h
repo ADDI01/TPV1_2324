@@ -82,6 +82,7 @@ public:
 	uint getHeight() { return WIN_HEIGHT; };
 	uint getWidth() { return WIN_WIDTH; };
 	SDL_Renderer* getRenderer() { return renderer; };
+	SDL_Window* getWindow() { return window; };
 	float getLandedHeight() { return _landedHeight; };
 };
 

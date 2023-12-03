@@ -17,10 +17,10 @@ Game::~Game() {
 		it = nullptr;
 	}
 	for (Texture* t : textures) { delete t; t = nullptr; }
-	SDL_DestroyWindow(window);
-	SDL_DestroyRenderer(renderer);
 	delete mother;
 	delete star;
+	SDL_DestroyWindow(window);
+	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
 }
 
