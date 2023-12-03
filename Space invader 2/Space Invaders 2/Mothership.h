@@ -4,6 +4,11 @@
 
 using uint = unsigned int;
 
+struct Points {
+	uint yellowAlien = 30, greenAlien = 20, redAlien = 10;
+	uint ufo = 100;
+};
+
 class Mothership: public GameObject
 {
 private:

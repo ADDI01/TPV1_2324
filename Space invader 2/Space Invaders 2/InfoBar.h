@@ -6,11 +6,6 @@ using uint = unsigned int;
 
 class Game;
 
-struct InfoData {
-	uint yellowAlien = 30, greenAlien = 20, redAlien = 10;
-	uint ufo = 100;
-};
-
 class InfoBar : public GameObject
 {
 private:
@@ -22,6 +17,6 @@ public:
 	~InfoBar() {};
 
 	//Setter
-	void setPoints() {};
+	void setPoints(uint p) { _points += p; };
 };
 
