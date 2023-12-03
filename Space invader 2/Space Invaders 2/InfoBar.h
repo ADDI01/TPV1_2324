@@ -15,21 +15,27 @@ class InfoBar : public GameObject
 {
 private:
 	uint _points = 0;
+	uint _offset = 15;
 	Point2D<float> _pos;
 	pair<uint, uint> _size;
-	SDL_Rect* _myRect = nullptr;
+	SDL_Rect* _cannonRect = nullptr;
+	SDL_Rect* _pointsRect = nullptr;
+	Texture* _texture = nullptr;
 
 public:
 	//Constructor
-	InfoBar(Game* game, Point2D<float> pos, pair<uint, uint> size, uint points) : GameObject(game), _points(points),
-		_pos(pos), _size(size) {
-		_myRect = new SDL_Rect; 
+	InfoBar(Game* game, Texture* texture, Point2D<float> pos, pair<uint, uint> size, uint points) : GameObject(game),
+		_texture(texture), _points(points), _pos(pos), _size(size) {
+		_cannonRect = new SDL_Rect;
+		_pointsRect = new SDL_Rect;
 	};
-	~InfoBar() { delete _myRect; _myRect = nullptr; };
+	~InfoBar() {
+		delete _cannonRect; _cannonRect = nullptr; delete _pointsRect; _pointsRect = nullptr;
+	};
 
 	void render() const override;
-	void update() override;
-
+	void update() override {};
+	void save(std::ostream& out) const override {};
 	//Setter
 	void setPoints(uint type);
 };

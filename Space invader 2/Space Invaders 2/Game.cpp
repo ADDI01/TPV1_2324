@@ -137,6 +137,8 @@ void Game::loadFromFile(string fileName) {
 	}
 	//Background
 	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
+	infoBar = new InfoBar(this, textures[CANNONTEXTURE], Point2D<float>(20, WIN_HEIGHT - 50),
+		pair<uint, uint>(34, 21), 0);
 }
 
 void Game::render() const 

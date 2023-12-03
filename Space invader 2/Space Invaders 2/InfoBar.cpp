@@ -2,12 +2,28 @@
 #include "Game.h"
 
 void InfoBar::render() const {
-	_myRect->x = _pos.getX();
-	_myRect->y = _pos.getY();
-	_myRect->w = _size.first;
-	_myRect->h = _size.second;
+	_cannonRect->x = _pos.getX();
+	_cannonRect->y = _pos.getY();
+	_cannonRect->w = _size.first;
+	_cannonRect->h = _size.second;
 
-	switch(_game.getCannonLifes())
+	switch (_game->getCannonLifes()) {
+	case 1:
+		_texture->render(*_cannonRect);
+		break;
+	case 2:
+		_texture->render(*_cannonRect);
+		_cannonRect->x = _pos.getX() + _cannonRect->w + _offset;
+		_texture->render(*_cannonRect);
+		break;
+	case 3:
+		_texture->render(*_cannonRect);
+		_cannonRect->x += _cannonRect->w + _offset;
+		_texture->render(*_cannonRect);
+		_cannonRect->x += _cannonRect->w + _offset;
+		_texture->render(*_cannonRect);
+		break;
+	}
 }
 
 void InfoBar::setPoints(uint type) {
@@ -29,8 +45,3 @@ void InfoBar::setPoints(uint type) {
 		break;
 	}
 }
-
-void InfoBar::update() {
-
-}
-
