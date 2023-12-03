@@ -13,8 +13,9 @@
 #include "Laser.h"
 #include "InfoBar.h"
 #include <vector>
-
-
+#include "FileFormatError.h"
+#include "FileNotFoundError.h"
+#include "SDLError.h"
 
 using uint = unsigned int;
 using namespace std;

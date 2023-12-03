@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "Vector2D.h"
 #include "Texture.h"
+#include "SDLError.h"
 #include <SDL.h>
 
 using namespace std;
@@ -20,7 +21,7 @@ class InfoBar : public GameObject
 {
 private:
 	uint _points = 0;
-	uint _offset = 15;
+	uint _offset = 5;
 	Point2D<float> _pos;
 	pair<uint, uint> _size;
 	SDL_Rect* _cannonRect = nullptr;
@@ -35,7 +36,7 @@ public:
 		_pointsRect = new SDL_Rect;
 	};
 	~InfoBar() {
-		delete _cannonRect; _cannonRect = nullptr; delete _pointsRect; _pointsRect = nullptr;
+		delete _cannonRect; _cannonRect = nullptr; delete _pointsRect; _pointsRect = nullptr; _texture = nullptr;
 	};
 
 	void render() const override;

@@ -23,7 +23,11 @@ void InfoBar::render() const {
 		_cannonRect->x += _cannonRect->w + _offset;
 		_texture->render(*_cannonRect);
 		break;
+	default:
+		SDLError r("Numero de cannons incorrecto.");
+		throw r.what();
 	}
+
 }
 
 void InfoBar::setPoints(uint type) {
@@ -41,7 +45,8 @@ void InfoBar::setPoints(uint type) {
 		_points += 100;
 		break;
 	default:
-		throw "Enemigo incorrecto.";
+		SDLError r("Enemigo incorrecto.");
+		throw r.what();
 		break;
 	}
 }
