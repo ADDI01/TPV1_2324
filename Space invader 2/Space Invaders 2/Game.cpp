@@ -7,7 +7,7 @@ Game::Game() {
 	init();
 	textureLoading();
 	if (textureLoading())
-		loadFromFile("../images/mapas/map5.txt");
+		loadFromFile("../images/mapas/pred" + to_string(nLevel % nLevels) +".txt");
 	else throw "No se cargaron corretamente las texturas.";
 }
 
@@ -46,6 +46,9 @@ void Game::limpiaLista() {
 
 void Game::loadFromFile(string fileName) {
 	limpiaLista();
+	if (infoBar != nullptr) {
+		delete infoBar;
+	}
 	ifstream file(fileName); //Hay 50 elementos que leer
 	int latestRow = -1, tObject, posX, posY, subType, nlifes, estado, points;
 	bool idle = false;
@@ -134,7 +137,8 @@ void Game::loadFromFile(string fileName) {
 		}
 	}
 	//Background
-	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
+	if(star == nullptr)
+		star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
 	infoBar = new InfoBar(this, textures[CANNONTEXTURE], Point2D<float>(20, WIN_HEIGHT - 50),
 		pair<uint, uint>(34, 21), 0);
 }
@@ -176,7 +180,7 @@ void Game::update()
 }
 
 void Game::save(int k) const{
-	string direc = "../images/mapas/map" + to_string(k);
+	string direc = "../images/mapas/pred" + to_string(k);
 	ofstream out(direc + ".txt");
 	if (!out.is_open()) throw "No se ha abierto el archivo.";
 	for (auto it : objectsList)
@@ -264,6 +268,12 @@ bool Game::textureLoading(){
 void Game::lose() 
 {
 	gameOver = true;
+}
+
+void Game::Win() {
+	nLevel++;
+	string direc = "../images/mapas/pred" + to_string(nLevel % nLevels) + ".txt";
+	loadFromFile(direc);
 }
 
 void Game::hasDie(list<SceneObject*>::iterator it) {

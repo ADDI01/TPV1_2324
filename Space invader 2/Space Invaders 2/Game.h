@@ -36,6 +36,8 @@ private:
 	Mothership* mother = new Mothership(this,0,20,3);
 	Cannon* _cannon;
 	float _landedHeight = 0;
+	int nLevel = 0;
+	const int nLevels = 3;
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };
 	struct TextureData {
@@ -81,7 +83,7 @@ public:
 	void addToList(SceneObject* object);
 	bool damage(SDL_Rect rect, Father father) const;
 	void hasDie(list<SceneObject*>::iterator it);
-	void Win() { win = true; };
+	void Win();
 	void limpiaLista();
 	//Getters
 	uint getCannonLifes(){
