@@ -56,7 +56,7 @@ void Game::loadFromFile() {
 			file >> nlifes;
 			file >> estado; //TODO: que esto sea la espera
 
-			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, 2, 20); //Instance
+			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, estado, 30); //Instance
 				_landedHeight = pos.getY() - 30;
 			break;
 		case 1: //Alien

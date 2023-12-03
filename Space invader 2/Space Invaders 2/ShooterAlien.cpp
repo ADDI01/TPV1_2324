@@ -23,6 +23,6 @@ bool ShooterAlien:: update() {
 
 void ShooterAlien::fireLaser() {
 	Laser* l = new Laser(_pos + Vector2D<float>(_size.first / 2, _size.second), Vector2D<float>(0, 5),
-		pair<uint, uint>(5, 10), _game, _game->getRenderer(), ALIEN);
+		pair<uint, uint>(5, 20), _game, _game->getRenderer(), ALIEN);
 	_game->addToList(l);
 }

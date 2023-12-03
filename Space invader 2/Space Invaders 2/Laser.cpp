@@ -17,8 +17,8 @@ void Laser::render() const {
 	if (_life > 0) {
 		_myRect->x = _pos.getX();
 		_myRect->y = _pos.getY();
-		_myRect->w = 5;
-		_myRect->h = 10;
+		_myRect->w = _size.first;
+		_myRect->h = _size.second;
 		if(_father == ALIEN)
 			SDL_SetRenderDrawColor(_myRenderer, 0, 0, 255, 0xFF);
 		else if(_father == PLAYER)SDL_SetRenderDrawColor(_myRenderer, 255, 0, 0, 0xFF);
