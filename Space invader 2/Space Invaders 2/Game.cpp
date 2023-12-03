@@ -150,6 +150,7 @@ void Game::render() const
 		if (it != nullptr)
 			it->render();
 	}
+	infoBar->render();
 
 	SDL_RenderPresent(renderer);
 }

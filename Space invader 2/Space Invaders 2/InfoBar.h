@@ -1,6 +1,11 @@
 #pragma once
 
 #include "GameObject.h"
+#include "Vector2D.h"
+#include "Texture.h"
+#include <SDL.h>
+
+using namespace std;
 
 using uint = unsigned int;
 
