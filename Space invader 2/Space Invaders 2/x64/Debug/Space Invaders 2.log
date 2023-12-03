@@ -9,7 +9,17 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space 
           [
               T=float
           ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Cannon.cpp(68,61): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Cannon.cpp(43,34): warning C4305: 'argumento': truncamiento de 'double' a 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Cannon.cpp(45,33): warning C4305: 'argumento': truncamiento de 'double' a 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Cannon.cpp(68,62): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
           with
           [
               T=float

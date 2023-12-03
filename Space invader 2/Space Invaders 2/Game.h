@@ -21,7 +21,7 @@ using namespace std;
 // variables globales para la pantalla
 const uint WIN_WIDTH = 800;
 const uint WIN_HEIGHT = 600;
-const uint FRAME_RATE = 100;
+const uint FRAME_RATE = 25;
 const uint NUM_TEXTURES = 5;
 
 class Game
@@ -32,7 +32,7 @@ private:
 	SDL_Renderer* renderer = nullptr;
 	list<SceneObject* > objectsList;
 	list < list<SceneObject*>::iterator> objectsToDelete;
-	Mothership* mother = new Mothership(this,0,0);
+	Mothership* mother = new Mothership(this,20,0);
 	float _landedHeight = 0;
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };

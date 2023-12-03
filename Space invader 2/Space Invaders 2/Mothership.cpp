@@ -6,10 +6,10 @@ Vector2D<float> Mothership::getDirection()
 	switch (_actualMovementState)
 	{
 	case Mothership::RIGHT:
-		_movementDirection = Vector2D<float>(16, 0);
+		_movementDirection = Vector2D<float>(4, 0);
 		break;
 	case Mothership::LEFT:
-		_movementDirection = Vector2D<float>(-16, 0);
+		_movementDirection = Vector2D<float>(-4, 0);
 		break;
 	case Mothership:: DOWNLEFT:
 		_movementDirection = Vector2D<float>(0, 25);

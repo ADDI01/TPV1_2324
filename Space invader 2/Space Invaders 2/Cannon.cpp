@@ -40,9 +40,9 @@ void Cannon::handleEvents(const SDL_Event & event, SDL_Renderer* renderer) {
 	case SDL_KEYDOWN:
 		//Movement
 		if (event.key.keysym.sym == SDLK_LEFT) 
-			_direction = Vector2D<float>(-1, 0) * _velocity;
+			_direction = Vector2D<float>(-0.1, 0) * _velocity;
 		else if (event.key.keysym.sym == SDLK_RIGHT)
-			_direction = Vector2D<float>(1, 0) * _velocity;
+			_direction = Vector2D<float>(0.1, 0) * _velocity;
 		//Shoot
 		if (event.key.keysym.sym == SDLK_SPACE)
 		{
@@ -65,7 +65,7 @@ void Cannon::handleEvents(const SDL_Event & event, SDL_Renderer* renderer) {
 }
 
 void Cannon::fireLaser(SDL_Renderer* renderer) {
-	Laser* l = new Laser(_pos - Vector2D<float>(0, _size.first / 2), Vector2D<float>(0, 10), 
+	Laser* l = new Laser(_pos - Vector2D<float>(0, _size.second / 2), Vector2D<float>(0, 5), 
 		pair<uint, uint>(5, 10), _game, renderer, PLAYER);
 	_game->addToList(l);
 }

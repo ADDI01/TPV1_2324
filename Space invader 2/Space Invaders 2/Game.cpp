@@ -37,7 +37,7 @@ void Game::init() {
 
 
 void Game::loadFromFile() {
-	ifstream file("../images/mapas/trinchera.txt"); //Hay 50 elementos que leer
+	ifstream file("../images/mapas/original.txt"); //Hay 50 elementos que leer
 	int latestRow = -1, tObject, posX, posY, subType, nlifes, estado, points;
 	bool idle = false;
 
@@ -104,7 +104,7 @@ void Game::loadFromFile() {
 			file >> estado;
 			file >> subType; //TODO: LA ESPERA
 
-			aux = new Ufo(this, pos, textures[UFOTEXTURE], pair < uint, uint>(90,32));
+			aux = new Ufo(this, pos, textures[UFOTEXTURE], pair < uint, uint>(90,32),estado,subType);
 			break;
 		case 7: //Points
 			file >> points;

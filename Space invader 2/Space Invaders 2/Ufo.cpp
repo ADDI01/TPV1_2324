@@ -1,4 +1,5 @@
 #include "Ufo.h"
+#include "Game.h"
 
 
 void Ufo::render() const
@@ -21,5 +22,56 @@ void Ufo::render() const
 	default:
 		throw "no ufo";
 		break;
+	}
+}
+
+bool Ufo::update() 
+{
+	updateState();
+	return true;
+}
+
+void Ufo::updateState() {
+	switch (_actualState)
+	{
+	case Ufo::VISIBLE:
+		_pos = _pos + Vector2D<float>(-4.5, 0);
+		if (_pos.getX() <= -57) {
+			_actualState = OCULTO;
+			_actualOccultTime = _game->getRandomRange(200, 300);
+		}
+		break;
+	case Ufo::OCULTO:
+		if (_actualOccultTime > 0)
+			_actualOccultTime--;
+		else {
+			_actualOccultTime = _occultTime;
+			_pos = _initialPos;
+			_actualState = VISIBLE;
+		}
+		break;
+	case Ufo::DESTRUIDO:
+		if (_actualDieTime == _dieTime) {
+			_actualState = OCULTO;
+		}
+		else
+			_actualDieTime++;
+		break;
+	default:
+		break;
+	}
+}
+
+bool Ufo::hit(SDL_Rect AttackRect, int typeOfDamage)
+{
+	if (typeOfDamage != 0 && SDL_HasIntersection(&AttackRect, _myRect))
+	{
+		_actualState = OCULTO;
+		_pos = Vector2D<float>(0, 0);
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
