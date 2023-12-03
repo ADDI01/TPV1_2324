@@ -1,5 +1,6 @@
 #include "Bunker.h"
 #include "Game.h"
+#include <fstream>
 
 Bunker::Bunker(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, uint nLifes)
 	: SceneObject(game, texture, pos, size, nLifes) {
@@ -66,6 +67,6 @@ bool Bunker::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	}
 }
 
-bool Bunker::save() const {
-	return true;
+void Bunker::save(std::ostream& out) const {
+	out << 4 << " " << _pos.getX() << " " << _pos.getY() << " " << _life << endl;
 }

@@ -155,7 +155,17 @@ void Game::update()
 	mother->update();
 }
 
+void Game::save(int k) const{
+	string direc = "../images/mapas/map" + k;
+	ofstream out(direc + ".txt");
+	for (auto it : objectsList)
+	{
+		it->save(out);
+	}
+}
+
 void Game::handleEvents() {
+	int k;
 	SDL_Event event;
 	list<SceneObject*>::iterator i = objectsList.begin();
 
@@ -173,7 +183,7 @@ void Game::addToList(SceneObject* aux) {
 	aux->setListIterator(i); //Set the iterator
 }
 
-bool Game::textureLoading() {
+bool Game::textureLoading(){
 	// cannon's texture inicialization
 	//dataTextures[CANNONTEXTURE]->texturePath = "../images/spaceship.png";
 	//dataTextures[CANNONTEXTURE]->dimensiones = pair<uint, uint>(1, 1);

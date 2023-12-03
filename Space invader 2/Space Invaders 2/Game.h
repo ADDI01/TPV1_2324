@@ -70,6 +70,7 @@ public:
 	void run();
 	void render() const;
 	void update();
+	void save(int k) const;
 	void handleEvents();
 	void lose();
 

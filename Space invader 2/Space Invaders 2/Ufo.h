@@ -33,7 +33,7 @@ public:
 
 	void render() const override ;
 	void update() override;
-	bool save() const override { return true; };
+	void save(std::ostream& out) const override;
 	bool hit(SDL_Rect AttackRect, int typeOfDamage) override;
 	void updateState();
 };

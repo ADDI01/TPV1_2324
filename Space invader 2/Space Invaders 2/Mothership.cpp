@@ -1,5 +1,6 @@
 #include "Mothership.h"
 #include "Game.h"
+#include <fstream>
 
 Vector2D<float> Mothership::getDirection()
 {
@@ -70,4 +71,8 @@ void Mothership::update()
 		_actualLevel = _level;
 	}
 	else _actualLevel--;
+}
+
+void Mothership::save(std::ostream& out) const {
+	out << 3 << " " << _actualMovementState << " " << _level << " " << _actualLevel << endl;
 }

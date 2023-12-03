@@ -1,5 +1,6 @@
 #include "Ufo.h"
 #include "Game.h"
+#include <fstream>
 
 
 void Ufo::render() const
@@ -74,4 +75,8 @@ bool Ufo::hit(SDL_Rect AttackRect, int typeOfDamage)
 	{
 		return false;
 	}
+}
+
+void Ufo::save(std::ostream& out) const {
+	out << 5 << " " << _pos.getX() << " " << _pos.getY() << " " << _actualState << " " << _occultTime << endl;
 }

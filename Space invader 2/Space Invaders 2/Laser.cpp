@@ -1,5 +1,6 @@
 #include "Laser.h"
 #include "Game.h"
+#include <fstream>
 
 Laser::Laser(Point2D<float> pos, Vector2D<float> velocity, pair<uint, uint> size, Game* game, SDL_Renderer* myRenderer,
 	Father father) : SceneObject(game, nullptr, pos, size, 1), _velocity(velocity), _father(father),
@@ -48,4 +49,8 @@ bool Laser::hit(SDL_Rect AttackRect, int typeOfDamage) {
 			return true; // no poner el hash die, se llamaría 2 veces
 	} 
 	return false;
+}
+
+void Laser::save(std::ostream& out) const{
+	out << 6 << " " << _pos.getX() << " " << _pos.getY() << " " << _father << endl;
 }

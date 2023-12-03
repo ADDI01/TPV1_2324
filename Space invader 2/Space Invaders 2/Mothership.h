@@ -22,7 +22,7 @@ public:
 
 	void render() const override {};
 	void update() override;
-	bool save() const override { return true; };
+	void save(std::ostream& out) const override;
 
 	Vector2D<float> getDirection();
 	bool shouldMove() { return _actualLevel <= 0; }

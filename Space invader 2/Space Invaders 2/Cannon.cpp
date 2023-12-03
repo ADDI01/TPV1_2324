@@ -1,5 +1,6 @@
 #include "Cannon.h"
 #include "Game.h"
+#include <fstream>
 
 Cannon:: ~Cannon() {
 	_texture = nullptr;
@@ -84,4 +85,8 @@ bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {
 
 bool Cannon::canShoot() const {
 	return _shootCD <= 0;
+}
+
+void Cannon::save(std::ostream& out) const {
+	out << 0 << " " << _pos.getX() << " " << _pos.getY() << " " << _life << " " << _shootCD << endl;
 }

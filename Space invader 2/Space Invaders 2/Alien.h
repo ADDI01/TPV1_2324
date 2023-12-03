@@ -17,7 +17,7 @@ const float MIN_CD = 20, INT_CD = 60, MAX_CD = 100;
 
 class Alien: public SceneObject
 {
-private:
+protected:
 	//Alien's type
 	int _subType = -1;
 	//Alien's current frame to render. False 1st one, True 2nd one
@@ -41,7 +41,7 @@ public:
 	//Game states
 	void render() const override;
 	void update() override;
-	bool save() const override{ return true; };
+	void save(std::ostream& out) const override;
 
 	//Specific actions
 	bool hit(SDL_Rect AttackRect, int typeOfDamage) override ;
