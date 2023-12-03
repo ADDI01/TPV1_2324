@@ -37,7 +37,7 @@ void Game::init() {
 
 
 void Game::loadFromFile() {
-	ifstream file("../images/mapas/original.txt"); //Hay 50 elementos que leer
+	ifstream file("../images/mapas/map9.txt"); //Hay 50 elementos que leer
 	int latestRow = -1, tObject, posX, posY, subType, nlifes, estado, points;
 	bool idle = false;
 
@@ -106,12 +106,16 @@ void Game::loadFromFile() {
 
 			aux = new Ufo(this, pos, textures[UFOTEXTURE], pair < uint, uint>(90,32),estado,subType);
 			break;
+		case 6:
+			file >> subType;
+			aux = new Laser(pos, Vector2D<float>(0, 5), pair<uint, uint>(5, 20), this, renderer,(Father) subType);
+			break;
 		case 7: //Points
 			file >> points;
 			//Crrar instancia InfoBar
 			break;
 		default:
-			//throw "Objeto no identificado.";
+			throw "Objeto no identificado.";
 			break;
 		}
 
