@@ -33,7 +33,7 @@ private:
 	SDL_Renderer* renderer = nullptr;
 	list<SceneObject* > objectsList;
 	list < list<SceneObject*>::iterator> objectsToDelete;
-	Mothership* mother = new Mothership(this,20,0);
+	Mothership* mother = new Mothership(this,0,20,3);
 	float _landedHeight = 0;
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };
@@ -51,7 +51,8 @@ private:
 	bool exit = false;
 	bool win = false;
 	bool gameOver = false;
-	bool pause = false; //para guardar y cargar
+	bool pauseSave = false; //para guardar 
+	bool pauseCharge = false; // para cargar
 
 	//Unique 
 	Star* star;
@@ -65,7 +66,7 @@ public:
 	//Pre-game
 	void init();
 	bool textureLoading();
-	void loadFromFile();
+	void loadFromFile(string fileName);
 
 	//Game states
 	void run();
@@ -80,6 +81,8 @@ public:
 	bool damage(SDL_Rect rect, Father father) const;
 	void hasDie(list<SceneObject*>::iterator it);
 	void Win() { win = true; };
+	void limpiaLista();
+	void loadAndSaveEvents(const SDL_Event& event) ;
 	//Getters
 	int getRandomRange(int min, int max);
 	uint getHeight() { return WIN_HEIGHT; };
