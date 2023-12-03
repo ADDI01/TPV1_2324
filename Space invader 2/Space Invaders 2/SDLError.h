@@ -1,5 +1,8 @@
 #pragma once
-class SDLError
+#include "InvadersError.h"
+
+class SDLError: public InvadersError
 {
+
 };
 

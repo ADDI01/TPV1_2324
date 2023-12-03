@@ -1,5 +1,8 @@
 #pragma once
-class FileNotFoundError
+#include "InvadersError.h"
+
+class FileNotFoundError: public InvadersError
 {
+
 };
 

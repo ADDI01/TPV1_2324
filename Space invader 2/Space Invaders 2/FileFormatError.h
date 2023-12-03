@@ -1,5 +1,7 @@
 #pragma once
-class FileFormatError
+#include "InvadersError.h"
+
+class FileFormatError : public InvadersError
 {
 };
 
