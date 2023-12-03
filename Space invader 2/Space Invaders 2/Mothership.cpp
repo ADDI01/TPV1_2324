@@ -52,7 +52,7 @@ void Mothership:: changeDirection() {
 	if (_actualMovementState != RIGHT || _actualMovementState != LEFT) {
 
 		if(_level >= 0)
-			_level -= 0.5;
+			_level--;
 
 		_bajada = false;
 	}

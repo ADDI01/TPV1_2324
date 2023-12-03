@@ -7,7 +7,7 @@ Game::Game() {
 	init();
 	textureLoading();
 	if (textureLoading())
-		loadFromFile();
+		loadFromFile("../images/mapas/map5.txt");
 	else throw "No se cargaron corretamente las texturas.";
 }
 
@@ -35,9 +35,17 @@ void Game::init() {
 		throw SDL_GetError(); //exception("Error loading SDL window or renderer");
 }
 
+void Game::limpiaLista() {
+	for (auto it : objectsList) {
+		delete it;
+		it = nullptr;
+	}
+	objectsList.clear();
+}
 
-void Game::loadFromFile() {
-	ifstream file("../images/mapas/original.txt"); //Hay 50 elementos que leer
+void Game::loadFromFile(string fileName) {
+	limpiaLista();
+	ifstream file(fileName); //Hay 50 elementos que leer
 	int latestRow = -1, tObject, posX, posY, subType, nlifes, estado, points;
 	bool idle = false;
 
@@ -89,10 +97,14 @@ void Game::loadFromFile() {
 			mother->addAlien();
 			break;
 		case 3: //Mothership
+			file >> subType;
+			mother = new Mothership(this, posX, posY,subType);
 			for (auto it : objectsList)
 			{
-				if (static_cast<Alien*>(it) != nullptr) 
+				if (static_cast<Alien*>(it) != nullptr) {
 					static_cast<Alien*>(aux)->setMother(mother);
+					mother->addAlien();
+				}
 			}
 			break;
 		case 4: //Bunkers
@@ -106,12 +118,16 @@ void Game::loadFromFile() {
 
 			aux = new Ufo(this, pos, textures[UFOTEXTURE], pair < uint, uint>(90,32),estado,subType);
 			break;
+		case 6:
+			file >> subType;
+			aux = new Laser(pos, Vector2D<float>(0, 5), pair<uint, uint>(5, 20), this, renderer,(Father) subType);
+			break;
 		case 7: //Points
 			file >> points;
 			//Crrar instancia InfoBar
 			break;
 		default:
-			//throw "Objeto no identificado.";
+			throw "Objeto no identificado.";
 			break;
 		}
 
@@ -166,7 +182,41 @@ void Game::save(int k) const{
 	{
 		it->save(out); 
 	}
+	mother->save(out);
 	out.close(); 
+}
+
+void Game::loadAndSaveEvents(const SDL_Event& event) {
+	if ((pauseSave || pauseCharge) && event.key.keysym.sym == SDLK_0)
+	{
+		if (pauseSave) {
+			save(0); pauseSave = false;
+		}
+		else if (pauseCharge) {
+			loadFromFile("../images/mapas/map0.txt");
+			pauseCharge = false;
+		}
+	}
+	else if ((pauseSave || pauseCharge) && event.key.keysym.sym == SDLK_1)
+	{
+		if (pauseSave) {
+			save(1); pauseSave = false;
+		}
+		else if (pauseCharge) {
+			loadFromFile("../images/mapas/map1.txt");
+			pauseCharge = false;
+		}
+}
+	else if ((pauseSave || pauseCharge) && event.key.keysym.sym == SDLK_2)
+	{
+		if (pauseSave) {
+			save(2); pauseSave = false;
+		}
+		else if (pauseCharge) {
+			loadFromFile("../images/mapas/map2.txt");
+			pauseCharge = false;
+		}
+}
 }
 
 void Game::handleEvents() {
@@ -176,18 +226,30 @@ void Game::handleEvents() {
 
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.key.keysym.sym == SDLK_ESCAPE) exit = true;
-		else if (!pause && event.key.keysym.sym == SDLK_s) pause = true;
-		else if (pause && event.key.keysym.sym == SDLK_0) { save(0); pause = false; }
-		else if (pause && event.key.keysym.sym == SDLK_1) { save(1); pause = false; }
-		else if (pause && event.key.keysym.sym == SDLK_2) { save(2); pause = false; }
-		else if (pause && event.key.keysym.sym == SDLK_3) { save(3); pause = false; }
-		else if (pause && event.key.keysym.sym == SDLK_4) { save(4); pause = false; }
-		else if (pause && event.key.keysym.sym == SDLK_5) {	save(5); pause = false; }
-		else if (pause && event.key.keysym.sym == SDLK_6) { save(6); pause = false; }
-		else if (pause && event.key.keysym.sym == SDLK_7) { save(7); pause = false; }
-		else if (pause && event.key.keysym.sym == SDLK_8) { save(8); pause = false; }
-		else if (pause && event.key.keysym.sym == SDLK_9) { save(9); pause = false; }
-		else dynamic_cast<Cannon*>(*i)->handleEvents(event, renderer);
+		else if (!pauseSave && !pauseCharge && event.key.keysym.sym == SDLK_s) pauseSave = true;
+		else if (!pauseSave && !pauseCharge && event.key.keysym.sym == SDLK_l) pauseSave = true;
+		else if (pauseSave && event.key.keysym.sym == SDLK_0) { save(0); pauseSave = false; }
+		else if (pauseSave && event.key.keysym.sym == SDLK_1) { save(1); pauseSave = false; }
+		else if (pauseSave && event.key.keysym.sym == SDLK_2) { save(2); pauseSave = false; }
+		else if (pauseSave && event.key.keysym.sym == SDLK_3) { save(3); pauseSave = false; }
+		else if (pauseSave && event.key.keysym.sym == SDLK_4) { save(4); pauseSave = false; }
+		else if (pauseSave && event.key.keysym.sym == SDLK_5) { save(5); pauseSave = false; }
+		else if (pauseSave && event.key.keysym.sym == SDLK_6) { save(6); pauseSave = false; }
+		else if (pauseSave && event.key.keysym.sym == SDLK_7) { save(7); pauseSave = false; }
+		else if (pauseSave && event.key.keysym.sym == SDLK_8) { save(8); pauseSave = false; }
+		else if (pauseSave && event.key.keysym.sym == SDLK_9) { save(9); pauseSave = false; }
+		else if (pauseCharge && event.key.keysym.sym == SDLK_0) { loadFromFile("../images/mapas/map0.txt"); pauseCharge = false; }
+		else if (pauseCharge && event.key.keysym.sym == SDLK_1) { loadFromFile("../images/mapas/map1.txt"); pauseCharge = false; }
+		else if (pauseCharge && event.key.keysym.sym == SDLK_2) { loadFromFile("../images/mapas/map2.txt"); pauseCharge = false; }
+		else if (pauseCharge && event.key.keysym.sym == SDLK_3) { loadFromFile("../images/mapas/map3.txt"); pauseCharge = false; }
+		else if (pauseCharge && event.key.keysym.sym == SDLK_4) { loadFromFile("../images/mapas/map4.txt"); pauseCharge = false; }
+		else if (pauseCharge && event.key.keysym.sym == SDLK_5) { loadFromFile("../images/mapas/map5.txt"); pauseCharge = false; }
+		else if (pauseCharge && event.key.keysym.sym == SDLK_6) { loadFromFile("../images/mapas/map6.txt"); pauseCharge = false; }
+		else if (pauseCharge && event.key.keysym.sym == SDLK_7) { loadFromFile("../images/mapas/map7.txt"); pauseCharge = false; }
+		else if (pauseCharge && event.key.keysym.sym == SDLK_8) { loadFromFile("../images/mapas/map8.txt"); pauseCharge = false; }
+		else if (pauseCharge && event.key.keysym.sym == SDLK_9) { loadFromFile("../images/mapas/map9.txt"); pauseCharge = false; }
+		else if (pauseCharge && pauseCharge) loadAndSaveEvents(event);
+		else if(!pauseSave && !pauseCharge) dynamic_cast<Cannon*>(*i)->handleEvents(event, renderer);
 	}
 }
 
@@ -261,7 +323,7 @@ void Game::run() {
 	{
 		startTime = SDL_GetTicks();
 		handleEvents();
-		if (!pause) 
+		if (!pauseCharge && !pauseSave) 
 		{
 			update(); // Actualiza el estado de todos los objetos del juego
 		}

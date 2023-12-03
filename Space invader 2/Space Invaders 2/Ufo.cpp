@@ -35,7 +35,7 @@ void Ufo::updateState() {
 	switch (_actualState)
 	{
 	case Ufo::VISIBLE:
-		_pos = _pos + Vector2D<float>(-4.5, 0);
+		_pos = _pos + Vector2D<float>(-4, 0);
 		if (_pos.getX() <= -57) {
 			_actualState = OCULTO;
 			_actualOccultTime = _game->getRandomRange(200, 300);

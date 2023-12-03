@@ -18,7 +18,7 @@ private:
 	int _landedHeight = 0;
 	
 public:
-	Mothership(Game* game, float movementCD, int estado) : GameObject(game), _actualMovementState((movementStates)estado), _level(movementCD) {};
+	Mothership(Game* game, int estado, int level, float movementCD) : GameObject(game), _actualMovementState((movementStates)estado), _level(level), _actualLevel(movementCD) {};
 
 	void render() const override {};
 	void update() override;
