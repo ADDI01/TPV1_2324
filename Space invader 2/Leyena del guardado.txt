@@ -1,0 +1,12 @@
+Cada cosa es un número:
+Cada línea del archivo representa un elemento y comienza por un número que determina su tipo 
+(0 = cañón, 1 = alienígena, 2 = alienígena disparador, 3 = nave nodriza, 4 = búnker, 5 = ovni y 6 = láser). 
+El número 7 se utilizará para almacenar la puntuación de la partida 
+
+Cannon: tObject = 0, posx, posy, vidas, ShootCD.
+Alien: tObject = 1, posx, posy, subtipo.
+Shooting Alien: tObject = 2, posx, posy, subtipo, Shooting CD.
+MotherShip: tObject = 3, posx, posy, estado (dirección), level (framerate), Cool Down (al siguiente movimiento).
+Bunker:tObject = 4, posx, posy.
+UFO:  tObject = 5, posx, posy, estado (máquina de estados), Cool Down (si está oculto)
+Láser: tObject = 6, posx, posy, father.

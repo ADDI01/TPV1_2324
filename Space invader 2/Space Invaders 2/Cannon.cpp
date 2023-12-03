@@ -65,14 +65,15 @@ void Cannon::handleEvents(const SDL_Event & event, SDL_Renderer* renderer) {
 }
 
 void Cannon::fireLaser(SDL_Renderer* renderer) {
-	Laser* l = new Laser(_pos - Vector2D<float>(0, _size.second / 2), Vector2D<float>(0, 5), 
-		pair<uint, uint>(5, 10), _game, renderer, PLAYER);
+	Laser* l = new Laser(_pos - Vector2D<float>(0, _size.second), Vector2D<float>(0, 5), 
+		pair<uint, uint>(5, 20), _game, renderer, PLAYER);
 	_game->addToList(l);
 }
 
 bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {
-	if (SDL_HasIntersection(&AttackRect, _myRect)) {
+	if (typeOfDamage != 1 && SDL_HasIntersection(&AttackRect, _myRect)) {
 		_life--;
+		_pos = Vector2D<float>(WIN_WIDTH/2,_pos.getY());
 		std::cout << _life;
 		if (_life == 0) {
 			_game->lose();

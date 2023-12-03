@@ -4,7 +4,7 @@ class ShooterAlien: public Alien
 {
 private:
 	//Shooter alien cooldowns
-	const float MIN_CD = 30, MAX_CD = 100;
+	const float MIN_CD = 150, MAX_CD = 300;
 	//Shoot cooldown
 	float _shootCD;
 public:

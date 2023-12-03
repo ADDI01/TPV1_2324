@@ -13,7 +13,7 @@ private:
 	float _actualOccultTime;
 	std::pair<int, int> minmaxOccultTime;
 	SDL_Rect* _myRect = nullptr;
-	float _dieTime = 3;
+	float _dieTime = 40;
 	float _actualDieTime = 0;
 	Vector2D<float> _initialPos;
 

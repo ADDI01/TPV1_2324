@@ -12,6 +12,7 @@
 #include "ShooterAlien.h"
 #include "Laser.h"
 #include "InfoBar.h"
+#include <vector>
 
 
 
@@ -43,7 +44,7 @@ private:
 			dimensiones(dimensiones){};
 		~TextureData() { texturePath = nullptr; }
 	};
-	Texture* textures[NUM_TEXTURES];  
+	vector<Texture*> textures;  
 	TextureData* dataTextures[NUM_TEXTURES];
 
 	//Condiciones partida

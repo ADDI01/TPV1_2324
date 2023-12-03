@@ -56,7 +56,7 @@ void Game::loadFromFile() {
 			file >> nlifes;
 			file >> estado; //TODO: que esto sea la espera
 
-			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, 2, 20); //Instance
+			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, estado, 30); //Instance
 				_landedHeight = pos.getY() - 30;
 			break;
 		case 1: //Alien
@@ -144,6 +144,7 @@ void Game::update()
 	}
 
 	for (auto it : objectsToDelete) {
+		delete *it;
 		objectsList.erase(it);
 	}
 
@@ -199,7 +200,7 @@ bool Game::textureLoading() {
 
 	//Now, we create the textures
 	for (uint i = 0; i < NUM_TEXTURES; i++) {
-			textures[i] = new Texture(renderer, dataTextures[i]->texturePath, dataTextures[i]->dimensiones.first, dataTextures[i]->dimensiones.second);
+		textures.push_back(new Texture(renderer, dataTextures[i]->texturePath, dataTextures[i]->dimensiones.first, dataTextures[i]->dimensiones.second));
 	}
 	for (TextureData* d : dataTextures) { delete d; d = nullptr; }
 	return true;

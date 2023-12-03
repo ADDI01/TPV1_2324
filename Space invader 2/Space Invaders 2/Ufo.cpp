@@ -53,6 +53,8 @@ void Ufo::updateState() {
 	case Ufo::DESTRUIDO:
 		if (_actualDieTime == _dieTime) {
 			_actualState = OCULTO;
+			_pos = Vector2D<float>(0, 0);
+			_actualDieTime = 0;
 		}
 		else
 			_actualDieTime++;
@@ -64,10 +66,9 @@ void Ufo::updateState() {
 
 bool Ufo::hit(SDL_Rect AttackRect, int typeOfDamage)
 {
-	if (typeOfDamage != 0 && SDL_HasIntersection(&AttackRect, _myRect))
+	if (_actualState == VISIBLE &&typeOfDamage != 0 && SDL_HasIntersection(&AttackRect, _myRect))
 	{
-		_actualState = OCULTO;
-		_pos = Vector2D<float>(0, 0);
+		_actualState = DESTRUIDO;
 		return true;
 	}
 	else

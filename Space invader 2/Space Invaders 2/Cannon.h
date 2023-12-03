@@ -11,15 +11,14 @@ private:
 	float _velocity = 0;
 	//Cannon's shoot cooldown
 	float _shootCD = 0;
-	float _iniShootCD = 0;
+	float _iniShootCD = 30;
 	//Destination and size of the cannon
 	SDL_Rect* _myRect = nullptr;
 
 public:
 	Cannon(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, uint nLifes, float shootCD,
 		float velocity) : SceneObject(game, texture, pos, size, nLifes), _shootCD(shootCD), _velocity(velocity) {
-		_myRect = new SDL_Rect; 
-		_iniShootCD = shootCD;
+		_myRect = new SDL_Rect;
 	};
 	~Cannon();
 
