@@ -80,7 +80,12 @@ public:
 	bool damage(SDL_Rect rect, Father father) const;
 	void hasDie(list<SceneObject*>::iterator it);
 	void Win() { win = true; };
+	
 	//Getters
+	uint getCannonLifes(){
+		list<SceneObject*>::iterator aux = objectsList.begin();
+		return dynamic_cast<Cannon*>(aux.operator*())->getnLifes();  
+	}
 	int getRandomRange(int min, int max);
 	uint getHeight() { return WIN_HEIGHT; };
 	uint getWidth() { return WIN_WIDTH; };

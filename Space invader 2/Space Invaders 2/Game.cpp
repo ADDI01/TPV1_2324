@@ -143,6 +143,9 @@ void Game::update()
 		it->update();
 	}
 
+	//Sumamos la puntuacion
+	
+
 	for (auto it : objectsToDelete) {
 		delete *it;
 		objectsList.erase(it);
@@ -156,7 +159,7 @@ void Game::update()
 }
 
 void Game::save(int k) const{
-	string direc = "../images/mapas/map" + k;
+	string direc = "../images/mapas/map" + to_string(k);
 	ofstream out(direc + ".txt");
 	if (!out.is_open()) throw "No se ha abierto el archivo.";
 	for (auto it : objectsList)

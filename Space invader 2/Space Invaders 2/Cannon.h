@@ -39,5 +39,6 @@ public:
 	//Getters
 	Vector2D<float> getPosition() const { return _pos; };
 	SDL_Rect* getRect() const { return _myRect; };
+	uint getnLifes() const { return _life; };
 };
 
