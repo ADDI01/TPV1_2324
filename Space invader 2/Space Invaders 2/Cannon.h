@@ -24,7 +24,7 @@ public:
 
 	//Game states
 	void render() const override;
-	bool update() override;
+	void update() override;
 	void handleEvents(const SDL_Event& event, SDL_Renderer* renderer);
 	bool save() const override { return true; };
 

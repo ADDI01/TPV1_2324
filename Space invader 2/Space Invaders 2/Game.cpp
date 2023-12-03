@@ -69,7 +69,7 @@ void Game::loadFromFile() {
 			}
 			else idle = !idle;
 
-			aux = new Alien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, nullptr, 4, subType, idle);
+			aux = new Alien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, 4, subType, idle);
 			static_cast<Alien*>(aux)->setMother(mother);
 			mother->addAlien();
 			break;
@@ -83,7 +83,7 @@ void Game::loadFromFile() {
 				latestRow = posY;
 			}
 			else idle = !idle;
-			aux = new ShooterAlien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, nullptr, 4, subType,
+			aux = new ShooterAlien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, 4, subType,
 				idle);
 			static_cast<Alien*>(aux)->setMother(mother);
 			mother->addAlien();

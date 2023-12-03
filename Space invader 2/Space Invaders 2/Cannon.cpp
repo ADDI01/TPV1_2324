@@ -18,7 +18,7 @@ void Cannon::render() const
 	_texture->render(*_myRect);
 }
 
-bool Cannon::update() {
+void Cannon::update() {
 
 	//Cannon tries to move out of the lateral limits
 	if (!(_pos.getX() <= 0 + _size.first && _direction.getX() <= 0)
@@ -31,7 +31,6 @@ bool Cannon::update() {
 	{
 		_shootCD--;
 	}
-	return _life > 0;
 }
 
 void Cannon::handleEvents(const SDL_Event & event, SDL_Renderer* renderer) {

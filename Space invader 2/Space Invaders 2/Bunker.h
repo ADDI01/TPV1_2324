@@ -21,7 +21,7 @@ public:
 
 	//Game states
 	void render() const override;
-	bool update() override;
+	void update() override;
 	bool save() const override;
 
 	//Specific actions

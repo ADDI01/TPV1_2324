@@ -26,7 +26,7 @@ void Laser::render() const {
 	}
 }
 
-bool Laser::update() {
+void Laser::update() {
 	
 	if (_father == PLAYER) //Laser from player
 	{
@@ -37,11 +37,9 @@ bool Laser::update() {
 		_pos = _pos + _velocity; //Laser moves
 	}
 
-	if (_game->damage(*_myRect, _father)) {
+	if (_pos.getY()<= 0 || _pos.getY() >= WIN_HEIGHT || _game->damage(*_myRect, _father)) {
 		_game->hasDie(_it);
 	}
-
-	return true;
 }
 
 bool Laser::hit(SDL_Rect AttackRect, int typeOfDamage) {

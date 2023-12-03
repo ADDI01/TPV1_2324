@@ -2,8 +2,8 @@
 #include "Mothership.h"
 #include "Game.h"
 
-Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother, 
-	float velocity, int type, bool idle): SceneObject(game,texture, pos, size, 1), _mother(mother), _velocity(velocity), 
+Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game,
+	float velocity, int type, bool idle): SceneObject(game,texture, pos, size, 1), _velocity(velocity), 
 	_subType(type), _idle(idle){ 
 	_myRect = new SDL_Rect; 
 	//_shootCD = _myGame->getRandomRange(MIN_CD, INT_CD); TODO: CLASE GAME
@@ -45,29 +45,20 @@ void Alien::render() const {
 	}
 }
 
-bool Alien:: update()
+void Alien:: update()
 {
-bool ret = true;
-	if (_subType == -1) //The alien's dead
-	{
-		ret = false;
-	}
-	else
-	{
-		if (_mother->shouldMove()) {
-			_pos = _pos + _mother->getDirection();
-			_idle = !_idle;
-			if ((_pos.getX() >= _game->getWidth() - _size.first && _mother->getDirection().getX() >= 0) || (_pos.getX() <= 0 && _mother->getDirection().getX() <= 0))
-			{
-				_mother->bajaColumna();
-			}
+	if (_mother->shouldMove()) {
+		_pos = _pos + _mother->getDirection();
+		_idle = !_idle;
+		if ((_pos.getX() >= _game->getWidth() - _size.first && _mother->getDirection().getX() >= 0) || (_pos.getX() <= 0 && _mother->getDirection().getX() <= 0))
+		{
+			_mother->bajaColumna();
 		}
+	}
 
-		if (_mother->alienLanded(_pos.getY())) {
-			_mother->haveLanded();
-		}
+	if (_mother->alienLanded(_pos.getY())) {
+		_mother->haveLanded();
 	}
-	return ret;
 }
 
 

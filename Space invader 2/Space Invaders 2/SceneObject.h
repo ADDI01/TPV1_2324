@@ -26,7 +26,7 @@ public:
 	virtual ~SceneObject() {};
 
 	virtual void render() const = 0;
-	virtual bool update() = 0;
+	virtual void update() = 0;
 
 	virtual bool save() const = 0;
 	//método que ejecutan los Objetos de la escena a ser golpeados

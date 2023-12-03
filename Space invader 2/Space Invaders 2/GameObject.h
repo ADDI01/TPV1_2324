@@ -15,6 +15,6 @@ protected:
 	//métodos virtuales puros para renderizar, actualizar y guardar los objetos
 
 	virtual void render() const = 0;
-	virtual bool update() = 0;
+	virtual void update() = 0;
 	virtual bool save() const= 0;
 };

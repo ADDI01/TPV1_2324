@@ -43,7 +43,7 @@ void Bunker::render() const {
 	}
 }
 
-bool Bunker::update() {
+void Bunker::update() {
 	if (_game->damage(*_myRect, BUNKER))
 	{
 		_life--;
@@ -51,7 +51,6 @@ bool Bunker::update() {
 			_game->hasDie(_it);
 		}
 	}
-	return _life > 0;
 }
 
 bool Bunker::hit(SDL_Rect AttackRect, int typeOfDamage) {

@@ -25,10 +25,9 @@ void Ufo::render() const
 	}
 }
 
-bool Ufo::update() 
+void Ufo::update() 
 {
 	updateState();
-	return true;
 }
 
 void Ufo::updateState() {

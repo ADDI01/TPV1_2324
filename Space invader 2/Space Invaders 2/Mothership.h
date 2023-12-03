@@ -21,7 +21,7 @@ public:
 	Mothership(Game* game, float movementCD, int estado) : GameObject(game), _actualMovementState((movementStates)estado), _level(movementCD) {};
 
 	void render() const override {};
-	bool update() override;
+	void update() override;
 	bool save() const override { return true; };
 
 	Vector2D<float> getDirection();

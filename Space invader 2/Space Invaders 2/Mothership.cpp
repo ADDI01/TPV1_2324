@@ -57,7 +57,7 @@ void Mothership:: changeDirection() {
 	}
 }
 
-bool Mothership::update() 
+void Mothership::update() 
 {
 	if (_contAliens == 0) {
 		_game->Win();
@@ -70,5 +70,4 @@ bool Mothership::update()
 		_actualLevel = _level;
 	}
 	else _actualLevel--;
-	return true;
 }

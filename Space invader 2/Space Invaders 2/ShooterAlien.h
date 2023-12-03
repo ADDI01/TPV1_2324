@@ -8,9 +8,9 @@ private:
 	//Shoot cooldown
 	float _shootCD;
 public:
-	ShooterAlien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother,float velocity, int type, bool idle);
+	ShooterAlien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game,float velocity, int type, bool idle);
 
-	bool update();
+	void update();
 
 	void fireLaser();
 };

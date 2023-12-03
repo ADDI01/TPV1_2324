@@ -34,13 +34,13 @@ private:
 	Mothership* _mother = nullptr;
 	
 public:
-	Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, Mothership* mother, float velocity, 
+	Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, float velocity, 
 		int type, bool idle);
 	~Alien();
 
 	//Game states
 	void render() const override;
-	bool update() override;
+	void update() override;
 	bool save() const override{ return true; };
 
 	//Specific actions
