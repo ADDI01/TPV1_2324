@@ -51,6 +51,7 @@ private:
 	bool exit = false;
 	bool win = false;
 	bool gameOver = false;
+	bool pause = false; //para guardar y cargar
 
 	//Unique 
 	Star* star;
