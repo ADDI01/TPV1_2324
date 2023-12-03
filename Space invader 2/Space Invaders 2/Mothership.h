@@ -10,26 +10,27 @@ private:
 	enum movementStates { RIGHT,DOWNLEFT, LEFT, DOWNRIGHT};
 	movementStates _actualMovementState;
 	Vector2D<float> _movementDirection;
-	bool _canMove = true;
-	int _level = 5;
+	float _level = 0;
+	float _actualLevel = 0;
+	bool _bajada = false;
+
 	int _contAliens = 0;
 	int _landedHeight = 0;
 	
 public:
-	Mothership(Game* game) : GameObject(game), _actualMovementState(RIGHT) {};
+	Mothership(Game* game, float movementCD, int estado) : GameObject(game), _actualMovementState((movementStates)estado), _level(movementCD) {};
 
 	void render() const override {};
 	bool update() override;
 	bool save() const override { return true; };
 
 	Vector2D<float> getDirection();
-	bool shouldMove() { return _canMove; }
-	void cannotMove() { _canMove = false; };
+	bool shouldMove() { return _actualLevel <= 0; }
+	void bajaColumna() { _bajada = true; };
 	void alienDied() { _contAliens--; };
-	bool alienLanded(float y) { return y >= _landedHeight; };
+	bool alienLanded(float y);
 	void haveLanded();
 	uint getAlienCount() { return _contAliens; };
 	void changeDirection();
 	void addAlien() { _contAliens++; };
-	void subtractAlien() { _contAliens--; };
 };

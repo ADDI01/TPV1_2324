@@ -37,7 +37,7 @@ void Game::init() {
 
 
 void Game::loadFromFile() {
-	ifstream file("../images/mapas/original.txt"); //Hay 50 elementos que leer
+	ifstream file("../images/mapas/trinchera.txt"); //Hay 50 elementos que leer
 	int latestRow = -1, tObject, posX, posY, subType, nlifes, estado, points;
 	bool idle = false;
 
@@ -54,27 +54,13 @@ void Game::loadFromFile() {
 		switch (tObject) {
 		case 0: //Cannon
 			file >> nlifes;
-			file >> subType; //TODO: que esto sea la espera
+			file >> estado; //TODO: que esto sea la espera
 
 			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, 2, 20); //Instance
+				_landedHeight = pos.getY() - 30;
 			break;
-		case 1: //Shooter alien
+		case 1: //Alien
 			file >> subType;
-
-			if (latestRow != posY)
-			{
-				idle = false;
-				latestRow = posY;
-			}
-			else idle = !idle;
-			aux = new ShooterAlien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, nullptr, 4, subType,
-				idle);
-			static_cast<Alien*>(aux)->setMother(mother);
-			mother->addAlien();
-			break;
-		case 2: //Alien
-			file >> subType;
-			file >> nlifes;
 
 			if (latestRow != posY) //Different Alien frame each column
 			{
@@ -84,6 +70,21 @@ void Game::loadFromFile() {
 			else idle = !idle;
 
 			aux = new Alien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, nullptr, 4, subType, idle);
+			static_cast<Alien*>(aux)->setMother(mother);
+			mother->addAlien();
+			break;
+		case 2: //Shooter alien
+			file >> subType;
+			file >> estado;
+
+			if (latestRow != posY)
+			{
+				idle = false;
+				latestRow = posY;
+			}
+			else idle = !idle;
+			aux = new ShooterAlien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, nullptr, 4, subType,
+				idle);
 			static_cast<Alien*>(aux)->setMother(mother);
 			mother->addAlien();
 			break;

@@ -32,7 +32,8 @@ private:
 	SDL_Renderer* renderer = nullptr;
 	list<SceneObject* > objectsList;
 	list < list<SceneObject*>::iterator> objectsToDelete;
-	Mothership* mother = new Mothership(this);
+	Mothership* mother = new Mothership(this,0,0);
+	float _landedHeight = 0;
 	//Texturas
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };
 	struct TextureData {
@@ -81,5 +82,6 @@ public:
 	uint getHeight() { return WIN_HEIGHT; };
 	uint getWidth() { return WIN_WIDTH; };
 	SDL_Renderer* getRenderer() { return renderer; };
+	float getLandedHeight() { return _landedHeight; };
 };
 

@@ -6,28 +6,30 @@ Vector2D<float> Mothership::getDirection()
 	switch (_actualMovementState)
 	{
 	case Mothership::RIGHT:
-		_movementDirection = Vector2D<float>(1, 0);
+		_movementDirection = Vector2D<float>(16, 0);
 		break;
 	case Mothership::LEFT:
-		_movementDirection = Vector2D<float>(-1, 0);
+		_movementDirection = Vector2D<float>(-16, 0);
 		break;
 	case Mothership:: DOWNLEFT:
-		_movementDirection = Vector2D<float>(0, 1);
+		_movementDirection = Vector2D<float>(0, 25);
 		break;
 	case Mothership::DOWNRIGHT:
-		_movementDirection = Vector2D<float>(0, 1);
+		_movementDirection = Vector2D<float>(0, 25);
 		break;
 	default:
 		break;
 	}
 	
-	return _movementDirection * _level;
+	return _movementDirection;
 }
 
 void Mothership::haveLanded() 
 {
 	_game->lose();
 }
+
+bool Mothership:: alienLanded(float y) { return y >= _game->getLandedHeight(); }
 
 void Mothership:: changeDirection() {
 	switch (_actualMovementState)
@@ -45,6 +47,14 @@ void Mothership:: changeDirection() {
 		_actualMovementState = RIGHT;
 		break;
 	}
+
+	if (_actualMovementState != RIGHT || _actualMovementState != LEFT) {
+
+		if(_level >= 0)
+			_level -= 0.5;
+
+		_bajada = false;
+	}
 }
 
 bool Mothership::update() 
@@ -52,14 +62,13 @@ bool Mothership::update()
 	if (_contAliens == 0) {
 		_game->Win();
 	}
-	if (!shouldMove())
-	{
-		changeDirection();
 
-		if (_actualMovementState != RIGHT || _actualMovementState != LEFT) {
-			_level += 0.5;
-		}
-		_canMove = true;
+	if (_bajada) {
+		changeDirection();
 	}
+	if (_actualLevel <= 0) {
+		_actualLevel = _level;
+	}
+	else _actualLevel--;
 	return true;
 }

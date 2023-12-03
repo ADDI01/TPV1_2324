@@ -44,23 +44,27 @@ void Bunker::render() const {
 }
 
 bool Bunker::update() {
-	return _life > 0;
-}
-
-bool Bunker::hit(SDL_Rect AttackRect, int typeOfDamage) {
-	if (SDL_HasIntersection(&AttackRect, _myRect))
+	if (_game->damage(*_myRect, BUNKER))
 	{
 		_life--;
 		if (_life == 0) {
 			_game->hasDie(_it);
 		}
-		return true;
+	}
+	return _life > 0;
+}
+
+bool Bunker::hit(SDL_Rect AttackRect, int typeOfDamage) {
+	if (typeOfDamage != 2)
+	{
+		if (SDL_HasIntersection(&AttackRect, _myRect)) {
+			return true;
+		}
 	}
 	else
 	{
 		return false;
 	}
-	
 }
 
 bool Bunker::save() const {

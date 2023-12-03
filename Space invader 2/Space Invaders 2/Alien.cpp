@@ -54,26 +54,30 @@ bool ret = true;
 	}
 	else
 	{
-		_pos = _pos + _mother->getDirection();
-		_idle = !_idle;
-		if ((_pos.getX() >= _game->getWidth() - _size.first && _mother->getDirection().getX() >= 0)|| (_pos.getX() <= 0 && _mother->getDirection().getX() <= 0))
-		{
-			_mother->cannotMove();
+		if (_mother->shouldMove()) {
+			_pos = _pos + _mother->getDirection();
+			_idle = !_idle;
+			if ((_pos.getX() >= _game->getWidth() - _size.first && _mother->getDirection().getX() >= 0) || (_pos.getX() <= 0 && _mother->getDirection().getX() <= 0))
+			{
+				_mother->bajaColumna();
+			}
 		}
 
-		_mother->alienLanded(_pos.getY());
+		if (_mother->alienLanded(_pos.getY())) {
+			_mother->haveLanded();
+		}
 	}
 	return ret;
 }
 
 
 bool Alien::hit(SDL_Rect AttackRect, int typeOfDamage) {
-	if (typeOfDamage == 1 && SDL_HasIntersection(&AttackRect, _myRect)) 
+	if (typeOfDamage != 0 && SDL_HasIntersection(&AttackRect, _myRect)) 
 	{
 		if (_subType != -1) {
 			_subType = -1;
 			_game->hasDie(_it);
-			_mother->subtractAlien();
+			_mother->alienDied();
 		}
 		return true;
 	}

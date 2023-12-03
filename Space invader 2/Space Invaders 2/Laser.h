@@ -9,7 +9,7 @@ class Game;
 
 using uint = unsigned int;
 
-enum Father { ALIEN, PLAYER };
+enum Father { ALIEN, PLAYER , BUNKER};
 
 class Laser : public SceneObject
 {
