@@ -15,6 +15,7 @@ void initGame()
 	Game game;
 
 	try {
+		game.init();
 		game.run();
 	}
 	catch (SDLError& sdlErr)

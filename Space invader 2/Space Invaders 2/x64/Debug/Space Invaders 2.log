@@ -1,1 +1,19 @@
-﻿  Space Invaders 2.vcxproj -> C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\bin\Space Invaders 2Debug.exe
+﻿  Game.cpp
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(21,138): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(38,56): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(64,28): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(64,22): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(71,91): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(107,21): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(120,84): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(120,77): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(194,6): warning C4101: 'k': variable local sin referencia
+  Space Invaders 2.vcxproj -> C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\bin\Space Invaders 2Debug.exe

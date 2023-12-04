@@ -2,16 +2,6 @@
 #include <random>
 #include <fstream>
 
-Game::Game() {
-
-	init();
-	if (!textureLoading())
-		loadFromFile("../images/mapas/pre" + to_string(nLevel % nLevels) +".txt");
-	else {
-		throw SDLError("No se cargaron las texturas.");
-	}
-}
-
 Game::~Game() {
 	for (auto it : objectsList) {
 		delete it;
@@ -35,6 +25,12 @@ void Game::init() {
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (window == nullptr || renderer == nullptr) {
 		throw SDLError("Error loading SDL window or renderer");
+	}
+
+	if (textureLoading())
+		loadFromFile("../images/mapas/pre" + to_string(nLevel % nLevels) + ".txt");
+	else {
+		throw SDLError("No se cargaron las texturas.");
 	}
 }
 

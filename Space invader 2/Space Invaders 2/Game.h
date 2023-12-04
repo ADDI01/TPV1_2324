@@ -64,7 +64,7 @@ private:
 
 
 public:
-	Game();
+	Game() {};
 	~Game();
 
 	//Pre-game
