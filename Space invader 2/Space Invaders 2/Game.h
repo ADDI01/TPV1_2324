@@ -89,7 +89,7 @@ public:
 	//Getters
 	uint getCannonLifes(){
 		list<SceneObject*>::iterator aux = objectsList.begin();
-		return dynamic_cast<Cannon*>(aux.operator*())->getnLifes();  
+		return _cannon->getnLifes();  
 	}
 	int getRandomRange(int min, int max);
 	uint getHeight() { return WIN_HEIGHT; };

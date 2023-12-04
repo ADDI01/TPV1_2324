@@ -10,7 +10,7 @@ private:
 public:
 	ShooterAlien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game,float velocity, int type, bool idle);
 
-	void update();
+	void update() override;
 	void save(std::ostream& out) const override;
 
 	void fireLaser();

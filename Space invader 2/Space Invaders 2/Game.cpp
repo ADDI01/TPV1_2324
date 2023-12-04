@@ -28,7 +28,7 @@ void Game::init() {
 	}
 
 	if (textureLoading())
-		loadFromFile("../images/mapas/pred" + to_string(nLevel % nLevels) + ".txt");
+		loadFromFile("../images/mapas/pre" + to_string(nLevel % nLevels) + ".txt");
 	else {
 		throw SDLError("No se cargaron las texturas.");
 	}
@@ -148,8 +148,7 @@ void Game::render() const
 	star->render();
 	for (auto it : objectsList) 
 	{
-		if (it != nullptr)
-			it->render();
+		it->render();
 	}
 	infoBar->render();
 
@@ -193,7 +192,7 @@ void Game::save(int k) const{
 void Game::handleEvents() {
 	int k;
 	SDL_Event event;
-
+	// se pueden leer directamente los números
 	while (SDL_PollEvent(&event) && !exit) {
 		if (event.key.keysym.sym == SDLK_ESCAPE) exit = true;
 		else if (!pauseSave && !pauseCharge && event.key.keysym.sym == SDLK_s) pauseSave = true;
