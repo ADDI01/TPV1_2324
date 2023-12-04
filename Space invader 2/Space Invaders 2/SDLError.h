@@ -9,4 +9,3 @@ public:
 
 	const char* what() override { return e.c_str(); };
 };
-

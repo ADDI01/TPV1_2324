@@ -5,6 +5,7 @@
 #include "Texture.h"
 #include "Mothership.h"
 #include "SceneObject.h"
+#include <fstream>
 
 using uint = unsigned int;
 

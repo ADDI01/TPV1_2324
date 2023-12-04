@@ -5,11 +5,10 @@
 Game::Game() {
 
 	init();
-	textureLoading();
-	if (textureLoading())
-		loadFromFile("../images/mapas/pred" + to_string(nLevel % nLevels) +".txt");
+	if (!textureLoading())
+		loadFromFile("../images/mapas/pre" + to_string(nLevel % nLevels) +".txt");
 	else {
-		throw SDLError("No se cargaron corretamente las texturas.");
+		throw SDLError("No se cargaron las texturas.");
 	}
 }
 
@@ -59,8 +58,7 @@ void Game::loadFromFile(string fileName) {
 	SceneObject* aux = nullptr; //Alamcena cada SceneObject 
 
 	if (!file.is_open()) {
-		FileNotFoundError f(fileName);
-		throw f.what();
+		throw FileNotFoundError(fileName);
 	}
 
 	while (!file.eof()) {

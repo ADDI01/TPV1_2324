@@ -3,7 +3,6 @@
 #include "GameObject.h"
 #include "Vector2D.h"
 #include "Texture.h"
-#include "SDLError.h"
 #include <SDL.h>
 
 using namespace std;

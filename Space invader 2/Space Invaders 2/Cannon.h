@@ -1,7 +1,6 @@
 #pragma once
 #include "SceneObject.h"
 
-
 class Cannon: public SceneObject
 {
 private:
