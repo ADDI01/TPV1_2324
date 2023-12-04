@@ -7,6 +7,6 @@ public:
 	FileFormatError(const string& f) : InvadersError("Format of the file " + f + " is wrong.") {};
 	virtual ~FileFormatError() {};
 
-	char* what() override { return what(); };
+	const char* what() override { return e.c_str(); };
 };
 

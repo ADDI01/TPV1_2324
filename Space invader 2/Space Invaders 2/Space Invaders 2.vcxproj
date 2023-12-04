@@ -155,14 +155,10 @@
     <ClCompile Include="Alien.cpp" />
     <ClCompile Include="Bunker.cpp" />
     <ClCompile Include="Cannon.cpp" />
-    <ClCompile Include="FileFormatError.cpp" />
-    <ClCompile Include="FileNotFoundError.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="InfoBar.cpp" />
-    <ClCompile Include="InvadersError.cpp" />
     <ClCompile Include="Laser.cpp" />
     <ClCompile Include="Mothership.cpp" />
-    <ClCompile Include="SDLError.cpp" />
     <ClCompile Include="ShooterAlien.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Texture.cpp" />

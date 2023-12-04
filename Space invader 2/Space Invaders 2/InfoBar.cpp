@@ -8,6 +8,8 @@ void InfoBar::render() const {
 	_cannonRect->h = _size.second;
 
 	switch (_game->getCannonLifes()) {
+	case 0:
+		break;
 	case 1:
 		_texture->render(*_cannonRect);
 		break;
@@ -24,10 +26,8 @@ void InfoBar::render() const {
 		_texture->render(*_cannonRect);
 		break;
 	default:
-		SDLError r("Numero de cannons incorrecto.");
-		throw r.what();
+		throw SDLError("Numero de cannons incorrecto.");
 	}
-
 }
 
 void InfoBar::setPoints(uint type) {

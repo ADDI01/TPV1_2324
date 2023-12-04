@@ -21,7 +21,7 @@ void Ufo::render() const
 		_texture->renderFrame(*_myRect, 0, 1, SDL_FLIP_NONE);
 		break;
 	default:
-		throw "no ufo";
+		throw SDLError("No UFO");
 		break;
 	}
 }

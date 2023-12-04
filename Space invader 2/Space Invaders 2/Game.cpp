@@ -9,8 +9,7 @@ Game::Game() {
 	if (textureLoading())
 		loadFromFile("../images/mapas/pred" + to_string(nLevel % nLevels) +".txt");
 	else {
-		SDLError r("No se cargaron corretamente las texturas.");
-		throw r.what();
+		throw SDLError("No se cargaron corretamente las texturas.");
 	}
 }
 
@@ -36,8 +35,7 @@ void Game::init() {
 		WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (window == nullptr || renderer == nullptr) {
-		SDLError r("Error loading SDL window or renderer");
-		throw r.what();
+		throw SDLError("Error loading SDL window or renderer");
 	}
 }
 
@@ -136,8 +134,7 @@ void Game::loadFromFile(string fileName) {
 			//Crrar instancia InfoBar
 			break;
 		default:
-			FileFormatError f(fileName);
-			throw f.what();
+			throw FileFormatError(fileName);
 			break;
 		}
 
@@ -172,9 +169,6 @@ void Game::update()
 		it->update();
 	}
 
-	//Sumamos la puntuacion
-	
-
 	for (auto it : objectsToDelete) {
 		delete *it;
 		objectsList.erase(it);
@@ -191,8 +185,7 @@ void Game::save(int k) const{
 	string direc = "../images/mapas/pred" + to_string(k);
 	ofstream out(direc + ".txt");
 	if (!out.is_open()) {
-		FileFormatError f(direc);
-		throw f.what();
+		throw FileFormatError(direc);
 	}
 	for (auto it : objectsList)
 	{

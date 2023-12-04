@@ -41,8 +41,7 @@ void Alien::render() const {
 		break;
 	default:
 		//When non expected alien comes
-		SDLError r("The Alien does not exist.");
-		throw r.what();
+		throw SDLError("The Alien does not exist.");
 		break;
 	}
 }

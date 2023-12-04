@@ -7,9 +7,10 @@ using namespace std;
 class InvadersError: public logic_error
 {
 protected:
-	InvadersError(const string& err) : logic_error(err) {};
+	string e;
+	InvadersError(const string& err) : logic_error(err), e(err) {};
 	virtual ~InvadersError() {};
 
-	virtual char* what() = 0;
+	virtual const char* what() = 0;
 };
 
