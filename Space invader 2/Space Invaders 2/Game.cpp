@@ -28,7 +28,7 @@ void Game::init() {
 	}
 
 	if (textureLoading())
-		loadFromFile("../images/mapas/pre" + to_string(nLevel % nLevels) + ".txt");
+		loadFromFile("../images/mapas/pred" + to_string(nLevel % nLevels) + ".txt");
 	else {
 		throw SDLError("No se cargaron las texturas.");
 	}
