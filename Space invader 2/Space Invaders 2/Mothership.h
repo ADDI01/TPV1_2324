@@ -1,4 +1,5 @@
 #pragma once
+
 #include "GameObject.h"
 #include "Vector2D.h"
 
@@ -7,33 +8,47 @@ using uint = unsigned int;
 class Mothership: public GameObject
 {
 private:
+	//Types of alien's move
 	enum movementStates { RIGHT,DOWNLEFT, LEFT, DOWNRIGHT};
+	//Current movement of the aliens
 	movementStates _actualMovementState;
+	//Current direction of the movement
 	Vector2D<float> _movementDirection;
+	//Related to the velocitity of the aliens
 	float _level = 0;
-	float _actualLevel = 0;
-	bool _bajada = false;
-
+	//Current level
+	float _currentLevel = 0;
+	//Inidicates when aliens have to lower a column
+	bool _lower = false;
+	//Number of aliens
 	int _contAliens = 0;
+	//Inidicates the exact height which leads to lose the game if aliens reach it
 	int _landedHeight = 0;
 	
 public:
-	Mothership(Game* game, int estado, int level, float movementCD) : GameObject(game), _actualMovementState((movementStates)estado), _level(level), _actualLevel(movementCD) {};
+	Mothership(Game* game, int estado, int level, float movementCD);
+	~Mothership() {};
 
+	//Game states
 	void render() const override {};
 	void update() override;
 	void save(std::ostream& out) const override;
 
-	Vector2D<float> getDirection();
-	bool shouldMove() { return _actualLevel <= 0; }
-	void bajaColumna() { _bajada = true; };
+	//Specifics actions
+	bool shouldMove() { return _currentLevel <= 0; }
+	void lowerColumn() { _lower = true; };
 	void alienDied() { _contAliens--; };
 	bool alienLanded(float y);
 	void haveLanded();
-	uint getAlienCount() { return _contAliens; };
 	void changeDirection();
 	void addAlien() { _contAliens++; };
+
+	//Setters
 	void setState(int state) { _actualMovementState = (movementStates) state; };
 	void setLevel(float level) { _level = level; };
-	void setActualLevel(int actualLevel) { _actualLevel = actualLevel; }
+	void setActualLevel(int actualLevel) { _currentLevel = actualLevel; }
+
+	//Getters
+	Vector2D<float> getDirection();
+	uint getAlienCount() { return _contAliens; };
 };

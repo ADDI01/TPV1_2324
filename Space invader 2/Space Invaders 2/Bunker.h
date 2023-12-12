@@ -13,11 +13,11 @@ class Bunker : public SceneObject
 {
 private:
 	//Destination and size of the bunker
-	SDL_Rect* _myRect = nullptr;
+	SDL_Rect _myRect;
 
 public:
-	Bunker(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, uint nLifes);
-	~Bunker();
+	Bunker(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size, Game* game, uint nLifes);
+	~Bunker() {};
 
 	//Game states
 	void render() const override;
@@ -28,7 +28,7 @@ public:
 	bool hit(SDL_Rect AttackRect, int typeOfDamage) override;
 
 	//Getters
-	SDL_Rect* getRect() const { return _myRect; };
+	SDL_Rect getRect() const { return _myRect; };
 };
 
 

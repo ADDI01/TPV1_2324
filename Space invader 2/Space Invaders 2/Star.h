@@ -2,7 +2,6 @@
 #include "Vector2D.h"
 #include "Texture.h"
 
-using namespace std;
 using uint = unsigned int;
 
 class Star
@@ -13,10 +12,10 @@ private:
 	//puntero a su Textura
 	Texture* _texture;
 	//Tamaño del alien
-	pair<uint, uint> _size;
+	std::pair<uint, uint> _size;
 
 public:
-	Star(Point2D<float> pos, Texture* texture, pair<uint, uint> size) : _pos(pos), _texture(texture), _size(size) {};
+	Star(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size) : _pos(pos), _texture(texture), _size(size) {};
 
 	void render() const {
 		SDL_Rect destRect;
