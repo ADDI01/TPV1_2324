@@ -87,10 +87,14 @@ public:
 	void Win();
 	void limpiaLista();
 	//Getters
+<<<<<<< Updated upstream
 	uint getCannonLifes(){
 		list<SceneObject*>::iterator aux = objectsList.begin();
 		return _cannon->getnLifes();  
 	}
+=======
+	uint getCannonLifes() { return _cannon->getnLifes(); };
+>>>>>>> Stashed changes
 	int getRandomRange(int min, int max);
 	uint getHeight() { return WIN_HEIGHT; };
 	uint getWidth() { return WIN_WIDTH; };
