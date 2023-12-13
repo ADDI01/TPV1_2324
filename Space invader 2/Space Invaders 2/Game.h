@@ -85,7 +85,7 @@ public:
 	void save(int k) const;
 	void handleEvents();
 	void lose();
-	void win();
+	void gameWin();
 
 	//Specific actions
 	void addToList(SceneObject* object);

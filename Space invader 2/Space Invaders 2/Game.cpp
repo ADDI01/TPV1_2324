@@ -30,11 +30,11 @@ void Game::init() {
 	}
 
 	if (textureLoading())
-		loadFromFile("../images/mapas/pre" + to_string(nLevel % nLevels) + ".txt");
+		loadFromFile("../images/mapas/map" + to_string(nLevel % nLevels) + ".txt");
 	else {
 		throw SDLError("No se cargaron las texturas.");
 	}
-}
+} 
 
 bool Game::textureLoading() {
 	// cannon's texture inicialization
@@ -83,6 +83,12 @@ void Game::loadFromFile(string fileName) { //TODO: Distribuir el load en las cla
 	if (!file.is_open()) {
 		throw FileNotFoundError(fileName);
 	}
+
+	//Specific objects are created here
+	mother = new Mothership(this, 0, 0, 20);
+	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
+	infoBar = new InfoBar(this, textures[CANNONTEXTURE], Point2D<float>(10, WIN_HEIGHT - 30),
+		pair<uint, uint>(34, 21), 0);
 
 	while (!file.eof()) {
 		file >> tObject;
@@ -163,12 +169,6 @@ void Game::loadFromFile(string fileName) { //TODO: Distribuir el load en las cla
 			addToList(aux);
 		}
 	}
-
-	//Specific objects are created here
-	mother = new Mothership(this, 0, 0, 20);
-	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
-	infoBar = new InfoBar(this, textures[CANNONTEXTURE], Point2D<float>(10, WIN_HEIGHT - 30),
-		pair<uint, uint>(34, 21), 0);
 } 
 
 void Game::run() {
@@ -273,7 +273,7 @@ void Game::lose()
 	gameOver = true;
 }
 
-void Game::win() {
+void Game::gameWin() {
 	nLevel++;
 	string direc = "../images/mapas/pred" + to_string(nLevel % nLevels) + ".txt";
 	loadFromFile(direc);

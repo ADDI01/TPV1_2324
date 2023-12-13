@@ -10,7 +10,7 @@ Mothership::Mothership(Game* game, int estado, int level, float movementCD) : Ga
 void Mothership::update()
 {
 	if (_contAliens == 0) {
-		_game->win();
+		_game->gameWin();
 	}
 
 	if (_lower) {
