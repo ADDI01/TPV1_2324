@@ -35,10 +35,10 @@ public:
 	void save(std::ostream& out) const override;
 
 	//Specifics actions
-	bool shouldMove() { return _currentLevel <= 0; }
+	bool shouldMove() const { return _currentLevel <= 0; }
 	void lowerColumn() { _lower = true; };
 	void alienDied() { _contAliens--; };
-	bool alienLanded(float y);
+	bool alienLanded(float y) const;
 	void haveLanded();
 	void changeDirection();
 	void addAlien() { _contAliens++; };
@@ -50,5 +50,5 @@ public:
 
 	//Getters
 	Vector2D<float> getDirection();
-	uint getAlienCount() { return _contAliens; };
+	uint getAlienCount() const { return _contAliens; };
 };

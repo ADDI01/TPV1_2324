@@ -1,5 +1,5 @@
-#ifndef VECTOR2D_H_
-#define VECTOR2D_H_
+#pragma once
+
 #include"checkML.h"
 
 template <class T>
@@ -26,11 +26,11 @@ public:
 		_y = v._y;
 	}
 
-	bool operator ==(const Vector2D& v) {
+	bool operator ==(const Vector2D& v) const {
 		return _x == v._x && _y == v._y;
 	}
 
-	bool operator !=(const Vector2D& v) {
+	bool operator !=(const Vector2D& v) const {
 		return !operator==(v);
 	}
 
@@ -61,5 +61,3 @@ public:
 
 template <class T>
 using Point2D = Vector2D<T>;
-
-#endif

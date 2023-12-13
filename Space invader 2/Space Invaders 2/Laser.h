@@ -40,7 +40,7 @@ public:
 
 	//Getters
 	bool getFather() const { return _father; };
-	Vector2D<float> getVelocity() { return _velocity; };
-	std::pair<uint, uint> getSize() { return _size; };
+	Vector2D<float> getVelocity() const { return _velocity; };
+	std::pair<uint, uint> getSize() const { return _size; };
 	SDL_Rect getRect() const { return _myRect; };
 };

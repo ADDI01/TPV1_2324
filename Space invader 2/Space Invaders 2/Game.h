@@ -94,12 +94,12 @@ public:
 	void limpiaLista();
 
 	//Getters
-	uint getCannonLifes() { return _cannon->getnLifes(); };
+	uint getCannonLifes() const { return _cannon->getnLifes(); };
 	int getRandomRange(int min, int max);
-	uint getHeight() { return WIN_HEIGHT; };
-	uint getWidth() { return WIN_WIDTH; };
-	SDL_Renderer* getRenderer() { return renderer; };
-	SDL_Window* getWindow() { return window; };
-	float getLandedHeight() { return _landedHeight; };
+	uint getHeight() const { return WIN_HEIGHT; };
+	uint getWidth() const { return WIN_WIDTH; };
+	SDL_Renderer* getRenderer() const { return renderer; };
+	SDL_Window* getWindow() const { return window; };
+	float getLandedHeight() const { return _landedHeight; };
 };
 

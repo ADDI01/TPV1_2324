@@ -54,7 +54,7 @@ void Mothership::haveLanded()
 	_game->lose();
 }
 
-bool Mothership:: alienLanded(float y) { return y >= _game->getLandedHeight(); }
+bool Mothership:: alienLanded(float y) const { return y >= _game->getLandedHeight(); }
 
 void Mothership:: changeDirection() {
 	switch (_actualMovementState)
