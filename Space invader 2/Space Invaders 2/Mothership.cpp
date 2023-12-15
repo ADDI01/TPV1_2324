@@ -2,6 +2,30 @@
 #include "Game.h"
 #include <fstream>
 
+using namespace std;
+
+Mothership::Mothership(Game* game, int estado, int level, float movementCD) : GameObject(game), 
+	_actualMovementState((movementStates)estado), _level(level), _currentLevel(movementCD) {};
+
+void Mothership::update()
+{
+	if (_contAliens == 0) {
+		_game->gameWin();
+	}
+
+	if (_lower) {
+		changeDirection();
+	}
+	if (_currentLevel <= 0) {
+		_currentLevel = _level;
+	}
+	else _currentLevel--;
+}
+
+void Mothership::save(std::ostream& out) const {
+	out << 3 << " " << _actualMovementState << " " << _level << " " << _currentLevel << endl;
+}
+
 Vector2D<float> Mothership::getDirection()
 {
 	switch (_actualMovementState)
@@ -30,7 +54,7 @@ void Mothership::haveLanded()
 	_game->lose();
 }
 
-bool Mothership:: alienLanded(float y) { return y >= _game->getLandedHeight(); }
+bool Mothership:: alienLanded(float y) const { return y >= _game->getLandedHeight(); }
 
 void Mothership:: changeDirection() {
 	switch (_actualMovementState)
@@ -54,25 +78,6 @@ void Mothership:: changeDirection() {
 		if(_level >= 0)
 			_level--;
 
-		_bajada = false;
+		_lower = false;
 	}
-}
-
-void Mothership::update() 
-{
-	if (_contAliens == 0) {
-		_game->Win();
-	}
-
-	if (_bajada) {
-		changeDirection();
-	}
-	if (_actualLevel <= 0) {
-		_actualLevel = _level;
-	}
-	else _actualLevel--;
-}
-
-void Mothership::save(std::ostream& out) const {
-	out << 3 << " " << _actualMovementState << " " << _level << " " << _actualLevel << endl;
 }

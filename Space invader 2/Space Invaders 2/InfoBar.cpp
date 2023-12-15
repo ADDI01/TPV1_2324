@@ -1,33 +1,38 @@
 #include "InfoBar.h"
 #include "Game.h"
 
-void InfoBar::render() const {
-	_cannonRect->x = _pos.getX();
-	_cannonRect->y = _pos.getY();
-	_cannonRect->w = _size.first;
-	_cannonRect->h = _size.second;
+using namespace std;
 
-	switch (_game->getCannonLifes()) {
+InfoBar::InfoBar(Game* game, Texture* texture, Point2D<float> pos, pair<uint, uint> size, uint points) : GameObject(game),
+	_texture(texture), _points(points), _pos(pos), _size(size), _cannonLife1(SDL_Rect()), _cannonLife2(SDL_Rect()),
+	_cannonLife3(SDL_Rect()), _pointsRect(SDL_Rect()) {}; //TODO: Pasar Rects de las vidas en el constructor por param
+
+InfoBar::~InfoBar() {
+	_texture = nullptr;
+};
+
+void InfoBar::render() const {
+	switch (_game->getCannonLifes()) { //Renders the current number of cannon's lifes
 	case 0:
 		break;
 	case 1:
-		_texture->render(*_cannonRect);
+		_texture->render(_cannonLife1);
 		break;
 	case 2:
-		_texture->render(*_cannonRect);
-		_cannonRect->x = _pos.getX() + _cannonRect->w + _offset;
-		_texture->render(*_cannonRect);
+		_texture->render(_cannonLife1);
+		_texture->render(_cannonLife2);
 		break;
 	case 3:
-		_texture->render(*_cannonRect);
-		_cannonRect->x += _cannonRect->w + _offset;
-		_texture->render(*_cannonRect);
-		_cannonRect->x += _cannonRect->w + _offset;
-		_texture->render(*_cannonRect);
+		_texture->render(_cannonLife1);
+		_texture->render(_cannonLife2);
+		_texture->render(_cannonLife3);
 		break;
 	default:
 		throw SDLError("Numero de cannons incorrecto.");
 	}
+
+	//Renders the current puntuation (TODO)
+
 }
 
 void InfoBar::setPoints(uint type) {

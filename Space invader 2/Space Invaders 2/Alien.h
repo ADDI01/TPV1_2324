@@ -9,8 +9,6 @@
 
 using uint = unsigned int;
 
-using namespace std;
-
 class Game;
 
 //Shooter alien cooldowns
@@ -28,14 +26,14 @@ protected:
 	//Alien's speed
 	float _velocity = 0.0f;
 	//Destination and size of the alien
-	SDL_Rect* _myRect = nullptr;
+	SDL_Rect _myRect;
 	//Shoot cooldown
 	float _shootCD = 0.0f;
 	//Pointer to Mothership
 	Mothership* _mother = nullptr;
 	
 public:
-	Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, float velocity, 
+	Alien(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size, Game* game, float velocity, 
 		int type, bool idle);
 	~Alien();
 
@@ -45,11 +43,11 @@ public:
 	void save(std::ostream& out) const override;
 
 	//Specific actions
-	bool hit(SDL_Rect AttackRect, int typeOfDamage) override ;
-	void bajaColumna();
+	bool hit(SDL_Rect AttackRect, int typeOfDamage) override;
+	void lowerColumn();
 
 	//Getters
-	SDL_Rect* getRect() const { return _myRect; };
+	SDL_Rect getRect() const { return _myRect; };
 	uint getSubtype() const { return _subType; };
 	Vector2D<float> getPosition() const { return _pos; };
 	void setMother(Mothership* mother) { _mother = mother; };

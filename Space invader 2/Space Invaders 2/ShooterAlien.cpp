@@ -2,6 +2,8 @@
 #include "Game.h"
 #include <fstream>
 
+using namespace std;
+
 ShooterAlien:: ShooterAlien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, float velocity, int type, bool idle) : Alien(pos, texture, size, game, velocity, type, idle)
 {
 	_shootCD = _game->getRandomRange(MIN_CD, MAX_CD);

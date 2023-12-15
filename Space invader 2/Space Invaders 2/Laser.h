@@ -1,5 +1,5 @@
 #pragma once
-#pragma once
+
 #include "Vector2D.h"
 #include "checkML.h"
 #include "SceneObject.h"
@@ -19,14 +19,14 @@ private:
 	//Game's renderer
 	SDL_Renderer* _myRenderer = nullptr;
 	//Destination and size of the laser
-	SDL_Rect* _myRect = nullptr;
+	SDL_Rect _myRect;
 	//velocidad de la bala
 	Vector2D<float> _velocity;
 	//Defines the father. 
 	Father _father;
 
 public:
-	Laser(Point2D<float> pos, Vector2D<float> velocity, pair<uint, uint> size, Game* game, SDL_Renderer* myRenderer,
+	Laser(Point2D<float> pos, Vector2D<float> velocity, std::pair<uint, uint> size, Game* game, SDL_Renderer* myRenderer,
 		Father father);
 	~Laser();
 
@@ -40,7 +40,7 @@ public:
 
 	//Getters
 	bool getFather() const { return _father; };
-	Vector2D<float> getVelocity() { return _velocity; };
-	pair<uint, uint> getSize() { return _size; };
-	SDL_Rect* getRect() const { return _myRect; };
+	Vector2D<float> getVelocity() const { return _velocity; };
+	std::pair<uint, uint> getSize() const { return _size; };
+	SDL_Rect getRect() const { return _myRect; };
 };

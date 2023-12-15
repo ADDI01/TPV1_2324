@@ -2,13 +2,11 @@
 
 #include <stdexcept>
 
-using namespace std;
-
-class InvadersError: public logic_error
+class InvadersError: public std::logic_error
 {
 protected:
-	string e;
-	InvadersError(const string& err) : logic_error(err), e(err) {};
+	std::string e;
+	InvadersError(const std::string& err) : std::logic_error(err), e(err) {};
 	virtual ~InvadersError() {};
 
 	virtual const char* what() = 0;

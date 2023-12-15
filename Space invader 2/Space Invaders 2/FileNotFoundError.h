@@ -4,7 +4,7 @@
 class FileNotFoundError: public InvadersError
 {
 public:
-	FileNotFoundError(const string& f) : InvadersError("File " + f + " not found.") {};
+	FileNotFoundError(const std::string& f) : InvadersError("File " + f + " not found.") {};
 	virtual ~FileNotFoundError() {};
 
 	const char* what() override { return e.c_str(); };

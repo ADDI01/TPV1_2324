@@ -7,33 +7,35 @@ using uint = unsigned int;
 class Ufo : public SceneObject
 {
 private:
+	//States of the UFO
 	enum ufoState {OCULTO, VISIBLE, DESTRUIDO};
-	ufoState _actualState;
+	//Current state
+	ufoState _currentState;
+	//Amount of time to change to 'OCULTO' State
 	float _occultTime;
-	float _actualOccultTime;
-	std::pair<int, int> minmaxOccultTime;
-	SDL_Rect* _myRect = nullptr;
+	//Current amount of occultTime
+	float _currentOccultTime;
+	//Min and max time to get the random value
+	std::pair<int, int> minMaxOccultTime;
+	//Destination and size of the UFO
+	SDL_Rect _myRect;
+	//Amount of time to render the dead frame
 	float _dieTime = 40;
-	float _actualDieTime = 0;
+	//Current dieTime
+	float _currentDieTime = 0;
+	//Initial position of the UFO
 	Vector2D<float> _initialPos;
 
 public:
-	//constructora que recive el min & max de _occultTime
-	Ufo(Game* game,Vector2D<float> pos, Texture* texture, pair<uint,uint> size, float state, float wait): SceneObject(game,texture, 
-		pos, size,1), _initialPos(800,pos.getY()), _actualState((ufoState) state), _occultTime(wait) {
-		_myRect = new SDL_Rect; 
-		_actualOccultTime = _occultTime;
-	};
-	~Ufo() {
-		_texture = nullptr;
-		_game = nullptr;
-		delete _myRect;
-		_myRect = nullptr;
-	};
+	Ufo(Game* game, Vector2D<float> pos, Texture* texture, std::pair<uint, uint> size, float state, float wait);
+	~Ufo();
 
-	void render() const override ;
+	//Game States
+	void render() const override;
 	void update() override;
 	void save(std::ostream& out) const override;
+
+	//Specific actions
 	bool hit(SDL_Rect AttackRect, int typeOfDamage) override;
 	void updateState();
 };

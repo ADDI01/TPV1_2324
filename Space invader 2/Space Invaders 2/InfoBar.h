@@ -5,8 +5,6 @@
 #include "Texture.h"
 #include <SDL.h>
 
-using namespace std;
-
 using uint = unsigned int;
 
 class Game;
@@ -19,28 +17,29 @@ struct Points {
 class InfoBar : public GameObject
 {
 private:
+	//Game puntuation
 	uint _points = 0;
+	//Separation from the borders of the screen
 	uint _offset = 5;
+	//Infobar's position on the screen
 	Point2D<float> _pos;
-	pair<uint, uint> _size;
-	SDL_Rect* _cannonRect = nullptr;
-	SDL_Rect* _pointsRect = nullptr;
+	//Infobar's size
+	std::pair<uint, uint> _size;
+	//Rects for the cannon lifes and points
+	SDL_Rect _cannonLife1, _cannonLife2, _cannonLife3;
+	SDL_Rect _pointsRect;
+	//Texture of the cannon
 	Texture* _texture = nullptr;
 
 public:
-	//Constructor
-	InfoBar(Game* game, Texture* texture, Point2D<float> pos, pair<uint, uint> size, uint points) : GameObject(game),
-		_texture(texture), _points(points), _pos(pos), _size(size) {
-		_cannonRect = new SDL_Rect;
-		_pointsRect = new SDL_Rect;
-	};
-	~InfoBar() {
-		delete _cannonRect; _cannonRect = nullptr; delete _pointsRect; _pointsRect = nullptr; _texture = nullptr;
-	};
+	InfoBar(Game* game, Texture* texture, Point2D<float> pos, std::pair<uint, uint> size, uint points);
+	~InfoBar();
 
+	//GameStates
 	void render() const override;
 	void update() override {};
 	void save(std::ostream& out) const override {};
+
 	//Setter
 	void setPoints(uint type);
 };

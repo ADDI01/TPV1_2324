@@ -4,7 +4,7 @@
 class FileFormatError : public InvadersError
 {
 public:
-	FileFormatError(const string& f) : InvadersError("Format of the file " + f + " is wrong.") {};
+	FileFormatError(const std::string& f) : InvadersError("Format of the file " + f + " is wrong.") {};
 	virtual ~FileFormatError() {};
 
 	const char* what() override { return e.c_str(); };

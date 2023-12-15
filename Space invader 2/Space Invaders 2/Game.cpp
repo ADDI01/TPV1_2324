@@ -2,6 +2,8 @@
 #include <random>
 #include <fstream>
 
+using namespace std;
+
 Game::~Game() {
 	for (auto it : objectsList) {
 		delete it;
@@ -28,21 +30,46 @@ void Game::init() {
 	}
 
 	if (textureLoading())
-		loadFromFile("../images/mapas/pre" + to_string(nLevel % nLevels) + ".txt");
+		loadFromFile("../images/mapas/map" + to_string(nLevel % nLevels) + ".txt");
 	else {
 		throw SDLError("No se cargaron las texturas.");
 	}
-}
+} 
 
-void Game::limpiaLista() {
-	for (auto it : objectsList) {
-		delete it;
-		it = nullptr;
+bool Game::textureLoading() {
+	// cannon's texture inicialization
+	//dataTextures[CANNONTEXTURE]->texturePath = "../images/spaceship.png";
+	//dataTextures[CANNONTEXTURE]->dimensiones = pair<uint, uint>(1, 1);
+	dataTextures[CANNONTEXTURE] = new TextureData("../images/spaceship.png", pair<uint, uint>(1, 1));
+
+	//alien's texture inicialization
+	//dataTextures[ALIENSTEXTURE]->texturePath = "../images/aliens.png";
+	//dataTextures[ALIENSTEXTURE]->dimensiones = pair<uint, uint>(3, 2);
+	dataTextures[ALIENSTEXTURE] = new TextureData("../images/aliens.png", pair<uint, uint>(3, 2));
+
+	//bunker's texture inicialization
+	//dataTextures[BUNKERSTEXTURE]->texturePath = "../images/bunker.png";
+	//dataTextures[BUNKERSTEXTURE]->dimensiones = pair<uint, uint>(1, 4);
+	dataTextures[BUNKERSTEXTURE] = new TextureData("../images/bunker.png", pair<uint, uint>(1, 4));
+
+
+	//bunker's texture inicialization
+	//dataTextures[STARTEXTURE]->texturePath = "../images/stars.png";
+	//dataTextures[STARTEXTURE]->dimensiones = pair<uint, uint>(1, 1);
+	dataTextures[STARTEXTURE] = new TextureData("../images/stars.png", pair<uint, uint>(1, 1));
+
+	//Ufo's texture
+	dataTextures[UFOTEXTURE] = new TextureData("../images/ufo.png", pair<uint, uint>(1, 2));
+
+	//Now, we create the textures
+	for (uint i = 0; i < NUM_TEXTURES; i++) {
+		textures.push_back(new Texture(renderer, dataTextures[i]->texturePath, dataTextures[i]->dimensiones.first, dataTextures[i]->dimensiones.second));
 	}
-	objectsList.clear();
+	for (TextureData* d : dataTextures) { delete d; d = nullptr; }
+	return true;
 }
 
-void Game::loadFromFile(string fileName) {
+void Game::loadFromFile(string fileName) { //TODO: Distribuir el load en las clases de los SceneObjects
 	limpiaLista();
 	if (infoBar != nullptr) {
 		delete infoBar;
@@ -57,6 +84,12 @@ void Game::loadFromFile(string fileName) {
 		throw FileNotFoundError(fileName);
 	}
 
+	//Specific objects are created here
+	mother = new Mothership(this, 0, 0, 20);
+	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
+	infoBar = new InfoBar(this, textures[CANNONTEXTURE], Point2D<float>(10, WIN_HEIGHT - 30),
+		pair<uint, uint>(34, 21), 0);
+
 	while (!file.eof()) {
 		file >> tObject;
 		file >> posX;
@@ -69,8 +102,8 @@ void Game::loadFromFile(string fileName) {
 			file >> estado; //TODO: que esto sea la espera
 
 			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, estado, 30); //Instance
-				_landedHeight = pos.getY() - 30;
-				_cannon = static_cast<Cannon*>(aux);
+			_landedHeight = pos.getY() - 30;
+			_cannon = static_cast<Cannon*>(aux);
 			break;
 		case 1: //Alien
 			file >> subType;
@@ -117,15 +150,15 @@ void Game::loadFromFile(string fileName) {
 			file >> estado;
 			file >> subType; //TODO: LA ESPERA
 
-			aux = new Ufo(this, pos, textures[UFOTEXTURE], pair < uint, uint>(90,32),estado,subType);
+			aux = new Ufo(this, pos, textures[UFOTEXTURE], pair < uint, uint>(90, 32), estado, subType);
 			break;
 		case 6:
 			file >> subType;
-			aux = new Laser(pos, Vector2D<float>(0, 5), pair<uint, uint>(5, 20), this, renderer,(Father) subType);
+			aux = new Laser(pos, Vector2D<float>(0, 5), pair<uint, uint>(5, 20), this, renderer, (Father)subType);
 			break;
 		case 7: //Points
 			file >> points;
-			//Crrar instancia InfoBar
+			//Cerrar instancia InfoBar
 			break;
 		default:
 			throw FileFormatError(fileName);
@@ -136,17 +169,32 @@ void Game::loadFromFile(string fileName) {
 			addToList(aux);
 		}
 	}
-	//Background
-	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
-	infoBar = new InfoBar(this, textures[CANNONTEXTURE], Point2D<float>(10, WIN_HEIGHT - 30),
-		pair<uint, uint>(34, 21), 0);
+} 
+
+void Game::run() {
+	uint32_t startTime, frameTime;
+	startTime = SDL_GetTicks();
+
+	while (!gameOver && !exit && !win)
+	{
+		startTime = SDL_GetTicks();
+		handleEvents();
+		if (!pauseCharge && !pauseSave)
+		{
+			update(); // Actualiza el estado de todos los objetos del juego
+		}
+		render(); // Renderiza todos los objetos del juego
+		frameTime = SDL_GetTicks() - startTime; // Tiempo de la iteraci?n
+		if (frameTime < FRAME_RATE)
+			SDL_Delay(FRAME_RATE - frameTime); // Suspende por el tiempo restante
+	}
 }
 
-void Game::render() const 
+void Game::render() const
 {
 	SDL_RenderClear(renderer);
 	star->render();
-	for (auto it : objectsList) 
+	for (auto it : objectsList)
 	{
 		it->render();
 	}
@@ -155,7 +203,7 @@ void Game::render() const
 	SDL_RenderPresent(renderer);
 }
 
-void Game::update() 
+void Game::update()
 {
 	for (auto it : objectsList)
 	{
@@ -163,7 +211,7 @@ void Game::update()
 	}
 
 	for (auto it : objectsToDelete) {
-		delete *it;
+		delete* it;
 		objectsList.erase(it);
 	}
 
@@ -187,7 +235,6 @@ void Game::save(int k) const{
 	mother->save(out);
 	out.close(); 
 }
-
 
 void Game::handleEvents() {
 	int k;
@@ -221,60 +268,23 @@ void Game::handleEvents() {
 	}
 }
 
-void Game::addToList(SceneObject* aux) {
-	/*list<SceneObject*>::iterator i = objectsList.end();
-	objectsList.insert(i, aux); //SceneObject to list
-	i++;*/
-	list<SceneObject*>::iterator i = objectsList.insert(objectsList.end(),aux);
-	aux->setListIterator(i); //Set the iterator
-}
-
-bool Game::textureLoading(){
-	// cannon's texture inicialization
-	//dataTextures[CANNONTEXTURE]->texturePath = "../images/spaceship.png";
-	//dataTextures[CANNONTEXTURE]->dimensiones = pair<uint, uint>(1, 1);
-	dataTextures[CANNONTEXTURE] = new TextureData("../images/spaceship.png", pair<uint, uint>(1, 1));
-
-	//alien's texture inicialization
-	//dataTextures[ALIENSTEXTURE]->texturePath = "../images/aliens.png";
-	//dataTextures[ALIENSTEXTURE]->dimensiones = pair<uint, uint>(3, 2);
-	dataTextures[ALIENSTEXTURE] = new TextureData("../images/aliens.png", pair<uint, uint>(3, 2));
-
-	//bunker's texture inicialization
-	//dataTextures[BUNKERSTEXTURE]->texturePath = "../images/bunker.png";
-	//dataTextures[BUNKERSTEXTURE]->dimensiones = pair<uint, uint>(1, 4);
-	dataTextures[BUNKERSTEXTURE] = new TextureData("../images/bunker.png", pair<uint, uint>(1, 4));
-
-
-	//bunker's texture inicialization
-	//dataTextures[STARTEXTURE]->texturePath = "../images/stars.png";
-	//dataTextures[STARTEXTURE]->dimensiones = pair<uint, uint>(1, 1);
-	dataTextures[STARTEXTURE] = new TextureData("../images/stars.png", pair<uint, uint>(1, 1));
-
-	//Ufo's texture
-	dataTextures[UFOTEXTURE] = new TextureData("../images/ufo.png", pair<uint, uint>(1, 2));
-
-	//Now, we create the textures
-	for (uint i = 0; i < NUM_TEXTURES; i++) {
-		textures.push_back(new Texture(renderer, dataTextures[i]->texturePath, dataTextures[i]->dimensiones.first, dataTextures[i]->dimensiones.second));
-	}
-	for (TextureData* d : dataTextures) { delete d; d = nullptr; }
-	return true;
-}
-
 void Game::lose() 
 {
 	gameOver = true;
 }
 
-void Game::Win() {
+void Game::gameWin() {
 	nLevel++;
 	string direc = "../images/mapas/pred" + to_string(nLevel % nLevels) + ".txt";
 	loadFromFile(direc);
-}
+};
 
-void Game::hasDie(list<SceneObject*>::iterator it) {
-	objectsToDelete.push_back(it);
+void Game::addToList(SceneObject* aux) {
+	/*list<SceneObject*>::iterator i = objectsList.end();
+	objectsList.insert(i, aux); //SceneObject to list
+	i++;*/
+	list<SceneObject*>::iterator i = objectsList.insert(objectsList.end(), aux);
+	aux->setListIterator(i); //Set the iterator
 }
 
 bool Game::damage(SDL_Rect rect, Father father) const {
@@ -285,25 +295,19 @@ bool Game::damage(SDL_Rect rect, Father father) const {
 	return false;
 }
 
+void Game::hasDie(list<SceneObject*>::iterator it) {
+	objectsToDelete.push_back(it);
+}
+
+void Game::limpiaLista() {
+	for (auto it : objectsList) {
+		delete it;
+		it = nullptr;
+	}
+	objectsList.clear();
+}
+
 int Game::getRandomRange(int min, int max) {
 	static std::mt19937_64 randomGenerator(std::random_device{}());
 	return uniform_int_distribution<int>(min, max)(randomGenerator);
-}
-void Game::run() {
-	uint32_t startTime, frameTime;
-	startTime = SDL_GetTicks();
-
-	while (!gameOver && !exit && !win)
-	{
-		startTime = SDL_GetTicks();
-		handleEvents();
-		if (!pauseCharge && !pauseSave) 
-		{
-			update(); // Actualiza el estado de todos los objetos del juego
-		}
-		render(); // Renderiza todos los objetos del juego
-		frameTime = SDL_GetTicks() - startTime; // Tiempo de la iteraci?n
-		if (frameTime < FRAME_RATE)
-			SDL_Delay(FRAME_RATE - frameTime); // Suspende por el tiempo restante
-	}
 }

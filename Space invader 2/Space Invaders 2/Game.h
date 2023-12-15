@@ -1,4 +1,5 @@
 #pragma once
+
 #include <list>
 #include <string>
 #include <SDL.h>
@@ -18,9 +19,8 @@
 #include "SDLError.h"
 
 using uint = unsigned int;
-using namespace std;
 
-// variables globales para la pantalla
+//Global game variables
 const uint WIN_WIDTH = 800;
 const uint WIN_HEIGHT = 600;
 const uint FRAME_RATE = 25;
@@ -29,39 +29,45 @@ const uint NUM_TEXTURES = 5;
 class Game
 {
 private:
-	//Punteros a ventana y render
+	//Window and render pointers
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
-	list<SceneObject* > objectsList;
-	list < list<SceneObject*>::iterator> objectsToDelete;
-	Mothership* mother = new Mothership(this,0,20,3);
-	Cannon* _cannon;
-	float _landedHeight = 0;
-	int nLevel = 0;
-	const int nLevels = 3;
-	//Texturas
+
+	//SceneObject's list
+	std::list<SceneObject* > objectsList;
+	//SceneObject's list to delete
+	std::list<std::list<SceneObject*>::iterator> objectsToDelete;
+
+	//SceneObject's pointers
+	Mothership* mother = nullptr;
+	Cannon* _cannon = nullptr;
+	Star* star = nullptr;
+	InfoBar* infoBar = nullptr;
+
+	//Texture's ID
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };
+	//Textures info
 	struct TextureData {
 		const char* texturePath; // Path de la textura
-		pair<uint, uint> dimensiones; //n� de filas y columnas
-		TextureData(const char* texturePath, pair<uint, uint> dimensiones): texturePath(texturePath), 
+		std::pair<uint, uint> dimensiones; //n� de filas y columnas
+		TextureData(const char* texturePath, std::pair<uint, uint> dimensiones): texturePath(texturePath),
 			dimensiones(dimensiones){};
 		~TextureData() { texturePath = nullptr; }
 	};
-	vector<Texture*> textures;  
+	std::vector<Texture*> textures;
 	TextureData* dataTextures[NUM_TEXTURES];
 
-	//Condiciones partida
+	//Game conditions
 	bool exit = false;
 	bool win = false;
 	bool gameOver = false;
 	bool pauseSave = false; //para guardar 
 	bool pauseCharge = false; // para cargar
 
-	//Unique 
-	Star* star;
-	InfoBar* infoBar;
-
+	//Specific atributes
+	int nLevel = 0;
+	const int nLevels = 3;
+	float _landedHeight = 0;
 
 public:
 	Game() {};
@@ -70,7 +76,7 @@ public:
 	//Pre-game
 	void init();
 	bool textureLoading();
-	void loadFromFile(string fileName);
+	void loadFromFile(std::string fileName);
 
 	//Game states
 	void run();
@@ -79,23 +85,21 @@ public:
 	void save(int k) const;
 	void handleEvents();
 	void lose();
+	void gameWin();
 
 	//Specific actions
 	void addToList(SceneObject* object);
 	bool damage(SDL_Rect rect, Father father) const;
-	void hasDie(list<SceneObject*>::iterator it);
-	void Win();
+	void hasDie(std::list<SceneObject*>::iterator it);
 	void limpiaLista();
+
 	//Getters
-	uint getCannonLifes(){
-		list<SceneObject*>::iterator aux = objectsList.begin();
-		return _cannon->getnLifes();  
-	}
+	uint getCannonLifes() const { return _cannon->getnLifes(); };
 	int getRandomRange(int min, int max);
-	uint getHeight() { return WIN_HEIGHT; };
-	uint getWidth() { return WIN_WIDTH; };
-	SDL_Renderer* getRenderer() { return renderer; };
-	SDL_Window* getWindow() { return window; };
-	float getLandedHeight() { return _landedHeight; };
+	uint getHeight() const { return WIN_HEIGHT; };
+	uint getWidth() const { return WIN_WIDTH; };
+	SDL_Renderer* getRenderer() const { return renderer; };
+	SDL_Window* getWindow() const { return window; };
+	float getLandedHeight() const { return _landedHeight; };
 };
 

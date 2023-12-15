@@ -8,17 +8,14 @@ private:
 	Vector2D<float> _direction;
 	//Cannon's speed
 	float _velocity = 0;
-	//Cannon's shoot cooldown
-	float _shootCD = 0;
-	float _iniShootCD = 30;
+	//Cannon's initial shoot cooldown and game cooldown
+	float  _iniShootCD = 30, _shootCD = 0;
 	//Destination and size of the cannon
-	SDL_Rect* _myRect = nullptr;
+	SDL_Rect _myRect;
 
 public:
-	Cannon(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, uint nLifes, float shootCD,
-		float velocity) : SceneObject(game, texture, pos, size, nLifes), _shootCD(shootCD), _velocity(velocity) {
-		_myRect = new SDL_Rect;
-	};
+	Cannon(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size, Game* game, uint nLifes, float shootCD,
+		float velocity);
 	~Cannon();
 
 	//Game states
@@ -37,7 +34,7 @@ public:
 
 	//Getters
 	Vector2D<float> getPosition() const { return _pos; };
-	SDL_Rect* getRect() const { return _myRect; };
+	SDL_Rect getRect() const { return _myRect; };
 	uint getnLifes() const { return _life; };
 };
 
