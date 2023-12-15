@@ -143,6 +143,7 @@
     <ClCompile Include="bin\PlayState.cpp" />
     <ClCompile Include="bin\Reward.cpp" />
     <ClCompile Include="bin\Source.cpp" />
+    <ClCompile Include="bin\texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bin\Bomb.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="bin\PauseState.h" />
     <ClInclude Include="bin\PlayState.h" />
     <ClInclude Include="bin\Reward.h" />
+    <ClInclude Include="bin\texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

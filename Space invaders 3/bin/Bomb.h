@@ -1,5 +1,5 @@
 #pragma once
-class Bomb
+class Bomb /*: public laser*/
 {
 };
 
