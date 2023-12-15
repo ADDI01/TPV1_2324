@@ -1,0 +1,9 @@
+﻿  GameState.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\GameList.h(56,4): warning C4984: "if constexpr" es una extensión del lenguaje C++17
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\GameList.h(294,2): message : Vea la referencia a la creación de una instancia de clase plantilla "GameList<T,owns>" que se está compilando
+  GameStateMachine.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\GameList.h(56,4): warning C4984: "if constexpr" es una extensión del lenguaje C++17
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\GameList.h(294,2): message : Vea la referencia a la creación de una instancia de clase plantilla "GameList<T,owns>" que se está compilando
+  Generando código...
+MSVCRTD.lib(exe_main.obj) : error LNK2019: símbolo externo main sin resolver al que se hace referencia en la función "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\x64\Debug\Space invaders 3.exe : fatal error LNK1120: 1 externos sin resolver
