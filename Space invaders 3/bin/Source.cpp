@@ -1,9 +1,8 @@
 #include "checkML.h"
-#include "SDL.h"
-#include "Game.h"
 #include "SDLError.h"
 #include "FileFormatError.h"
 #include "FileNotFoundError.h"
+#include "SDLApplication.h"
 #include <iostream>
 
 using namespace std;
@@ -12,7 +11,7 @@ using uint = unsigned int;
 
 void initGame()
 {
-	Game game;
+	SDLApplication game;
 
 	try {
 		game.init();

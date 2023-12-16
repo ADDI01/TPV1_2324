@@ -3,21 +3,23 @@
 #include <list>
 #include "EventHandler.h"
 #include "GameList.h"
+#include"checkML.h"
+#include "GameObject.h"
 
-class GameObject;
 class Game;
 
 class GameState
 {
-private:
+protected:
 	GameList<GameObject, true> gameList;
 	std::list<EventHandler*> eventHandlerList;
-	Game* _myGame;
+	Game* myGame;
 
 public:
-	void render() const;
-	void update();
-	void handleEvent();
-	void addEventListener(EventHandler* e) {eventHandlerList.push_back(e);};
-	void addObject(GameObject* g) {gameList.push_back(g);};
+	virtual ~GameState() = 0;
+	virtual void render() const = 0;
+	virtual void update() = 0;
+	virtual void handleEvent() = 0;
+	void addEventListener(EventHandler* e);
+	void addObject(GameObject* g);
 };

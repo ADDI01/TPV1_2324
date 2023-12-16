@@ -1,9 +1,151 @@
-﻿  GameState.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\GameList.h(56,4): warning C4984: "if constexpr" es una extensión del lenguaje C++17
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\GameList.h(294,2): message : Vea la referencia a la creación de una instancia de clase plantilla "GameList<T,owns>" que se está compilando
+﻿  Button.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(23,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(24,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+  EndState.cpp
+  GameState.cpp
   GameStateMachine.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\GameList.h(56,4): warning C4984: "if constexpr" es una extensión del lenguaje C++17
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\GameList.h(294,2): message : Vea la referencia a la creación de una instancia de clase plantilla "GameList<T,owns>" que se está compilando
+  MainMenuState.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(23,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(24,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(13,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(17,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(21,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(4,28): error C2102: '&' necesita valor L
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(5,28): error C2102: '&' necesita valor L
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(6,28): error C2102: '&' necesita valor L
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(16,24): error C2259: "GameObject": no se puede crear una instancia de una clase abstract
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\GameObject.h(9,7): message : vea la declaración de 'GameObject'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(16,24): message : debido a los siguientes miembros:
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(16,24): message : 'void GameObject::update(void)': es abstracto
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\GameObject.h(22,15): message : vea la declaración de 'GameObject::update'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(16,24): message : 'void GameObject::save(std::ostream &) const': es abstracto
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\GameObject.h(23,15): message : vea la declaración de 'GameObject::save'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(17,3): error C2819: el tipo 'GameObject' no tiene un miembro sobrecargado 'operator ->'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\GameObject.h(9,7): message : vea la declaración de 'GameObject'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(17,3): message : ¿deseaba utilizar '.' en su lugar?
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(17,5): error C2232: '->GameObject::render': el operando izquierdo tiene el tipo 'class'; utilice '.'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(23,3): error C2819: el tipo 'GameObject' no tiene un miembro sobrecargado 'operator ->'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\GameObject.h(9,7): message : vea la declaración de 'GameObject'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(23,3): message : ¿deseaba utilizar '.' en su lugar?
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.cpp(23,5): error C2232: '->GameObject::update': el operando izquierdo tiene el tipo 'class'; utilice '.'
+  PauseState.cpp
+  PlayState.cpp
+  SDLApplication.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(23,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(24,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(13,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(17,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(21,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  Source.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(23,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(24,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(13,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(17,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(21,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
   Generando código...
-MSVCRTD.lib(exe_main.obj) : error LNK2019: símbolo externo main sin resolver al que se hace referencia en la función "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\x64\Debug\Space invaders 3.exe : fatal error LNK1120: 1 externos sin resolver
