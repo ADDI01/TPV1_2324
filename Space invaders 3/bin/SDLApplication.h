@@ -2,6 +2,8 @@
 #include <SDL.h>
 #include "checkML.h"
 #include "texture.h"
+#include "GameStateMachine.h"
+#include "MainMenuState.h"
 #include <vector>
 
 using uint = unsigned int;
@@ -10,16 +12,19 @@ using uint = unsigned int;
 const uint WIN_WIDTH = 800;
 const uint WIN_HEIGHT = 600;
 const uint FRAME_RATE = 25;
-const uint NUM_TEXTURES = 9;
+const uint NUM_TEXTURES = 18;
 
-class SDLApplication 
+class SDLApplication
 {
 	//Window and render pointers
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
+	GameStateMachine _myStateMachine;
+
 
 	//Texture's ID
-	enum TextureName {MAINMENUTEXTURE, CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE, UFOTEXTURE, BOMBTEXTURE, SHIELDTEXTURE, SHIELDREWARDTEXTURE};
+	enum TextureName { MAINMENUTEXTURE, CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE, UFOTEXTURE, BOMBTEXTURE, SHIELDTEXTURE, SHIELDREWARDTEXTURE 
+	, CARGARPARTIDA, CODIGO, CONTINUAR, GAMEOVER, GUARDARPARTIDA, HASGANADO,NUEVAPARTIDA,SALIR, VOLVERALMENU};
 	//Textures info
 	struct TextureData {
 		const char* texturePath; // Path de la textura

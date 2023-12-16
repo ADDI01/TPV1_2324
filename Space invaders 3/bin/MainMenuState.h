@@ -2,23 +2,26 @@
 #include "GameState.h"
 #include "texture.h" 
 #include "Button.h"
+#include <vector>
 class MainMenuState : public GameState
 {
 private:
 	Texture* _texture;
-	Button _nuevaPartida, _cargarPartida, _salir;
 	//nueva partida
-	Point2D<float> _nPPos = Point2D<float>(100,100);
+
+	std::pair<unsigned int, unsigned int>_nPSize = std::pair<unsigned int, unsigned int>(20, 100);
+	Point2D<float> _nPPos = Point2D<float>(400 - _nPSize.second/2,150) ;
 	//carga de partida
-	Point2D<float> _cPPos = Point2D<float>(200, 100);
+
+	std::pair<unsigned int, unsigned int>_cPSize = std::pair<unsigned int, unsigned int>(20, 200);
+	Point2D<float> _cPPos = Point2D<float>(400 - _cPSize.second/2, 200);
 	// salir
-	Point2D<float> _sPos = Point2D<float>(300, 100);
+
+	std::pair<unsigned int, unsigned int>_sSize = std::pair<unsigned int, unsigned int>(20, 100);
+	Point2D<float> _sPos = Point2D<float>(400 - _sSize.second/2, 250);
 
 public:
-	MainMenuState(Texture* myTexture, Texture* nuevaPartida, Texture* cargarPartida, Texture* salir) : _texture(myTexture), _nuevaPartida(nuevaPartida, this, _nPPos),
-		_cargarPartida(cargarPartida, this, _cPPos), _salir(salir, this, _sPos) {
-		gameList.push_back(&_nuevaPartida); gameList.push_back(&_cargarPartida); gameList.push_back(&_salir);
-	};
+	MainMenuState(Texture* myTexture, Texture* nuevaPartida, Texture* cargarPartida, Texture* salir);
 
 	void render() const override;
 	void update() override;
