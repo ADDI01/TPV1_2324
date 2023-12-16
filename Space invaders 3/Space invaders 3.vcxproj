@@ -142,6 +142,7 @@
     <ClCompile Include="bin\PauseState.cpp" />
     <ClCompile Include="bin\PlayState.cpp" />
     <ClCompile Include="bin\Reward.cpp" />
+    <ClCompile Include="bin\SDLApplication.cpp" />
     <ClCompile Include="bin\Source.cpp" />
     <ClCompile Include="bin\texture.cpp" />
   </ItemGroup>
@@ -151,15 +152,20 @@
     <ClInclude Include="bin\checkML.h" />
     <ClInclude Include="bin\EndState.h" />
     <ClInclude Include="bin\EventHandler.h" />
+    <ClInclude Include="bin\FileFormatError.h" />
+    <ClInclude Include="bin\FileNotFoundError.h" />
     <ClInclude Include="bin\GameList.h" />
     <ClInclude Include="bin\GameObject.h" />
     <ClInclude Include="bin\GameState.h" />
     <ClInclude Include="bin\GameStateMachine.h" />
+    <ClInclude Include="bin\InvadersError.h" />
     <ClInclude Include="bin\MainMenuState.h" />
     <ClInclude Include="bin\PauseState.h" />
     <ClInclude Include="bin\PlayState.h" />
     <ClInclude Include="bin\Reward.h" />
     <ClInclude Include="bin\SceneObject.h" />
+    <ClInclude Include="bin\SDLApplication.h" />
+    <ClInclude Include="bin\SDLError.h" />
     <ClInclude Include="bin\texture.h" />
     <ClInclude Include="bin\Vector2D.h" />
   </ItemGroup>

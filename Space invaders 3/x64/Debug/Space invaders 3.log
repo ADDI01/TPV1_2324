@@ -1,9 +1,4 @@
-﻿  GameState.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\GameList.h(56,4): warning C4984: "if constexpr" es una extensión del lenguaje C++17
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\GameList.h(294,2): message : Vea la referencia a la creación de una instancia de clase plantilla "GameList<T,owns>" que se está compilando
-  GameStateMachine.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\GameList.h(56,4): warning C4984: "if constexpr" es una extensión del lenguaje C++17
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\GameList.h(294,2): message : Vea la referencia a la creación de una instancia de clase plantilla "GameList<T,owns>" que se está compilando
-  Generando código...
-MSVCRTD.lib(exe_main.obj) : error LNK2019: símbolo externo main sin resolver al que se hace referencia en la función "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\x64\Debug\Space invaders 3.exe : fatal error LNK1120: 1 externos sin resolver
+﻿  SDLApplication.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+  Space invaders 3.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Space invaders 3Debug.exe

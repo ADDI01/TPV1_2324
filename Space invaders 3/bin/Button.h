@@ -14,13 +14,14 @@ private:
 	Texture* _texture;
 	std::list<CallBack> _myCallbacks;
 	Point2D<float> _pos;
-	std::pair<int, int> _rectSize;
+	std::pair<unsigned int,unsigned int> _rectSize;
 public:
 	Button(Texture* texture,GameState* gameState, Point2D<float> pos):GameObject(gameState), _texture(texture), _pos(pos) {};
 	void connect(CallBack cB);
 
 	void render() const override;
-	void update() override;
-	void save(std::ostream& out) const override;
+	void update() override {};
+	void manageEvent(/*SDL_Event e*/) override {};
+	void save(std::ostream& out) const override {};
 };
 

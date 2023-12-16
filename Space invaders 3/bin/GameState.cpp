@@ -1,4 +1,5 @@
 #include "GameState.h"
+#include "SceneObject.h"
 
 GameState::~GameState(){
 	eventHandlerList.clear();
