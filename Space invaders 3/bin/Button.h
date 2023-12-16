@@ -16,6 +16,7 @@ private:
 	Point2D<float> _pos;
 	SDL_Rect _myRect;
 	std::pair<unsigned int,unsigned int> _rectSize;
+	bool _encima;
 public:
 	Button();
 	Button(Texture* texture,GameState* gameState, Point2D<float> pos, std::pair<unsigned int, unsigned int> size):GameObject(gameState), _texture(texture), _pos(pos),
