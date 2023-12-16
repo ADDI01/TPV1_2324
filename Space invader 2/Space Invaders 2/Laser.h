@@ -28,6 +28,7 @@ private:
 public:
 	Laser(Point2D<float> pos, Vector2D<float> velocity, std::pair<uint, uint> size, Game* game, SDL_Renderer* myRenderer,
 		Father father);
+	Laser(Game* game, SDL_Renderer* renderer, std::ifstream& in, std::pair<uint, uint> size, Vector2D<float> velocity);
 	~Laser();
 
 	//Game states

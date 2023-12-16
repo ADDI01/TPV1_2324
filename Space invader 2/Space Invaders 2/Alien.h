@@ -35,6 +35,7 @@ protected:
 public:
 	Alien(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size, Game* game, float velocity, 
 		int type, bool idle);
+	Alien(Game* game, std::ifstream& in, Texture* texture, uint velocity, int lastestRow);
 	~Alien();
 
 	//Game states

@@ -26,6 +26,9 @@ protected:
 public:
 	SceneObject(Game* game,Texture* texture, Point2D<float> pos, std::pair <uint, uint> size, int life) : 
 		GameObject(game), _texture(texture), _pos(pos), _size(size), _life(life) {};
+	SceneObject(Game* game, std::ifstream& in, Texture* texture);
+	SceneObject(Game* game, std::ifstream& in, Texture* texture, int life); //Constructor for SceneObjects with default lifes
+	SceneObject(Game* game, std::ifstream& in, std::pair<uint, uint> size, int life); //Constructor for laser
 	virtual ~SceneObject() {};
 
 	//Game States

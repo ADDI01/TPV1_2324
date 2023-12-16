@@ -8,6 +8,13 @@ Cannon::Cannon(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game
 	float velocity) : SceneObject(game, texture, pos, size, nLifes), _shootCD(shootCD), _velocity(velocity),
 	_myRect(SDL_Rect()) {};
 
+Cannon::Cannon(Game* game, std::ifstream& in, Texture* texture, float velocity) : SceneObject(game, in, texture),
+	_velocity(velocity)
+{
+	in >> _shootCD;
+	game->setLandedHeight(_pos.getY());
+};
+
 Cannon:: ~Cannon() {
 	_texture = nullptr;
 	_game = nullptr;
@@ -18,7 +25,8 @@ void Cannon::render() const
 	_texture->render(_myRect);
 }
 
-void Cannon::update() {
+void Cannon::update() 
+{
 	if (!(_pos.getX() <= 0 + _size.first && _direction.getX() <= 0) //Cannon tries to move out of the lateral limits
 		&& !(_pos.getX() >= _game->getWidth() - _size.first && _direction.getX() >= 0))
 	{
@@ -36,7 +44,8 @@ void Cannon::update() {
 	_myRect.h = _size.second;
 }
 
-void Cannon::handleEvents(const SDL_Event & event, SDL_Renderer* renderer) {
+void Cannon::handleEvents(const SDL_Event & event, SDL_Renderer* renderer) 
+{
 	switch (event.type)
 	{
 	case SDL_KEYDOWN:

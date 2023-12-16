@@ -1,6 +1,7 @@
 #pragma once
-#include <ostream>
+
 #include "SceneObject.h"
+#include <fstream>
 
 using uint = unsigned int;
 
@@ -20,14 +21,15 @@ private:
 	//Destination and size of the UFO
 	SDL_Rect _myRect;
 	//Amount of time to render the dead frame
-	float _dieTime = 40;
+	const float _dieTime = 40;
 	//Current dieTime
 	float _currentDieTime = 0;
 	//Initial position of the UFO
 	Vector2D<float> _initialPos;
 
 public:
-	Ufo(Game* game, Vector2D<float> pos, Texture* texture, std::pair<uint, uint> size, float state, float wait);
+	Ufo(Game* game, Vector2D<float> pos, Texture* texture, std::pair<uint, uint> size, int state, float wait);
+	Ufo(Game* game, std::ifstream& in, Texture* texture);
 	~Ufo();
 
 	//Game States

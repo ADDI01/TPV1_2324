@@ -7,6 +7,17 @@ Alien::Alien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* 
 	float velocity, int type, bool idle): SceneObject(game,texture, pos, size, 1), _velocity(velocity), 
 	_subType(type), _idle(idle), _myRect(SDL_Rect()) {
 }; 
+
+Alien::Alien(Game* game, std::ifstream& in, Texture* texture, uint velocity, int lastestRow) : 
+	SceneObject(game, in, texture, 1), _velocity(velocity)
+{
+	in >> _subType;
+	if (lastestRow == -1 || lastestRow != -1 && lastestRow != _pos.getY()) {
+		lastestRow = _pos.getY();
+		_idle = false;
+	}
+	else _idle = !_idle;
+};
  
 Alien:: ~Alien() {
 	_texture = nullptr;

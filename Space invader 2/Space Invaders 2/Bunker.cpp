@@ -7,6 +7,8 @@ using namespace std;
 Bunker::Bunker(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, uint nLifes)
 	: SceneObject(game, texture, pos, size, nLifes), _myRect(SDL_Rect()) {};
 
+Bunker::Bunker(Game* game, std::ifstream& in, Texture* texture) : SceneObject(game, in, texture), _myRect(SDL_Rect()) {};
+
 void Bunker::render() const {
 	//The frame of the bunker is rendered depending on the current lifes
 	if (_life > 0) {
