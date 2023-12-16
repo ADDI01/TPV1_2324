@@ -148,16 +148,20 @@
   <ItemGroup>
     <ClInclude Include="bin\Bomb.h" />
     <ClInclude Include="bin\Button.h" />
+    <ClInclude Include="bin\checkML.h" />
     <ClInclude Include="bin\EndState.h" />
     <ClInclude Include="bin\EventHandler.h" />
     <ClInclude Include="bin\GameList.h" />
+    <ClInclude Include="bin\GameObject.h" />
     <ClInclude Include="bin\GameState.h" />
     <ClInclude Include="bin\GameStateMachine.h" />
     <ClInclude Include="bin\MainMenuState.h" />
     <ClInclude Include="bin\PauseState.h" />
     <ClInclude Include="bin\PlayState.h" />
     <ClInclude Include="bin\Reward.h" />
+    <ClInclude Include="bin\SceneObject.h" />
     <ClInclude Include="bin\texture.h" />
+    <ClInclude Include="bin\Vector2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

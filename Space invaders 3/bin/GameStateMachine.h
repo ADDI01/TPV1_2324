@@ -1,14 +1,17 @@
 #pragma once
 #include <stack>
 #include "GameState.h"
+#include"checkML.h"
 class GameStateMachine
 {
-public:
+private:
 	std::stack<GameState*> statesMachine;
-	void pushState() {};
-	void replaceState() {};
-	void popState() {};
-	void update() {};
-	void render() {};
-	void handleEvent() {};
+public:
+	~GameStateMachine();
+	void pushState(GameState* g);
+	void replaceState(GameState* g);
+	void popState();
+	void update();
+	void render();
+	void handleEvent();
 };
