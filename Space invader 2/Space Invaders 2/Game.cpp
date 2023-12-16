@@ -71,8 +71,7 @@ bool Game::textureLoading() {
 
 void Game::loadFromFile(string fileName) { //TODO: Distribuir el load en las clases de los SceneObjects
 	ifstream file(fileName); //Hay 50 elementos que leer
-	int latestRow = -1, state = -1, level = -1, currentLvl = -1;//
-	int tObject, posX, posY, subType, nlifes, estado, points;
+	int latestRow = -1, state = -1, level = -1, currentLvl = -1, points = -1;
 	bool idle = false;
 	SceneObject* aux = nullptr; //Stores every SceneObject 
 
