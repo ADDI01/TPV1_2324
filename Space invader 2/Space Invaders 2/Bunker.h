@@ -17,6 +17,7 @@ private:
 
 public:
 	Bunker(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size, Game* game, uint nLifes);
+	Bunker(Game* game, std::ifstream& in, Texture* texture);
 	~Bunker() {};
 
 	//Game states

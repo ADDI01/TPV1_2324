@@ -11,7 +11,7 @@ Game::~Game() {
 	}
 	delete infoBar;
 	for (Texture* t : textures) { delete t; t = nullptr; }
-	delete mother;
+	delete _mother;
 	delete star;
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
@@ -70,95 +70,118 @@ bool Game::textureLoading() {
 }
 
 void Game::loadFromFile(string fileName) { //TODO: Distribuir el load en las clases de los SceneObjects
+	ifstream file(fileName); //Hay 50 elementos que leer
+	int latestRow = -1, state = -1, level = -1, currentLvl = -1, points = -1;
+	bool idle = false;
+	SceneObject* aux = nullptr; //Stores every SceneObject 
+
 	limpiaLista();
+
 	if (infoBar != nullptr) {
 		delete infoBar;
 	}
-	ifstream file(fileName); //Hay 50 elementos que leer
-	int latestRow = -1, tObject, posX, posY, subType, nlifes, estado, points;
-	bool idle = false;
-
-	SceneObject* aux = nullptr; //Alamcena cada SceneObject 
-
 	if (!file.is_open()) {
 		throw FileNotFoundError(fileName);
 	}
 
 	//Specific objects are created here
-	mother = new Mothership(this, 0, 0, 20);
+	_mother = new Mothership(this, 0, 0, 20);
 	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
-	infoBar = new InfoBar(this, textures[CANNONTEXTURE], Point2D<float>(10, WIN_HEIGHT - 30),
-		pair<uint, uint>(34, 21), 0);
-
+	
 	while (!file.eof()) {
 		file >> tObject;
-		file >> posX;
-		file >> posY;
-		Point2D<float> pos(posX, posY);
 
-		switch (tObject) {
+		switch (tObject) { 
 		case 0: //Cannon
-			file >> nlifes;
-			file >> estado; //TODO: que esto sea la espera
+			_cannon = new Cannon(this, file, textures[CANNONTEXTURE], CANNON_SPEED);
+			aux = _cannon;
 
-			aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, estado, 30); //Instance
-			_landedHeight = pos.getY() - 30;
-			_cannon = static_cast<Cannon*>(aux);
+			//file >> nlifes;
+			//file >> estado; //TODO: que esto sea la espera
+			//aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, estado, 30); //Instance
+
+			//_landedHeight = pos.getY() - 30; //TODO: CORREGIR EL NUMERO MAGICO	
+			//_cannon = static_cast<Cannon*>(aux);
 			break;
 		case 1: //Alien
-			file >> subType;
+			//file >> subType;
 
-			if (latestRow != posY) //Different Alien frame each column
+			/*if (latestRow != posY) //Different Alien frame each column
 			{
 				idle = false;
 				latestRow = posY;
 			}
-			else idle = !idle;
+			else idle = !idle;*/
 
-			aux = new Alien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, 4, subType, idle);
-			static_cast<Alien*>(aux)->setMother(mother);
-			mother->addAlien();
+			_alien = new Alien(this, file, textures[ALIENSTEXTURE], ALIEN_SPEED, latestRow);
+			_alien->setMother(_mother);
+			_mother->addAlien();
+			aux = _alien;
+			_alien = nullptr;
+
+			//aux = new Alien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, 4, subType, idle);
+			//static_cast<Alien*>(aux)->setMother(mother);
+			//mother->addAlien();
 			break;
 		case 2: //Shooter alien
-			file >> subType;
-			file >> estado;
+			//file >> subType;
+			//file >> estado;
 
-			if (latestRow != posY)
+			/*if (latestRow != posY)
 			{
 				idle = false;
 				latestRow = posY;
 			}
-			else idle = !idle;
-			aux = new ShooterAlien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, 4, subType,
-				idle);
-			static_cast<Alien*>(aux)->setMother(mother);
-			mother->addAlien();
+			else idle = !idle;*/
+
+			_shooterAlien = new ShooterAlien(this, file, textures[ALIENSTEXTURE], ALIEN_SPEED, latestRow);
+			_shooterAlien->setMother(_mother);
+			_mother->addAlien();
+			aux = _shooterAlien;
+			_shooterAlien = nullptr;
+
+			//aux = new ShooterAlien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, 4, subType, idle);
+			//static_cast<Alien*>(aux)->setMother(_mother);
+			//_mother->addAlien();
 			break;
 		case 3: //Mothership
-			file >> subType;
-			mother->setState(posX);
-			mother->setLevel(posY);
-			mother->setActualLevel(subType);
+			file >> state;
+			file >> level;
+			file >> currentLvl;
+
+			_mother->setState(state);
+			_mother->setLevel(level);
+			_mother->setActualLevel(currentLvl);
 
 			break;
 		case 4: //Bunkers
-			file >> subType; //TODO: ENTENDER ESTO
-
-			aux = new Bunker(pos, textures[BUNKERSTEXTURE], pair<uint, uint>(90, 59), this, 4);
+			//file >> subType; //Esto eran las vidas
+			_bunker = new Bunker(this, file, textures[BUNKERSTEXTURE]);
+			aux = _bunker;
+			_bunker = nullptr;
+			//aux = new Bunker(pos, textures[BUNKERSTEXTURE], pair<uint, uint>(90, 59), this, 4);
 			break;
 		case 5: //Ufo
-			file >> estado;
-			file >> subType; //TODO: LA ESPERA
+			//file >> estado;
+			//file >> subType; //TODO: LA ESPERA
 
-			aux = new Ufo(this, pos, textures[UFOTEXTURE], pair < uint, uint>(90, 32), estado, subType);
+			_ufo = new Ufo(this, file, textures[UFOTEXTURE]);
+			aux = _ufo;
+			_ufo = nullptr;
+			//aux = new Ufo(this, pos, textures[UFOTEXTURE], pair < uint, uint>(90, 32), estado, subType);
 			break;
 		case 6:
-			file >> subType;
-			aux = new Laser(pos, Vector2D<float>(0, 5), pair<uint, uint>(5, 20), this, renderer, (Father)subType);
+			//file >> subType;
+
+			_laser = new Laser(this, renderer, file, LASER_SIZE, LASER_SPEED);
+			aux = _laser;
+			_laser = nullptr;
+
+			//aux = new Laser(pos, Vector2D<float>(0, 5), pair<uint, uint>(5, 20), this, renderer, (Father)subType);
 			break;
 		case 7: //Points
 			file >> points;
-			//Cerrar instancia InfoBar
+			infoBar = new InfoBar(this, textures[CANNONTEXTURE], INFOBAR_POS, INFOBAR_SIZE, points);
 			break;
 		default:
 			throw FileFormatError(fileName);
@@ -169,7 +192,10 @@ void Game::loadFromFile(string fileName) { //TODO: Distribuir el load en las cla
 			addToList(aux);
 		}
 	}
-} 
+
+	//Default InfoBar
+	if(infoBar == nullptr) infoBar = new InfoBar(this, textures[CANNONTEXTURE], INFOBAR_POS, INFOBAR_SIZE, 0);
+}
 
 void Game::run() {
 	uint32_t startTime, frameTime;
@@ -219,7 +245,7 @@ void Game::update()
 		objectsToDelete.clear();
 	}
 
-	mother->update();
+	_mother->update();
 }
 
 void Game::save(int k) const{
@@ -232,7 +258,7 @@ void Game::save(int k) const{
 	{
 		it->save(out); 
 	}
-	mother->save(out);
+	_mother->save(out);
 	out.close(); 
 }
 

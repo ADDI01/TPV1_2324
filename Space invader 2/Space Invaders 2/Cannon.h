@@ -16,6 +16,7 @@ private:
 public:
 	Cannon(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size, Game* game, uint nLifes, float shootCD,
 		float velocity);
+	Cannon(Game* game, std::ifstream& in, Texture* texture, float velocity);
 	~Cannon();
 
 	//Game states

@@ -7,6 +7,7 @@ InfoBar::InfoBar(Game* game, Texture* texture, Point2D<float> pos, pair<uint, ui
 	_texture(texture), _points(points), _pos(pos), _size(size), _cannonLife1(SDL_Rect()), _cannonLife2(SDL_Rect()),
 	_cannonLife3(SDL_Rect()), _pointsRect(SDL_Rect()) {}; //TODO: Pasar Rects de las vidas en el constructor por param
 
+
 InfoBar::~InfoBar() {
 	_texture = nullptr;
 };

@@ -8,6 +8,15 @@ Laser::Laser(Point2D<float> pos, Vector2D<float> velocity, pair<uint, uint> size
 	Father father) : SceneObject(game, nullptr, pos, size, 1), _velocity(velocity), _father(father),
 	_myRenderer(myRenderer), _myRect(SDL_Rect()) {};
 
+Laser::Laser(Game* game, SDL_Renderer* renderer, std::ifstream& in, std::pair<uint, uint> size, Vector2D<float> velocity) :
+	SceneObject(game, in, _size, 1), _myRenderer(renderer), _velocity(velocity), _myRect(SDL_Rect())
+{
+	int father;
+
+	in >> father;
+	_father = (Father)father;
+};
+
 Laser:: ~Laser() {
 	_myRenderer = nullptr;
 };

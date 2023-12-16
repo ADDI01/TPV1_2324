@@ -4,9 +4,16 @@
 
 using namespace std;
 
-ShooterAlien:: ShooterAlien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, float velocity, int type, bool idle) : Alien(pos, texture, size, game, velocity, type, idle)
+ShooterAlien:: ShooterAlien(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game* game, 
+	float velocity, int type, bool idle) : Alien(pos, texture, size, game, velocity, type, idle)
 {
 	_shootCD = _game->getRandomRange(MIN_CD, MAX_CD);
+};
+
+ShooterAlien::ShooterAlien(Game* game, std::ifstream& in, Texture* texture, uint velocity, int lastestRow) :
+	Alien(game, in, texture, velocity, lastestRow)
+{
+	in >> _shootCD;
 };
 
 void ShooterAlien:: update() {

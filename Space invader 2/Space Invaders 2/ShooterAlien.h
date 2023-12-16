@@ -10,7 +10,9 @@ private:
 	//Shoot cooldown
 	float _shootCD;
 public:
-	ShooterAlien(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size, Game* game,float velocity, int type, bool idle);
+	ShooterAlien(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size, Game* game,float velocity, 
+		int type, bool idle);
+	ShooterAlien(Game* game, std::ifstream& in, Texture* texture, uint velocity, int lastestRow);
 
 	//Game States
 	void update() override;

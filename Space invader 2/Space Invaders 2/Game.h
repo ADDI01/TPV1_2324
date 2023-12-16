@@ -39,10 +39,23 @@ private:
 	std::list<std::list<SceneObject*>::iterator> objectsToDelete;
 
 	//SceneObject's pointers
-	Mothership* mother = nullptr;
+	Mothership* _mother = nullptr;
 	Cannon* _cannon = nullptr;
+	Bunker* _bunker = nullptr;
+	Alien* _alien = nullptr;
+	ShooterAlien* _shooterAlien = nullptr;
+	Ufo* _ufo = nullptr;
+	Laser* _laser = nullptr;
 	Star* star = nullptr;
 	InfoBar* infoBar = nullptr;
+
+	//SceneObjects constants
+	const uint CANNON_SPEED = 30;
+	const uint ALIEN_SPEED = 4;
+	const Vector2D<float> LASER_SPEED = Vector2D<float>(0, 5);
+	std::pair<uint, uint> LASER_SIZE = std::pair<uint, uint>(5, 20);
+	const Point2D<float> INFOBAR_POS = Point2D<float>(10, WIN_HEIGHT - 30);
+	std::pair<uint, uint> INFOBAR_SIZE = std::pair<uint, uint>(34, 21);
 
 	//Texture's ID
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };
@@ -101,5 +114,8 @@ public:
 	SDL_Renderer* getRenderer() const { return renderer; };
 	SDL_Window* getWindow() const { return window; };
 	float getLandedHeight() const { return _landedHeight; };
+
+	//Setters
+	void setLandedHeight(int height) { _landedHeight = height; };
 };
 

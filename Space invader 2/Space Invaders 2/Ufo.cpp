@@ -1,12 +1,21 @@
 #include "Ufo.h"
 #include "Game.h"
-#include <fstream>
 
-using namespace std;
-
-Ufo::Ufo(Game* game, Vector2D<float> pos, Texture* texture, pair<uint, uint> size, float state, float wait): 
+Ufo::Ufo(Game* game, Vector2D<float> pos, Texture* texture, std::pair<uint, uint> size, int state, float wait): 
 	SceneObject(game, texture, pos, size, 1), _initialPos(800, pos.getY()), _currentState((ufoState)state), 
-	_occultTime(wait), _myRect(SDL_Rect()) {
+	_occultTime(wait), _myRect(SDL_Rect()) 
+{
+	_currentOccultTime = _occultTime;
+};
+
+Ufo::Ufo(Game* game, std::ifstream& in, Texture* texture) : SceneObject(game, in, texture, 1), 
+	_initialPos(WIN_WIDTH, _pos.getY()), _myRect(SDL_Rect())
+{
+	int state; //Aux to get the Ufo state
+
+	in >> state;
+	_currentState = (ufoState)state;
+	in >> _occultTime;
 	_currentOccultTime = _occultTime;
 };
 
@@ -78,7 +87,7 @@ void Ufo::updateState() {
 }
 
 void Ufo::save(std::ostream& out) const {
-	out << 5 << " " << _pos.getX() << " " << _pos.getY() << " " << _currentState << " " << _occultTime << endl;
+	out << 5 << " " << _pos.getX() << " " << _pos.getY() << " " << _currentState << " " << _occultTime << std::endl;
 }
 
 bool Ufo::hit(SDL_Rect AttackRect, int typeOfDamage)
