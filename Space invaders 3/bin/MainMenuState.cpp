@@ -1,9 +1,9 @@
 #include "MainMenuState.h"
 
 MainMenuState::MainMenuState(Texture* myTexture, Texture* nuevaPartida, Texture* cargarPartida, Texture* salir) : _texture(myTexture){
-	gameList.push_back(&Button(nuevaPartida, this, _nPPos, _nPSize));
-	gameList.push_back(&Button(cargarPartida, this, _cPPos,_cPSize));
-	gameList.push_back(&Button(salir, this, _sPos,_sSize));
+	gameList.push_back(new Button(nuevaPartida, this, _nPPos, _nPSize));
+	gameList.push_back(new Button(cargarPartida, this, _cPPos,_cPSize));
+	gameList.push_back(new Button(salir, this, _sPos,_sSize));
 }
 
 void MainMenuState::render() const{
