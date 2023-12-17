@@ -25,6 +25,8 @@ private:
 	//Defines the father. 
 	Father _father;
 
+	int aux = 0;
+
 public:
 	Laser(Point2D<float> pos, Vector2D<float> velocity, std::pair<uint, uint> size, Game* game, SDL_Renderer* myRenderer,
 		Father father);
@@ -44,4 +46,7 @@ public:
 	Vector2D<float> getVelocity() const { return _velocity; };
 	std::pair<uint, uint> getSize() const { return _size; };
 	SDL_Rect getRect() const { return _myRect; };
+
+	//Setter 
+	void setAux(int a) { aux = a; };
 };

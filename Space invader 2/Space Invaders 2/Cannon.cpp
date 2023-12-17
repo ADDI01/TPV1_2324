@@ -89,8 +89,8 @@ bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {
 }
 
 void Cannon::fireLaser(SDL_Renderer* renderer) {
-	Laser* l = new Laser(_pos - Vector2D<float>(0, _size.second), Vector2D<float>(0, 5),
-		pair<uint, uint>(5, 20), _game, renderer, PLAYER);
+	Laser* l = new Laser(_pos - Vector2D<float>(0, _size.second), _game->getLaser_Speed(),
+		_game->getLaser_Size(), _game, renderer, PLAYER);
 	_game->addToList(l);
 }
 

@@ -39,5 +39,8 @@ public:
 	//Specific actions
 	virtual bool hit(SDL_Rect AttackRect, int typeOfDamage) = 0;
 	void setListIterator(std::list<SceneObject*>::iterator it) { _it = it; };
+
+	//Getters
+	Point2D<float> getPos() const { return _pos; };
 };
 

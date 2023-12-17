@@ -179,23 +179,33 @@ void Game::render() const
 
 void Game::update()
 {
+	//int aux = 1;
 	for (auto it : objectsList)
 	{
+		//if(typeid(*it) == typeid(Laser))
+			//cout << "Laser " << aux << " " << it->getPos().getX() << " " << it->getPos().getY() << std::endl;
 		it->update();
 	}
+	//aux = 0;
 
 	for (auto it : objectsToDelete) {
-		if (typeid(*it) == typeid(Laser)) {
-			cout << "a" << std::endl;
+		if (typeid(*it.operator*()) == typeid(Laser)) {
+			std::cout << "Laser " << it.operator*()->getPos().getX() << " "
+				<< it.operator*()->getPos().getY() << std::endl;
+
+			static_cast<Laser*>(*it)->setAux(1);
 		}
-	 	delete* it;
-		objectsList.erase(it);
+			
+		delete* it; //Delete the content of the pointer
+		objectsList.erase(it); //Free the pointer
 	}
+
+	if (!objectsToDelete.empty())
+		std:cout << "Delete elems " << objectsToDelete.size() << std::endl;
 
 	if (!objectsToDelete.empty()) {
 		objectsToDelete.clear();
 	}
-
 	_mother->update();
 }
 
@@ -274,6 +284,8 @@ bool Game::damage(SDL_Rect rect, Father father) const {
 
 void Game::hasDie(list<SceneObject*>::iterator it) {
 	objectsToDelete.push_back(it);
+	if(it.operator*()->getPos().getY() >= 600)
+		std::cout << "1" << std::endl;
 }
 
 void Game::limpiaLista() {

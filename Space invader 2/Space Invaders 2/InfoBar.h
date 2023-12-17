@@ -37,7 +37,7 @@ public:
 
 	//GameStates
 	void render() const override;
-	void update() override {};
+	void update() override {}; //TODO: ACTUALIZAR LA PUNTUACION PARA QUE SE PRINTEE
 	void save(std::ostream& out) const override {};
 
 	//Setter
