@@ -1,6 +1,4 @@
-﻿  SDLApplication.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
+﻿  Cannon.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
@@ -38,38 +36,30 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\M
           [
               T=float
           ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Mothership.h(51,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PauseState.h(12,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(40,26): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
-          [
-              _Ty2=unsigned int
-          ]
-          and
           [
               T=float
           ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PauseState.h(15,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(41,23): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
-          [
-              _Ty2=unsigned int
-          ]
-          and
           [
               T=float
           ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PauseState.h(18,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(52,34): warning C4305: 'argumento': truncamiento de 'double' a 'T'
           with
-          [
-              _Ty2=unsigned int
-          ]
-          and
           [
               T=float
           ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PauseState.h(21,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(54,33): warning C4305: 'argumento': truncamiento de 'double' a 'T'
           with
           [
-              _Ty2=unsigned int
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(93,54): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=int
           ]
           and
           [

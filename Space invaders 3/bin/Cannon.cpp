@@ -52,6 +52,8 @@ void Cannon::manageEvent(const SDL_Event& event)
 			_direction = Vector2D<float>(-0.1, 0) * _velocity;
 		else if (event.key.keysym.sym == SDLK_RIGHT) //Movement
 			_direction = Vector2D<float>(0.1, 0) * _velocity;
+		else
+			_direction = Vector2D<float>(0, 0);
 		if (event.key.keysym.sym == SDLK_SPACE) //Shoot
 		{
 			if (canShoot())
