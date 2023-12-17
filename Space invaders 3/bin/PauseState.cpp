@@ -30,7 +30,7 @@ PauseState::~PauseState()
 
 void PauseState::continuar()
 {
-
+	myGame->exitPause();
 }
 
 void PauseState::guardarPartida()

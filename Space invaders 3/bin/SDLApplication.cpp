@@ -88,6 +88,11 @@ void SDLApplication::exitGame()
 		_myStateMachine.popState();
 }
 
+void SDLApplication::exitPause()
+{
+	pauseExit = true;
+}
+
 void SDLApplication::replaceState(GameState* gS)
 {
 	_myStateMachine.replaceState(gS);
@@ -116,6 +121,10 @@ void SDLApplication::run()
 			PlayState* aux = new PlayState(this);
 			replaceState(aux);
 			playState = false;
+		}
+		if (pauseExit) {
+			_myStateMachine.popState();
+			pauseExit = false;
 		}
 		if (exit) {
 			exitGame();

@@ -39,7 +39,7 @@ class SDLApplication
 	//flags
 	bool exit = false;
 	bool playState = false;
-	bool pauseState = false;
+	bool pauseExit = false;
 
 public:
 	SDLApplication() {};
@@ -53,6 +53,7 @@ public:
 	void run();
 	void pushState(GameState* gS);
 	void exitGame();
+	void exitPause();
 	void replaceState(GameState* gS);
 
 	//getters & setters
