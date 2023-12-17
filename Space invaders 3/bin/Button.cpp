@@ -7,7 +7,7 @@ void Button::connect(CallBack cB){
 void Button::render() const
 {
 	if (_encima) {
-		SDL_Color color;
+		SDL_Color color; // números mágicos (verde)
 		color.r = 124;
 		color.g = 252;
 		color.b = 0;

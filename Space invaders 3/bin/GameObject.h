@@ -15,12 +15,11 @@ protected:
 
 public:
 	GameObject(GameState* game): _game(game) {};
-
+	virtual ~GameObject() {};
 	//métodos virtuales puros para renderizar, actualizar y guardar los objetos
 
 	virtual void render() const = 0;
 	virtual void update() = 0;
 	virtual void save(std::ostream& out) const = 0;
-	virtual ~GameObject() {};
 	void setListAnchor(GameList < GameObject, true>::anchor it) { _it = it; };
 };

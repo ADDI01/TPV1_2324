@@ -12,7 +12,7 @@ void GameStateMachine::  pushState(GameState* g) {
 }
 
 void GameStateMachine::replaceState(GameState* g){
-	statesMachine.pop();
+	popState();
 	pushState(g);
 }
 

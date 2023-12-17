@@ -3,11 +3,12 @@
 #include "GameObject.h"
 #include "Vector2D.h"
 #include "Texture.h"
-#include "PlayState.h"
+#include "SDLApplication.h"
 #include <list>
 #include <iostream>
 
 using uint = unsigned int;
+class PlayState;
 
 class SceneObject: public GameObject 
 {
@@ -23,11 +24,17 @@ protected:
 	//Iterator to the SceneObject in the list of SceneObjects
 	std::list<SceneObject*>::iterator _it;
 	//Estado de juego, es el mismo que su GameState, pero habría que castear para cogerlo si no se usan 2 parámtros distintos
-	//PlayState* _myPlayState;
+	PlayState* _myPlayState;
+	//Puntero a la Aplicación
+	SDLApplication* _myApp;
 
 public:
-	//SceneObject(GameState* game, PlayState* _myPlayState, Texture* texture, Point2D<float> pos, std::pair <uint, uint> size, int life) :
-	//	GameObject(game), _texture(texture), _pos(pos), _size(size), _life(life), _myPlayState(){};
+	SceneObject(GameState* game, PlayState* myPlayState, SDLApplication* app, Texture* texture, Point2D<float> pos, std::pair <uint, uint> size, int life) :
+		GameObject(game), _texture(texture), _pos(pos), _size(size), _life(life), _myPlayState(myPlayState), _myApp(app){}; 
+	SceneObject(GameState* game, PlayState* myPlayState, SDLApplication* app, std::ifstream& in, Texture* texture);
+	//Constructor for SceneObjects with default lifes
+	SceneObject(GameState* game, PlayState* myPlayState, SDLApplication* app, std::ifstream& in, Texture* texture, int life);
+	SceneObject(GameState* game, PlayState* myPlayState, SDLApplication* app, std::ifstream& in, std::pair<uint, uint> size, int life); //Constructor for laser
 	virtual ~SceneObject() {};
 
 	//Game States
@@ -37,6 +44,5 @@ public:
 
 	//Specific actions
 	virtual bool hit(SDL_Rect AttackRect, int typeOfDamage) = 0;
-	void setListIterator(std::list<SceneObject*>::iterator it) { _it = it; };
 };
 

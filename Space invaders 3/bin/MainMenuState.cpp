@@ -13,7 +13,6 @@ MainMenuState::MainMenuState(SDLApplication* myGame,Texture* myTexture, Texture*
 	_button = new Button(salir, this, _sPos,_sSize);
 	addObject(_button);
 	addEventListener(_button);
-
 	_button->connect([this]() { exit(); });
 	_button = nullptr;
 }
@@ -30,8 +29,7 @@ void MainMenuState::exit()
 
 void MainMenuState::goToPlayState()
 {
-	PlayState* aux = new PlayState(myGame);
-	myGame->pushState(aux);
+	myGame->setPlayState();
 }
 
 void MainMenuState::render() const{

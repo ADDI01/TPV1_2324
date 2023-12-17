@@ -19,9 +19,9 @@ private:
 	bool _encima;
 
 public:
-	Button();
-	Button(Texture* texture,GameState* gameState, Point2D<float> pos, std::pair<unsigned int, unsigned int> size):GameObject(gameState), _texture(texture), _pos(pos),
-		_rectSize(size) {
+	Button(Texture* texture,GameState* gameState, Point2D<float> pos, std::pair<unsigned int, unsigned int> size):
+		GameObject(gameState),_texture(texture), _pos(pos),_rectSize(size) 
+	{
 		_myRect.x = _pos.getX();
 		_myRect.y = _pos.getY();
 		_myRect.h = _rectSize.first;

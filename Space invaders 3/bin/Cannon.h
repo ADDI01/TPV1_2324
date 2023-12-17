@@ -1,7 +1,9 @@
 #pragma once
 #include "SceneObject.h"
+#include "Laser.h"
+#include "EventHandler.h"
 
-class Cannon: public SceneObject
+class Cannon: public SceneObject, public EventHandler
 {
 private:
 	//Cannon's direction
@@ -14,27 +16,28 @@ private:
 	SDL_Rect _myRect;
 
 public:
-	Cannon(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size, GameState* game, uint nLifes, float shootCD,
-		float velocity, PlayState* myPlayState);
-	Cannon(GameState* game, std::ifstream& in, Texture* texture, float velocity, PlayState* myPlayState);
+	Cannon(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size, GameState* game, PlayState* myPlayState, SDLApplication* app,
+		uint nLifes, float shootCD,
+		float velocity);
+	Cannon(GameState* game, PlayState* myPlayState, SDLApplication* app, std::ifstream& in, Texture* texture, float velocity);
 	~Cannon();
 
 	//Game states
 	void render() const override;
 	void update() override;
-	void handleEvents(const SDL_Event& event, SDL_Renderer* renderer);
-	void save(std::ostream& out) const override {};
+	void manageEvent(const SDL_Event& event) override;
+	void save(std::ostream& out) const override ;
 
 	//Specific actions
-	bool hit(SDL_Rect AttackRect, int typeOfDamage) override {};
-	//void fireLaser(SDL_Renderer* renderer);
-	//bool canShoot() const;
+	bool hit(SDL_Rect AttackRect, int typeOfDamage) override;
+	void fireLaser(SDL_Renderer* renderer);
+	bool canShoot() const;
 
 	//Setters
-	//void setCoolDown(float coolDown) { _shootCD = coolDown; };
+	void setCoolDown(float coolDown) { _shootCD = coolDown; };
 
 	//Getters
-	//Vector2D<float> getPosition() const { return _pos; };
-	//SDL_Rect getRect() const { return _myRect; };
-	//uint getnLifes() const { return _life; };
+	Vector2D<float> getPosition() const { return _pos; };
+	SDL_Rect getRect() const { return _myRect; };
+	uint getnLifes() const { return _life; };
 };

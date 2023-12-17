@@ -1,6 +1,7 @@
 ﻿#include "SDLApplication.h"
 #include "FileFormatError.h"
 #include "FileNotFoundError.h"
+#include "PlayState.h"
 #include "SDLError.h"
 
 using namespace std;
@@ -88,7 +89,7 @@ void SDLApplication::exitGame()
 
 void SDLApplication::pushState(GameState* gS)
 {
-	_myStateMachine.pushState(gS);
+	_myStateMachine.replaceState(gS);
 }
 
 void SDLApplication::run()
@@ -104,6 +105,11 @@ void SDLApplication::run()
 		SDL_Event event;
 		if (SDL_PollEvent(&event)) {
 			_myStateMachine.handleEvent(event);
+		}
+		if (playState) {
+			PlayState* aux = new PlayState(this);
+			pushState(aux);
+			playState = false;
 		}
 		if (exit) {
 			exitGame();

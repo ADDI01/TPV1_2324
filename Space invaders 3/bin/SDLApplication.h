@@ -36,7 +36,9 @@ class SDLApplication
 	std::vector<Texture*> textures;
 	TextureData* dataTextures[NUM_TEXTURES];
 
+	//flags
 	bool exit = false;
+	bool playState = false;
 
 public:
 	SDLApplication() {};
@@ -58,5 +60,6 @@ public:
 	SDL_Renderer* getRenderer() const { return renderer; };
 	SDL_Window* getWindow() const { return window; };
 	void setExit() { exit = true; };
+	void setPlayState() { playState = true; };
 	std::vector<Texture*> getTexture() { return textures; };
 };
