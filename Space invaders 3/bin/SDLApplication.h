@@ -39,6 +39,7 @@ class SDLApplication
 	//flags
 	bool exit = false;
 	bool playState = false;
+	bool pauseState = false;
 
 public:
 	SDLApplication() {};
@@ -50,9 +51,9 @@ public:
 
 	//Game states
 	void run();
-	//void updateState();
-	void exitGame();
 	void pushState(GameState* gS);
+	void exitGame();
+	void replaceState(GameState* gS);
 
 	//getters & setters
 	uint getHeight() const { return WIN_HEIGHT; };

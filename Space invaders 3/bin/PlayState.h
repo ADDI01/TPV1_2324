@@ -49,6 +49,7 @@ public:
 		addObject(_cannon); addEventListener(_cannon); addObject(_bunker); addObject(_alien); _alien->setMother(_mother);  addObject(_shooterAlien);
 		_shooterAlien->setMother(_mother); _mother->addAlien(); addObject(_ufo);
 	/*_sceneObjectList.push_back(_cannon);*/ };
+	~PlayState();
 	void mayGrantReward() {};
 	virtual void render() const override ;
 	virtual void update() override ;

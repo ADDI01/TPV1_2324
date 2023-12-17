@@ -2,6 +2,7 @@
 #include "FileFormatError.h"
 #include "FileNotFoundError.h"
 #include "PlayState.h"
+#include "PauseState.h"
 #include "SDLError.h"
 
 using namespace std;
@@ -87,9 +88,14 @@ void SDLApplication::exitGame()
 		_myStateMachine.popState();
 }
 
-void SDLApplication::pushState(GameState* gS)
+void SDLApplication::replaceState(GameState* gS)
 {
 	_myStateMachine.replaceState(gS);
+}
+
+void SDLApplication::pushState(GameState* gS)
+{
+	_myStateMachine.pushState(gS);
 }
 
 void SDLApplication::run()
@@ -108,7 +114,7 @@ void SDLApplication::run()
 		}
 		if (playState) {
 			PlayState* aux = new PlayState(this);
-			pushState(aux);
+			replaceState(aux);
 			playState = false;
 		}
 		if (exit) {

@@ -9,8 +9,7 @@ Cannon::Cannon(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game
 	_myRect(SDL_Rect()) {};
 
 Cannon::Cannon(GameState* gameState, PlayState* myPlayState, SDLApplication* app, std::ifstream& in, Texture* texture, float velocity)
-	: SceneObject(gameState, myPlayState,app, in, texture),
-	_velocity(velocity)
+	: SceneObject(gameState, myPlayState,app, in, texture), _velocity(velocity)
 {
 	in >> _shootCD;
 	//game->setLandedHeight(_pos.getY());
