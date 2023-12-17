@@ -71,21 +71,16 @@ bool Game::textureLoading() {
 
 void Game::loadFromFile(string fileName) { //TODO: Distribuir el load en las clases de los SceneObjects
 	ifstream file(fileName); //Hay 50 elementos que leer
-	int latestRow = -1, state = -1, level = -1, currentLvl = -1, points = -1;
-	bool idle = false;
 	SceneObject* aux = nullptr; //Stores every SceneObject 
-
+	int tObject = -1, latestRow = -1, state = -1, level = -1, currentLvl = -1, points = -1;
+	bool idle = false;
+	
 	limpiaLista();
-
-	if (infoBar != nullptr) {
-		delete infoBar;
-	}
-	if (!file.is_open()) {
-		throw FileNotFoundError(fileName);
-	}
+	if (infoBar != nullptr) delete infoBar;
+	if (!file.is_open()) throw FileNotFoundError(fileName);
 
 	//Specific objects are created here
-	_mother = new Mothership(this, 0, 0, 20);
+	_mother = new Mothership(this, 0, 0, MOTHERSHIP_MOV_CD);
 	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
 	
 	while (!file.eof()) {
@@ -95,89 +90,43 @@ void Game::loadFromFile(string fileName) { //TODO: Distribuir el load en las cla
 		case 0: //Cannon
 			_cannon = new Cannon(this, file, textures[CANNONTEXTURE], CANNON_SPEED);
 			aux = _cannon;
-
-			//file >> nlifes;
-			//file >> estado; //TODO: que esto sea la espera
-			//aux = new Cannon(pos, textures[CANNONTEXTURE], pair<uint, uint>(34, 21), this, nlifes, estado, 30); //Instance
-
-			//_landedHeight = pos.getY() - 30; //TODO: CORREGIR EL NUMERO MAGICO	
-			//_cannon = static_cast<Cannon*>(aux);
 			break;
 		case 1: //Alien
-			//file >> subType;
-
-			/*if (latestRow != posY) //Different Alien frame each column
-			{
-				idle = false;
-				latestRow = posY;
-			}
-			else idle = !idle;*/
-
 			_alien = new Alien(this, file, textures[ALIENSTEXTURE], ALIEN_SPEED, latestRow);
 			_alien->setMother(_mother);
 			_mother->addAlien();
 			aux = _alien;
 			_alien = nullptr;
-
-			//aux = new Alien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, 4, subType, idle);
-			//static_cast<Alien*>(aux)->setMother(mother);
-			//mother->addAlien();
 			break;
 		case 2: //Shooter alien
-			//file >> subType;
-			//file >> estado;
-
-			/*if (latestRow != posY)
-			{
-				idle = false;
-				latestRow = posY;
-			}
-			else idle = !idle;*/
-
 			_shooterAlien = new ShooterAlien(this, file, textures[ALIENSTEXTURE], ALIEN_SPEED, latestRow);
 			_shooterAlien->setMother(_mother);
 			_mother->addAlien();
 			aux = _shooterAlien;
 			_shooterAlien = nullptr;
-
-			//aux = new ShooterAlien(pos, textures[ALIENSTEXTURE], pair<uint, uint>(48, 32), this, 4, subType, idle);
-			//static_cast<Alien*>(aux)->setMother(_mother);
-			//_mother->addAlien();
 			break;
 		case 3: //Mothership
 			file >> state;
 			file >> level;
 			file >> currentLvl;
-
 			_mother->setState(state);
 			_mother->setLevel(level);
 			_mother->setActualLevel(currentLvl);
-
 			break;
 		case 4: //Bunkers
-			//file >> subType; //Esto eran las vidas
 			_bunker = new Bunker(this, file, textures[BUNKERSTEXTURE]);
 			aux = _bunker;
 			_bunker = nullptr;
-			//aux = new Bunker(pos, textures[BUNKERSTEXTURE], pair<uint, uint>(90, 59), this, 4);
 			break;
 		case 5: //Ufo
-			//file >> estado;
-			//file >> subType; //TODO: LA ESPERA
-
 			_ufo = new Ufo(this, file, textures[UFOTEXTURE]);
 			aux = _ufo;
 			_ufo = nullptr;
-			//aux = new Ufo(this, pos, textures[UFOTEXTURE], pair < uint, uint>(90, 32), estado, subType);
 			break;
 		case 6:
-			//file >> subType;
-
 			_laser = new Laser(this, renderer, file, LASER_SIZE, LASER_SPEED);
 			aux = _laser;
 			_laser = nullptr;
-
-			//aux = new Laser(pos, Vector2D<float>(0, 5), pair<uint, uint>(5, 20), this, renderer, (Father)subType);
 			break;
 		case 7: //Points
 			file >> points;
@@ -225,7 +174,6 @@ void Game::render() const
 		it->render();
 	}
 	infoBar->render();
-
 	SDL_RenderPresent(renderer);
 }
 
@@ -237,7 +185,10 @@ void Game::update()
 	}
 
 	for (auto it : objectsToDelete) {
-		delete* it;
+		if (typeid(*it) == typeid(Laser)) {
+			cout << "a" << std::endl;
+		}
+	 	delete* it;
 		objectsList.erase(it);
 	}
 

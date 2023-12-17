@@ -31,9 +31,9 @@ void ShooterAlien:: update() {
 }
 
 void ShooterAlien::fireLaser() {
-	Laser* l = new Laser(_pos + Vector2D<float>(_size.first / 2, _size.second), Vector2D<float>(0, 5),
-		pair<uint, uint>(5, 20), _game, _game->getRenderer(), ALIEN);
-	_game->addToList(l);
+	Laser* l = new Laser(_pos + Vector2D<float>(_size.first / 2, _size.second), _game->getLaser_Speed(),
+		_game->getLaser_Size(), _game, _game->getRenderer(), ALIEN);
+	_game->addToList(l);            
 }
 
 void ShooterAlien::save(std::ostream& out) const {

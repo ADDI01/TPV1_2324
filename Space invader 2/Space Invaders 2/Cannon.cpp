@@ -76,9 +76,9 @@ void Cannon::save(std::ostream& out) const {
 }
 
 bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {
-	if (typeOfDamage != 1 && SDL_HasIntersection(&AttackRect, &_myRect)) { //Alien bullet collides the cannon
+	if (typeOfDamage != PLAYER && SDL_HasIntersection(&AttackRect, &_myRect)) { //Alien bullet collides the cannon
 		_life--;
-		_pos = Vector2D<float>(WIN_WIDTH/2,_pos.getY());
+		_pos = Vector2D<float>(WIN_WIDTH / 2, _pos.getY());
 		std::cout << _life;
 		if (_life == 0) { //No lifes left -> End the game
 			_game->lose();

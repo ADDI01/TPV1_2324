@@ -1,12 +1,8 @@
 ﻿  Game.cpp
 C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(49,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(119,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(97,62): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
-C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(154,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(75,27): warning C4101: 'subType': variable local sin referencia
-C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(75,44): warning C4101: 'estado': variable local sin referencia
-C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(75,21): warning C4101: 'posY': variable local sin referencia
-C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(75,15): warning C4101: 'posX': variable local sin referencia
-C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(75,36): warning C4101: 'nlifes': variable local sin referencia
-C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(267,6): warning C4101: 'k': variable local sin referencia
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(122,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(83,39): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(91,62): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(113,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(217,6): warning C4101: 'k': variable local sin referencia
   Space Invaders 2.vcxproj -> C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invader 2\bin\Space Invaders 2Debug.exe
