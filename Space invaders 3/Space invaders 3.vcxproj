@@ -141,6 +141,7 @@
     <ClCompile Include="bin\GameList.cpp" />
     <ClCompile Include="bin\GameState.cpp" />
     <ClCompile Include="bin\GameStateMachine.cpp" />
+    <ClCompile Include="bin\InfoBar.cpp" />
     <ClCompile Include="bin\Laser.cpp" />
     <ClCompile Include="bin\MainMenuState.cpp" />
     <ClCompile Include="bin\Mothership.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="bin\GameObject.h" />
     <ClInclude Include="bin\GameState.h" />
     <ClInclude Include="bin\GameStateMachine.h" />
+    <ClInclude Include="bin\InfoBar.h" />
     <ClInclude Include="bin\InvadersError.h" />
     <ClInclude Include="bin\Laser.h" />
     <ClInclude Include="bin\MainMenuState.h" />

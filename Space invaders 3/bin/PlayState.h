@@ -4,6 +4,7 @@
 #include "Star.h"
 #include "Bunker.h"
 #include "Alien.h"
+#include "InfoBar.h"
 #include "ShooterAlien.h"
 #include "Ufo.h"
 #include "SDLApplication.h"
@@ -24,7 +25,8 @@ private:
 	Ufo* _ufo = new Ufo(this,this,myGame, Point2D<float>(800, 100), myGame->getTexture()[5], std::pair<uint, uint>(57, 32),0,10);
 	//Laser* _laser = nullptr;
 	Star* star = new Star(Point2D<float>(0, 0), myGame->getTexture()[4], std::pair<uint, uint>(800, 600));
-	//InfoBar* infoBar = nullptr;
+	InfoBar* infoBar = new InfoBar(this, this, myGame->getTexture()[1], Point2D<float>(10, WIN_HEIGHT - 30), 
+		std::pair<uint, uint>(34, 21), 0);
 
 	//SceneObjects constants;
 	uint CANNON_SPEED = 30; 

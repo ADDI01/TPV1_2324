@@ -4,6 +4,7 @@
 void PlayState::render() const
 {
 	star->render();
+	infoBar->render();
 	for (auto it = gameList.begin(); it != gameList.end(); ++it)
 	{
 		(*it).render();
