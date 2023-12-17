@@ -7,7 +7,7 @@ void Button::connect(CallBack cB){
 void Button::render() const
 {
 	if (_encima) {
-		SDL_Color color;
+		SDL_Color color; // números mágicos (verde)
 		color.r = 124;
 		color.g = 252;
 		color.b = 0;
@@ -18,12 +18,23 @@ void Button::render() const
 }
 
 void Button::update(){
-	int x, y;
-	SDL_GetMouseState(&x, &y);
+	SDL_Point point;
+	SDL_GetMouseState(&point.x, &point.y);
 
 	// Comprueba si el ratón está sobre el rectángulo
-	_encima = x >= _myRect.x && x <= _myRect.x + _myRect.w && y >= _myRect.y && y <= _myRect.y + _myRect.h;
-	if (_encima)
-		std::cout << "a";
-	std::cout <<x << std::endl;
+	_encima = SDL_PointInRect(&point, &_myRect);
+	/*int x, y;
+	SDL_GetMouseState(&x, &y);
+	*/
+	// Comprueba si el ratón está sobre el rectángulo
+	//_encima = x >= _myRect.x && x <= _myRect.x + _myRect.w && y >= _myRect.y && y <= _myRect.y + _myRect.h;
+}
+
+void Button::manageEvent(const SDL_Event& e)
+{
+	if (e.type == SDL_MOUSEBUTTONDOWN && _encima) {
+		for (CallBack c : _myCallbacks) {
+			c();
+		}
+	}
 }

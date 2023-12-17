@@ -1,7 +1,8 @@
 #pragma once
+#include<SDL.h>
 class EventHandler
 {
-protected:
-	virtual void manageEvent(/*SDL_Event e*/) = 0;
+public:
+	virtual void manageEvent(const SDL_Event& event) = 0;
 };
 

@@ -1,9 +1,9 @@
 #include "GameStateMachine.h"
+#include <SDL.h>
 
 GameStateMachine::~GameStateMachine(){
 	while (!statesMachine.empty()) {
-		delete statesMachine.top();
-		statesMachine.pop();
+		popState();
 	}
 }
 
@@ -12,11 +12,12 @@ void GameStateMachine::  pushState(GameState* g) {
 }
 
 void GameStateMachine::replaceState(GameState* g){
-	statesMachine.pop();
+	popState();
 	pushState(g);
 }
 
 void GameStateMachine::popState(){
+	delete statesMachine.top();
 	statesMachine.pop();
 }
 
@@ -28,6 +29,6 @@ void GameStateMachine::render(){
 	statesMachine.top()->render();
 }
 
-void GameStateMachine::handleEvent(){
-	statesMachine.top()->handleEvent();
+void GameStateMachine::handleEvent(const SDL_Event& event){
+	statesMachine.top()->handleEvent(event);
 }

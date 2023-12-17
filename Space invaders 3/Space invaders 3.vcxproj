@@ -131,24 +131,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bin\Alien.cpp" />
     <ClCompile Include="bin\Bomb.cpp" />
+    <ClCompile Include="bin\Bunker.cpp" />
     <ClCompile Include="bin\Button.cpp" />
+    <ClCompile Include="bin\Cannon.cpp" />
     <ClCompile Include="bin\EndState.cpp" />
     <ClCompile Include="bin\EventHandler.cpp" />
     <ClCompile Include="bin\GameList.cpp" />
     <ClCompile Include="bin\GameState.cpp" />
     <ClCompile Include="bin\GameStateMachine.cpp" />
+    <ClCompile Include="bin\Laser.cpp" />
     <ClCompile Include="bin\MainMenuState.cpp" />
+    <ClCompile Include="bin\Mothership.cpp" />
     <ClCompile Include="bin\PauseState.cpp" />
     <ClCompile Include="bin\PlayState.cpp" />
     <ClCompile Include="bin\Reward.cpp" />
+    <ClCompile Include="bin\SceneObject.cpp" />
     <ClCompile Include="bin\SDLApplication.cpp" />
+    <ClCompile Include="bin\ShooterAlien.cpp" />
     <ClCompile Include="bin\Source.cpp" />
     <ClCompile Include="bin\texture.cpp" />
+    <ClCompile Include="bin\Ufo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bin\Alien.h" />
     <ClInclude Include="bin\Bomb.h" />
+    <ClInclude Include="bin\Bunker.h" />
     <ClInclude Include="bin\Button.h" />
+    <ClInclude Include="bin\Cannon.h" />
     <ClInclude Include="bin\checkML.h" />
     <ClInclude Include="bin\EndState.h" />
     <ClInclude Include="bin\EventHandler.h" />
@@ -159,14 +170,19 @@
     <ClInclude Include="bin\GameState.h" />
     <ClInclude Include="bin\GameStateMachine.h" />
     <ClInclude Include="bin\InvadersError.h" />
+    <ClInclude Include="bin\Laser.h" />
     <ClInclude Include="bin\MainMenuState.h" />
+    <ClInclude Include="bin\Mothership.h" />
     <ClInclude Include="bin\PauseState.h" />
     <ClInclude Include="bin\PlayState.h" />
     <ClInclude Include="bin\Reward.h" />
     <ClInclude Include="bin\SceneObject.h" />
     <ClInclude Include="bin\SDLApplication.h" />
     <ClInclude Include="bin\SDLError.h" />
+    <ClInclude Include="bin\ShooterAlien.h" />
+    <ClInclude Include="bin\Star.h" />
     <ClInclude Include="bin\texture.h" />
+    <ClInclude Include="bin\Ufo.h" />
     <ClInclude Include="bin\Vector2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

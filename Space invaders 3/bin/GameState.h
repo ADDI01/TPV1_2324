@@ -6,20 +6,22 @@
 #include"checkML.h"
 #include "GameObject.h"
 
-class Game;
+class SDLApplication;
 
 class GameState
 {
 protected:
 	GameList<GameObject, true> gameList;
 	std::list<EventHandler*> eventHandlerList;
-	Game* myGame;
+	SDLApplication* myGame;
 
 public:
-	virtual ~GameState() = 0;
+	GameState(SDLApplication* myGame) : myGame(myGame) {};
+	virtual void HasDied(GameList < GameObject, true>::anchor it);
+	virtual ~GameState();
 	virtual void render() const = 0;
 	virtual void update() = 0;
-	virtual void handleEvent() = 0;
+	virtual void handleEvent(const SDL_Event& event);
 	void addEventListener(EventHandler* e);
 	void addObject(GameObject* g);
 };

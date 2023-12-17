@@ -20,11 +20,16 @@ private:
 	std::pair<unsigned int, unsigned int>_sSize = std::pair<unsigned int, unsigned int>(20, 100);
 	Point2D<float> _sPos = Point2D<float>(400 - _sSize.second/2, 250);
 
-public:
-	MainMenuState(Texture* myTexture, Texture* nuevaPartida, Texture* cargarPartida, Texture* salir);
+	//callbacks de los botones
+	void meHanPulsado() { std::cout << "a"; };
+	void exit();
+	void goToPlayState();
 
+public:
+	MainMenuState(SDLApplication* myGame, Texture* myTexture, Texture* nuevaPartida, Texture* cargarPartida, Texture* salir);
+	~MainMenuState() override;
 	void render() const override;
 	void update() override;
-	void handleEvent() override;
+	void handleEvent(const SDL_Event& event) override;
 };
 

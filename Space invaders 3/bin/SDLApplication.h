@@ -36,6 +36,10 @@ class SDLApplication
 	std::vector<Texture*> textures;
 	TextureData* dataTextures[NUM_TEXTURES];
 
+	//flags
+	bool exit = false;
+	bool playState = false;
+
 public:
 	SDLApplication() {};
 	~SDLApplication();
@@ -46,10 +50,16 @@ public:
 
 	//Game states
 	void run();
+	//void updateState();
+	void exitGame();
+	void pushState(GameState* gS);
 
-	//getters
+	//getters & setters
 	uint getHeight() const { return WIN_HEIGHT; };
 	uint getWidth() const { return WIN_WIDTH; };
 	SDL_Renderer* getRenderer() const { return renderer; };
 	SDL_Window* getWindow() const { return window; };
+	void setExit() { exit = true; };
+	void setPlayState() { playState = true; };
+	std::vector<Texture*> getTexture() { return textures; };
 };
