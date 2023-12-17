@@ -1,4 +1,55 @@
-﻿  MainMenuState.cpp
+﻿  Cannon.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,3): error C2065: 'Cannon': identificador no declarado
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,11): error C2065: 'c': identificador no declarado
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,19): error C2061: error de sintaxis: identificador 'Cannon'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,69): error C2065: 'uint': identificador no declarado
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,75): error C2065: 'uint': identificador no declarado
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,64): error C2923: 'std::pair': 'uint' no es un argumento de tipo plantilla válido para el parámetro '_Ty1'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,69): message : vea la declaración de 'uint'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,64): error C2923: 'std::pair': 'uint' no es un argumento de tipo plantilla válido para el parámetro '_Ty2'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,75): message : vea la declaración de 'uint'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(7,54): error C2661: 'SceneObject::SceneObject': ninguna función sobrecargada acepta 6 argumentos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(7,54): message : al hacer coincidir la lista de argumentos '(GameState *, PlayState *, Texture *, Vector2D<float>, std::pair<uint,uint>, uint)'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(10,128): error C2661: 'SceneObject::SceneObject': ninguna función sobrecargada acepta 4 argumentos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(10,128): message : al hacer coincidir la lista de argumentos '(GameState *, PlayState *, std::ifstream, Texture *)'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(46,1): fatal  error C1075: "{": no se encontró ningún token coincidente
+  GameState.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(4,22): error C2504: 'SceneObject': clase base sin definir
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(17,57): error C2065: 'uint': identificador no declarado
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(17,63): error C2065: 'uint': identificador no declarado
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(17,52): error C2923: 'std::pair': 'uint' no es un argumento de tipo plantilla válido para el parámetro '_Ty1'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(17,57): message : vea la declaración de 'uint'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(17,52): error C2923: 'std::pair': 'uint' no es un argumento de tipo plantilla válido para el parámetro '_Ty2'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(17,63): message : vea la declaración de 'uint'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(17,69): error C2955: 'std::pair': el uso de clase plantilla requiere una lista de argumentos de plantilla
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\utility(214,1): message : vea la declaración de 'std::pair'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(17,92): error C2061: error de sintaxis: identificador 'uint'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(19,79): error C2061: error de sintaxis: identificador 'PlayState'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(23,7): error C3668: 'Cannon::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(24,7): error C3668: 'Cannon::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(26,7): error C3668: 'Cannon::save': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(29,7): error C3668: 'Cannon::hit': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,34): error C2027: uso del tipo 'SDLApplication' sin definir
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\GameState.h(9,7): message : vea la declaración de 'SDLApplication'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,69): error C2065: 'uint': identificador no declarado
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,75): error C2065: 'uint': identificador no declarado
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,64): error C2923: 'std::pair': 'uint' no es un argumento de tipo plantilla válido para el parámetro '_Ty1'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,69): message : vea la declaración de 'uint'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,64): error C2923: 'std::pair': 'uint' no es un argumento de tipo plantilla válido para el parámetro '_Ty2'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,75): message : vea la declaración de 'uint'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,25): error C2665: 'Cannon::Cannon':ninguna función sobrecargada pudo convertir todos los tipos de argumento
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(19,2): message : puede ser 'Cannon::Cannon(GameState *,std::ifstream &,Texture *,float)'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,25): message : 'Cannon::Cannon(GameState *,std::ifstream &,Texture *,float)': el argumento 1 no puede convertirse de 'SDLApplication *' a 'GameState *'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,26): message : Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función entre paréntesis
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(17,2): message : o       'Cannon::Cannon(Vector2D<float>,Texture *,std::pair,GameState *)'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,25): message : 'Cannon::Cannon(Vector2D<float>,Texture *,std::pair,GameState *)': el argumento 1 no puede convertirse de 'SDLApplication *' a 'Vector2D<float>'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,26): message : 'Vector2D<float>::Vector2D':ninguna función sobrecargada pudo convertir todos los tipos de argumento
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Vector2D.h(16,2): message : puede ser 'Vector2D<float>::Vector2D(const Vector2D<float> &)'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,26): message : 'Vector2D<float>::Vector2D(const Vector2D<float> &)': el argumento 1 no puede convertirse de 'SDLApplication *' a 'const Vector2D<float> &'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,26): message : Razón: no se puede realizar la conversión de 'SDLApplication *' a 'const Vector2D<float>'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,26): message : La conversión requiere un segundo operador de conversión definido por el usuario o constructor
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,26): message : al hacer coincidir la lista de argumentos '(SDLApplication *)'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,25): message : al hacer coincidir la lista de argumentos '(SDLApplication *, std::pair<int,int>, int, PlayState *)'
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
@@ -36,6 +87,62 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\M
           [
               T=float
           ]
+  MainMenuState.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(13,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(17,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(21,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(18,19): error C2061: error de sintaxis: identificador 'PlayState'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(19,79): error C2061: error de sintaxis: identificador 'PlayState'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,25): error C2661: 'Cannon::Cannon': ninguna función sobrecargada acepta 5 argumentos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,25): message : al hacer coincidir la lista de argumentos '(SDLApplication *, _Ty, std::pair<unsigned int,unsigned int>, int, PlayState *)'
+          with
+          [
+              _Ty=Texture *
+          ]
+  PlayState.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(18,19): error C2061: error de sintaxis: identificador 'PlayState'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(19,79): error C2061: error de sintaxis: identificador 'PlayState'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,34): error C2027: uso del tipo 'SDLApplication' sin definir
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\GameState.h(9,7): message : vea la declaración de 'SDLApplication'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,25): error C2665: 'Cannon::Cannon':ninguna función sobrecargada pudo convertir todos los tipos de argumento
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.h(19,2): message : puede ser 'Cannon::Cannon(GameState *,std::ifstream &,Texture *,float)'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,25): message : 'Cannon::Cannon(GameState *,std::ifstream &,Texture *,float)': el argumento 1 no puede convertirse de 'SDLApplication *' a 'GameState *'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,26): message : Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función entre paréntesis
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\PlayState.h(35,25): message : al hacer coincidir la lista de argumentos '(SDLApplication *, std::pair<uint,uint>, int, PlayState *)'
   SDLApplication.cpp
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1): message : vea la definición anterior de '_malloca'
@@ -76,5 +183,42 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\M
           [
               T=float
           ]
+  Source.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(13,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(17,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(21,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
   Generando código...
-  Space invaders 3.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Space invaders 3Debug.exe

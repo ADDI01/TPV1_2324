@@ -5,7 +5,6 @@
 
 GameState::~GameState(){
 	gameList.clear();
-	for (EventHandler* it : eventHandlerList) { delete it; it = nullptr; }
 }
 
 void GameState::handleEvent(const SDL_Event& event)
@@ -13,6 +12,11 @@ void GameState::handleEvent(const SDL_Event& event)
 	for (EventHandler* list : eventHandlerList) {
 		list->manageEvent(event);
 	}
+}
+
+void GameState::HasDied(GameList<GameObject, true>::anchor it)
+{
+	gameList.erase(it);
 }
 
 void GameState::addEventListener(EventHandler* e){

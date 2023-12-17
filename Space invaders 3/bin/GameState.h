@@ -17,7 +17,7 @@ protected:
 
 public:
 	GameState(SDLApplication* myGame) : myGame(myGame) {};
-	//virtual void HasDied(GameList < GameObject, true>::anchor it);
+	virtual void HasDied(GameList < GameObject, true>::anchor it);
 	virtual ~GameState();
 	virtual void render() const = 0;
 	virtual void update() = 0;

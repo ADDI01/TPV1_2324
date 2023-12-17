@@ -23,11 +23,11 @@ protected:
 	//Iterator to the SceneObject in the list of SceneObjects
 	std::list<SceneObject*>::iterator _it;
 	//Estado de juego, es el mismo que su GameState, pero habría que castear para cogerlo si no se usan 2 parámtros distintos
-	PlayState* _myPlayState;
+	//PlayState* _myPlayState;
 
 public:
-	SceneObject(GameState* game,Texture* texture, Point2D<float> pos, std::pair <uint, uint> size, int life) :
-		GameObject(game), _texture(texture), _pos(pos), _size(size), _life(life) {};
+	//SceneObject(GameState* game, PlayState* _myPlayState, Texture* texture, Point2D<float> pos, std::pair <uint, uint> size, int life) :
+	//	GameObject(game), _texture(texture), _pos(pos), _size(size), _life(life), _myPlayState(){};
 	virtual ~SceneObject() {};
 
 	//Game States

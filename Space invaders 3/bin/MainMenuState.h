@@ -23,10 +23,11 @@ private:
 	//callbacks de los botones
 	void meHanPulsado() { std::cout << "a"; };
 	void exit();
+	void goToPlayState();
 
 public:
 	MainMenuState(SDLApplication* myGame, Texture* myTexture, Texture* nuevaPartida, Texture* cargarPartida, Texture* salir);
-	//~MainMenuState();
+	~MainMenuState() override;
 	void render() const override;
 	void update() override;
 	void handleEvent(const SDL_Event& event) override;

@@ -86,6 +86,11 @@ void SDLApplication::exitGame()
 		_myStateMachine.popState();
 }
 
+void SDLApplication::pushState(GameState* gS)
+{
+	_myStateMachine.pushState(gS);
+}
+
 void SDLApplication::run()
 {
 	uint32_t startTime, frameTime;
@@ -99,6 +104,9 @@ void SDLApplication::run()
 		SDL_Event event;
 		if (SDL_PollEvent(&event)) {
 			_myStateMachine.handleEvent(event);
+		}
+		if (exit) {
+			exitGame();
 		}
 		frameTime = SDL_GetTicks() - startTime; // Tiempo de la iteraci�n
 		if (frameTime < FRAME_RATE)

@@ -1,24 +1,37 @@
 #include "MainMenuState.h"
 #include "SDLApplication.h"
+#include "PlayState.h"
 
 MainMenuState::MainMenuState(SDLApplication* myGame,Texture* myTexture, Texture* nuevaPartida, Texture* cargarPartida, Texture* salir) : GameState(myGame), _texture(myTexture){
 	Button* _button = new Button(nuevaPartida, this, _nPPos, _nPSize);
-	gameList.push_back(_button);
-	eventHandlerList.push_back(_button);
+	addObject(_button);
+	addEventListener(_button);
+	_button->connect([this]() { goToPlayState(); });
 	_button = new Button(cargarPartida, this, _cPPos,_cPSize);
-	gameList.push_back(_button);
-	eventHandlerList.push_back(_button);
+	addObject(_button);
+	addEventListener(_button);
 	_button = new Button(salir, this, _sPos,_sSize);
-	gameList.push_back(_button);
-	eventHandlerList.push_back(_button);
+	addObject(_button);
+	addEventListener(_button);
 
 	_button->connect([this]() { exit(); });
 	_button = nullptr;
 }
 
+MainMenuState::~MainMenuState()
+{
+	gameList.clear();
+}
+
 void MainMenuState::exit()
 {
-	myGame->exitGame();
+	myGame->setExit();
+}
+
+void MainMenuState::goToPlayState()
+{
+	PlayState* aux = new PlayState(myGame);
+	myGame->pushState(aux);
 }
 
 void MainMenuState::render() const{

@@ -1,6 +1,6 @@
 ﻿  Alien.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(49,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(119,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(122,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Alien.cpp(12,46): warning C4244: 'inicializando': conversión de 'uint' a 'float'; posible pérdida de datos
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Alien.cpp(16,25): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
@@ -28,7 +28,7 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space 
           ]
   Bunker.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(49,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(119,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(122,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Bunker.cpp(48,23): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
@@ -41,7 +41,7 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space 
           ]
   Cannon.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(49,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(119,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(122,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Cannon.cpp(15,33): warning C4244: 'argumento': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
@@ -78,20 +78,17 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space 
           ]
   Game.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(49,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(119,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(92,11): error C2065: 'tObject': identificador no declarado
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(94,11): error C2065: 'tObject': identificador no declarado
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(94,20): error C2050: la expresión switch no es de tipo integral
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(96,62): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(153,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(191,7): error C2065: 'tObject': identificador no declarado
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(191,23): error C2065: 'tObject': identificador no declarado
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(122,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(83,39): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(91,62): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(113,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.cpp(217,6): warning C4101: 'k': variable local sin referencia
   InfoBar.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(49,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(119,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(122,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   Laser.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(49,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(119,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(122,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Laser.cpp(48,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
@@ -104,12 +101,11 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space 
           ]
   Mothership.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(49,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(119,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(122,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.cpp(8,54): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-  SceneObject.cpp
   ShooterAlien.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(49,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(119,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(122,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\ShooterAlien.cpp(10,43): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\ShooterAlien.cpp(10,35): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\ShooterAlien.cpp(10,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
@@ -132,11 +128,10 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space 
           ]
   Source.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(49,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(119,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-  Texture.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(122,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   Ufo.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Mothership.h(49,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(119,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Game.h(122,53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Ufo.cpp(50,26): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
@@ -150,3 +145,4 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space 
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Ufo.cpp(63,46): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   Generando código...
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\Space Invaders 2\Bunker.cpp(69): warning C4715: 'Bunker::hit': no todas las rutas de acceso de control devuelven un valor
+  Space Invaders 2.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invader 2\bin\Space Invaders 2Debug.exe

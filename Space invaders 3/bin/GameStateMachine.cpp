@@ -3,8 +3,7 @@
 
 GameStateMachine::~GameStateMachine(){
 	while (!statesMachine.empty()) {
-		delete statesMachine.top();
-		statesMachine.pop();
+		popState();
 	}
 }
 
@@ -18,6 +17,7 @@ void GameStateMachine::replaceState(GameState* g){
 }
 
 void GameStateMachine::popState(){
+	delete statesMachine.top();
 	statesMachine.pop();
 }
 

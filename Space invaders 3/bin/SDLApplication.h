@@ -50,11 +50,13 @@ public:
 	void run();
 	//void updateState();
 	void exitGame();
-	//void pushState();
+	void pushState(GameState* gS);
 
-	//getters
+	//getters & setters
 	uint getHeight() const { return WIN_HEIGHT; };
 	uint getWidth() const { return WIN_WIDTH; };
 	SDL_Renderer* getRenderer() const { return renderer; };
 	SDL_Window* getWindow() const { return window; };
+	void setExit() { exit = true; };
+	std::vector<Texture*> getTexture() { return textures; };
 };
