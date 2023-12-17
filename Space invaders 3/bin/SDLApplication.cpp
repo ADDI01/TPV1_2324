@@ -1,4 +1,4 @@
-#include "SDLApplication.h"
+ï»¿#include "SDLApplication.h"
 #include "FileFormatError.h"
 #include "FileNotFoundError.h"
 #include "SDLError.h"
@@ -14,7 +14,7 @@ SDLApplication::~SDLApplication(){
 
 void SDLApplication::init(){
 	// We first initialize SDL
-// Inicializar SDL, crear ventana y renderizador
+	// Inicializar SDL, crear ventana y renderizador
 	SDL_Init(SDL_INIT_EVERYTHING);
 	window = SDL_CreateWindow("Space Invaders", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
 		WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
@@ -27,9 +27,9 @@ void SDLApplication::init(){
 		throw SDLError("No se cargaron las texturas.");
 		/*
 		hay que moverlo
-		loadFromFile("../images/mapas/map" + to_string(nLevel % nLevels) + ".txt"); ç
+		loadFromFile("../images/mapas/map" + to_string(nLevel % nLevels) + ".txt"); Ã§
 		*/
-	MainMenuState* _mainMenu = new MainMenuState(textures[MAINMENUTEXTURE], textures[CONTINUAR], textures[CARGARPARTIDA], textures[SALIR]);
+	MainMenuState* _mainMenu = new MainMenuState(this, textures[MAINMENUTEXTURE], textures[CONTINUAR], textures[CARGARPARTIDA], textures[SALIR]);
 	_myStateMachine.pushState(_mainMenu);
 }
 
@@ -55,7 +55,7 @@ bool SDLApplication::textureLoading()
 	dataTextures[SHIELDREWARDTEXTURE] = new TextureData("./recursos/objetos/shield_reward.png", pair<uint, uint>(1, 1));
 	// CargarPartidatexture inicialization
 	dataTextures[CARGARPARTIDA] = new TextureData("./recursos/textos/cargarPartida.png", pair<uint, uint>(1, 1));
-	// Código texture inicialization
+	// CÃ³digo texture inicialization
 	dataTextures[CODIGO] = new TextureData("./recursos/textos/codigo.png", pair<uint, uint>(1, 1));
 	// Continuar texture inicialization
 	dataTextures[CONTINUAR] = new TextureData("./recursos/textos/continuar.png", pair<uint, uint>(1, 1));
@@ -80,12 +80,28 @@ bool SDLApplication::textureLoading()
 	return true;
 }
 
+void SDLApplication::exitGame()
+{
+	while (!_myStateMachine.empty())
+		_myStateMachine.popState();
+}
+
 void SDLApplication::run()
 {
+	uint32_t startTime, frameTime;
+	startTime = SDL_GetTicks();
 	while (!_myStateMachine.empty()) {
+		startTime = SDL_GetTicks();
+		_myStateMachine.update();
 		SDL_RenderClear(renderer);
 		_myStateMachine.render();
 		SDL_RenderPresent(renderer);
-		_myStateMachine.update();
+		SDL_Event event;
+		if (SDL_PollEvent(&event)) {
+			_myStateMachine.handleEvent(event);
+		}
+		frameTime = SDL_GetTicks() - startTime; // Tiempo de la iteraciï¿½n
+		if (frameTime < FRAME_RATE)
+			SDL_Delay(FRAME_RATE - frameTime); // Suspende por el tiempo restante
 	}
 }

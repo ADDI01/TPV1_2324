@@ -56,6 +56,7 @@ private:
 	std::pair<uint, uint> LASER_SIZE = std::pair<uint, uint>(5, 20);
 	const Point2D<float> INFOBAR_POS = Point2D<float>(10, WIN_HEIGHT - 30);
 	std::pair<uint, uint> INFOBAR_SIZE = std::pair<uint, uint>(34, 21);
+	const uint MOTHERSHIP_MOV_CD = 20;
 
 	//Texture's ID
 	enum TextureName { CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE,UFOTEXTURE };
@@ -114,6 +115,8 @@ public:
 	SDL_Renderer* getRenderer() const { return renderer; };
 	SDL_Window* getWindow() const { return window; };
 	float getLandedHeight() const { return _landedHeight; };
+	Vector2D<float> getLaser_Speed() const { return LASER_SPEED; };
+	std::pair<uint, uint> getLaser_Size() const { return LASER_SIZE; };
 
 	//Setters
 	void setLandedHeight(int height) { _landedHeight = height; };

@@ -17,5 +17,5 @@ public:
 	// procedimientos de los estados
 	void update();
 	void render();
-	void handleEvent();
+	void handleEvent(const SDL_Event& event);
 };

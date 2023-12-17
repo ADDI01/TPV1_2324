@@ -17,6 +17,7 @@ private:
 	SDL_Rect _myRect;
 	std::pair<unsigned int,unsigned int> _rectSize;
 	bool _encima;
+
 public:
 	Button();
 	Button(Texture* texture,GameState* gameState, Point2D<float> pos, std::pair<unsigned int, unsigned int> size):GameObject(gameState), _texture(texture), _pos(pos),
@@ -30,7 +31,7 @@ public:
 
 	void render() const override;
 	void update() override; 
-	void manageEvent(/*SDL_Event e*/) override {};
+	void manageEvent(const SDL_Event& e) override;
 	void save(std::ostream& out) const override {};
 };
 

@@ -1,9 +1,24 @@
 #include "MainMenuState.h"
+#include "SDLApplication.h"
 
-MainMenuState::MainMenuState(Texture* myTexture, Texture* nuevaPartida, Texture* cargarPartida, Texture* salir) : _texture(myTexture){
-	gameList.push_back(new Button(nuevaPartida, this, _nPPos, _nPSize));
-	gameList.push_back(new Button(cargarPartida, this, _cPPos,_cPSize));
-	gameList.push_back(new Button(salir, this, _sPos,_sSize));
+MainMenuState::MainMenuState(SDLApplication* myGame,Texture* myTexture, Texture* nuevaPartida, Texture* cargarPartida, Texture* salir) : GameState(myGame), _texture(myTexture){
+	Button* _button = new Button(nuevaPartida, this, _nPPos, _nPSize);
+	gameList.push_back(_button);
+	eventHandlerList.push_back(_button);
+	_button = new Button(cargarPartida, this, _cPPos,_cPSize);
+	gameList.push_back(_button);
+	eventHandlerList.push_back(_button);
+	_button = new Button(salir, this, _sPos,_sSize);
+	gameList.push_back(_button);
+	eventHandlerList.push_back(_button);
+
+	_button->connect([this]() { exit(); });
+	_button = nullptr;
+}
+
+void MainMenuState::exit()
+{
+	myGame->exitGame();
 }
 
 void MainMenuState::render() const{
@@ -26,6 +41,8 @@ void MainMenuState::update(){
 	}
 }
 
-void MainMenuState::handleEvent(){
-
+void MainMenuState::handleEvent(const SDL_Event &event){
+	for (EventHandler* it : eventHandlerList) {
+		it->manageEvent(event);
+	}
 }

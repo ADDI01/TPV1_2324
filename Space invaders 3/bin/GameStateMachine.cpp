@@ -1,4 +1,5 @@
 #include "GameStateMachine.h"
+#include <SDL.h>
 
 GameStateMachine::~GameStateMachine(){
 	while (!statesMachine.empty()) {
@@ -28,6 +29,6 @@ void GameStateMachine::render(){
 	statesMachine.top()->render();
 }
 
-void GameStateMachine::handleEvent(){
-	statesMachine.top()->handleEvent();
+void GameStateMachine::handleEvent(const SDL_Event& event){
+	statesMachine.top()->handleEvent(event);
 }

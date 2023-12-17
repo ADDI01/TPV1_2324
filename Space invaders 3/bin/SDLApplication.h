@@ -36,6 +36,8 @@ class SDLApplication
 	std::vector<Texture*> textures;
 	TextureData* dataTextures[NUM_TEXTURES];
 
+	bool exit = false;
+
 public:
 	SDLApplication() {};
 	~SDLApplication();
@@ -46,6 +48,9 @@ public:
 
 	//Game states
 	void run();
+	//void updateState();
+	void exitGame();
+	//void pushState();
 
 	//getters
 	uint getHeight() const { return WIN_HEIGHT; };

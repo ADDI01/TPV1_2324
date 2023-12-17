@@ -23,7 +23,13 @@ void Button::update(){
 
 	// Comprueba si el ratón está sobre el rectángulo
 	_encima = x >= _myRect.x && x <= _myRect.x + _myRect.w && y >= _myRect.y && y <= _myRect.y + _myRect.h;
-	if (_encima)
-		std::cout << "a";
-	std::cout <<x << std::endl;
+}
+
+void Button::manageEvent(const SDL_Event& e)
+{
+	if (e.type == SDL_MOUSEBUTTONDOWN && _encima) {
+		for (CallBack c : _myCallbacks) {
+			c();
+		}
+	}
 }
