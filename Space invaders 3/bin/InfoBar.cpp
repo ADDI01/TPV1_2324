@@ -11,18 +11,28 @@ InfoBar::InfoBar(GameState* game, SDL_Renderer* renderer, PlayState* myPlayState
 	: GameObject(game), _renderer(renderer), _texture(texture), _points(points), _pos(pos), _size(size), 
 	_myPlayState(myPlayState), _fontSize(fontSize)
 {
-	string filename = "./SDL2_TTF/PressStart2P-Regular(1).ttf";
+	string filename = "./SDL2_ttf-2.20.2/PressStart2P-Regular.ttf";
 
 	color.r = 0;
 	color.g = 0;
 	color.b = 0;
 
+	_cannonLife1.w = _cannonLife2.w = _cannonLife3.w = texture->getFrameWidth();
+	_cannonLife1.h = _cannonLife2.h = _cannonLife3.h = texture->getFrameHeight();
+	_cannonLife1.y = _cannonLife2.y = _cannonLife3.y = WIN_HEIGHT - texture->getFrameHeight() - _offset;
+	_cannonLife1.x = _offset;
+	_cannonLife2.x = texture->getFrameWidth() + _offset * 2;
+	_cannonLife3.x = texture->getFrameWidth() * 2 + _offset * 3;
+
+	_pointsRect.x = WIN_WIDTH - to_string(points).size() * fontSize - _offset;
+	_pointsRect.y = WIN_HEIGHT - fontSize - _offset;
+	_pointsRect.w = to_string(points).size() * fontSize;
+	_pointsRect.h = fontSize;
+
 	font = TTF_OpenFont(filename.c_str(), fontSize);
 	surf = TTF_RenderUTF8_Solid(font, to_string(_points).c_str(), color);
 	_pointsTexture = SDL_CreateTextureFromSurface(renderer, surf);
-
-	
-}; //TODO: Pasar Rects de las vidas en el constructor por param
+};
 
 
 InfoBar::~InfoBar() {
@@ -47,7 +57,7 @@ void InfoBar::render() const {
 		_texture->render(_cannonLife3);
 		break;
 	default:
-		throw SDLError("Numero de cannons incorrecto.");
+		throw SDLError("Vidas incorrectas.");
 	}
 
 	//Renders the points
@@ -68,7 +78,7 @@ void InfoBar::update() {
 	_pointsRect.x = WIN_WIDTH - to_string(_points).size() * _fontSize - _offset;
 	_pointsRect.y = WIN_HEIGHT - _offset;
 	_pointsRect.w = to_string(_points).size() * _fontSize;
-	_pointsRect.h = 50;
+	_pointsRect.h = _fontSize;
 }
 
 void InfoBar::setPoints(uint type) {

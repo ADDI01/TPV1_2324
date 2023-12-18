@@ -1,16 +1,26 @@
 #pragma once
 #include "texture.h"
-class Reward
+#include "SceneObject.h"
+
+class Reward : public SceneObject
 {
 private:
-	Texture* _myTexture;
 	SDL_Rect _myRect;
-	const int _velocity;
-protected: 
-	//Reward() {};
-	virtual void rewardBehaviour() = 0/*{_pos -= _velocity}*/;
-	virtual void render() const = 0;
-	virtual void update() = 0/*{mayGrantReward}*/;
-	virtual void onCollision() = 0;
+	Vector2D<float> _velocity;
+	//Defines the father. 
+	Father _father;
+
+public: 
+	Reward(GameState* game, PlayState* myPlayState, SDLApplication* app, 
+		SDL_Renderer* renderer, Texture* texture, Point2D<float>pos, std::pair<uint, uint> size, Vector2D<float> velocity,
+		Father father);
+	virtual void rewardBehaviour() /*{_pos -= _velocity}*/;
+
+	virtual void render() const;
+	virtual void update() /*{mayGrantReward}*/;
+	void save(std::ostream& out) const override {};
+
+	bool hit(SDL_Rect AttackRect, int typeOfDamage) override {};
+	virtual void onCollision();
 };
 

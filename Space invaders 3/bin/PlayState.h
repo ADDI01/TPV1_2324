@@ -33,6 +33,8 @@ private:
 	const uint ALIEN_SPEED = 4;
 	const Vector2D<float> LASER_SPEED = Vector2D<float>(0, 5);
 	std::pair<uint, uint> LASER_SIZE = std::pair<uint, uint>(5, 20);
+	const Vector2D<float> REWARD_SPEED = Vector2D<float>(0, 10);
+	std::pair<uint, uint> REWARD_SIZE = std::pair<uint, uint>(32, 33);
 	const Point2D<float> INFOBAR_POS = Point2D<float>(10, WIN_HEIGHT - 30);
 	std::pair<uint, uint> INFOBAR_SIZE = std::pair<uint, uint>(34, 21);
 	const uint MOTHERSHIP_MOV_CD = 20;
@@ -62,6 +64,8 @@ public:
 	uint getCannonLifes() const { return _cannon->getnLifes(); };
 	Vector2D<float> getLaser_Speed() const { return LASER_SPEED; };
 	std::pair<uint, uint> getLaser_Size() const { return LASER_SIZE; };
+	Vector2D<float> getReward_Speed() const { return REWARD_SPEED; };
+	std::pair<uint, uint> getReward_Size() const { return REWARD_SIZE; };
 	int getRandomRange(int min, int max);
 
 	//setters

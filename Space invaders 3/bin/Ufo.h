@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SceneObject.h"
+#include "Reward.h"
 #include <fstream>
 
 using uint = unsigned int;

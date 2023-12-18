@@ -25,6 +25,7 @@ void PlayState::render() const
 
 void PlayState::update()
 {
+	infoBar->update();
 	_mother->update();
 	for (auto it = gameList.begin(); it != gameList.end(); ++it) {
 		(*it).update();
