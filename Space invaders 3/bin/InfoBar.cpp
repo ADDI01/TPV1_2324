@@ -11,7 +11,7 @@ InfoBar::InfoBar(GameState* game, SDL_Renderer* renderer, PlayState* myPlayState
 	: GameObject(game), _renderer(renderer), _texture(texture), _points(points), _pos(pos), _size(size), 
 	_myPlayState(myPlayState), _fontSize(fontSize)
 {
-	string filename = "./SDL2_TTF/PressStart2P-Regular (1).ttf";
+	string filename = "./SDL2_TTF/PressStart2P-Regular(1).ttf";
 
 	color.r = 0;
 	color.g = 0;
