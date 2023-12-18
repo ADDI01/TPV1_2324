@@ -25,11 +25,12 @@ private:
 	Ufo* _ufo = new Ufo(this,this,myGame, Point2D<float>(800, 100), myGame->getTexture()[5], std::pair<uint, uint>(57, 32),0,10);
 	//Laser* _laser = nullptr;
 	Star* star = new Star(Point2D<float>(0, 0), myGame->getTexture()[4], std::pair<uint, uint>(800, 600));
-	InfoBar* infoBar = new InfoBar(this, this, myGame->getTexture()[1], Point2D<float>(10, WIN_HEIGHT - 30), 
-		std::pair<uint, uint>(34, 21), 0);
+	InfoBar* infoBar = new InfoBar(this, myGame->getRenderer(), this, myGame->getTexture()[1], Point2D<float>(10, WIN_HEIGHT - 30), 
+		std::pair<uint, uint>(34, 21), 0, FONT_SIZE);
 
-	//SceneObjects constants;
-	uint CANNON_SPEED = 30; 
+	//SceneObjects constants
+	const uint FONT_SIZE = 50;
+	const uint CANNON_SPEED = 30;
 	const uint ALIEN_SPEED = 4;
 	const Vector2D<float> LASER_SPEED = Vector2D<float>(0, 5);
 	std::pair<uint, uint> LASER_SIZE = std::pair<uint, uint>(5, 20);

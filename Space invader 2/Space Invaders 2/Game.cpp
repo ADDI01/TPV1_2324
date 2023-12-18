@@ -192,7 +192,6 @@ void Game::update()
 		if (typeid(*it.operator*()) == typeid(Laser)) {
 			std::cout << "Laser " << it.operator*()->getPos().getX() << " "
 				<< it.operator*()->getPos().getY() << std::endl;
-
 			static_cast<Laser*>(*it)->setAux(1);
 		}
 			

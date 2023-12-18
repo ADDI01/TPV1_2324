@@ -8,14 +8,17 @@ using namespace std;
 
 SDLApplication::~SDLApplication(){
 	for (Texture* t : textures) { delete t; t = nullptr; }
+	TTF_Quit();
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
 }
 
 void SDLApplication::init(){
+	
 	// We first initialize SDL
-	// Inicializar SDL, crear ventana y renderizador
+	// Inicializar SDL y TTF, crear ventana y renderizador
+	TTF_Init();
 	SDL_Init(SDL_INIT_EVERYTHING);
 	window = SDL_CreateWindow("Space Invaders", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
 		WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
@@ -28,7 +31,7 @@ void SDLApplication::init(){
 		throw SDLError("No se cargaron las texturas.");
 		/*
 		hay que moverlo
-		loadFromFile("../images/mapas/map" + to_string(nLevel % nLevels) + ".txt"); ç
+		loadFromFile("../images/mapas/map" + to_string(nLevel % nLevels) + ".txt");
 		*/
 	MainMenuState* _mainMenu = new MainMenuState(this, textures[MAINMENUTEXTURE], textures[CONTINUAR], textures[CARGARPARTIDA], textures[SALIR]);
 	_myStateMachine.pushState(_mainMenu);

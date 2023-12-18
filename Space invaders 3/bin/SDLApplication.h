@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <SDL.h>
+#include <SDL_ttf.h>
 #include "checkML.h"
 #include "texture.h"
 #include "GameStateMachine.h"
@@ -20,7 +21,6 @@ class SDLApplication
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	GameStateMachine _myStateMachine;
-
 
 	//Texture's ID
 	enum TextureName { MAINMENUTEXTURE, CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE, UFOTEXTURE, BOMBTEXTURE, SHIELDTEXTURE, SHIELDREWARDTEXTURE 

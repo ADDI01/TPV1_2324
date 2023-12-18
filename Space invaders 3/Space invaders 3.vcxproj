@@ -74,6 +74,10 @@
     <Import Project="ProyectosSDL.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -154,6 +158,7 @@
     <ClCompile Include="bin\Source.cpp" />
     <ClCompile Include="bin\texture.cpp" />
     <ClCompile Include="bin\Ufo.cpp" />
+    <ClCompile Include="Font.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bin\Alien.h" />
@@ -186,6 +191,7 @@
     <ClInclude Include="bin\texture.h" />
     <ClInclude Include="bin\Ufo.h" />
     <ClInclude Include="bin\Vector2D.h" />
+    <ClInclude Include="Font.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

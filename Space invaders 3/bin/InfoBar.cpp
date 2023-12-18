@@ -2,25 +2,32 @@
 #include "SDLError.h"
 #include "SDLApplication.h"
 #include "PlayState.h"
+#include <string>
 
 using namespace std;
 
-InfoBar::InfoBar(GameState* game, PlayState* myPlayState, Texture* texture, Point2D<float> pos, pair<uint, uint> size, uint points) 
-	: GameObject(game), _texture(texture), _points(points), _pos(pos), _size(size), _myPlayState(myPlayState)
+InfoBar::InfoBar(GameState* game, SDL_Renderer* renderer, PlayState* myPlayState, Texture* texture, Point2D<float> pos,
+	pair<uint, uint> size, uint points, uint fontSize)
+	: GameObject(game), _renderer(renderer), _texture(texture), _points(points), _pos(pos), _size(size), 
+	_myPlayState(myPlayState), _fontSize(fontSize)
 {
-	_cannonLife1.w = _cannonLife2.w = _cannonLife3.w = texture->getFrameWidth();
-	_cannonLife1.h = _cannonLife2.h = _cannonLife3.h = texture->getFrameHeight();
-	_cannonLife1.y = _cannonLife2.y = _cannonLife3.y = WIN_HEIGHT - texture->getFrameHeight() - _offset;
-	_cannonLife1.x = _offset; 
-	_cannonLife2.x = texture->getFrameWidth() + _offset * 2;
-	_cannonLife3.x = texture->getFrameWidth() * 2 + _offset * 3;
+	string filename = "./SDL2_TTF/PressStart2P-Regular (1).ttf";
 
-	//_pointsRect(SDL_Rect())
+	color.r = 0;
+	color.g = 0;
+	color.b = 0;
+
+	font = TTF_OpenFont(filename.c_str(), fontSize);
+	surf = TTF_RenderUTF8_Solid(font, to_string(_points).c_str(), color);
+	_pointsTexture = SDL_CreateTextureFromSurface(renderer, surf);
+
+	
 }; //TODO: Pasar Rects de las vidas en el constructor por param
 
 
 InfoBar::~InfoBar() {
 	_texture = nullptr;
+	TTF_CloseFont(font);
 };
 
 void InfoBar::render() const {
@@ -43,8 +50,25 @@ void InfoBar::render() const {
 		throw SDLError("Numero de cannons incorrecto.");
 	}
 
-	//Renders the current puntuation (TODO)
+	//Renders the points
+	SDL_RenderCopy(_renderer, _pointsTexture, nullptr, &_pointsRect);
+}
 
+void InfoBar::update() {
+	surf = TTF_RenderUTF8_Solid(font, to_string(_points).c_str(), color);
+	_pointsTexture = SDL_CreateTextureFromSurface(_renderer, surf);
+
+	_cannonLife1.w = _cannonLife2.w = _cannonLife3.w = _texture->getFrameWidth();
+	_cannonLife1.h = _cannonLife2.h = _cannonLife3.h = _texture->getFrameHeight();
+	_cannonLife1.y = _cannonLife2.y = _cannonLife3.y = WIN_HEIGHT - _texture->getFrameHeight() - _offset;
+	_cannonLife1.x = _offset;
+	_cannonLife2.x = _texture->getFrameWidth() + _offset * 2;
+	_cannonLife3.x = _texture->getFrameWidth() * 2 + _offset * 3;
+
+	_pointsRect.x = WIN_WIDTH - to_string(_points).size() * _fontSize - _offset;
+	_pointsRect.y = WIN_HEIGHT - _offset;
+	_pointsRect.w = to_string(_points).size() * _fontSize;
+	_pointsRect.h = 50;
 }
 
 void InfoBar::setPoints(uint type) {
