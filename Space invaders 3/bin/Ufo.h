@@ -27,6 +27,8 @@ private:
 	float _currentDieTime = 0;
 	//Initial position of the UFO
 	Vector2D<float> _initialPos;
+	//Pointer to reward
+	Reward* _reward = nullptr;
 
 public:
 	Ufo(GameState* State, PlayState* myPlayState, SDLApplication* app, Vector2D<float> pos, Texture* texture, std::pair<uint, uint> size, int state, float wait);
@@ -41,5 +43,8 @@ public:
 	//Specific actions
 	bool hit(SDL_Rect AttackRect, int typeOfDamage) override;
 	void updateState();
+
+	//Getter
+	Reward* getReward() const { return _reward; };
 };
 

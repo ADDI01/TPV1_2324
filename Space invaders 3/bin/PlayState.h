@@ -28,12 +28,12 @@ private:
 	InfoBar* infoBar = nullptr;
 
 	//SceneObjects constants
-	const uint FONT_SIZE = 50;
+	const uint FONT_SIZE = 20;
 	const uint CANNON_SPEED = 30;
 	const uint ALIEN_SPEED = 4;
 	const Vector2D<float> LASER_SPEED = Vector2D<float>(0, 5);
 	std::pair<uint, uint> LASER_SIZE = std::pair<uint, uint>(5, 20);
-	const Vector2D<float> REWARD_SPEED = Vector2D<float>(0, 10);
+	const Vector2D<float> REWARD_SPEED = Vector2D<float>(0, 3);
 	std::pair<uint, uint> REWARD_SIZE = std::pair<uint, uint>(32, 33);
 	const Point2D<float> INFOBAR_POS = Point2D<float>(10, WIN_HEIGHT - 30);
 	std::pair<uint, uint> INFOBAR_SIZE = std::pair<uint, uint>(34, 21);
@@ -73,6 +73,7 @@ public:
 	Vector2D<float> getReward_Speed() const { return REWARD_SPEED; };
 	std::pair<uint, uint> getReward_Size() const { return REWARD_SIZE; };
 	int getRandomRange(int min, int max);
+	InfoBar* getInfoBar() const { return infoBar; };
 
 	//setters
 	void setWin() { win = true; };

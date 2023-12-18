@@ -80,6 +80,7 @@ bool Alien::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	if (typeOfDamage != 0 && SDL_HasIntersection(&AttackRect, &_myRect)) //Cannon bullet collides an alien
 	{
 		if (_subType != -1) { //Alien is declared dead
+			_myPlayState->getInfoBar()->setPoints(_subType);
 			_subType = -1;
 			_myPlayState->HasDied(_itS);
 			_mother->alienDied();
