@@ -95,8 +95,11 @@ bool Ufo::hit(SDL_Rect AttackRect, int typeOfDamage)
 {
 	if (_currentState == VISIBLE &&typeOfDamage != 0 && SDL_HasIntersection(&AttackRect, &_myRect))
 	{
-		Reward* reward = new Reward(_game, _myPlayState, _myApp, _myApp->getRenderer(), _myApp->getTexture()[SHIELDREWARDTEXTURE],
-			_pos, _myPlayState->getLaser_Size(), _myPlayState->getReward_Speed(), UFO);
+   		Reward* r = new Reward(_game, _myPlayState, _myApp, _myApp->getRenderer(), _myApp->getTexture()[SHIELDREWARDTEXTURE],
+			_pos, _myPlayState->getReward_Size(), _myPlayState->getReward_Speed(), UFO);
+
+		_game->addObject(r);
+		_myPlayState->addSceneObject(r);
 		_currentState = DESTRUIDO;
 		return true;
 	}
