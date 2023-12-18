@@ -1,4 +1,4 @@
-﻿  InfoBar.cpp
+﻿  Carga.cpp
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
@@ -12,7 +12,7 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\B
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(14,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
           with
           [
-              _Ty2=uint
+              _Ty2=unsigned int
           ]
           and
           [
@@ -21,7 +21,7 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\M
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(18,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
           with
           [
-              _Ty2=uint
+              _Ty2=unsigned int
           ]
           and
           [
@@ -30,13 +30,11 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\M
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(22,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
           with
           [
-              _Ty2=uint
+              _Ty2=unsigned int
           ]
           and
           [
               T=float
           ]
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Mothership.h(51,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\InfoBar.cpp(27,66): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\InfoBar.cpp(29,43): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
   Space invaders 3.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Space invaders 3Debug.exe

@@ -9,6 +9,7 @@
 #include "Ufo.h"
 #include "SDLApplication.h"
 #include "checkML.h"
+#include <string>
 
 class SceneObject;
 using uint = unsigned int;
@@ -51,7 +52,7 @@ private:
 	GameList<SceneObject,false> _sceneObjectList;
 public:
 	//has die, colisiones, etc.
-	PlayState(SDLApplication* myGame) : GameState(myGame) { loadFromFile("./recursos/mapas/pred0.txt"); };
+	PlayState(SDLApplication* myGame, std::string file) : GameState(myGame) { loadFromFile(file); };
 	~PlayState();
 	void mayGrantReward() {};
 	virtual void render() const override ;

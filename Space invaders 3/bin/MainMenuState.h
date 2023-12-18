@@ -25,6 +25,7 @@ private:
 	void meHanPulsado() { std::cout << "a"; };
 	void exit();
 	void goToPlayState();
+	void carga();
 
 public:
 	MainMenuState(SDLApplication* myGame, Texture* myTexture, Texture* nuevaPartida, Texture* cargarPartida, Texture* salir);
