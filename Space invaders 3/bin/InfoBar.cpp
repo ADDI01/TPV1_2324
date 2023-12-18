@@ -37,7 +37,7 @@ InfoBar::InfoBar(GameState* game, SDL_Renderer* renderer, PlayState* myPlayState
 
 InfoBar::~InfoBar() {
 	_texture = nullptr;
-	TTF_CloseFont(font);
+	//TTF_CloseFont(font);
 };
 
 void InfoBar::render() const {

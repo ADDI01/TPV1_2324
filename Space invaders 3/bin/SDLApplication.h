@@ -42,6 +42,7 @@ class SDLApplication
 	bool exit = false;
 	bool playState = false;
 	bool pauseExit = false;
+	bool vuelvMenu = false;
 
 public:
 	SDLApplication() {};
@@ -65,5 +66,6 @@ public:
 	SDL_Window* getWindow() const { return window; };
 	void setExit() { exit = true; };
 	void setPlayState() { playState = true; };
+	void setvuelveMenu() { vuelvMenu = true; };
 	std::vector<Texture*> getTexture() { return textures; };
 };

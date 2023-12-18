@@ -129,6 +129,12 @@ void SDLApplication::run()
 			_myStateMachine.popState();
 			pauseExit = false;
 		}
+		if (vuelvMenu) {
+			MainMenuState* _mainMenu = new MainMenuState(this, textures[MAINMENUTEXTURE], textures[CONTINUAR],
+				textures[CARGARPARTIDA], textures[SALIR]);
+			replaceState(_mainMenu);
+			vuelvMenu = false;
+		}
 		if (exit) {
 			exitGame();
 		}
