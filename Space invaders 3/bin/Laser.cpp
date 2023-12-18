@@ -60,7 +60,6 @@ void Laser::save(std::ostream& out) const {
 bool Laser::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	if (typeOfDamage != _father && SDL_HasIntersection(&AttackRect, &_myRect))
 	{
-
 		_myPlayState->HasDied(_itS);
 		return true; //No need to call hasDie()
 	} 
