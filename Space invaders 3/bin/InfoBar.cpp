@@ -13,9 +13,9 @@ InfoBar::InfoBar(GameState* game, SDL_Renderer* renderer, PlayState* myPlayState
 {
 	string filename = "./SDL2_ttf-2.20.2/PressStart2P-Regular.ttf";
 
-	color.r = 0;
-	color.g = 0;
-	color.b = 0;
+	color.r = 255;
+	color.g = 255;
+	color.b = 255;
 
 	_cannonLife1.w = _cannonLife2.w = _cannonLife3.w = texture->getFrameWidth();
 	_cannonLife1.h = _cannonLife2.h = _cannonLife3.h = texture->getFrameHeight();
@@ -75,10 +75,14 @@ void InfoBar::update() {
 	_cannonLife2.x = _texture->getFrameWidth() + _offset * 2;
 	_cannonLife3.x = _texture->getFrameWidth() * 2 + _offset * 3;
 
-	_pointsRect.x = WIN_WIDTH - to_string(_points).size() * _fontSize - _offset;
+	/*_pointsRect.x = WIN_WIDTH - to_string(_points).size() * _fontSize - _offset;
 	_pointsRect.y = WIN_HEIGHT - _offset;
 	_pointsRect.w = to_string(_points).size() * _fontSize;
-	_pointsRect.h = _fontSize;
+	_pointsRect.h = _fontSize;*/
+	_pointsRect.x = 400;
+	_pointsRect.y = 400;
+	_pointsRect.w = 100;
+	_pointsRect.h = 50;
 }
 
 void InfoBar::setPoints(uint type) {
