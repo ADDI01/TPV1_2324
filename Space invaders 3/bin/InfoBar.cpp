@@ -75,14 +75,14 @@ void InfoBar::update() {
 	_cannonLife2.x = _texture->getFrameWidth() + _offset * 2;
 	_cannonLife3.x = _texture->getFrameWidth() * 2 + _offset * 3;
 
-	/*_pointsRect.x = WIN_WIDTH - to_string(_points).size() * _fontSize - _offset;
-	_pointsRect.y = WIN_HEIGHT - _offset;
+	_pointsRect.x = WIN_WIDTH - to_string(_points).size() * _fontSize - _offset;
+	_pointsRect.y = WIN_HEIGHT - _fontSize - _offset;
 	_pointsRect.w = to_string(_points).size() * _fontSize;
-	_pointsRect.h = _fontSize;*/
-	_pointsRect.x = 400;
+	_pointsRect.h = _fontSize;
+	/*_pointsRect.x = 400;
 	_pointsRect.y = 400;
 	_pointsRect.w = 100;
-	_pointsRect.h = 50;
+	_pointsRect.h = 50;*/
 }
 
 void InfoBar::setPoints(uint type) {
@@ -96,6 +96,7 @@ void InfoBar::setPoints(uint type) {
 		break;
 	case 2: //Big
 		_points += 10;
+		break;
 	case 3: //UFO
 		_points += 100;
 		break;

@@ -11,7 +11,7 @@ void Reward::rewardBehaviour()
 
 void Reward::render() const
 {
-	_texture->render();
+	_texture->render(_myRect);
 }
 
 void Reward::update()
@@ -28,7 +28,7 @@ void Reward::update()
 
 void Reward::onCollision()
 {
-	//if (_pos.getY() >= WIN_HEIGHT || _myPlayState->damage(_myRect, _father)) {
-	//	_myPlayState->HasDied(_itS);
-	//}
+	/*if (_pos.getY() >= WIN_HEIGHT || _myPlayState->damage(_myRect, _father)) {
+		_myPlayState->HasDied(_itS);
+	}*/
 }
