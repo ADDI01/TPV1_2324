@@ -36,7 +36,9 @@ void Cannon::update()
 	{
 		_shootCD--;
 	}
-
+	if (invincible) {
+		cout << "a";
+	}
 	//Cannon's Dest_Rect is modified
 	_myRect.x = _pos.getX() - (_size.first / 2);
 	_myRect.y = _pos.getY();

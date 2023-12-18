@@ -100,6 +100,7 @@ bool Ufo::hit(SDL_Rect AttackRect, int typeOfDamage)
 		//case 1: //cae Reward
 			_reward = new Reward(_game, _myPlayState, _myApp, _myApp->getRenderer(), _myApp->getTexture()[SHIELDREWARDTEXTURE],
 				_pos, _myPlayState->getReward_Size(), _myPlayState->getReward_Speed(), UFO);
+			_reward->Connect([this]() {_myPlayState->escudo(); });
 			_game->addObject(_reward);
 			_myPlayState->addSceneObject(_reward);
 		//	break;

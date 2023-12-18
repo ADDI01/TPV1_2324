@@ -56,7 +56,7 @@ public:
 	//has die, colisiones, etc.
 	PlayState(SDLApplication* myGame, std::string file) : GameState(myGame) { loadFromFile(file); };
 	~PlayState();
-	void mayGrantReward(const SDL_Rect& rect);
+	bool mayGrantReward(SDL_Rect& rect);
 	virtual void render() const override ;
 	virtual void update() override ;
 	void handleEvent(const SDL_Event& event);
@@ -67,6 +67,7 @@ public:
 	void limpiaLista();
 	void gameWin();
 	void save(std::string file);
+	void escudo();
 
 	void loadFromFile(std::string fileName);
 

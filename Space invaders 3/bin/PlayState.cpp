@@ -15,11 +15,14 @@ PlayState::~PlayState()
 	delete star;
 }
 
-void PlayState::mayGrantReward(const SDL_Rect& rect)
+
+
+bool PlayState::mayGrantReward( SDL_Rect& rect)
 {
-	if (SDL_HasIntersection(&rect, &_cannon->getRect())) {
-		_cannon->setInvincibility(true);
+	if (SDL_HasIntersection(&rect, _cannon->getRect())) {
+		return true;
 	}
+	return false;
 }
 
 void PlayState::render() const
@@ -107,6 +110,11 @@ void PlayState::save(std::string file)
 	_mother->save(out);
 	infoBar->save(out);
 	out.close();
+}
+
+void PlayState::escudo()
+{
+	_cannon->setInvincibility(true);
 }
 
 void PlayState::loadFromFile(std::string fileName)

@@ -40,7 +40,7 @@ public:
 
 	//Getters
 	Vector2D<float> getPosition() const { return _pos; };
-	SDL_Rect getRect() const { return _myRect; };
+	SDL_Rect* getRect() { return &_myRect; };
 	uint getnLifes() const { return _life; };
 	void setInvincibility(bool i) { invincible = i; };
 };
