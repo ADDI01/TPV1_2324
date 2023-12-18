@@ -108,6 +108,12 @@ void SDLApplication::cargaJuego(std::string file)
 	replaceState(aux);
 }
 
+void SDLApplication::returnToGame()
+{
+	_myStateMachine.popState();
+	_myStateMachine.popState();
+}
+
 void SDLApplication::pushState(GameState* gS)
 {
 	_myStateMachine.pushState(gS);
@@ -150,6 +156,10 @@ void SDLApplication::run()
 		if (cargarArchivo) {
 			cargaJuego(fileToCharge);
 			cargarArchivo = false;
+		}
+		if (guardarArchivo) {
+			returnToGame();
+			guardarArchivo = false;
 		}
 		if (exit) {
 			exitGame();

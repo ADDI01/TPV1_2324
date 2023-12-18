@@ -1,5 +1,7 @@
 #include "PauseState.h"
 #include "SDLApplication.h"
+#include "Save.h"
+#include "Carga.h"
 
 PauseState::PauseState(SDLApplication* myGame, Texture* continuarTexture, Texture* guardarPartidaTexture,
 	Texture* cargarPartidaTexture, Texture* salirTexture) : GameState(myGame)
@@ -35,10 +37,14 @@ void PauseState::continuar()
 
 void PauseState::guardarPartida()
 {
+	Save* aux = new Save(myGame, _myPlayState);
+	myGame->pushState(aux);
 }
 
 void PauseState::cargarPartida()
 {
+	Carga* aux = new Carga(myGame, _myPlayState);
+	myGame->pushState(aux);
 }
 
 void PauseState::salir()

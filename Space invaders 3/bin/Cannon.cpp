@@ -13,7 +13,7 @@ Cannon::Cannon(GameState* gameState, PlayState* myPlayState, SDLApplication* app
 	: SceneObject(gameState, myPlayState,app, in, texture), _velocity(velocity)
 {
 	in >> _shootCD;
-	//game->setLandedHeight(_pos.getY());
+	//myPlayState->setLandedHeight(_pos.getY());
 };
 
 Cannon:: ~Cannon() {
@@ -75,7 +75,7 @@ void Cannon::manageEvent(const SDL_Event& event)
 
 
 void Cannon::save(std::ostream & out) const {
-	//out << 0 << " " << _pos.getX() << " " << _pos.getY() << " " << _life << " " << _shootCD << endl;
+	out << 0 << " " << _pos.getX() << " " << _pos.getY() << " " << _life << " " << _shootCD << endl;
 }
 bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	if (typeOfDamage != PLAYER && SDL_HasIntersection(&AttackRect, &_myRect)) { //Alien bullet collides the cannon
