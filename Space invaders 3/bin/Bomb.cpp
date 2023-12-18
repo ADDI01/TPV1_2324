@@ -14,7 +14,7 @@ void Bomb::update()
 {
 	//Logica de choque con otro objeto
 	_pos = _pos + _velocity;
-	onCollision();
+	//onCollision();
 
 	_myRect.x = _pos.getX();
 	_myRect.y = _pos.getY();

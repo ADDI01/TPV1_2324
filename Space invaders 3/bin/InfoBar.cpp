@@ -83,7 +83,7 @@ void InfoBar::update() {
 
 void InfoBar::save(std::ostream& out) const
 {
-	out << 7 << " " << _pos.getX() << " " << _pos.getY() << " " << _points << std::endl;
+	out << 7 << " " << _points << std::endl;
 }
 
 void InfoBar::setPoints(uint type) {
@@ -102,8 +102,7 @@ void InfoBar::setPoints(uint type) {
 		_points += 100;
 		break;
 	default:
-		SDLError r("Enemigo incorrecto.");
-		throw r.what();
+		_points += type;
 		break;
 	}
 }
