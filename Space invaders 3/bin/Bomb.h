@@ -21,6 +21,6 @@ public:
 	void save(std::ostream& out) const override {};
 
 	bool hit(SDL_Rect AttackRect, int typeOfDamage) override;
-	//virtual void onCollision();
+	//void onCollision() {};
 };
 

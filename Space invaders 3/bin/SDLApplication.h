@@ -45,6 +45,7 @@ class SDLApplication
 	bool pauseExit = false;
 	bool vuelvMenu = false;
 	bool cargarArchivo = false;
+	bool guardarArchivo = false;
 	std::string fileToCharge = "";
 
 public:
@@ -63,6 +64,7 @@ public:
 	void exitPause();
 	void replaceState(GameState* gS);
 	void cargaJuego(std::string file);
+	void returnToGame();
 
 	//getters & setters
 	uint getHeight() const { return WIN_HEIGHT; };
@@ -73,5 +75,6 @@ public:
 	void setPlayState() { playState = true; };
 	void setvuelveMenu() { vuelvMenu = true; };
 	void setCarga(std::string file) { cargarArchivo = true; fileToCharge = file; };
+	void setguarda() { guardarArchivo = true; };
 	std::vector<Texture*> getTexture() { return textures; };
 };

@@ -153,6 +153,7 @@
     <ClCompile Include="bin\PauseState.cpp" />
     <ClCompile Include="bin\PlayState.cpp" />
     <ClCompile Include="bin\Reward.cpp" />
+    <ClCompile Include="bin\Save.cpp" />
     <ClCompile Include="bin\SceneObject.cpp" />
     <ClCompile Include="bin\SDLApplication.cpp" />
     <ClCompile Include="bin\ShooterAlien.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="bin\PauseState.h" />
     <ClInclude Include="bin\PlayState.h" />
     <ClInclude Include="bin\Reward.h" />
+    <ClInclude Include="bin\Save.h" />
     <ClInclude Include="bin\SceneObject.h" />
     <ClInclude Include="bin\SDLApplication.h" />
     <ClInclude Include="bin\SDLError.h" />

@@ -94,6 +94,21 @@ void PlayState::gameWin()
 	loadFromFile(direc);
 }
 
+void PlayState::save(std::string file)
+{
+	ofstream out(file);
+	if (!out.is_open()) {
+		throw FileFormatError(file);
+	}
+	for (auto it = gameList.begin(); it != gameList.end(); ++it)
+	{
+		(*it).save(out);
+	}
+	_mother->save(out);
+	infoBar->save(out);
+	out.close();
+}
+
 void PlayState::loadFromFile(std::string fileName)
 {
 	//TODO: Distribuir el load en las clases de los SceneObjects

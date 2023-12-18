@@ -66,6 +66,7 @@ public:
 	void addSceneObject(SceneObject* s) { _sceneObjectList.push_back(s); };
 	void limpiaLista();
 	void gameWin();
+	void save(std::string file);
 
 	void loadFromFile(std::string fileName);
 
