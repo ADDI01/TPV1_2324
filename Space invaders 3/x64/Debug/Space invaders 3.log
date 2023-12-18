@@ -37,27 +37,27 @@ C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\M
               T=float
           ]
 C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Mothership.h(51,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(43,26): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(50,26): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(44,23): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(51,23): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
               T=float
           ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(55,34): warning C4305: 'argumento': truncamiento de 'double' a 'T'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(62,34): warning C4305: 'argumento': truncamiento de 'double' a 'T'
           with
           [
               T=float
           ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(57,33): warning C4305: 'argumento': truncamiento de 'double' a 'T'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(64,33): warning C4305: 'argumento': truncamiento de 'double' a 'T'
           with
           [
               T=float
           ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(96,54): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\TPV1_2324\Space invaders 3\bin\Cannon.cpp(105,54): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
           with
           [
               _Ty2=int
