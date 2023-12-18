@@ -37,6 +37,10 @@ private:
 	std::pair<uint, uint> INFOBAR_SIZE = std::pair<uint, uint>(34, 21);
 	const uint MOTHERSHIP_MOV_CD = 20;
 	const uint MOTHERSHIP_LEVEL = 20;
+	const int nLevels = 4;
+
+	//Specific atributes
+	int nLevel = 0;
 	
 	//condiciones del juego
 	bool win = false;
@@ -45,7 +49,7 @@ private:
 	GameList<SceneObject,false> _sceneObjectList;
 public:
 	//has die, colisiones, etc.
-	PlayState(SDLApplication* myGame) : GameState(myGame) { loadFromFile("./recursos/mapas/original.txt"); };
+	PlayState(SDLApplication* myGame) : GameState(myGame) { loadFromFile("./recursos/mapas/pred0.txt"); };
 	~PlayState();
 	void mayGrantReward() {};
 	virtual void render() const override ;
@@ -55,6 +59,8 @@ public:
 	bool damage(SDL_Rect rect, Father father) const;
 	void HasDied(GameList<SceneObject, false>::anchor itS);
 	void addSceneObject(SceneObject* s) { _sceneObjectList.push_back(s); };
+	void limpiaLista();
+	void gameWin();
 
 	void loadFromFile(std::string fileName);
 
@@ -65,7 +71,7 @@ public:
 	int getRandomRange(int min, int max);
 
 	//setters
-	void gameWin() { win = true; };
-	void lose() { losed = true; };
+	void setWin() { win = true; };
+	void setLose() { losed = true; };
 };
 

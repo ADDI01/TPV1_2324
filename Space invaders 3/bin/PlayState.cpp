@@ -2,7 +2,9 @@
 #include "PauseState.h"
 #include "FileNotFoundError.h"
 #include "FileFormatError.h"
+#include "EndState.h"
 #include <fstream>
+#include <string>
 #include <random>
 using namespace std;
 PlayState::~PlayState()
@@ -29,13 +31,23 @@ void PlayState::update()
 	for (auto it = gameList.begin(); it != gameList.end(); ++it) {
 		(*it).update();
 	}
+	if (win) {
+		gameWin();
+		win = false;
+	}
+	if (losed) {
+		EndState* end = new EndState(myGame, myGame->getTexture()[VOLVERALMENU], myGame->getTexture()[SALIR]);
+		myGame->replaceState(end);
+
+	}
 }
 
 
 void PlayState::handleEvent(const SDL_Event& event) {
 	if (event.key.keysym.sym == SDLK_ESCAPE)
 	{
-		PauseState* pause = new PauseState(myGame, myGame->getTexture()[11], myGame->getTexture()[13], myGame->getTexture()[9], myGame->getTexture()[16]);
+		PauseState* pause = new PauseState(myGame, myGame->getTexture()[CONTINUAR], myGame->getTexture()[GUARDARPARTIDA],
+			myGame->getTexture()[CARGARPARTIDA], myGame->getTexture()[SALIR]);
 		myGame->pushState(pause);
 		pause->setPlayState(this);
 	}
@@ -60,6 +72,20 @@ void PlayState::HasDied(GameList<SceneObject,false>::anchor itS)
 	_sceneObjectList.erase(itS);
 }
 
+void PlayState::limpiaLista()
+{
+	gameList.clear();
+	_sceneObjectList.clear();
+	eventHandlerList.clear();
+}
+
+void PlayState::gameWin()
+{
+	nLevel++;
+	string direc = "./recursos/mapas/pred" + to_string(nLevel % nLevels) + ".txt";
+	loadFromFile(direc);
+}
+
 void PlayState::loadFromFile(std::string fileName)
 {
 	//TODO: Distribuir el load en las clases de los SceneObjects
@@ -69,7 +95,7 @@ void PlayState::loadFromFile(std::string fileName)
 	int tObject = -1, latestRow = -1, state = -1, level = -1, currentLvl = -1, points = -1;
 	bool idle = false;
 
-	//limpiaLista();
+	limpiaLista();
 	if (infoBar != nullptr) delete infoBar;
 	if (!file.is_open()) throw FileNotFoundError(fileName);
 

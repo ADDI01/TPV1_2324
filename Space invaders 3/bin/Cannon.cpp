@@ -83,7 +83,7 @@ bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {
 		_pos = Vector2D<float>(WIN_WIDTH / 2, _pos.getY());
 		std::cout << _life;
 		if (_life == 0) { //No lifes left -> End the game
-			//mygame->lose();
+			_myPlayState->setLose();
 		}
 		return true;
 	}

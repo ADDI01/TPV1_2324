@@ -10,7 +10,7 @@ Mothership::Mothership(GameState* game, PlayState* myPlayState, int estado, int 
 void Mothership::update()
 {
 	if (_contAliens == 0) {
-		_myPlayState->gameWin();
+		_myPlayState->setWin();
 	}
 
 	if (_lower) {
@@ -51,7 +51,7 @@ Vector2D<float> Mothership::getDirection()
 
 void Mothership::haveLanded() 
 {
-	_myPlayState->lose();
+	_myPlayState->setLose();
 }
 
 bool Mothership:: alienLanded(float y) const { return y >= _myPlayState->getLandedHeight(); }
