@@ -75,7 +75,7 @@ void PlayState::loadFromFile(std::string fileName)
 
 	//Specific objects are created here
 	_mother = new Mothership(this,this, 0, MOTHERSHIP_LEVEL, MOTHERSHIP_MOV_CD);
-	infoBar = new InfoBar(this, this, myGame->getTexture()[CANNONTEXTURE], INFOBAR_POS, INFOBAR_SIZE, 0);
+	infoBar = new InfoBar(this, myGame->getRenderer(), this, myGame->getTexture()[CANNONTEXTURE], INFOBAR_POS, INFOBAR_SIZE, 0, FONT_SIZE);
 	star = new Star(Point2D<float>(0, 0), myGame->getTexture()[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
 
 	while (!file.eof()) {
