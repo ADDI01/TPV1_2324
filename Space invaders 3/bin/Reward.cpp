@@ -28,7 +28,7 @@ void Reward::update()
 
 void Reward::onCollision()
 {
-	if (_pos.getY() >= WIN_HEIGHT || _myPlayState->damage(_myRect, _father)) {
-		_myPlayState->HasDied(_itS);
-	}
+	//if (_pos.getY() >= WIN_HEIGHT || _myPlayState->damage(_myRect, _father)) {
+	//	_myPlayState->HasDied(_itS);
+	//}
 }

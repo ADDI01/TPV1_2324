@@ -20,7 +20,7 @@ public:
 	virtual void update() /*{mayGrantReward}*/;
 	void save(std::ostream& out) const override {};
 
-	bool hit(SDL_Rect AttackRect, int typeOfDamage) override {};
+	bool hit(SDL_Rect AttackRect, int typeOfDamage) override { return true; };
 	virtual void onCollision();
 };
 
