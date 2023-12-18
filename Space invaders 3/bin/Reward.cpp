@@ -26,6 +26,12 @@ void Reward::update()
 	_myRect.h = _size.second;
 }
 
+bool Reward::hit(SDL_Rect AttackRect, int typeOfDamage)
+{
+
+	return false;
+};
+
 void Reward::onCollision()
 {
 	/*if (_pos.getY() >= WIN_HEIGHT || _myPlayState->damage(_myRect, _father)) {

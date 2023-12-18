@@ -2,6 +2,7 @@
 
 #include "SceneObject.h"
 #include "Reward.h"
+#include "Bomb.h"
 #include <fstream>
 
 using uint = unsigned int;
@@ -29,6 +30,8 @@ private:
 	Vector2D<float> _initialPos;
 	//Pointer to reward
 	Reward* _reward = nullptr;
+	//Pointer to bomb
+	Bomb* _bomb = nullptr;
 
 public:
 	Ufo(GameState* State, PlayState* myPlayState, SDLApplication* app, Vector2D<float> pos, Texture* texture, std::pair<uint, uint> size, int state, float wait);

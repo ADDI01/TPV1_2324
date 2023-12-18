@@ -79,10 +79,11 @@ void InfoBar::update() {
 	_pointsRect.y = WIN_HEIGHT - _fontSize - _offset;
 	_pointsRect.w = to_string(_points).size() * _fontSize;
 	_pointsRect.h = _fontSize;
-	/*_pointsRect.x = 400;
-	_pointsRect.y = 400;
-	_pointsRect.w = 100;
-	_pointsRect.h = 50;*/
+}
+
+void InfoBar::save(std::ostream& out) const
+{
+	out << 7 << " " << _pos.getX() << " " << _pos.getY() << " " << _points << std::endl;
 }
 
 void InfoBar::setPoints(uint type) {
