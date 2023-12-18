@@ -1,9 +1,9 @@
 #pragma once
-
 #include <SDL_ttf.h>
 #include <SDL.h>
 #include "bin/texture.h"
 #include <string>
+#include "bin/checkML.h"
 
 class Font {
 	TTF_Font* font = nullptr;
