@@ -1,5 +1,6 @@
 #include "Bunker.h"
 #include "SDLError.h"
+#include "PlayState.h"
 #include <fstream>
 
 using namespace std;
@@ -37,13 +38,10 @@ void Bunker::render() const {
 }
 
 void Bunker::update() {
-	/*if (_game->damage(_myRect, BUNKER))
+	if (_myPlayState->damage(_myRect, BUNKER))
 	{
-		_life--;
-		if (_life == 0) {
-			_game->hasDie(_it);
-		}
-	}*/
+		takeDamage();
+	}
 
 	//Bunker's Dest_Rect is modified
 	_myRect.x = _pos.getX();
@@ -57,14 +55,23 @@ void Bunker::save(std::ostream& out) const {
 }
 
 bool Bunker::hit(SDL_Rect AttackRect, int typeOfDamage) {
-	if (typeOfDamage != 2)
+	if (typeOfDamage != BUNKER)
 	{
 		if (SDL_HasIntersection(&AttackRect, &_myRect)) {
+			takeDamage();
 			return true;
 		}
 	}
 	else
 	{
 		return false;
+	}
+}
+
+void Bunker::takeDamage()
+{
+	_life--;
+	if (_life == 0) {
+		_myPlayState->HasDied(_itS);
 	}
 }

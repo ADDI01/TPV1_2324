@@ -22,7 +22,7 @@ protected:
 	//Pointer to texture
 	Texture* _texture = nullptr;
 	//Iterator to the SceneObject in the list of SceneObjects
-	std::list<SceneObject*>::iterator _it;
+	GameList<SceneObject, false>::anchor _itS;
 	//Estado de juego, es el mismo que su GameState, pero habría que castear para cogerlo si no se usan 2 parámtros distintos
 	PlayState* _myPlayState;
 	//Puntero a la Aplicación
@@ -44,5 +44,6 @@ public:
 
 	//Specific actions
 	virtual bool hit(SDL_Rect AttackRect, int typeOfDamage) = 0;
+	void setListAnchor(GameList < SceneObject, false>::anchor it) { _itS = it; };
 };
 

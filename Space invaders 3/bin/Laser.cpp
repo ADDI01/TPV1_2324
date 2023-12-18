@@ -1,4 +1,5 @@
 #include "Laser.h"
+#include "PlayState.h"
 #include <fstream>
 
 using namespace std;
@@ -29,6 +30,13 @@ void Laser::render() const {
 }
 
 void Laser::update() {
+
+	//Laser's Dest_Rect is modified
+	_myRect.x = _pos.getX();
+	_myRect.y = _pos.getY();
+	_myRect.w = _size.first;
+	_myRect.h = _size.second;
+
 	if (_life > 0) {
 		if (_father == PLAYER) //Laser from player
 		{
@@ -39,15 +47,9 @@ void Laser::update() {
 			_pos = _pos + _velocity; //Laser moves
 		}
 		//Laser gets out of limits of screen or hits something
-		//if (_pos.getY() <= 0 || _pos.getY() >= WIN_HEIGHT || _game->damage(_myRect, _father)) { 
-		//	_game->hasDie(_it);
-		//}
-
-		//Laser's Dest_Rect is modified
-		_myRect.x = _pos.getX();
-		_myRect.y = _pos.getY();
-		_myRect.w = _size.first;
-		_myRect.h = _size.second;
+		if (_pos.getY() <= 0 || _pos.getY() >= WIN_HEIGHT || _myPlayState->damage(_myRect, _father)) { 
+			_myPlayState->HasDied(_itS);
+		}
 	}
 }
 
@@ -58,7 +60,9 @@ void Laser::save(std::ostream& out) const {
 bool Laser::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	if (typeOfDamage != _father && SDL_HasIntersection(&AttackRect, &_myRect))
 	{
-			return true; //No need to call hasDie()
+
+		_myPlayState->HasDied(_itS);
+		return true; //No need to call hasDie()
 	} 
 	return false;
 }

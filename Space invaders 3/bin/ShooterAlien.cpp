@@ -38,6 +38,7 @@ void ShooterAlien::fireLaser() {
 	Laser* l = new Laser(_pos + Vector2D<float>(_size.first / 2, _size.second),_myPlayState->getLaser_Speed(),
 		_myPlayState->getLaser_Size(), _game,_myPlayState,_myApp, _myApp->getRenderer(), ALIEN);
 	_game->addObject(l);
+	_myPlayState->addSceneObject(l);
 }
 
 void ShooterAlien::save(std::ostream& out) const {
