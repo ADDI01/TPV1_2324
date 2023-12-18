@@ -10,7 +10,7 @@
 using uint = unsigned int;
 class PlayState;
 
-enum Father { ALIEN, PLAYER, BUNKER, UFO };
+enum Father { ALIEN, PLAYER, BUNKER, UFO, BOMB};
 
 class SceneObject: public GameObject 
 {

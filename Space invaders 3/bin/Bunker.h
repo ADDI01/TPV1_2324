@@ -27,7 +27,7 @@ public:
 
 	//Specific actions
 	bool hit(SDL_Rect AttackRect, int typeOfDamage) override;
-	void takeDamage();
+	void takeDamage(int life);
 
 	//Getters
 	SDL_Rect getRect() const { return _myRect; };
