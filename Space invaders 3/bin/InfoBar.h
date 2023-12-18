@@ -54,7 +54,7 @@ public:
 	//GameStates
 	void render() const override;
 	void update() override;
-	void save(std::ostream& out) const override {};
+	void save(std::ostream& out) const override;
 
 	//Setter
 	void setPoints(uint type);
