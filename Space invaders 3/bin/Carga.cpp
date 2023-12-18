@@ -16,15 +16,14 @@ void Carga::render() const
 	SDL_RenderFillRect(myGame->getRenderer(), &rect);
 	SDL_SetRenderDrawBlendMode(myGame->getRenderer(), SDL_BLENDMODE_NONE);
 
-	rect.x = 300;
-	rect.y = 440;
+	rect.x = 200;
+	rect.y = 200;
+	rect.w = 400;
+	rect.h = 100;
 	SDL_SetRenderDrawBlendMode(myGame->getRenderer(), SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(myGame->getRenderer(), 255, 255, 255, 200);
 	SDL_RenderFillRect(myGame->getRenderer(), &rect);
 	SDL_SetRenderDrawBlendMode(myGame->getRenderer(), SDL_BLENDMODE_NONE);
-
-
-
 }
 
 void Carga::update()
