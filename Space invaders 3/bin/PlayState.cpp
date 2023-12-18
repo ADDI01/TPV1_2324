@@ -15,6 +15,13 @@ PlayState::~PlayState()
 	delete star;
 }
 
+void PlayState::mayGrantReward(const SDL_Rect& rect)
+{
+	if (SDL_HasIntersection(&rect, &_cannon->getRect())) {
+		_cannon->setInvincibility(true);
+	}
+}
+
 void PlayState::render() const
 {
 	star->render();

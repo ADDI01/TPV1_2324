@@ -95,12 +95,27 @@ bool Ufo::hit(SDL_Rect AttackRect, int typeOfDamage)
 {
 	if (_currentState == VISIBLE &&typeOfDamage != 0 && SDL_HasIntersection(&AttackRect, &_myRect))
 	{
-		//_myPlayState.
-		_reward = new Reward(_game, _myPlayState, _myApp, _myApp->getRenderer(), _myApp->getTexture()[SHIELDREWARDTEXTURE],
-			_pos, _myPlayState->getReward_Size(), _myPlayState->getReward_Speed(), UFO);
-
-		_game->addObject(_reward);
-		_myPlayState->addSceneObject(_reward);
+		//int aux = _myPlayState->getRandomRange(1, 3);
+		//switch (aux) {
+		//case 1: //cae Reward
+			_reward = new Reward(_game, _myPlayState, _myApp, _myApp->getRenderer(), _myApp->getTexture()[SHIELDREWARDTEXTURE],
+				_pos, _myPlayState->getReward_Size(), _myPlayState->getReward_Speed(), UFO);
+			_game->addObject(_reward);
+			_myPlayState->addSceneObject(_reward);
+		//	break;
+		//case 2: //Cae Bomb
+		//	_bomb = new Bomb(_game, _myPlayState, _myApp, _myApp->getRenderer(), _myApp->getTexture()[BOMBTEXTURE],
+		//		_pos, _myPlayState->getBomb_Size(), _myPlayState->getBomb_Speed(), UFO);
+		//	_game->addObject(_bomb);
+		//	_myPlayState->addSceneObject(_bomb);
+		//	break;
+		//case 3: //Nada
+		//	break;
+		//default:
+		//	SDLError r("Numero random incorrecto.");
+		//	throw r.what();
+		//}
+		
 		_myPlayState->getInfoBar()->setPoints(3);
 		_currentState = DESTRUIDO;
 		return true;

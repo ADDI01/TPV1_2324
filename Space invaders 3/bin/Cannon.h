@@ -14,6 +14,8 @@ private:
 	float  _iniShootCD = 30, _shootCD = 0;
 	//Destination and size of the cannon
 	SDL_Rect _myRect;
+	//Invencibility
+	bool invincible = false;
 
 public:
 	Cannon(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size, GameState* game, PlayState* myPlayState, SDLApplication* app,
@@ -40,4 +42,5 @@ public:
 	Vector2D<float> getPosition() const { return _pos; };
 	SDL_Rect getRect() const { return _myRect; };
 	uint getnLifes() const { return _life; };
+	void setInvincibility(bool i) { invincible = i; };
 };
