@@ -80,7 +80,7 @@ void Game::loadFromFile(string fileName) { //TODO: Distribuir el load en las cla
 	if (!file.is_open()) throw FileNotFoundError(fileName);
 
 	//Specific objects are created here
-	_mother = new Mothership(this, 0, 0, MOTHERSHIP_MOV_CD);
+	_mother = new Mothership(this,0,20, MOTHERSHIP_MOV_CD);
 	star = new Star(Point2D<float>(0, 0), textures[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
 	
 	while (!file.eof()) {

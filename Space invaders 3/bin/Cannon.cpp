@@ -1,4 +1,5 @@
 #include "Cannon.h"
+#include "PlayState.h"
 #include <fstream>
 
 using namespace std;
@@ -9,8 +10,7 @@ Cannon::Cannon(Point2D<float> pos, Texture* texture, pair<uint, uint> size, Game
 	_myRect(SDL_Rect()) {};
 
 Cannon::Cannon(GameState* gameState, PlayState* myPlayState, SDLApplication* app, std::ifstream& in, Texture* texture, float velocity)
-	: SceneObject(gameState, myPlayState,app, in, texture),
-	_velocity(velocity)
+	: SceneObject(gameState, myPlayState,app, in, texture), _velocity(velocity)
 {
 	in >> _shootCD;
 	//game->setLandedHeight(_pos.getY());
@@ -53,6 +53,8 @@ void Cannon::manageEvent(const SDL_Event& event)
 			_direction = Vector2D<float>(-0.1, 0) * _velocity;
 		else if (event.key.keysym.sym == SDLK_RIGHT) //Movement
 			_direction = Vector2D<float>(0.1, 0) * _velocity;
+		else
+			_direction = Vector2D<float>(0, 0);
 		if (event.key.keysym.sym == SDLK_SPACE) //Shoot
 		{
 			if (canShoot())
@@ -75,16 +77,16 @@ void Cannon::manageEvent(const SDL_Event& event)
 void Cannon::save(std::ostream & out) const {
 	//out << 0 << " " << _pos.getX() << " " << _pos.getY() << " " << _life << " " << _shootCD << endl;
 }
-bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {/*
+bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	if (typeOfDamage != PLAYER && SDL_HasIntersection(&AttackRect, &_myRect)) { //Alien bullet collides the cannon
 		_life--;
 		_pos = Vector2D<float>(WIN_WIDTH / 2, _pos.getY());
 		std::cout << _life;
 		if (_life == 0) { //No lifes left -> End the game
-			_game->lose();
+			//mygame->lose();
 		}
 		return true;
-	}*/
+	}
 	return false;
 }
 
@@ -92,6 +94,7 @@ void Cannon::fireLaser(SDL_Renderer* renderer) {
 	Laser* l = new Laser(_pos - Vector2D<float>(0, _size.second), Vector2D<float>(0, 5),
 		pair<uint, uint>(5, 20), _game, _myPlayState, _myApp, renderer, PLAYER);
 	_game->addObject(l);
+	_myPlayState->addSceneObject(l);
 }
 
 bool Cannon::canShoot() const {

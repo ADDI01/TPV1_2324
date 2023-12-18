@@ -14,6 +14,11 @@ const uint WIN_WIDTH = 800;
 const uint WIN_HEIGHT = 600;
 const uint FRAME_RATE = 25;
 const uint NUM_TEXTURES = 18;
+//Texture's ID
+const enum TextureName {
+	MAINMENUTEXTURE, CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE, UFOTEXTURE, BOMBTEXTURE, SHIELDTEXTURE, SHIELDREWARDTEXTURE
+	, CARGARPARTIDA, CODIGO, CONTINUAR, GAMEOVER, GUARDARPARTIDA, HASGANADO, NUEVAPARTIDA, SALIR, VOLVERALMENU
+};
 
 class SDLApplication
 {
@@ -22,9 +27,6 @@ class SDLApplication
 	SDL_Renderer* renderer = nullptr;
 	GameStateMachine _myStateMachine;
 
-	//Texture's ID
-	enum TextureName { MAINMENUTEXTURE, CANNONTEXTURE, ALIENSTEXTURE, BUNKERSTEXTURE, STARTEXTURE, UFOTEXTURE, BOMBTEXTURE, SHIELDTEXTURE, SHIELDREWARDTEXTURE 
-	, CARGARPARTIDA, CODIGO, CONTINUAR, GAMEOVER, GUARDARPARTIDA, HASGANADO,NUEVAPARTIDA,SALIR, VOLVERALMENU};
 	//Textures info
 	struct TextureData {
 		const char* texturePath; // Path de la textura
@@ -39,6 +41,7 @@ class SDLApplication
 	//flags
 	bool exit = false;
 	bool playState = false;
+	bool pauseExit = false;
 
 public:
 	SDLApplication() {};
@@ -50,9 +53,10 @@ public:
 
 	//Game states
 	void run();
-	//void updateState();
-	void exitGame();
 	void pushState(GameState* gS);
+	void exitGame();
+	void exitPause();
+	void replaceState(GameState* gS);
 
 	//getters & setters
 	uint getHeight() const { return WIN_HEIGHT; };

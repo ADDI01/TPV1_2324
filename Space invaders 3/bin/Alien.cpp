@@ -1,4 +1,5 @@
 #include "Alien.h"
+#include "PlayState.h"
 #include "SDLError.h"
 
 using namespace std;
@@ -76,16 +77,16 @@ void Alien::save(std::ostream& out) const {
 }
 
 bool Alien::hit(SDL_Rect AttackRect, int typeOfDamage) {
-	/*if (typeOfDamage != 0 && SDL_HasIntersection(&AttackRect, &_myRect)) //Cannon bullet collides an alien
+	if (typeOfDamage != 0 && SDL_HasIntersection(&AttackRect, &_myRect)) //Cannon bullet collides an alien
 	{
 		if (_subType != -1) { //Alien is declared dead
 			_subType = -1;
-			_game->hasDie(_it);
+			_myPlayState->HasDied(_itS);
 			_mother->alienDied();
 		}
 		return true;
 	}
-	else */
+	else 
 	{
 		return false;
 	}

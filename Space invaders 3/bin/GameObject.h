@@ -22,4 +22,6 @@ public:
 	virtual void update() = 0;
 	virtual void save(std::ostream& out) const = 0;
 	void setListAnchor(GameList < GameObject, true>::anchor it) { _it = it; };
+	GameList < GameObject, true>::anchor getListAnchor() { return _it; };
+
 };
