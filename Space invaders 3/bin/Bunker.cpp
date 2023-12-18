@@ -58,10 +58,7 @@ bool Bunker::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	if (typeOfDamage != BUNKER)
 	{
 		if (SDL_HasIntersection(&AttackRect, &_myRect)) {
-			if (typeOfDamage == BOMB) {
-				takeDamage(2);
-			}
-			else takeDamage(1);
+			takeDamage();
 			return true;
 		}
 	}
@@ -71,9 +68,9 @@ bool Bunker::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	}
 }
 
-void Bunker::takeDamage(int life)
+void Bunker::takeDamage()
 {
-	_life-= life;
+	_life--;
 	if (_life <= 0) {
 		_myPlayState->HasDied(_itS);
 	}

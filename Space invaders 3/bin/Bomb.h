@@ -20,8 +20,8 @@ public:
 	virtual void render() const;
 	virtual void update() /*{mayGrantReward}*/;
 	void save(std::ostream& out) const override {};
-
+	void bombBehaviour(CallBack cB);
 	bool hit(SDL_Rect AttackRect, int typeOfDamage) override;
-	//void onCollision() {};
+	SDL_Rect getRect() const { return _myRect; };
 };
 

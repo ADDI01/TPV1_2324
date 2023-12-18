@@ -1,4 +1,5 @@
 #include "Bomb.h"
+#include "PlayState.h"
 
 Bomb::Bomb(GameState* game, PlayState* myPlayState, SDLApplication* app, SDL_Renderer* renderer, Texture* texture,
 	Point2D<float> pos, std::pair<uint, uint> size, Vector2D<float> velocity, Father father) :
@@ -20,7 +21,7 @@ void Bomb::update()
 	_myRect.h = _size.second;
 
 	if (_myPlayState->damage(_myRect, _father)) {
-		bombBehaviour(_cB);
+		_life--;
 	}
 	if(_life == 0)
 		_myPlayState->HasDied(_itS);

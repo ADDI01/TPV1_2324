@@ -40,7 +40,6 @@ void Cannon::update()
 	}
 	if (invincible) {
 		_invincibleTime++;
-		cout << _invincibleTime << std::endl;
 		if (_invincibleTime >= _invincibleTotalTime) {
 			_invincibleTime = 0;
 			invincible = false;
