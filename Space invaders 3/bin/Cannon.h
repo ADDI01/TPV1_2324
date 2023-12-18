@@ -12,6 +12,8 @@ private:
 	float _velocity = 0;
 	//Cannon's initial shoot cooldown and game cooldown
 	float  _iniShootCD = 30, _shootCD = 0;
+	const float _invincibleTotalTime = 500;
+	float _invincibleTime = 0;
 	//Destination and size of the cannon
 	SDL_Rect _myRect;
 	//Invencibility

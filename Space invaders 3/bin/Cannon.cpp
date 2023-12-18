@@ -24,6 +24,8 @@ Cannon:: ~Cannon() {
 void Cannon::render() const
 {
 	_texture->render(_myRect);
+	if(invincible)
+		_myApp->getTexture()[SHIELDTEXTURE]->render(_myRect);
 }
 void Cannon::update() 
 {
@@ -37,7 +39,12 @@ void Cannon::update()
 		_shootCD--;
 	}
 	if (invincible) {
-		cout << "a";
+		_invincibleTime++;
+		cout << _invincibleTime << std::endl;
+		if (_invincibleTime >= _invincibleTotalTime) {
+			_invincibleTime = 0;
+			invincible = false;
+		}
 	}
 	//Cannon's Dest_Rect is modified
 	_myRect.x = _pos.getX() - (_size.first / 2);
@@ -81,11 +88,13 @@ void Cannon::save(std::ostream & out) const {
 }
 bool Cannon::hit(SDL_Rect AttackRect, int typeOfDamage) {
 	if (typeOfDamage != PLAYER && SDL_HasIntersection(&AttackRect, &_myRect)) { //Alien bullet collides the cannon
-		_life--;
-		_pos = Vector2D<float>(WIN_WIDTH / 2, _pos.getY());
-		std::cout << _life;
-		if (_life == 0) { //No lifes left -> End the game
-			_myPlayState->setLose();
+		if (!invincible) {
+			_life--;
+			_pos = Vector2D<float>(WIN_WIDTH / 2, _pos.getY());
+			std::cout << _life;
+			if (_life == 0) { //No lifes left -> End the game
+				_myPlayState->setLose();
+			}
 		}
 		return true;
 	}
