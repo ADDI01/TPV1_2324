@@ -6,6 +6,7 @@
 #include "GameStateMachine.h"
 #include "MainMenuState.h"
 #include <vector>
+#include <string>
 
 using uint = unsigned int;
 
@@ -43,6 +44,8 @@ class SDLApplication
 	bool playState = false;
 	bool pauseExit = false;
 	bool vuelvMenu = false;
+	bool cargarArchivo = false;
+	std::string fileToCharge = "";
 
 public:
 	SDLApplication() {};
@@ -55,9 +58,11 @@ public:
 	//Game states
 	void run();
 	void pushState(GameState* gS);
+	void popState();
 	void exitGame();
 	void exitPause();
 	void replaceState(GameState* gS);
+	void cargaJuego(std::string file);
 
 	//getters & setters
 	uint getHeight() const { return WIN_HEIGHT; };
@@ -67,5 +72,6 @@ public:
 	void setExit() { exit = true; };
 	void setPlayState() { playState = true; };
 	void setvuelveMenu() { vuelvMenu = true; };
+	void setCarga(std::string file) { cargarArchivo = true; fileToCharge = file; };
 	std::vector<Texture*> getTexture() { return textures; };
 };

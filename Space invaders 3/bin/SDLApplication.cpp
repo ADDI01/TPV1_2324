@@ -101,9 +101,21 @@ void SDLApplication::replaceState(GameState* gS)
 	_myStateMachine.replaceState(gS);
 }
 
+void SDLApplication::cargaJuego(std::string file)
+{
+	PlayState* aux = new PlayState(this,file);
+	popState();
+	replaceState(aux);
+}
+
 void SDLApplication::pushState(GameState* gS)
 {
 	_myStateMachine.pushState(gS);
+}
+
+void SDLApplication::popState()
+{
+	_myStateMachine.popState();
 }
 
 void SDLApplication::run()
@@ -121,7 +133,7 @@ void SDLApplication::run()
 			_myStateMachine.handleEvent(event);
 		}
 		if (playState) {
-			PlayState* aux = new PlayState(this);
+			PlayState* aux = new PlayState(this, "./recursos/mapas/pred0.txt");
 			replaceState(aux);
 			playState = false;
 		}
@@ -134,6 +146,10 @@ void SDLApplication::run()
 				textures[CARGARPARTIDA], textures[SALIR]);
 			replaceState(_mainMenu);
 			vuelvMenu = false;
+		}
+		if (cargarArchivo) {
+			cargaJuego(fileToCharge);
+			cargarArchivo = false;
 		}
 		if (exit) {
 			exitGame();

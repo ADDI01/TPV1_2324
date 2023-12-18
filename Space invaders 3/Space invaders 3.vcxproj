@@ -140,6 +140,7 @@
     <ClCompile Include="bin\Bunker.cpp" />
     <ClCompile Include="bin\Button.cpp" />
     <ClCompile Include="bin\Cannon.cpp" />
+    <ClCompile Include="bin\Carga.cpp" />
     <ClCompile Include="bin\EndState.cpp" />
     <ClCompile Include="bin\EventHandler.cpp" />
     <ClCompile Include="bin\GameList.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="bin\Bunker.h" />
     <ClInclude Include="bin\Button.h" />
     <ClInclude Include="bin\Cannon.h" />
+    <ClInclude Include="bin\Carga.h" />
     <ClInclude Include="bin\checkML.h" />
     <ClInclude Include="bin\EndState.h" />
     <ClInclude Include="bin\EventHandler.h" />
