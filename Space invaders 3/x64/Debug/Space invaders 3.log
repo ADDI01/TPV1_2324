@@ -1,4 +1,159 @@
-﻿  Save.cpp
+﻿  Font.cpp
+  Carga.cpp
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Mothership.h(52,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Carga.cpp(50,20): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+  MainMenuState.cpp
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Mothership.h(52,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  PauseState.cpp
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Mothership.h(52,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+          with
+          [
+              _Ty2=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  Save.cpp
 C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
           with
           [
@@ -38,4 +193,5 @@ C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\MainMenuState.h(
           ]
 C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Mothership.h(52,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Save.cpp(48,20): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+  Generando código...
   Space invaders 3.vcxproj -> C:\Users\David\Desktop\TPV2_ZERO\TPV1_2324\Space invaders 3\bin\Space invaders 3Debug.exe

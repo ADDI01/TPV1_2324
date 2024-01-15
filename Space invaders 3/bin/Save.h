@@ -26,7 +26,7 @@ private:
 	//Pointer to renderer
 	SDL_Renderer* _renderer = nullptr;
 	//Second state
-	GameState* secondState;
+	PlayState* secondState;
 public:
 	Save(SDLApplication* myapp, PlayState* second, SDL_Renderer* renderer);
 	virtual void render() const override;
