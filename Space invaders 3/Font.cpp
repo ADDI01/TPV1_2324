@@ -11,7 +11,8 @@ void Font::free() {
 	TTF_CloseFont(font);
 	font = nullptr;
 }
-SDL_Surface* Font::generateSurface(const std::string& text, SDL_Color color) const {
+SDL_Surface* Font::generateSurface(const std::string& text, SDL_Color color) const 
+{
 	return TTF_RenderUTF8_Solid(font, text.c_str(), color);
 }
 

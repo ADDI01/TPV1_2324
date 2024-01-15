@@ -37,13 +37,13 @@ void PauseState::continuar()
 
 void PauseState::guardarPartida()
 {
-	Save* aux = new Save(myGame, _myPlayState);
+	Save* aux = new Save(myGame, _myPlayState, myGame->getRenderer());
 	myGame->pushState(aux);
 }
 
 void PauseState::cargarPartida()
 {
-	Carga* aux = new Carga(myGame, _myPlayState);
+	Carga* aux = new Carga(myGame, _myPlayState, myGame->getRenderer());
 	myGame->pushState(aux);
 }
 

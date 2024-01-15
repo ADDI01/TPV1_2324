@@ -3,7 +3,9 @@
 #include "PlayState.h"
 #include "Carga.h"
 
-MainMenuState::MainMenuState(SDLApplication* myGame,Texture* myTexture, Texture* nuevaPartida, Texture* cargarPartida, Texture* salir) : GameState(myGame), _texture(myTexture){
+MainMenuState::MainMenuState(SDLApplication* myGame,Texture* myTexture, Texture* nuevaPartida, Texture* cargarPartida, Texture* salir) : 
+		GameState(myGame), _texture(myTexture)
+{
 	Button* _button = new Button(nuevaPartida, this, _nPPos, _nPSize);
 	addObject(_button);
 	addEventListener(_button);
@@ -37,7 +39,7 @@ void MainMenuState::goToPlayState()
 
 void MainMenuState::carga()
 {
-	Carga* aux = new Carga(myGame,this);
+	Carga* aux = new Carga(myGame,this, myGame->getRenderer());
 	myGame->pushState(aux);
 }
 
