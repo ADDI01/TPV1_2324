@@ -58,7 +58,8 @@ public:
 	void update() override;
 	void save(std::ostream& out) const override;
 
-	//Setter
+	//Setters
 	void setPoints(uint type);
+	void setInitPoints(uint points) { _points = points; };
 };
 

@@ -134,8 +134,6 @@ void PlayState::loadFromFile(std::string fileName)
 	_mother = new Mothership(this,this, 0, MOTHERSHIP_LEVEL, MOTHERSHIP_MOV_CD);
 	infoBar = new InfoBar(this, myGame->getRenderer(), this, myGame->getTexture()[CANNONTEXTURE], INFOBAR_POS, INFOBAR_SIZE, 0, FONT_SIZE);
 	addObject(infoBar);
-	
-
 
 	while (!file.eof()) {
 		file >> tObject;
@@ -186,7 +184,7 @@ void PlayState::loadFromFile(std::string fileName)
 			break;
 		case 7: //Points
 			file >> points;
-			infoBar->setPoints(points);
+			infoBar->setInitPoints(points);
 			break;
 		default:
 			throw FileFormatError(fileName);
