@@ -1,17 +1,20 @@
-﻿  PauseState.cpp
+﻿  Alien.cpp
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Mothership.h(52,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  (compilando archivo de origen "bin/Alien.cpp")
+  
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244:         with
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244:         [
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244:             T=float
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244:         ]
-  (compilando archivo de origen "bin/PauseState.cpp")
+  (compilando archivo de origen "bin/Alien.cpp")
   
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244:         with
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244:         [
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244:             T=float
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244:         ]
-  (compilando archivo de origen "bin/PauseState.cpp")
+  (compilando archivo de origen "bin/Alien.cpp")
   
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         with
@@ -22,7 +25,7 @@ C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         [
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:             T=float
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         ]
-  (compilando archivo de origen "bin/PauseState.cpp")
+  (compilando archivo de origen "bin/Alien.cpp")
   
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         with
@@ -33,7 +36,7 @@ C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         [
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:             T=float
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         ]
-  (compilando archivo de origen "bin/PauseState.cpp")
+  (compilando archivo de origen "bin/Alien.cpp")
   
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         with
@@ -44,274 +47,31 @@ C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         [
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:             T=float
 C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         ]
-  (compilando archivo de origen "bin/PauseState.cpp")
+  (compilando archivo de origen "bin/Alien.cpp")
   
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Mothership.h(52,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-  (compilando archivo de origen "bin/PauseState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         ]
-  (compilando archivo de origen "bin/PauseState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         ]
-  (compilando archivo de origen "bin/PauseState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         ]
-  (compilando archivo de origen "bin/PauseState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         ]
-  (compilando archivo de origen "bin/PauseState.cpp")
-  
-  PlayState.cpp
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244:         ]
-  (compilando archivo de origen "bin/PlayState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244:         ]
-  (compilando archivo de origen "bin/PlayState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         ]
-  (compilando archivo de origen "bin/PlayState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         ]
-  (compilando archivo de origen "bin/PlayState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         ]
-  (compilando archivo de origen "bin/PlayState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Mothership.h(52,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-  (compilando archivo de origen "bin/PlayState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         ]
-  (compilando archivo de origen "bin/PlayState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         ]
-  (compilando archivo de origen "bin/PlayState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         ]
-  (compilando archivo de origen "bin/PlayState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         ]
-  (compilando archivo de origen "bin/PlayState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(12,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(12,45): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(12,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(12,45): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(12,45): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(12,45): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(12,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(12,45): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(12,45): warning C4244:         ]
-  (compilando archivo de origen "bin/PlayState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(15,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(15,44): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(15,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(15,44): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(15,44): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(15,44): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(15,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(15,44): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\EndState.h(15,44): warning C4244:         ]
-  (compilando archivo de origen "bin/PlayState.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PlayState.cpp(134,59): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PlayState.cpp(144,88): warning C4244: 'argumento': conversión de 'const uint' a 'float'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PlayState.cpp(168,22): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  SDLApplication.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
-  (compilando archivo de origen "bin/SDLApplication.cpp")
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\malloc.h(124,1):
-  vea la definición anterior de '_malloca'
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(25,24): warning C4244:         ]
-  (compilando archivo de origen "bin/SDLApplication.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Button.h(26,24): warning C4244:         ]
-  (compilando archivo de origen "bin/SDLApplication.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(15,45): warning C4244:         ]
-  (compilando archivo de origen "bin/SDLApplication.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(19,45): warning C4244:         ]
-  (compilando archivo de origen "bin/SDLApplication.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\MainMenuState.h(23,44): warning C4244:         ]
-  (compilando archivo de origen "bin/SDLApplication.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Mothership.h(52,57): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-  (compilando archivo de origen "bin/SDLApplication.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(13,44): warning C4244:         ]
-  (compilando archivo de origen "bin/SDLApplication.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(16,45): warning C4244:         ]
-  (compilando archivo de origen "bin/SDLApplication.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(19,45): warning C4244:         ]
-  (compilando archivo de origen "bin/SDLApplication.cpp")
-  
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         with
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:             _Ty2=unsigned int
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         ]
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         and
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         [
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:             T=float
-C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\PauseState.h(22,44): warning C4244:         ]
-  (compilando archivo de origen "bin/SDLApplication.cpp")
-  
-  Generando código...
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(13,64): warning C4244: 'inicializando': conversión de 'uint' a 'float'; posible pérdida de datos
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(17,25): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(17,25): warning C4244:         with
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(17,25): warning C4244:         [
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(17,25): warning C4244:             T=float
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(17,25): warning C4244:         ]
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(69,23): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(69,23): warning C4244:         with
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(69,23): warning C4244:         [
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(69,23): warning C4244:             T=float
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(69,23): warning C4244:         ]
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(70,23): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(70,23): warning C4244:         with
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(70,23): warning C4244:         [
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(70,23): warning C4244:             T=float
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(70,23): warning C4244:         ]
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(97,40): warning C4244: 'argumento': conversión de '_Ty2' a 'T'; posible pérdida de datos
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(97,40): warning C4244:         with
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(97,40): warning C4244:         [
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(97,40): warning C4244:             _Ty2=int
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(97,40): warning C4244:         ]
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(97,40): warning C4244:         and
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(97,40): warning C4244:         [
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(97,40): warning C4244:             T=float
+C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Alien.cpp(97,40): warning C4244:         ]
   Space invaders 3.vcxproj -> C:\Users\LAG_009\Documents\GitHub\TPV1_2324\Space invaders 3\bin\Space invaders 3Debug.exe

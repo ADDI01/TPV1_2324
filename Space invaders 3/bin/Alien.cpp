@@ -77,7 +77,7 @@ void Alien::save(std::ostream& out) const {
 }
 
 bool Alien::hit(SDL_Rect AttackRect, int typeOfDamage) {
-	if (typeOfDamage != 0 && SDL_HasIntersection(&AttackRect, &_myRect)) //Cannon bullet collides an alien
+	if (typeOfDamage != ALIEN && typeOfDamage != UFO &&  SDL_HasIntersection(&AttackRect, &_myRect)) //Cannon bullet collides an alien
 	{
 		if (_subType != -1) { //Alien is declared dead
 			_myPlayState->getInfoBar()->setPoints(_subType);

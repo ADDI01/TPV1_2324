@@ -17,10 +17,7 @@ PlayState::~PlayState()
 
 bool PlayState::mayGrantReward( SDL_Rect& rect) //Cambiar por return metodo
 {
-	if (SDL_HasIntersection(&rect, _cannon->getRect())) {
-		return true;
-	}
-	return false;
+	return SDL_HasIntersection(&rect, _cannon->getRect());
 }
 
 void PlayState::render() const
