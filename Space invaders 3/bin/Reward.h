@@ -19,7 +19,7 @@ public:
 	Reward(GameState* game, PlayState* myPlayState, SDLApplication* app, 
 		SDL_Renderer* renderer, Texture* texture, Point2D<float>pos, std::pair<uint, uint> size, Vector2D<float> velocity,
 		Father father);
-	virtual void rewardBehaviour(CallBack cB);
+	virtual void rewardBehaviour();
 
 	virtual void render() const;
 	virtual void update() /*{mayGrantReward}*/;

@@ -6,7 +6,7 @@
 using uint = unsigned int;
 
 //Heredar de Gameobject
-class Star
+class Star : public GameObject
 {
 private:
 	//posición del background
@@ -17,7 +17,7 @@ private:
 	std::pair<uint, uint> _size;
 
 public:
-	Star(Point2D<float> pos, Texture* texture, std::pair<uint, uint> size) : _pos(pos), _texture(texture), _size(size) {};
+	Star(GameState* game, Point2D<float> pos, Texture* texture, std::pair<uint, uint> size) :GameObject(game), _pos(pos), _texture(texture), _size(size) {};
 
 	void render() const {
 		SDL_Rect destRect;
@@ -28,4 +28,6 @@ public:
 
 		_texture->render(destRect);
 	};
+	virtual void update() override{};
+	virtual void save(std::ostream& out) const override{};
 };

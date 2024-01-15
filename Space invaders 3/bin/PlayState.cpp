@@ -10,27 +10,24 @@ using namespace std;
 PlayState::~PlayState()
 {
 	gameList.clear();
-	delete infoBar;
+	//delete infoBar;
 	delete _mother;
-	delete star;
+	//delete star;
 }
 
 bool PlayState::mayGrantReward( SDL_Rect& rect) //Cambiar por return metodo
 {
-	if (SDL_HasIntersection(&rect, _cannon->getRect())) {
-		return true;
-	}
-	return false;
+	return SDL_HasIntersection(&rect, _cannon->getRect());
 }
 
 void PlayState::render() const
 {
-	star->render();
-	infoBar->render();
+	//star->render();
 	for (auto it = gameList.begin(); it != gameList.end(); ++it)
 	{
 		(*it).render();
 	}
+	//infoBar->render();
 }
 
 void PlayState::update()
@@ -125,16 +122,20 @@ void PlayState::loadFromFile(std::string fileName)
 	bool idle = false;
 
 	limpiaLista();
-	if (infoBar != nullptr) delete infoBar;
+	//if (infoBar != nullptr) delete infoBar;
 	if (!file.is_open()) throw FileNotFoundError(fileName);
 
 	//Specific objects are created here
+	//if(star == nullptr)
+	star = new Star(this, Point2D<float>(0, 0), myGame->getTexture()[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
+	addObject(star);
 	if (_mother != nullptr)
 		delete _mother;
 	_mother = new Mothership(this,this, 0, MOTHERSHIP_LEVEL, MOTHERSHIP_MOV_CD);
 	infoBar = new InfoBar(this, myGame->getRenderer(), this, myGame->getTexture()[CANNONTEXTURE], INFOBAR_POS, INFOBAR_SIZE, 0, FONT_SIZE);
-	if(star == nullptr)
-		star = new Star(Point2D<float>(0, 0), myGame->getTexture()[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
+	addObject(infoBar);
+	
+
 
 	while (!file.eof()) {
 		file >> tObject;
