@@ -5,9 +5,9 @@ Reward::Reward(GameState* game, PlayState* myPlayState, SDLApplication* app,
 	SDL_Renderer* renderer, Texture* texture, Point2D<float>pos, std::pair<uint, uint> size, Vector2D<float> velocity, Father father) :
 	SceneObject(game, myPlayState, app, texture, pos, size, 0), _myRect(SDL_Rect()), _velocity(velocity), _father(father) {}
 
-void Reward::rewardBehaviour(CallBack cB)
+void Reward::rewardBehaviour()
 {
-	cB();
+	_cB();
 };
 
 void Reward::render() const
@@ -25,7 +25,7 @@ void Reward::update()
 	_myRect.w = _size.first;
 	_myRect.h = _size.second;
 	if (_myPlayState->mayGrantReward(_myRect)) {
-		rewardBehaviour(_cB);
+		rewardBehaviour();
 		_myPlayState->HasDied(_itS);
 	}
 };
