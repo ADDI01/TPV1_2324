@@ -16,6 +16,7 @@ struct Points {
 	uint ufo = 100;
 };
 
+//meter en la lista de GameObjects
 class InfoBar : public GameObject
 {
 private:

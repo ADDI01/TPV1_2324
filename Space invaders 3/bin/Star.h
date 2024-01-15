@@ -5,6 +5,7 @@
 
 using uint = unsigned int;
 
+//Heredar de Gameobject
 class Star
 {
 private:

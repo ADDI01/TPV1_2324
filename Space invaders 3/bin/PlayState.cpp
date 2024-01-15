@@ -15,7 +15,7 @@ PlayState::~PlayState()
 	delete star;
 }
 
-bool PlayState::mayGrantReward( SDL_Rect& rect)
+bool PlayState::mayGrantReward( SDL_Rect& rect) //Cambiar por return metodo
 {
 	if (SDL_HasIntersection(&rect, _cannon->getRect())) {
 		return true;
