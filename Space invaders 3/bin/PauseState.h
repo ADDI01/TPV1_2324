@@ -9,16 +9,16 @@ class PauseState : public GameState
 {
 private:
 	//continuar
-	std::pair<unsigned int, unsigned int>_cSize = std::pair<unsigned int, unsigned int>(20, 100);
+	std::pair<unsigned int, unsigned int>_cSize = std::pair<unsigned int, unsigned int>(25, 225);
 	Point2D<float> _cPos = Point2D<float>(400 - _cSize.second / 2, 50);
 	//guardar partida
-	std::pair<unsigned int, unsigned int>_gPSize = std::pair<unsigned int, unsigned int>(20, 100);
+	std::pair<unsigned int, unsigned int>_gPSize = std::pair<unsigned int, unsigned int>(25, 375);
 	Point2D<float> _gPPos = Point2D<float>(400 - _gPSize.second / 2, 350);
 	//carga de partida
-	std::pair<unsigned int, unsigned int>_cPSize = std::pair<unsigned int, unsigned int>(20, 200);
+	std::pair<unsigned int, unsigned int>_cPSize = std::pair<unsigned int, unsigned int>(25, 350);
 	Point2D<float> _cPPos = Point2D<float>(400 - _cPSize.second / 2, 200);
 	// salir
-	std::pair<unsigned int, unsigned int>_sSize = std::pair<unsigned int, unsigned int>(20, 100);
+	std::pair<unsigned int, unsigned int>_sSize = std::pair<unsigned int, unsigned int>(25, 125);
 	Point2D<float> _sPos = Point2D<float>(400 - _sSize.second / 2, 500);
 
 	PlayState* _myPlayState;

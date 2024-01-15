@@ -25,6 +25,14 @@ EndState::EndState(SDLApplication* myGame, Texture* vMT, Texture* sT) : GameStat
 
 void EndState::render() const
 {
+	SDL_Rect _myRect;
+	_myRect.x = 0;
+	_myRect.y = 0;
+	_myRect.w = myGame->getWidth();
+	_myRect.h = myGame->getHeight();
+
+	SDL_SetRenderDrawColor(myGame->getRenderer(), 0, 0, 0, 0x0);
+	SDL_RenderFillRect(myGame->getRenderer(), &_myRect);
 	for (auto it = gameList.begin(); it != gameList.end(); ++it)
 	{
 		(*it).render();
