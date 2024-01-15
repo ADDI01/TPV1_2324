@@ -129,9 +129,12 @@ void PlayState::loadFromFile(std::string fileName)
 	if (!file.is_open()) throw FileNotFoundError(fileName);
 
 	//Specific objects are created here
+	if (_mother != nullptr)
+		delete _mother;
 	_mother = new Mothership(this,this, 0, MOTHERSHIP_LEVEL, MOTHERSHIP_MOV_CD);
 	infoBar = new InfoBar(this, myGame->getRenderer(), this, myGame->getTexture()[CANNONTEXTURE], INFOBAR_POS, INFOBAR_SIZE, 0, FONT_SIZE);
-	star = new Star(Point2D<float>(0, 0), myGame->getTexture()[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
+	if(star == nullptr)
+		star = new Star(Point2D<float>(0, 0), myGame->getTexture()[STARTEXTURE], pair<uint, uint>(WIN_WIDTH, WIN_HEIGHT));
 
 	while (!file.eof()) {
 		file >> tObject;
