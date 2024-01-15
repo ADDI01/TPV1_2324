@@ -66,7 +66,7 @@ void Save::handleEvent(const SDL_Event& event)
 		else if (event.key.keysym.sym == SDLK_8) { code += '8'; }
 		else if (event.key.keysym.sym == SDLK_9) { code += '9'; }
 		else if (code != "" && event.key.keysym.sym == SDLK_RETURN) { //Error aqui
-			//secondState->save("./recursos/mapas/" + code + ".txt");
+			secondState->save("./recursos/mapas/" + code + ".txt");
 			myGame->setguarda();
 		}
 	}
